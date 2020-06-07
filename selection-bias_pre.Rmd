@@ -1,0 +1,84 @@
+# セレクションバイアス
+
+## セレクションバイアスのシミュレーション
+
+### 準備
+
+必要なパッケージを読み込見込み、作図用の日本語フォントを設定する。
+```{r, message = FALSE}
+pacman::p_load(tidyverse)
+theme_set(theme_gray(base_size = 10, base_family = "HiraginoSans"))  # macOS用
+#theme_set(theme_gray(base_size = 10, base_family = "Meiryo"))        # Windows用
+#theme_set(theme_gray(base_size = 10, base_family = "ipaex"))         # Ubuntu用
+#showtext::showtext_auto()                                            # Cloud用
+#theme_set(theme_gray(base_size = 10, base_family = "noto"))  # Cloud用
+```
+
+### メールマーケティング
+
+教科書の第1章（pp.4-6）にある、メールによるマーケティングのセレクションバイアスを、シミュレーションによって確かめてみよう。
+
+まず、対象全体の人数を決める。
+```{r}
+N <- 1000
+```
+
+次に、N人をメールがないときに商品を買いやすいグループAと、商品をあまり買わないグループBに分けよう。ここでは、同じ人数に分けることにする。
+```{r}
+d1 <- tibble(group = rep(c("A", "B"), each = N /2))
+```
+
+グループAとBが、メールを受け取らなかったときに商品を買う確率 pA と pB を決める。ただし、pA $>$ pB である。
+```{r}
+pA <- 0.6
+pB <- 0.1
+```
+
+次に、誰にメールを送るかを決めよう。教科書に書かれているとおり、元々商品を買いそうな人にメールを送りやすいと考えて、グループA はグループB の pA / pB 倍メールを受け取りやすいことにする。また、全部で N/2人にメールを送ることにする。
+```{r}
+n_mail <- N / 2
+n_receive <- round(n_mail * c(pA, pB) / sum(pA, pB))
+d1$mail <- rep(c(1, 0, 1, 0), 
+               times = c(n_receive[1], N / 2 - n_receive[1],
+                         n_receive[2], N / 2 - n_receive[2]))
+```
+
+メールを送ることによって、商品を送る確率がどれくらい上がるかを決める。ここでは、0.05ポイント上昇することにしよう。ここで設定する値が**本当の因果効果**である。
+```{r}
+beta <- 0.05
+```
+
+メールの送信が終わった後の購買行動を決める。まず、メール送信後の各人の購買確率を計算する。
+```{r}
+d1$p_after <- ifelse(group == "A", pA + beta * mail, pB + beta * mail)
+```
+
+確率によって、商品を買うかどうかをベルヌーイ試行で決める。つまり、確率 $p$ で表が出るコインを投げて、表が出たら購入し、裏が出たら購入しないと考える。
+```{r}
+set.seed(2020)
+d1$purchase <- rbinom(N, size = 1, prob = p_after)
+```
+
+メール受信状況別の購入割合は
+```{r}
+d1 %>% 
+  group_by(mail) %>% 
+  summarize(purchase_rate = mean(purchase))
+```
+である。よって、単純に比較すると、
+```{r, message = FALSE}
+d1 %>% 
+  group_by(mail) %>% 
+  summarize(purchase_rate = mean(purchase)) %>% 
+  pull(purchase_rate) %>% 
+  diff()
+```
+がメールの効果のように見えてしまう。しかし、実際のメールの効果は、先ほど設定したとおり`r beta` である。
+
+このように、処置（介入）の仕方が結果（購入確率）に依存していると、バイアスが生じる。この場合は、効果が過大評価されてしまう。
+
+
+
+
+
+
