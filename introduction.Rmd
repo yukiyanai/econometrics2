@@ -329,12 +329,13 @@ theme_set(theme_gray(base_size = 10, base_family = "ipaex"))
 ただし、RStudio Cloud を使っている場合は、これでも文字化けが直らない。文字化けした図が表示されるようになるだけである。このように、RStudio Cloud は日本語の処理に難がある。
 この授業では、図のラベルや凡例などはすべて英語でも減点しない。意味がわかればローマ字 でも良い。 （例：Mitsudo）。しかし、これはやはり不便なので、自分のパソコンにRとRStudio をインストールして使ったほうが良いだろう。インストール手順については、[ココ](http://yukiyanai.github.io/jp/resources/) にある資料を参照。
 
-.Rmd ファイルのサンプルを作ったので、必要なら以下のリンクからダウンロードして中身を確認されたい。ただし、ファイル名拡張子は .txt にしてある（.Rmd ファイルをダウンロードすると YAML ヘッダが消えてしまうため）ので、ダウンロードしたら `.txt` を `.Rmd` に変更して使うこと。
+.Rmd ファイルのサンプルをRStudio Cloud 上の [KUT_R プロジェクト]（https://rstudio.cloud/project/762403） に
+置いておくので、必要なら自分のOS用のファイルをダウンロードして中身を確認されたい。
 
-- macOS用：[jpntest_mac.txt](http://yukiyanai.github.io/jp/classes/econometrics2/docs/jpntest_mac.txt)
-- Ubuntu用：[jpntest_ubuntu.txt](http://yukiyanai.github.io/jp/classes/econometrics2/docs/jpntest_ubuntu.txt)
-- Windows用：[jpntest_win.txt](http://yukiyanai.github.io/jp/classes/econometrics2/docs/jpntest_win.txt)
-- RStudio Cloud用：[jpntest_cloud.txt](http://yukiyanai.github.io/jp/classes/econometrics2/docs/jpntest_cloud.txt) （図の日本語は文字化けする）
+- macOS用：jpntest_mac.Rmd
+- Ubuntu用：jpntest_ubuntu.Rmd
+- Windows用：jpntest_win.Rmd
+- RStudio Cloud用：jpntest_cloud.Rmd （図の日本語は文字化けする）
 
 
 RStudio Cloud を閉じる場合、ブラウザ（あるいはタブ）を閉じてもセッションが終了しないので、コンソールに`q("no")`と入力してRを終了しよう。
