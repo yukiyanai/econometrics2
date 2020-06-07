@@ -1,6 +1,13 @@
 # イントロダクション
 
-第1回の授業スライド（音声なしPDFファイル）は[ココ]() にある。音声付きは [KUTLMS (Moodle)](https://lms.kochi-tech.ac.jp/course/view.php?id=793) にある。
+## 予習と講義動画の視聴
+
+トピック1でやるべきことは、以下のとおりである。
+
+1. [シラバス(PDFファイル)](http://yukiyanai.github.io/jp/classes/econometrics2/docs/syllabus-applied-econometrics_2020-2Q.pdf) をよく読む。遠隔授業に変更になったことにより、大学の公式サイトに載っているものとは内容が異なるので、このリンクにある最新のPDF版を読むこと。
+2.  [KUTLMS (Moodle)](https://lms.kochi-tech.ac.jp/course/view.php?id=793) にあるトピック1の講義動画を視聴する。
+3. この資料の続きを読み、トピック2以降の授業に備える。
+  - 特に、最後の課題を忘れずに。
 
 ## Slack
 
@@ -73,7 +80,7 @@ Slack に投稿する際には以下の点に気をつけてくれると嬉し�
 
 
 
-## RStudio [Cloud] の初期設定
+## RStudio Cloud の初期設定
 
 まず、RStduio Cloud を使うための初期設定をしよう。RStudio Cloud ではなく、自分のパソコンにインストールした（あるいは情報演習室のパソコンにインストールされている）RStudio を使う場合は、自分の環境に合わせて適宜読み替えること。
   
@@ -135,8 +142,12 @@ install.packages("pacman")
 
 試しに、既にインストール済みの **tidyverse** と、まだインストールしていない（はずの）**patchwork**、**estimatr**, **devtools**, **showtext**の計5
 つのパッケージを同時に読み込んでみよう。
-```{r}
+```{r, eval = FALSE}
 pacman::p_load(tidyverse, patchwork, estimatr, devtools, showtext)
+```
+```{r, include = FALSE}
+library(tidyverse)
+library(patchwork)
 ```
 **patchwork** 、**estimatr**、**devtools**、**showtext** の4つのパッケージのインストールと、既にインストール済みの**tidyverse**を合わせた5つのパッケージの読み込みが完了した。
 
@@ -162,11 +173,14 @@ install.pakcages(c("patchwork", "estimatr"))
 library(tidyverse)
 library(patchwork)
 library(esimatr)
+library(devtools)
+library(showtext)
 ```
 
 複数のパッケージを読み込むだけ（すべてのパッケージがインストール済み）なら次のようにも書けるが、やや面倒だ。
 ```{r, eval = FALSE}
-sapply(c("tidyverse", "patchwork", "estimatr"), require, character.only = TRUE)
+sapply(c("tidyverse", "patchwork", "estimatr", "devtools", "showtext"),
+       require, character.only = TRUE)
 ```
 
 今後、この授業では `pacman::p_laod()` でパッケージの読み込みを行う。
@@ -178,7 +192,7 @@ sapply(c("tidyverse", "patchwork", "estimatr"), require, character.only = TRUE)
 devtools::install_github("JaehyunSong/BalanceR")
 ```
 インストールさえ済めば、`pacman::p_load()` が使える。
-```{r}
+```{r, eval = FALSE}
 pacman::p_load(BalanceR)
 ```
 
@@ -201,14 +215,20 @@ dir.create("figs")
 
 ### 図で日本語が使えるようにする
 
-日本語の論文・レポート用に図を作るとき、軸ラベルやタイトルには日本語を使う。RStudio Cloud ではなくデスクトップ版のRStudio を使うとき、Windowsなら特に何もしなくてもggplot2 で日本語が使える（この資料はmacOS で作っているので、図は省略）。Mac でも、次のようにすれば日本語が使える。
+日本語の論文・レポート用に図を作るとき、軸ラベルやタイトルには日本語を使う。RStudio Cloud ではなくデスクトップ版のRStudio を使うとき、Windowsなら特に何もしなくてもggplot2 で日本語が使える（この資料はmacOS で作っているので、図は省略）。
+```{r, eval = FALSE}
+p1_jp <- p1 + labs(y = "確率密度", title = "ヒストグラム（日本語のテスト）")
+plot(p1_jp)  
+```
+
+Mac でも、次のように`them_set()` で `base_family` を指定すれば日本語が使える。
 ```{r, fig.height= 3, fig.width = 4}
 theme_set(theme_gray(base_size = 10, base_family = "HiraginoSans-W3"))
 p1_jp <- p1 + labs(y = "確率密度", title = "ヒストグラム（日本語のテスト）")
 plot(p1_jp)  
 ```
 
-しかし、RStudio Cloud だと、次のような図になってしまう。
+しかし、RStudio Cloud だと次のような図になってしまう。
 <img src="figs/test_jpn1.png" alt="日本語が表示されない" width="400">
 
 この問題に対処するために、日本語が表示できるフォントを使う。次のように指定する。
@@ -235,7 +255,7 @@ ggsave(filename = "figs/japanese-test.pdf", plot = p1_jpn,
 
 ### R Markdown からPDFファイルを作る
 
-統計学2と計量政治学では、R Markdown からHTML ファイルを作る（"knit" する）方法を学んだ。 そのときに少し説明したが、R Markdown からPDF ファイルを作ることもできる。今年度は遠隔授業でファイルによる課題提出が必要になるので、HTMLをブラウザに表示したものを印刷して提出する代わりに、PDFファイルで提出してもらう。（どうしても
+統計学2と計量経済学では、R Markdown からHTML ファイルを作る（"knit" する）方法を学んだ。 そのときに少し説明したが、R Markdown からPDF ファイルを作ることもできる。今年度は遠隔授業でファイルによる課題提出が必要になるので、HTMLをブラウザに表示したものを印刷して提出する代わりに、PDFファイルで提出してもらう。（どうしても
 HTMLしかできなれけば、HTMLブラウザで表示して、表示された内容 を「ファイルに印刷」してPDFファイルを作ってもかまわない。）
 
 そこで、R Markdown ファイルからPDFファイルを作る方法を説明する。この方法を身につければ、卒業論文も R Markdown で書ける（草川先生が作ってくれた卒論用テンプレートがある。草川先生に感謝しましょう）。
@@ -317,4 +337,23 @@ theme_set(theme_gray(base_size = 10, base_family = "ipaex"))
 - RStudio Cloud用：[jpntest_cloud.Rmd](http://yukiyanai.github.io/jp/classes/econometrics2/docs/jpntest_cloud.Rmd) （図の日本語は文字化けする）
 
 
-RStudio Cloud を閉じる場合、ブラウザ（あるいはタブ）を閉じても、セッションが終了しないので、コンソールに`q("no")`と入力してRを終了しよう。
+RStudio Cloud を閉じる場合、ブラウザ（あるいはタブ）を閉じてもセッションが終了しないので、コンソールに`q("no")`と入力してRを終了しよう。
+
+
+## トピック1の課題
+
+上のサンプル（.Rmd ファイル）を参考にして、R Markdown ファイルから PDFファイルを作りなさい。その際、以下の指示を守ること。
+
+- 図をヒストグラム以外（例えば、バイオリン図や散布図など）に変えなさい。
+- 図の説明を日本語で加えなさい（1文で十分）。
+- ヘッダ部分に、自分の氏名を書きなさい。
+- サブタイトルは、「課題1」に変えなさい。
+- 提出するファイル名：**metrics2_hw01_LastFirst.pdf**
+  - LastFirstの部分を自分の名前に変えること。
+  - 例：metrics2_hw01_YanaiYuki.pdf
+- **提出期限：2020年6月19日午後5時**（日本時間）
+- 提出方法：Slack のダイレクトメッセージで矢内に送る。
+
+
+
+
