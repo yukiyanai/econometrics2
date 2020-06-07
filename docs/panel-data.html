@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Topic 6 パネルデータ分析 | KUT 計量経済学応用（2020年度）</title>
+  <meta name="description" content="Topic 6 パネルデータ分析 | KUT 計量経済学応用（2020年度）" />
+  <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Topic 6 パネルデータ分析 | KUT 計量経済学応用（2020年度）" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Topic 6 パネルデータ分析 | KUT 計量経済学応用（2020年度）" />
+  
+  
+  
+
+<meta name="author" content="矢内 勇生" />
+
+
+<meta name="date" content="2020-06-07" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="propensity-score.html"/>
+<link rel="next" href="midterm-presentation.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  background-color: #f8f8f8; }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">KUT 計量経済学応用 (2020年度)</a></li>
+<li><a href="https://yukiyanai.github.io/" target="_blank">矢内 勇生 (Yuki Yanai)</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>はじめに</a>
+<ul>
+<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#この資料について"><i class="fa fa-check"></i><b>0.1</b> この資料について</a></li>
+<li class="chapter" data-level="0.2" data-path="index.html"><a href="index.html#履修条件"><i class="fa fa-check"></i><b>0.2</b> 履修条件</a></li>
+<li class="chapter" data-level="0.3" data-path="index.html"><a href="index.html#授業計画"><i class="fa fa-check"></i><b>0.3</b> 授業計画</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> イントロダクション</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#slack"><i class="fa fa-check"></i><b>1.1</b> Slack</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="introduction.html"><a href="introduction.html#slack-とは"><i class="fa fa-check"></i><b>1.1.1</b> Slack とは？</a></li>
+<li class="chapter" data-level="1.1.2" data-path="introduction.html"><a href="introduction.html#授業用ワークスペースへの登録"><i class="fa fa-check"></i><b>1.1.2</b> 授業用ワークスペースへの登録</a></li>
+<li class="chapter" data-level="1.1.3" data-path="introduction.html"><a href="introduction.html#利用上の注意"><i class="fa fa-check"></i><b>1.1.3</b> 利用上の注意</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="introduction.html"><a href="introduction.html#rstudio-cloud-の初期設定"><i class="fa fa-check"></i><b>1.2</b> RStudio [Cloud] の初期設定</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="introduction.html"><a href="introduction.html#ユーザ登録"><i class="fa fa-check"></i><b>1.2.1</b> ユーザ登録</a></li>
+<li class="chapter" data-level="1.2.2" data-path="introduction.html"><a href="introduction.html#授業用のプロジェクトを作る"><i class="fa fa-check"></i><b>1.2.2</b> 授業用のプロジェクトを作る</a></li>
+<li class="chapter" data-level="1.2.3" data-path="introduction.html"><a href="introduction.html#rstudio-のカスタマイズ"><i class="fa fa-check"></i><b>1.2.3</b> RStudio のカスタマイズ</a></li>
+<li class="chapter" data-level="1.2.4" data-path="introduction.html"><a href="introduction.html#パッケージのインストール"><i class="fa fa-check"></i><b>1.2.4</b> パッケージのインストール</a></li>
+<li class="chapter" data-level="1.2.5" data-path="introduction.html"><a href="introduction.html#ディレクトリの作成"><i class="fa fa-check"></i><b>1.2.5</b> ディレクトリの作成</a></li>
+<li class="chapter" data-level="1.2.6" data-path="introduction.html"><a href="introduction.html#図で日本語が使えるようにする"><i class="fa fa-check"></i><b>1.2.6</b> 図で日本語が使えるようにする</a></li>
+<li class="chapter" data-level="1.2.7" data-path="introduction.html"><a href="introduction.html#r-markdown-からpdfファイルを作る"><i class="fa fa-check"></i><b>1.2.7</b> R Markdown からPDFファイルを作る</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="selection-bias.html"><a href="selection-bias.html"><i class="fa fa-check"></i><b>2</b> セレクションバイアス</a></li>
+<li class="chapter" data-level="3" data-path="RCT.html"><a href="RCT.html"><i class="fa fa-check"></i><b>3</b> RCT</a></li>
+<li class="chapter" data-level="4" data-path="regression.html"><a href="regression.html"><i class="fa fa-check"></i><b>4</b> 回帰分析</a></li>
+<li class="chapter" data-level="5" data-path="propensity-score.html"><a href="propensity-score.html"><i class="fa fa-check"></i><b>5</b> 傾向スコア</a></li>
+<li class="chapter" data-level="6" data-path="panel-data.html"><a href="panel-data.html"><i class="fa fa-check"></i><b>6</b> パネルデータ分析</a></li>
+<li class="chapter" data-level="7" data-path="midterm-presentation.html"><a href="midterm-presentation.html"><i class="fa fa-check"></i><b>7</b> 分析計画のプレゼンテーション</a></li>
+<li class="chapter" data-level="8" data-path="RDD.html"><a href="RDD.html"><i class="fa fa-check"></i><b>8</b> 回帰不連続デザイン</a></li>
+<li class="chapter" data-level="9" data-path="instrumental-variable.html"><a href="instrumental-variable.html"><i class="fa fa-check"></i><b>9</b> 操作変数法</a></li>
+<li class="chapter" data-level="10" data-path="final-presentation.html"><a href="final-presentation.html"><i class="fa fa-check"></i><b>10</b> 分析結果のプレゼンテーション</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="_blank">Published with bookdown</a></li>  
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">KUT 計量経済学応用（2020年度）</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="パネルデータ分析" class="section level1" number="6">
+<h1><span class="header-section-number">Topic 6</span> パネルデータ分析</h1>
+<p>準備中</p>
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="propensity-score.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="midterm-presentation.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

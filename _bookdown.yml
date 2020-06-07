@@ -1,0 +1,18 @@
+book_filename: "kut-metrics2"
+chapter_name: "Topic "
+output_dir: "docs"
+rmd_files:
+  - index.Rmd
+  - introduction.Rmd
+  - selection-bias.Rmd
+  - RCT.Rmd
+  - regression.Rmd
+  - propensity-score.Rmd
+  - panel-data.Rmd
+  - midterm-presentation.Rmd
+  - RDD.Rmd
+  - instrumental-variable.Rmd
+  - final-presentation.Rmd
+bibliography: [metrics2ref.bib]
+biblio-style: "apalike"
+link-citations: yes

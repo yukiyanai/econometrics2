@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Topic 1 イントロダクション | KUT 計量経済学応用（2020年度）</title>
+  <meta name="description" content="Topic 1 イントロダクション | KUT 計量経済学応用（2020年度）" />
+  <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Topic 1 イントロダクション | KUT 計量経済学応用（2020年度）" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Topic 1 イントロダクション | KUT 計量経済学応用（2020年度）" />
+  
+  
+  
+
+<meta name="author" content="矢内 勇生" />
+
+
+<meta name="date" content="2020-06-07" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="selection-bias.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  background-color: #f8f8f8; }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">KUT 計量経済学応用 (2020年度)</a></li>
+<li><a href="https://yukiyanai.github.io/" target="_blank">矢内 勇生 (Yuki Yanai)</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>はじめに</a>
+<ul>
+<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#この資料について"><i class="fa fa-check"></i><b>0.1</b> この資料について</a></li>
+<li class="chapter" data-level="0.2" data-path="index.html"><a href="index.html#履修条件"><i class="fa fa-check"></i><b>0.2</b> 履修条件</a></li>
+<li class="chapter" data-level="0.3" data-path="index.html"><a href="index.html#授業計画"><i class="fa fa-check"></i><b>0.3</b> 授業計画</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> イントロダクション</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#slack"><i class="fa fa-check"></i><b>1.1</b> Slack</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="introduction.html"><a href="introduction.html#slack-とは"><i class="fa fa-check"></i><b>1.1.1</b> Slack とは？</a></li>
+<li class="chapter" data-level="1.1.2" data-path="introduction.html"><a href="introduction.html#授業用ワークスペースへの登録"><i class="fa fa-check"></i><b>1.1.2</b> 授業用ワークスペースへの登録</a></li>
+<li class="chapter" data-level="1.1.3" data-path="introduction.html"><a href="introduction.html#利用上の注意"><i class="fa fa-check"></i><b>1.1.3</b> 利用上の注意</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="introduction.html"><a href="introduction.html#rstudio-cloud-の初期設定"><i class="fa fa-check"></i><b>1.2</b> RStudio [Cloud] の初期設定</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="introduction.html"><a href="introduction.html#ユーザ登録"><i class="fa fa-check"></i><b>1.2.1</b> ユーザ登録</a></li>
+<li class="chapter" data-level="1.2.2" data-path="introduction.html"><a href="introduction.html#授業用のプロジェクトを作る"><i class="fa fa-check"></i><b>1.2.2</b> 授業用のプロジェクトを作る</a></li>
+<li class="chapter" data-level="1.2.3" data-path="introduction.html"><a href="introduction.html#rstudio-のカスタマイズ"><i class="fa fa-check"></i><b>1.2.3</b> RStudio のカスタマイズ</a></li>
+<li class="chapter" data-level="1.2.4" data-path="introduction.html"><a href="introduction.html#パッケージのインストール"><i class="fa fa-check"></i><b>1.2.4</b> パッケージのインストール</a></li>
+<li class="chapter" data-level="1.2.5" data-path="introduction.html"><a href="introduction.html#ディレクトリの作成"><i class="fa fa-check"></i><b>1.2.5</b> ディレクトリの作成</a></li>
+<li class="chapter" data-level="1.2.6" data-path="introduction.html"><a href="introduction.html#図で日本語が使えるようにする"><i class="fa fa-check"></i><b>1.2.6</b> 図で日本語が使えるようにする</a></li>
+<li class="chapter" data-level="1.2.7" data-path="introduction.html"><a href="introduction.html#r-markdown-からpdfファイルを作る"><i class="fa fa-check"></i><b>1.2.7</b> R Markdown からPDFファイルを作る</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="selection-bias.html"><a href="selection-bias.html"><i class="fa fa-check"></i><b>2</b> セレクションバイアス</a></li>
+<li class="chapter" data-level="3" data-path="RCT.html"><a href="RCT.html"><i class="fa fa-check"></i><b>3</b> RCT</a></li>
+<li class="chapter" data-level="4" data-path="regression.html"><a href="regression.html"><i class="fa fa-check"></i><b>4</b> 回帰分析</a></li>
+<li class="chapter" data-level="5" data-path="propensity-score.html"><a href="propensity-score.html"><i class="fa fa-check"></i><b>5</b> 傾向スコア</a></li>
+<li class="chapter" data-level="6" data-path="panel-data.html"><a href="panel-data.html"><i class="fa fa-check"></i><b>6</b> パネルデータ分析</a></li>
+<li class="chapter" data-level="7" data-path="midterm-presentation.html"><a href="midterm-presentation.html"><i class="fa fa-check"></i><b>7</b> 分析計画のプレゼンテーション</a></li>
+<li class="chapter" data-level="8" data-path="RDD.html"><a href="RDD.html"><i class="fa fa-check"></i><b>8</b> 回帰不連続デザイン</a></li>
+<li class="chapter" data-level="9" data-path="instrumental-variable.html"><a href="instrumental-variable.html"><i class="fa fa-check"></i><b>9</b> 操作変数法</a></li>
+<li class="chapter" data-level="10" data-path="final-presentation.html"><a href="final-presentation.html"><i class="fa fa-check"></i><b>10</b> 分析結果のプレゼンテーション</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="_blank">Published with bookdown</a></li>  
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">KUT 計量経済学応用（2020年度）</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="イントロダクション" class="section level1" number="1">
+<h1><span class="header-section-number">Topic 1</span> イントロダクション</h1>
+<p>第1回の授業スライド（音声なしPDFファイル）は<a href="">ココ</a> にある。音声付きは <a href="https://lms.kochi-tech.ac.jp/course/view.php?id=793">KUTLMS (Moodle)</a> にある。</p>
+<div id="slack" class="section level2" number="1.1">
+<h2><span class="header-section-number">1.1</span> Slack</h2>
+<div id="slack-とは" class="section level3" number="1.1.1">
+<h3><span class="header-section-number">1.1.1</span> Slack とは？</h3>
+<p>この授業では、担当教員と受講生の間、あるいは受講生同士の間の連絡手段として、<a href="https://slack.com/intl/ja-jp/">Slack</a> を使う。この授業には<strong>無料</strong>版で十分なので、間違って支払いをしないように注意。</p>
+<p>授業に関連する連絡や、オフィスアワー以外の質問の受付はすべてSlack で行うので、<strong>必ずSlackが使えるように</strong>しておくこと。準備期間として6月18日まではメールでの質問も受け付けるが、その後は基本的に<strong>メールでの質問は受け付けない</strong>（とは言っても、実際にはメールに気付けば回答する。メールはたまにしかチェックしない上に、知らない人からのメール（送信者名が設定されていないメール）や添付ファイルがあるメールは読まないので、メールで質問しても読まれていないと思ったほうがいいというだけのことである。また、Slackのほうが回答が早い）。</p>
+<p>スマホ用のアプリもあるが、課題の提出とフィードバック（つまり、ファイルの送受信）に利用するので、パソコンで使えるようにしておくこと。パソコンでは、パソコン用のアプリを使うか、アプリをインストールせずにウェブブラウザ上で使うことができる。</p>
+<p>Slack を使ったことがないなら、以下の資料が参考になる。</p>
+<ul>
+<li><a href="https://slack.com/intl/ja-jp/resources/using-slack/your-quick-start-guide-to-slack">Slack 初心者のためのクイックスタートガイド</a></li>
+<li><a href="https://techacademy.jp/magazine/10217">【完全初心者向け！】コミュニケーションツールSlack（スラック）の使い方</a></li>
+<li><a href="https://ferret-plus.com/8172">初心者がSlackを使いこなすために知っておきたい6つのポイント</a></li>
+</ul>
+</div>
+<div id="授業用ワークスペースへの登録" class="section level3" number="1.1.2">
+<h3><span class="header-section-number">1.1.2</span> 授業用ワークスペースへの登録</h3>
+<p>この授業専用のSlack ワークスペース「計量経済学応用」に登録するためのURLは、ポータルから送信済みである。登録済みでない者は、ポータルのメッセージを確認すること。<strong>登録には、KUTのメールアドレス (<span class="citation">@ugs.kochi-tech.ac.jp</span>) が必要</strong>である。</p>
+<p>メンバー登録するときに決める表示名は、匿名でもかまわない（ただし、担当教員はメールアドレスから個人を特定できるので注意）。</p>
+<p>KUTのメールアドレスがどうしても使えないという場合は、以下の内容のメールを担当教員宛に送ること（メールアドレスはシラバス・講義スライドに記載されている）。</p>
+<ul>
+<li>件名（メールのタイトル）：計量経済学応用 Slack用メールアドレス</li>
+<li>本文に以下の内容を記載
+<ul>
+<li>氏名</li>
+<li>学籍番号</li>
+<li>Slackへの登録で使いたいメールアドレス</li>
+<li>匿名での登録を希望する場合、希望の「表示名」（後で変更可能; 指定がない場合は本名で登録する）</li>
+</ul></li>
+</ul>
+<p>必要事項が記載されたメールが届いたら、指定されたメールアドレスと表示名でメンバーに登録する（招待状を送るのではなく、こちらで登録する）。</p>
+</div>
+<div id="利用上の注意" class="section level3" number="1.1.3">
+<h3><span class="header-section-number">1.1.3</span> 利用上の注意</h3>
+<p>Slack での発言は、授業への参加点に加算するので、積極的に質問してほしい。また、質問だけでなく、他の受講生からの質問に回答したり、Slack 上で議論することも歓迎する（加点する）。対面授業であれば授業中に議論できるが、2020年度の授業は遠隔で実施することになり、毎回 Zoom 等で議論する時間的余裕もない。そこで、Slack で議論の場を設けることとしたい。</p>
+<p>また、初めての遠隔授業で担当教員も暗中模索の状態なので、授業の進め方に関する意見も歓迎する。</p>
+<p>Slack に投稿する際には以下の点に気をつけてくれると嬉しい（守らなくても減点するわけではない）。</p>
+<ul>
+<li>余計な挨拶を毎回書かないこと（メールではないので）
+<ul>
+<li>「余計」なものの例：
+<ul>
+<li>「お世話になっております」（私の心の声：「早く本題に入って」）</li>
+<li>「計量経済学を受講している〇〇です」（「そうでしょうね。名前は表示されてますよ。」）</li>
+<li>「経済・マネジメント学群3年の〇〇です」（「経・マネの学生なんて珍しいですね（棒読み）。名前は…(略）」）</li>
+<li>「質問してもいいですか？」（「早く質問して」）</li>
+</ul></li>
+</ul></li>
+<li>どの内容についての質問か明確にすること
+<ul>
+<li>授業を決められた時間に受ける必要はないので、人によって受講するペースが違うことが想定される：「今日の授業」と言われてもどの授業かわからない</li>
+<li>例えば、以下のように質問してくれるとわかりやすい
+<ul>
+<li>操作変数法のスライドの、p.15 について質問：（以下、質問の内容）</li>
+<li>補助教材の 1.3.3 のカスタマイズについて質問：（以下、質問の内容）</li>
+<li>課題4の問3について：（以下、質問の内容）</li>
+</ul></li>
+</ul></li>
+<li>投稿の際は、適切なチャンネルを選ぶこと
+<ul>
+<li>特に、ダイレクトメッセージの場合には、誤った相手に送信しないように注意</li>
+</ul></li>
+<li>提出したファイルが届いたかどうか質問しないで！
+<ul>
+<li>あなたがSlackでファイルがアップロードされていることが確認できれば、こちらからも見えるので、ご心配なく。</li>
+<li>この質問の優先順位は最下位に設定する</li>
+</ul></li>
+</ul>
+<p><strong>禁止事項</strong>：以下の行為は禁止する</p>
+<ul>
+<li>他人を誹謗・中傷するような書き込み</li>
+<li>他人の著作物のアップロード</li>
+</ul>
+<p>これらの行為は学業上の不正行為である。見つけた場合には教務部に報告する。万が一、他の受講生からハラスメント行為を受けた場合は、証拠を保全（スクリーンショットを撮るなど）して担当教員に連絡してほしい。皆さんはもう大学3年生なので、誹謗・中傷（相手を貶める行為）と批判（相手を高めるために、相手の「<strong>議論</strong>」の弱点を指摘して、<strong>改善策を一緒に見つける</strong>こと）の違いをわきまえましょう。</p>
+</div>
+</div>
+<div id="rstudio-cloud-の初期設定" class="section level2" number="1.2">
+<h2><span class="header-section-number">1.2</span> RStudio [Cloud] の初期設定</h2>
+<p>まず、RStduio Cloud を使うための初期設定をしよう。RStudio Cloud ではなく、自分のパソコンにインストールした（あるいは情報演習室のパソコンにインストールされている）RStudio を使う場合は、自分の環境に合わせて適宜読み替えること。</p>
+<p>念のためにもう1度注意しておくが、この授業は「統計学2」と「計量経済学」を受講済みであることを前提にしている。よって、受講生は全員RStudio（デスクトップ版）の基本的な使い方を理解していると仮定して、RStudio Cloud の使い方を説明する。</p>
+<p>たとえば、「プロジェクトとは何？」、「パッケージとは何？」という疑問がある人は、この資料を読んでも内容が理解できないかもしれない。そういう人は、「統計学2」や「計量経済学」を先に受講（あるいは復習）してからもう一度挑戦してほしい。</p>
+<div id="ユーザ登録" class="section level3" number="1.2.1">
+<h3><span class="header-section-number">1.2.1</span> ユーザ登録</h3>
+<p><a href="https://rstudio.cloud">RStudio Cloud</a> にアクセスしてログイン (Log In) する。初めて使う場合は、登録（サインアップ [Sign Up]）が必要である。自分で決めたパスワードを忘れないように注意。</p>
+</div>
+<div id="授業用のプロジェクトを作る" class="section level3" number="1.2.2">
+<h3><span class="header-section-number">1.2.2</span> 授業用のプロジェクトを作る</h3>
+<p>RStudio Cloud のアカウントを作り、無事にログインできたら、この授業で使うプロジェクトを作ろう。
+Projects タブを開いて [New Project] ボタンを押せば、新しいプロジェクトを作成することができる。
+新規プロジェクトが立ち上がると、画面上部に [<strong>Your Workspace / Untitled Project</strong>] と表示されるので、“Untitled Project” の部分をクリックしてプロジェクトに名前を（アルファベットと数字で）つけよう。好きな名前をつけて良い。2つ目の計量経済学 (Econometics) の授業なので、“metrics2” などとしておけばいいだろう。</p>
+<p>デスクトップ版のRStudio を使う場合は、いつも通りの方法で授業用のプロジェクトを作ろう。</p>
+</div>
+<div id="rstudio-のカスタマイズ" class="section level3" number="1.2.3">
+<h3><span class="header-section-number">1.2.3</span> RStudio のカスタマイズ</h3>
+<p>まず、RStudio Clound を自分が使いやすいようにカスタマイズしよう。[Tools] -&gt; [Global Options] を開いてカスタマイズする。どのようにカスタマイズすべきかについては、<a href="http://yukiyanai.github.io/jp/resources/">RとRStudio のインストール方法を解説した資料</a> の後半に書いてある。</p>
+<p>デスクトップ版とは異なり、RStudio Cloud ではRのバージョンが選べるので、Global Options の [General] -&gt; [Basic] で、[Default versions of R:] を **R version 3.6.3" に設定しよう。</p>
+<p>（この資料を作成した時点での最新版は R 4.0.0 である。大学の情報演習室にインストールされているのが R 3.6.3 であり、今年度中は更新されないので、そちらに合わせる。最新版に特有のエラーに自分で対応する自身があるなら、4.0.0 を使ってもまったく問題ない。）</p>
+</div>
+<div id="パッケージのインストール" class="section level3" number="1.2.4">
+<h3><span class="header-section-number">1.2.4</span> パッケージのインストール</h3>
+<p>次に、授業で使うことが予想されるパッケージをインストールしてしまおう。</p>
+<p>まず、RStuido Cloud で新たにR Markdown ファイルを作成してみよう（File -&gt; New File -&gt; R Markdown）。初めてこれをやると、次のような表示が出るはずだ。</p>
+<p><img src="screenshots/rsc-rmd-init-encounter.png" alt="Screenshot of RStudio Cloud" width="350"></p>
+<p>これが表示されたら、[Yes] をクリックしよう。すると、RMarkdown を使うために必要なパッケージがインストールされる。あとはデスクトップ版と同じようにR Markdown ファイルが使える。</p>
+<p>続いて、「計量経済学」の授業でも毎回お世話になった <strong>tidyverse</strong> パッケージをインストールしよう。RStudio Cloud の Console で次のコードを実行する。</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="introduction.html#cb1-1"></a><span class="kw">install.packages</span>(<span class="st">&quot;tidyverse&quot;</span>)</span></code></pre></div>
+<p>このインストールには少し時間がかかる。待っている間に、<strong>tidyverse</strong>が<strong>ggplot2</strong>, <strong>dplyr</strong>, <strong>readr</strong> などの便利なパッケージをまとめたパッケージ群であることを思い出そう。最近、<strong>dplyr</strong> のバージョンが上がり、「計量経済学」で勉強したときとは使い方が少し変わっているので注意しよう（授業で説明するので心配無用）。</p>
+<p>次に、<strong>pacman</strong> パッケージをインストールする。</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="introduction.html#cb2-1"></a><span class="kw">install.packages</span>(<span class="st">&quot;pacman&quot;</span>)</span></code></pre></div>
+<p><strong>pacman</strong> パッケージは、パッケージの読み込みとインストールに利用する。
+これまでは、<code>install.packages()</code> でパッケージをインストールし、インストール済みのパッケージを<code>library()</code> で読み込んで使っていた。この方法は、今後も引き続き使える。しかし、この方法だと、<code>library()</code> を使うためにはパッケージがインストール済みでなければいけないという問題がある（実際には全然「問題」ではなく、単に面倒だというだけ）。</p>
+<p>この問題は。<code>pacman::p_load()</code> を使うことで（ほとんどの場合）解決する。この方法の利点は2つある。</p>
+<ol style="list-style-type: decimal">
+<li>インストール済みでないパッケージを指定すると、（そのパッケージが<a href="https://cran.r-project.org/">CRAN</a>に登録されていれば）読み込む前にインスト－ルしてくれる。</li>
+<li>複数パッケージの読み込みが一度にできる。</li>
+</ol>
+<p>試しに、既にインストール済みの <strong>tidyverse</strong> と、まだインストールしていない（はずの）<strong>patchwork</strong>、<strong>estimatr</strong>, <strong>devtools</strong>, <strong>showtext</strong>の計5
+つのパッケージを同時に読み込んでみよう。</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="introduction.html#cb3-1"></a>pacman<span class="op">::</span><span class="kw">p_load</span>(tidyverse, patchwork, estimatr, devtools, showtext)</span></code></pre></div>
+<pre><code>## 
+## The downloaded binary packages are in
+##  /var/folders/k_/l81mz4bs23l8g8sgpqy568yh0000gn/T//RtmpdCeBPv/downloaded_packages</code></pre>
+<p><strong>patchwork</strong> 、<strong>estimatr</strong>、<strong>devtools</strong>、<strong>showtext</strong> の4つのパッケージのインストールと、既にインストール済みの<strong>tidyverse</strong>を合わせた5つのパッケージの読み込みが完了した。</p>
+<p>試しに使ってみよう。</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="introduction.html#cb5-1"></a><span class="kw">set.seed</span>(<span class="dv">321</span>)</span>
+<span id="cb5-2"><a href="introduction.html#cb5-2"></a>myd &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">x =</span> <span class="kw">rnorm</span>(<span class="dv">100</span>),</span>
+<span id="cb5-3"><a href="introduction.html#cb5-3"></a>              <span class="dt">y =</span> <span class="kw">rnorm</span>(<span class="dv">100</span>))</span>
+<span id="cb5-4"><a href="introduction.html#cb5-4"></a>p1 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(myd, <span class="kw">aes</span>(<span class="dt">x =</span> x, <span class="dt">y =</span> <span class="kw">after_stat</span>(density))) <span class="op">+</span></span>
+<span id="cb5-5"><a href="introduction.html#cb5-5"></a><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="fl">0.25</span>, <span class="dt">color =</span> <span class="st">&quot;black&quot;</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb5-6"><a href="introduction.html#cb5-6"></a><span class="st">  </span><span class="kw">ylim</span>(<span class="dv">0</span>, <span class="fl">0.6</span>)</span>
+<span id="cb5-7"><a href="introduction.html#cb5-7"></a>p2 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(myd, <span class="kw">aes</span>(<span class="dt">x =</span> y, <span class="dt">y =</span> <span class="kw">after_stat</span>(density))) <span class="op">+</span></span>
+<span id="cb5-8"><a href="introduction.html#cb5-8"></a><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="fl">0.25</span>, <span class="dt">color =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;dodgerblue&quot;</span>) <span class="op">+</span></span>
+<span id="cb5-9"><a href="introduction.html#cb5-9"></a><span class="st">  </span><span class="kw">ylim</span>(<span class="dv">0</span>, <span class="fl">0.6</span>)</span>
+<span id="cb5-10"><a href="introduction.html#cb5-10"></a><span class="kw">plot</span>(p1 <span class="op">+</span><span class="st"> </span>p2)</span></code></pre></div>
+<p><img src="kut-metrics2_files/figure-html/unnamed-chunk-4-1.png" width="576" /></p>
+<p>tibble とggplot2 (どちらもtidyverseに含まれる) と patchwork が使えることがわかる。</p>
+<p><code>pacman::p_load()</code> で書いたコマンドは、<strong>pacman</strong> なしだと次のように書かなければならない。</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="introduction.html#cb6-1"></a><span class="kw">install.pakcages</span>(<span class="kw">c</span>(<span class="st">&quot;patchwork&quot;</span>, <span class="st">&quot;estimatr&quot;</span>))</span>
+<span id="cb6-2"><a href="introduction.html#cb6-2"></a><span class="kw">library</span>(tidyverse)</span>
+<span id="cb6-3"><a href="introduction.html#cb6-3"></a><span class="kw">library</span>(patchwork)</span>
+<span id="cb6-4"><a href="introduction.html#cb6-4"></a><span class="kw">library</span>(esimatr)</span></code></pre></div>
+<p>複数のパッケージを読み込むだけ（すべてのパッケージがインストール済み）なら次のようにも書けるが、やや面倒だ。</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="introduction.html#cb7-1"></a><span class="kw">sapply</span>(<span class="kw">c</span>(<span class="st">&quot;tidyverse&quot;</span>, <span class="st">&quot;patchwork&quot;</span>, <span class="st">&quot;estimatr&quot;</span>), require, <span class="dt">character.only =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
+<p>今後、この授業では <code>pacman::p_laod()</code> でパッケージの読み込みを行う。</p>
+<p>ただし、CRANに登録されていないパッケージは手動でインストールする必要がある。GitHub にアップロードされているパッケージは、<code>devtools::install_github()</code> または <code>remotes::install_github()</code> でインストールする。</p>
+<p>試しに、宋財泫 (SONG Jaehyun) さんが作った、<strong>BalanceR</strong> パッケージをインストールしてみよう。</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="introduction.html#cb8-1"></a>devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;JaehyunSong/BalanceR&quot;</span>)</span></code></pre></div>
+<p>インストールさえ済めば、<code>pacman::p_load()</code> が使える。</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="introduction.html#cb9-1"></a>pacman<span class="op">::</span><span class="kw">p_load</span>(BalanceR)</span></code></pre></div>
+<p>CRANに登録されていないパッケージを授業で使う場合は、その都度インストールを指示する。</p>
+</div>
+<div id="ディレクトリの作成" class="section level3" number="1.2.5">
+<h3><span class="header-section-number">1.2.5</span> ディレクトリの作成</h3>
+<p>授業でよく使うディレクトリ（フォルダ）を作っておこう。（ファイルパスに自分で対応できるなら、ここは自分の好みで変えて良い。）</p>
+<p><code>dir.create()</code> で2つのディレクトリを作る。</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="introduction.html#cb10-1"></a><span class="kw">dir.create</span>(<span class="st">&quot;data&quot;</span>)</span>
+<span id="cb10-2"><a href="introduction.html#cb10-2"></a><span class="kw">dir.create</span>(<span class="st">&quot;figs&quot;</span>)</span></code></pre></div>
+<p>今後、授業で使うデータセットは <strong>data</strong> ディレクトリに、作成した図は <strong>figs</strong> ディレクトリに保存する。</p>
+</div>
+<div id="図で日本語が使えるようにする" class="section level3" number="1.2.6">
+<h3><span class="header-section-number">1.2.6</span> 図で日本語が使えるようにする</h3>
+<p>日本語の論文・レポート用に図を作るとき、軸ラベルやタイトルには日本語を使う。RStudio Cloud ではなくデスクトップ版のRStudio を使うとき、Windowsなら特に何もしなくてもggplot2 で日本語が使える（この資料はmacOS で作っているので、図は省略）。Mac でも、次のようにすれば日本語が使える。</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="introduction.html#cb11-1"></a><span class="kw">theme_set</span>(<span class="kw">theme_gray</span>(<span class="dt">base_size =</span> <span class="dv">10</span>, <span class="dt">base_family =</span> <span class="st">&quot;HiraginoSans-W3&quot;</span>))</span>
+<span id="cb11-2"><a href="introduction.html#cb11-2"></a>p1_jp &lt;-<span class="st"> </span>p1 <span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">y =</span> <span class="st">&quot;確率密度&quot;</span>, <span class="dt">title =</span> <span class="st">&quot;ヒストグラム（日本語のテスト）&quot;</span>)</span>
+<span id="cb11-3"><a href="introduction.html#cb11-3"></a><span class="kw">plot</span>(p1_jp)  </span></code></pre></div>
+<p><img src="kut-metrics2_files/figure-html/unnamed-chunk-10-1.png" width="384" /></p>
+<p>しかし、RStudio Cloud だと、次のような図になってしまう。
+<img src="figs/test_jpn1.png" alt="日本語が表示されない" width="400"></p>
+<p>この問題に対処するために、日本語が表示できるフォントを使う。次のように指定する。</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="introduction.html#cb12-1"></a>sysfonts<span class="op">::</span><span class="kw">font_add_google</span>(<span class="dt">name =</span> <span class="st">&quot;Noto Sans JP&quot;</span>, <span class="dt">family =</span> <span class="st">&quot;noto&quot;</span>)</span>
+<span id="cb12-2"><a href="introduction.html#cb12-2"></a>showtext<span class="op">::</span><span class="kw">showtext_auto</span>()</span>
+<span id="cb12-3"><a href="introduction.html#cb12-3"></a><span class="kw">theme_set</span>(<span class="kw">theme_gray</span>(<span class="dt">base_size =</span> <span class="dv">10</span>, <span class="dt">base_family =</span> <span class="st">&quot;noto&quot;</span>))</span></code></pre></div>
+<p>上のコマンドを実行したら、もう1度図を表示してみる</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="introduction.html#cb13-1"></a><span class="kw">plot</span>(p1_jpn)</span></code></pre></div>
+<p>図は省略するが、RStudio Cloud に表示されている図では、先ほどと同じように日本語が文字化けしているだろう。
+しかし、これをファイルに保存すれば、日本語が正しく表示される。</p>
+<p>次のコマンドで図をPDFファイルに保存する。（PNGファイルにするには、<code>.pdf</code>を<code>.png</code> に変えれば良い。ただし、上の <code>base_size</code> のところで文字サイズを調整する必要がある。）</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="introduction.html#cb14-1"></a><span class="kw">ggsave</span>(<span class="dt">filename =</span> <span class="st">&quot;figs/japanese-test.pdf&quot;</span>, <span class="dt">plot =</span> p1_jpn,</span>
+<span id="cb14-2"><a href="introduction.html#cb14-2"></a>       <span class="dt">width =</span> <span class="dv">4</span>, <span class="dt">height =</span> <span class="dv">3</span>)</span></code></pre></div>
+<p><strong>figs</strong> ディレクトリに japanese-test.pdf というファイルができているので、クリックして開いてみよう。日本語が正しく表示されているはずだ。</p>
+</div>
+<div id="r-markdown-からpdfファイルを作る" class="section level3" number="1.2.7">
+<h3><span class="header-section-number">1.2.7</span> R Markdown からPDFファイルを作る</h3>
+<p>統計学2と計量政治学では、R Markdown からHTML ファイルを作る（“knit” する）方法を学んだ。 そのときに少し説明したが、R Markdown からPDF ファイルを作ることもできる。今年度は遠隔授業でファイルによる課題提出が必要になるので、HTMLをブラウザに表示したものを印刷して提出する代わりに、PDFファイルで提出してもらう。（どうしても
+HTMLしかできなれけば、HTMLブラウザで表示して、表示された内容 を「ファイルに印刷」してPDFファイルを作ってもかまわない。）</p>
+<p>そこで、R Markdown ファイルからPDFファイルを作る方法を説明する。この方法を身につければ、卒業論文も R Markdown で書ける（草川先生が作ってくれた卒論用テンプレートがある。草川先生に感謝しましょう）。</p>
+<p>必要なパッケージをインストールするが、デスクトップ版のRStudio を使っていて、既に<a href="https://texwiki.texjp.org/?%E3%81%AF%E3%81%98%E3%82%81%E3%81%A6%E3%81%AE%E6%96%B9%E3%81%B8">LaTeX</a> （TeX Live やMacTeX など）がインストールされているなら、これはインストールしなくて良い（しないほうが良いかも）。</p>
+<p>まず、次のコマンドを実行して <strong>tinytex</strong> をインストールする。</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="introduction.html#cb15-1"></a>pacman<span class="op">::</span><span class="kw">p_load</span>(tinytex)</span>
+<span id="cb15-2"><a href="introduction.html#cb15-2"></a><span class="kw">install_tinytex</span>()</span></code></pre></div>
+<p>デスクトップ版のRStudio を使っている場合は、インストールが完了したら一旦RStudio を終了し、再起動する。</p>
+<p>これができたら、.Rmd ファイルのYAMLヘッダを以下のように書けば、本文に日本語を含む PDF ファイルが knit できる（初めてPDFをknitするときは、追加で必要なものがインストールされる [よって、ネット接続が必須] ので時間がかかる。）。date 以下はコピペで良い。</p>
+<pre class="eval"><code>---
+title: &quot;計量経済学応用&quot;
+subtitle: &quot;日本語PDFできるかな&quot;
+author: &quot;猫好きのRユーザ&quot;
+date: &quot;`r Sys.Date()`&quot;
+output:
+  pdf_document:
+    highlight: tango
+    latex_engine: xelatex
+    toc: false
+header-includes:
+  - \usepackage{zxjatype}
+  - \usepackage[haranoaji]{zxjafont}
+documentclass: bxjsarticle
+---</code></pre>
+<p>ただし、この時点では<strong>図の中に日本語があるとエラー</strong>が出るので、日本語入りの図がない状態で一度 knit してみよう。（ここでは、haranoaji で原ノ味フォントを指定している。<strong>自分で他のフォントが使える状態にできるなら</strong>、他のフォントでも良い。例えば、ヒラギノフォント [hiragino-pron] やIPAex フォント [ipaex] などにしても良いだろう。）</p>
+<p>しかし、RStduio Cloud では、平仮名の「う」がなぜが表示されない（誰か助けて…）。他にも表示されない文字があるかもしない（気付いたら教えてほしい）。この授業では、「う」が表示されていなくても大目に見る（皆さんのせいではないので）。</p>
+<p>また、出来上がったPDFファイルをクリックしてダウンロードすると、ファイル名が file_show　に代わり、ファイル名拡張子もなくなっている。これはファイルをダウンロードした後に自分でファイル名を付け直す（.pdf も忘れずに）か、次の手順でファイルをダウンロードすれば良い（ggplotで作った図をPDFにした場合にも、この方法を使う）。</p>
+<ol style="list-style-type: decimal">
+<li>RStudio Cloud の[Files] タブで、ファイル名の左にあるチェックボックスにチェックをつける。</li>
+<li>[More] -&gt; [Export] を選択する。</li>
+<li>正しいファイル名が表示されていることを確認して [Download] をクリックする。</li>
+</ol>
+<p>日本語を使った図が含まれるR Markdown ファイルをPDF にknit するためには、次のようなRチャンクをR Markdown ファイルの最初のほう（YAML ヘッダのすぐ後）に書いておく。</p>
+<pre><code>```{r global_option, include = FALSE}
+knitr::opts_chunk$set(warning = FALSE, echo = TRUE, message = FALSE, 
+                      fig.height = 3, fig.width = 4, 
+                      dev = &quot;cairo_pdf&quot;)
+```</code></pre>
+<p>ここで重要なのは、 <code>dev = "cairo_pdf"</code> を指定することである。
+また、デスクトップ版のRStudioでは、PDFに日本語の図を入れる際に日本語フォントの指定が必要である。</p>
+<p>Macならいつも通りに、</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="introduction.html#cb18-1"></a><span class="kw">theme_set</span>(<span class="kw">theme_gray</span>(<span class="dt">base_size =</span> <span class="dv">10</span>, <span class="dt">base_family =</span> <span class="st">&quot;HiraginoSans-W3&quot;</span>))</span></code></pre></div>
+<p>と、書く。</p>
+<p>Windows でも、PDF をknit する場合には同様の作業が必要である。ヒラギノフォントが使えないので、次のようにする。</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="introduction.html#cb19-1"></a><span class="kw">theme_set</span>(<span class="kw">theme_gray</span>(<span class="dt">base_size =</span> <span class="dv">10</span>, <span class="dt">base_family =</span> <span class="st">&quot;Meiryo&quot;</span>))</span></code></pre></div>
+<p>Ubuntuの場合は、（IPAex フォントがあるという前提で）次のようにする。</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="introduction.html#cb20-1"></a><span class="kw">theme_set</span>(<span class="kw">theme_gray</span>(<span class="dt">base_size =</span> <span class="dv">10</span>, <span class="dt">base_family =</span> <span class="st">&quot;ipaex&quot;</span>))</span></code></pre></div>
+<p>これらのうち、自分のOSに合ったもの1つを、<strong>tidyverse</strong>（または <strong>ggplot2</strong>） パッケージを読み込んだ直後に一度書いておけばよい。これで、図に日本語が含まれていても PDFがknit される。</p>
+<p>ただし、RStudio Cloud を使っている場合は、これでも文字化けが直らない。文字化けした図が表示されるようになるだけである。このように、RStudio Cloud は日本語の処理に難がある。
+この授業では、図のラベルや凡例などはすべて英語でも減点しない。意味がわかればローマ字 でも良い。 （例：Mitsudo）。しかし、これはやはり不便なので、自分のパソコンにRとRStudio をインストールして使ったほうが良いだろう。インストール手順については、<a href="http://yukiyanai.github.io/jp/resources/">ココ</a> にある資料を参照。</p>
+<p>.Rmd ファイルのサンプルを作ったので、必要なら以下のリンクからダウンロードして中身を確認されたい。</p>
+<ul>
+<li>macOS用：<a href="http://yukiyanai.github.io/jp/classes/econometrics2/docs/jpntest_mac.Rmd">jpntest_mac.Rmd</a></li>
+<li>Ubuntu用：<a href="http://yukiyanai.github.io/jp/classes/econometrics2/docs/jpntest_ubuntu.Rmd">jpntest_ubuntu.Rmd</a></li>
+<li>Windows用：<a href="http://yukiyanai.github.io/jp/classes/econometrics2/docs/jpntest_win.Rmd">jpntest_win.Rmd</a></li>
+<li>RStudio Cloud用：<a href="http://yukiyanai.github.io/jp/classes/econometrics2/docs/jpntest_cloud.Rmd">jpntest_cloud.Rmd</a> （図の日本語は文字化けする）</li>
+</ul>
+<p>RStudio Cloud を閉じる場合、ブラウザ（あるいはタブ）を閉じても、セッションが終了しないので、コンソールに<code>q("no")</code>と入力してRを終了しよう。</p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="selection-bias.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
