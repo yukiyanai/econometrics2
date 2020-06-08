@@ -327,9 +327,9 @@ theme_set(theme_gray(base_size = 10, base_family = "ipaex"))
 これらのうち、自分のOSに合ったもの1つを、**tidyverse**（または **ggplot2**） パッケージを読み込んだ直後に一度書いておけばよい。これで、図に日本語が含まれていても PDFがknit される。
 
 ただし、RStudio Cloud を使っている場合は、これでも文字化けが直らない。文字化けした図が表示されるようになるだけである。このように、RStudio Cloud は日本語の処理に難がある。
-この授業では、図のラベルや凡例などはすべて英語でも減点しない。意味がわかればローマ字 でも良い。 （例：Mitsudo）。しかし、これはやはり不便なので、自分のパソコンにRとRStudio をインストールして使ったほうが良いだろう。インストール手順については、[ココ](http://yukiyanai.github.io/jp/resources/) にある資料を参照。
+この授業では、図のラベルや凡例などはすべて英語でも減点しない。意味がわかればローマ字 でも良い （例：Mitsudo）。しかし、これは不便なので、やはり自分のパソコンにRとRStudio をインストールして使ったほうが良いだろう。インストール手順については、[ココ](http://yukiyanai.github.io/jp/resources/) にある資料を参照。
 
-.Rmd ファイルのサンプルをRStudio Cloud 上の [KUT_R プロジェクト]（https://rstudio.cloud/project/762403） に
+.Rmd ファイルのサンプルをRStudio Cloud 上の [KUT_R プロジェクト](https://rstudio.cloud/project/762403) に
 置いておくので、必要なら自分のOS用のファイルをダウンロードして中身を確認されたい。
 
 - macOS用：jpntest_mac.Rmd
@@ -338,7 +338,7 @@ theme_set(theme_gray(base_size = 10, base_family = "ipaex"))
 - RStudio Cloud用：jpntest_cloud.Rmd （図の日本語は文字化けする）
 
 
-RStudio Cloud を閉じる場合、ブラウザ（あるいはタブ）を閉じてもセッションが終了しないので、コンソールに`q("no")`と入力してRを終了しよう。
+RStudio Cloud を閉じるとき、ブラウザ（あるいはタブ）を閉じてもRセッションが終了しないので、コンソールに`q("no")`と入力してRを終了しよう。
 
 
 ## トピック1の課題
