@@ -334,7 +334,7 @@ Projects タブを開いて [New Project] ボタンを押せば、新しいプ�
 <p><img src="kut-metrics2_files/figure-html/unnamed-chunk-5-1.png" width="576" /></p>
 <p>tibble とggplot2 (どちらもtidyverseに含まれる) と patchwork が使えることがわかる。</p>
 <p><code>pacman::p_load()</code> で書いたコマンドは、<strong>pacman</strong> なしだと次のように書かなければならない。</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="introduction.html#cb5-1"></a><span class="kw">install.pakcages</span>(<span class="kw">c</span>(<span class="st">&quot;patchwork&quot;</span>, <span class="st">&quot;estimatr&quot;</span>))</span>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="introduction.html#cb5-1"></a><span class="kw">install.pakcages</span>(<span class="kw">c</span>(<span class="st">&quot;patchwork&quot;</span>, <span class="st">&quot;estimatr&quot;</span>, <span class="st">&quot;devtools&quot;</span>, <span class="st">&quot;showtext&quot;</span>))</span>
 <span id="cb5-2"><a href="introduction.html#cb5-2"></a><span class="kw">library</span>(tidyverse)</span>
 <span id="cb5-3"><a href="introduction.html#cb5-3"></a><span class="kw">library</span>(patchwork)</span>
 <span id="cb5-4"><a href="introduction.html#cb5-4"></a><span class="kw">library</span>(esimatr)</span>
@@ -345,7 +345,7 @@ Projects タブを開いて [New Project] ボタンを押せば、新しいプ�
 <span id="cb6-2"><a href="introduction.html#cb6-2"></a>       require, <span class="dt">character.only =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
 <p>今後、この授業では <code>pacman::p_laod()</code> でパッケージの読み込みを行う。</p>
 <p>ただし、CRANに登録されていないパッケージは手動でインストールする必要がある。GitHub にアップロードされているパッケージは、<code>devtools::install_github()</code> または <code>remotes::install_github()</code> でインストールする。</p>
-<p>試しに、宋財泫 (SONG Jaehyun) さんが作った、<strong>BalanceR</strong> パッケージをインストールしてみよう。</p>
+<p>試しに、宋財泫 (SONG Jaehyun) さんが作って GitHub で公開している <strong>BalanceR</strong> パッケージをインストールしてみよう。</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="introduction.html#cb7-1"></a>devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;JaehyunSong/BalanceR&quot;</span>)</span></code></pre></div>
 <p>インストールさえ済めば、<code>pacman::p_load()</code> が使える。</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="introduction.html#cb8-1"></a>pacman<span class="op">::</span><span class="kw">p_load</span>(BalanceR)</span></code></pre></div>

@@ -169,7 +169,7 @@ tibble とggplot2 (どちらもtidyverseに含まれる) と patchwork が使え
 
 `pacman::p_load()` で書いたコマンドは、**pacman** なしだと次のように書かなければならない。
 ```{r, eval = FALSE}
-install.pakcages(c("patchwork", "estimatr"))
+install.pakcages(c("patchwork", "estimatr", "devtools", "showtext"))
 library(tidyverse)
 library(patchwork)
 library(esimatr)
@@ -187,7 +187,7 @@ sapply(c("tidyverse", "patchwork", "estimatr", "devtools", "showtext"),
 
 ただし、CRANに登録されていないパッケージは手動でインストールする必要がある。GitHub にアップロードされているパッケージは、`devtools::install_github()` または `remotes::install_github()` でインストールする。
 
-試しに、宋財泫 (SONG Jaehyun) さんが作った、**BalanceR** パッケージをインストールしてみよう。
+試しに、宋財泫 (SONG Jaehyun) さんが作って GitHub で公開している **BalanceR** パッケージをインストールしてみよう。
 ```{r, eval = FALSE}
 devtools::install_github("JaehyunSong/BalanceR")
 ```

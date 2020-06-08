@@ -7,16 +7,16 @@
 必要なパッケージを読み込見込み、作図用の日本語フォントを設定する。
 ```{r, message = FALSE}
 pacman::p_load(tidyverse)
-theme_set(theme_gray(base_size = 10, base_family = "HiraginoSans"))  # macOS用
+theme_set(theme_gray(base_size = 10, base_family = "HiraginoSans-W3"))  # macOS用
 #theme_set(theme_gray(base_size = 10, base_family = "Meiryo"))        # Windows用
 #theme_set(theme_gray(base_size = 10, base_family = "ipaex"))         # Ubuntu用
 #showtext::showtext_auto()                                            # Cloud用
 #theme_set(theme_gray(base_size = 10, base_family = "noto"))  # Cloud用
 ```
 
-### メールマーケティング
+### メールによる販促の効果
 
-教科書の第1章（pp.4-6）にある、メールによるマーケティングのセレクションバイアスを、シミュレーションによって確かめてみよう。
+教科書の第1章（pp.4-6）にある、メールによる販売促進施策のセレクションバイアスを、シミュレーションによって確かめてみよう。
 
 まず、対象全体の人数を決める。
 ```{r}
@@ -31,26 +31,29 @@ d1 <- tibble(group = rep(c("A", "B"), each = N /2))
 グループAとBが、メールを受け取らなかったときに商品を買う確率 pA と pB を決める。ただし、pA $>$ pB である。
 ```{r}
 pA <- 0.6
-pB <- 0.1
+pB <- 0.3
 ```
 
-次に、誰にメールを送るかを決めよう。教科書に書かれているとおり、元々商品を買いそうな人にメールを送りやすいと考えて、グループA はグループB の pA / pB 倍メールを受け取りやすいことにする。また、全部で N/2人にメールを送ることにする。
+次に、誰にメールを送るかを決めよう。教科書に書かれているとおり、元々商品を買いそうな人にメールを送りやすいと考えて、各グループのメンバがメールを受け取る確率を (pA / (pA + pB), pB / (pA + pB )) としよう。また、メールは全部で N/2 人に送ることにする。
 ```{r}
 n_mail <- N / 2
 n_receive <- round(n_mail * c(pA, pB) / sum(pA, pB))
-d1$mail <- rep(c(1, 0, 1, 0), 
-               times = c(n_receive[1], N / 2 - n_receive[1],
-                         n_receive[2], N / 2 - n_receive[2]))
+d1$mail <- rep(c(1, 0, 1, 0),
+                 times = c(n_receive[1], N / 2 - n_receive[1],
+                 n_receive[2], N / 2 - n_receive[2]))
+
 ```
 
-メールを送ることによって、商品を送る確率がどれくらい上がるかを決める。ここでは、0.05ポイント上昇することにしよう。ここで設定する値が**本当の因果効果**である。
+メールを送ることによって商品を送る確率がどれくらい上がるか、つまり、メールの効果である beta の値を決める。ここでは、0.05ポイント上昇することにしよう。ここで設定する値が**本当の因果効果**である。
 ```{r}
 beta <- 0.05
 ```
 
 メールの送信が終わった後の購買行動を決める。まず、メール送信後の各人の購買確率を計算する。
+Aの購買確率は、メールを受け取らなければ pA、受け取れば pA + beta である。同様に、Bの購買確率は、メールを受け取らなければ pB、受け取れば pB + beta である。
 ```{r}
-d1$p_after <- ifelse(group == "A", pA + beta * mail, pB + beta * mail)
+d1 <- d1 %>% 
+  mutate(p_after = ifelse(group == "A", pA + beta * mail, pB + beta * mail))
 ```
 
 確率によって、商品を買うかどうかをベルヌーイ試行で決める。つまり、確率 $p$ で表が出るコインを投げて、表が出たら購入し、裏が出たら購入しないと考える。
@@ -62,10 +65,21 @@ d1$purchase <- rbinom(N, size = 1, prob = p_after)
 メール受信状況別の購入割合は
 ```{r}
 d1 %>% 
+  mutate(mail = factor(mail, labels = c("メールなし", "メールあり"))) %>% 
   group_by(mail) %>% 
   summarize(purchase_rate = mean(purchase))
 ```
-である。よって、単純に比較すると、
+である。図にすると、
+```{r, fig.width = 3, fig.height = 3}
+p1 <- d1 %>% 
+  mutate(mail = factor(mail, labels = c("メールなし", "メールあり"))) %>% 
+  ggplot(aes(x = mail, weight = purchase)) +
+  geom_bar(width= 0.5) +
+  labs(x = "", y = "購買者数")
+plot(p1)
+```
+
+となる。単純に比較すると、
 ```{r, message = FALSE}
 d1 %>% 
   group_by(mail) %>% 
@@ -75,10 +89,107 @@ d1 %>%
 ```
 がメールの効果のように見えてしまう。しかし、実際のメールの効果は、先ほど設定したとおり`r beta` である。
 
-このように、処置（介入）の仕方が結果（購入確率）に依存していると、バイアスが生じる。この場合は、効果が過大評価されてしまう。
+ちなみに、この効果は単回帰によっても得られる。
+```{r}
+fit1 <- lm(purchase ~ mail, data = d1)
+coef(fit1)[2]
+```
 
+このように、処置（介入）の値が結果（購入確率）に依存していると、バイアスが生じる。この場合は、効果が過大評価されてしまう。
 
+1回のシミュレーションでは、偶然そうなっただけかもしれないので、これを複数回（できるだけ多く）繰り返そう。
+そのために、関数を用意する。返り値（戻り値）は、単純比較から得られる効果の大きさとする。
+```{r}
+sim_mail <- function(beta = 0.05, N = 1000, n_mail = N / 2, pA = 0.6, pB = 0.3) {
+  # 引数の条件を設定する：条件を満たさない場合はエラー
+  if (pA <= pB) stop("pA must be larger than pB.")
+  if (N < n_mail) stop("N must be larger than n_mail.")
+  if (pA > 1 | pB < 0) stop("pA and pB must be in the range [0, 1].")
+  if (beta + pA > 1) stop("beta + pA must be equal to or less than 1.")
+  if (beta + pB < 0) stop("beta + pB must be equal to or larger than 0.")
 
+  group <-  rep(c("A", "B"), each = N /2)
+  n_receive <- round(n_mail * c(pA, pB) / sum(pA, pB))
+  mail <- rep(c(1, 0, 1, 0),
+              times = c(n_receive[1], N / 2 - n_receive[1],
+              n_receive[2], N / 2 - n_receive[2]))
+  p_after <- ifelse(group == "A", pA + beta * mail, pB + beta * mail)
+  purchase <- rbinom(N, size = 1, prob = p_after)
+  fit <- lm(purchase ~ mail)
+  return(coef(fit)[2])
+}
+```
 
+試しに、beta=0.05 で1回シミュレーションしてみる。
+```{r}
+sim_mail(beta = 0.05)
+```
 
+これを1000回繰り返す。
+```{r}
+trial1000 <- replicate(1000, sim_mail(beta = 0.05))
+```
+結果を可視化する。
+```{r, fig.width = 4, fig.height = 3}
+p_t1000 <- tibble(beta = trial1000) %>% 
+  ggplot(aes(x = beta, y = after_stat(density))) +
+  geom_histogram(color = "black", binwidth = 0.02) +
+  geom_vline(xintercept = 0.05, color = "tomato") +
+  labs(x = "単純比較から得られる「効果」", y = "確率密度")
+plot(p_t1000)
+```
+
+このように、効果が過大推定されることがわかる。
+
+#### 購買行動のモデリング：発展的内容*
+
+この内容はセレクションバイアスとはあまり関係ないので、興味と余力がある人のみ読めば良い。
+
+上の説明では、メールによる販促効果が一定であると考えたが、実際には
+- まったく買う気がない人にはあまり効果がない。
+- 元々買う予定の人にはあまり効果がない。
+- 買うか買わないか迷っている人には効果が大きい。
+ということが予想される。そのような効果をモデル化してみよう。
+
+個人$i$が商品を買うかどうか表す変数を $Y_i$ とする。$Y_i = 1$ ならば購入、$Y_i = 0$ ならば非購入とする。$Y_i$ は二値変数なので、個人$i$が商品を買う確率を $\theta_i$ として、ベルヌーイ分布で購買モデルを考えることができる。すなわち、
+$$
+Y_i \sim  \mbox{Bernoulli}(\theta_i)
+$$
+と考える。ここで、購買確率 $\theta_i$ は、メールがない場合に商品を買おうと思っていた度合い$\alpha$と、メールの効果$\beta$によって決まると考える。
+$\alpha$ が0に近ければ、買うかどうか迷っている状態、絶対値が大きい負の値ならほとんど買う気がない状態、大きい正の値ならば買うつもりの状態を表す。商品を買いやすい集団Aと買いにくい集団Bがいるとすると、$\alpha$ も集団ごとに異なると考えられる。そこで、個人$i$が属するグループを$G_i \in \{A, B\}$ とすると、この度合いは、$\alpha_{G_i}$ と表すことができる。
+
+$M_i$ をメールを受け取ったことを表すダミー変数、つまり、メールを受け取れば $M_i = 1$、受け取らなければ $M_i = 0$ になる変数だとすると、個人 $i$ が商品を買おうと思う「度合い（確率ではない）」は、$\alpha_{G_i} + \beta M_i$ と表せる。
+
+この「度合い」は確率ではなく、$(-\infty, \infty)$ の値をとる。確率は $[0, 1]$ でなければいけないので、$(-\infty, \infty)$ を $[0, 1]$ に変換する必要がある。
+そのような変換を行うことができる関数の1つが、ロジスティック関数（ロジットの逆関数）である（詳しくは、[浅野
+・矢内 2018](https://github.com/yukiyanai/quant-methods-R)：第15章 を参照。
+
+この関数を使うと、購買確率は、
+$$
+\theta_i = \mathrm{logit}^{-1}(\alpha_{G_i} + \beta_i)
+$$
+となる。ただし、
+$$
+\mathrm{logit}^{-1}(x) = \frac{\exp(x)}{1 + \exp(x)} = \frac{1}{1 + \exp(-x)}
+$$
+である。これをRで定義しよう。
+```{r}
+inv_logit <- function(x) {
+  return(1 / (1 + exp(-x)))
+}
+```
+
+これを使うと、$\beta$を1つの値に決めても、それが購買確率$\theta$ に与える影響は一定ではなく、$\alpha$ の大きさに依存することになる。
+グラフにすると、その様子がわかる。
+```{r, fig.width = 5, fig.height = 3}
+myd <- tibble(x = seq(from = -5, to = 5, length.out = 1000)) %>% 
+  mutate(p = inv_logit(x))
+p_logistic <- ggplot(myd, aes(x = x, y = p)) +
+  geom_line(color = "royalblue") +
+  labs(x = expression(alpha[G[i]] + beta * M[i]), y = "購買確率")
+plot(p_logistic)
+```
+グラフが直線ではなく曲線になっており、$\alpha_{G_i} + \beta M_i$ の増分が一定でも、横軸上でどこにいるかによって変化の大きさが変わることがわかる。
+
+このような効果を想定してシミュレーションを行うと、結果は変わるだろうか？
 
