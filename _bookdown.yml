@@ -10,7 +10,7 @@ rmd_files:
   - propensity-score.Rmd
   - panel-data.Rmd
   - midterm-presentation.Rmd
-  - RDD.Rmd
+  - regression-discontinuity.Rmd
   - instrumental-variable.Rmd
   - final-presentation.Rmd
 bibliography: [metrics2ref.bib]

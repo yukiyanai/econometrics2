@@ -1,5 +1,17 @@
 # セレクションバイアス
 
+## 予習、講義、実習の内容
+
+トピック2でやるべきことは、以下のとおりである。
+
+1. [シラバス(PDFファイル)](http://yukiyanai.github.io/jp/classes/econometrics2/docs/syllabus-applied-econometrics_2020-2Q.pdf) に記載されているトピック2の予習課題を読む。
+2.  [KUTLMS (Moodle)](https://lms.kochi-tech.ac.jp/course/view.php?id=793) にあるトピック2の講義動画を視聴する。
+3. この資料の続きを読み、Rで実習を行うことで内容の理解を深める。
+4. （おまけ）[Ceteris Paribus](https://www.youtube.com/watch?v=iPBV3BlV7jk) と[Selection Bias](https://www.youtube.com/watch?v=6YrIDhaUQOE)（Josh Angrist による解説動画、英語）をみる。
+5. 課題に取り組む（今回は提出不要）。
+
+
+
 ## セレクションバイアスのシミュレーション
 
 ### 準備

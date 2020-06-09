@@ -30,7 +30,7 @@ knitr::opts_chunk$set(warning = FALSE, echo = TRUE, message = FALSE,
 
 3. この資料以外に教科書が必要である。
   - 教科書：安井翔太. 2020.『[効果検証入門：正しい比較のための因果推論/計量経済学の基礎](https://gihyo.jp/book/2020/978-4-297-11117-5)』（技術評論者）
-  - 購入するのは電子版（例えば、Kindle版）でも良い
+    - 購入するのは電子版（例えば、Kindle版）でも良い
 
 ## 履修条件
 
@@ -44,8 +44,13 @@ knitr::opts_chunk$set(warning = FALSE, echo = TRUE, message = FALSE,
 
 これらの点に不安がある場合は、2Qの早い時期（6月の第3週頃まで）に自分で計量経済学の内容を学習（復習）するか、今年度の3Qに「計量経済学」を受講してから、来年度の「計量経済学応用」を受講すること。自分で学習する場合は、最低でも浅野正彦・矢内勇生『[Rによる計量政治学](https://github.com/yukiyanai/quant-methods-R)』（2018年、オーム社）の第4章から第14章までの内容を学習すること。
 
-Rを自分のパソコンにインストールして使いたい場合は、[ココ](http://yukiyanai.github.io/jp/resources/) にある資料を参照すること。
+## R とRStudio のインストール
 
+RとRStudio を自分のパソコンにインストールして使いたい場合は、私が作った資料を参照されたい。
+
+- [Linux (Ubuntu) 編](http://yukiyanai.github.io/jp/resources/docs/install-R_ubuntu.pdf) (PDF, 4.6MB)
+- [macOS 編](http://yukiyanai.github.io/jp/resources/docs/install-R_macOS.pdf) (PDF, 4.9MB)
+- [Windows 編](http://yukiyanai.github.io/jp/resources/docs/install-R_windows.pdf) （PDF, 5.8MB)
 
 ## 授業計画
 

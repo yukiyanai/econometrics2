@@ -24,7 +24,7 @@
 <meta name="author" content="矢内 勇生" />
 
 
-<meta name="date" content="2020-06-08" />
+<meta name="date" content="2020-06-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -136,7 +136,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#この資料について"><i class="fa fa-check"></i><b>0.1</b> この資料について</a></li>
 <li class="chapter" data-level="0.2" data-path="index.html"><a href="index.html#履修条件"><i class="fa fa-check"></i><b>0.2</b> 履修条件</a></li>
-<li class="chapter" data-level="0.3" data-path="index.html"><a href="index.html#授業計画"><i class="fa fa-check"></i><b>0.3</b> 授業計画</a></li>
+<li class="chapter" data-level="0.3" data-path="index.html"><a href="index.html#r-とrstudio-のインストール"><i class="fa fa-check"></i><b>0.3</b> R とRStudio のインストール</a></li>
+<li class="chapter" data-level="0.4" data-path="index.html"><a href="index.html#授業計画"><i class="fa fa-check"></i><b>0.4</b> 授業計画</a></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> イントロダクション</a>
 <ul>
@@ -165,7 +166,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5" data-path="propensity-score.html"><a href="propensity-score.html"><i class="fa fa-check"></i><b>5</b> 傾向スコア</a></li>
 <li class="chapter" data-level="6" data-path="panel-data.html"><a href="panel-data.html"><i class="fa fa-check"></i><b>6</b> パネルデータ分析</a></li>
 <li class="chapter" data-level="7" data-path="midterm-presentation.html"><a href="midterm-presentation.html"><i class="fa fa-check"></i><b>7</b> 分析計画のプレゼンテーション</a></li>
-<li class="chapter" data-level="8" data-path="RDD.html"><a href="RDD.html"><i class="fa fa-check"></i><b>8</b> 回帰不連続デザイン</a></li>
+<li class="chapter" data-level="8" data-path="regression-discontinuity.html"><a href="regression-discontinuity.html"><i class="fa fa-check"></i><b>8</b> 回帰不連続デザイン</a></li>
 <li class="chapter" data-level="9" data-path="instrumental-variable.html"><a href="instrumental-variable.html"><i class="fa fa-check"></i><b>9</b> 操作変数法</a></li>
 <li class="chapter" data-level="10" data-path="final-presentation.html"><a href="final-presentation.html"><i class="fa fa-check"></i><b>10</b> 分析結果のプレゼンテーション</a></li>
 <li class="divider"></li>
@@ -217,7 +218,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="授業用ワークスペースへの登録" class="section level3" number="1.2.2">
 <h3><span class="header-section-number">1.2.2</span> 授業用ワークスペースへの登録</h3>
-<p>この授業専用のSlack ワークスペース「計量経済学応用」に登録するためのURLは、ポータルから送信済みである。登録済みでない者は、ポータルのメッセージを確認すること。<strong>登録には、KUTのメールアドレス (<span class="citation">@ugs.kochi-tech.ac.jp</span>) が必要</strong>である。</p>
+<p>この授業専用のSlack ワークスペース「計量経済学応用」に登録するためのURLは、ポータルから送信済みである（2020年6月8日午前8時に送信）。登録済みでない者は、ポータルのメッセージを確認すること。<strong>登録には、KUTのメールアドレス (<span class="citation">@ugs.kochi-tech.ac.jp</span>) が必要</strong>である。</p>
 <p>メンバー登録するときに決める表示名は、匿名でもかまわない（ただし、担当教員はメールアドレスから個人を特定できるので注意）。</p>
 <p>KUTのメールアドレスがどうしても使えないという場合は、以下の内容のメールを担当教員宛に送ること（メールアドレスはシラバス・講義スライドに記載されている）。</p>
 <ul>
@@ -234,7 +235,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="利用上の注意" class="section level3" number="1.2.3">
 <h3><span class="header-section-number">1.2.3</span> 利用上の注意</h3>
-<p>Slack での発言は、授業への参加点に加算するので、積極的に質問してほしい。また、質問だけでなく、他の受講生からの質問に回答したり、Slack 上で議論することも歓迎する（加点する）。対面授業であれば授業中に議論できるが、2020年度の授業は遠隔で実施することになり、毎回 Zoom 等で議論する時間的余裕もない。そこで、Slack で議論の場を設けることとしたい。</p>
+<p>Slack での発言は授業への参加点に加算するので、積極的に質問してほしい。また、質問だけでなく、他の受講生からの質問に回答したり、Slack 上で議論することも歓迎する（加点する）。対面授業であれば授業中に議論できるが、2020年度の授業は遠隔で実施することになり、毎回 Zoom 等で議論する時間的余裕もない。そこで、Slack で議論の場を設けることとしたい。</p>
 <p>また、初めての遠隔授業で担当教員も暗中模索の状態なので、授業の進め方に関する意見も歓迎する。</p>
 <p>Slack に投稿する際には以下の点に気をつけてくれると嬉しい（守らなくても減点するわけではない）。</p>
 <ul>
@@ -264,7 +265,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li>提出したファイルが届いたかどうか質問しないで！
 <ul>
-<li>あなたがSlackでファイルがアップロードされていることが確認できれば、こちらからも見えるので、ご心配なく。</li>
+<li>Slack上にファイルがアップロードされていることをあなたが確認できれば、私からも見えるのでご心配なく。</li>
 <li>この質問の優先順位は最下位に設定する</li>
 </ul></li>
 </ul>
@@ -294,9 +295,10 @@ Projects タブを開いて [New Project] ボタンを押せば、新しいプ�
 </div>
 <div id="rstudio-のカスタマイズ" class="section level3" number="1.3.3">
 <h3><span class="header-section-number">1.3.3</span> RStudio のカスタマイズ</h3>
-<p>まず、RStudio Clound を自分が使いやすいようにカスタマイズしよう。[Tools] -&gt; [Global Options] を開いてカスタマイズする。どのようにカスタマイズすべきかについては、<a href="http://yukiyanai.github.io/jp/resources/">RとRStudio のインストール方法を解説した資料</a> の後半に書いてある。</p>
-<p>デスクトップ版とは異なり、RStudio Cloud ではRのバージョンが選べるので、Global Options の [General] -&gt; [Basic] で、[Default versions of R:] を **R version 3.6.3" に設定しよう。</p>
-<p>（この資料を作成した時点での最新版は R 4.0.0 である。大学の情報演習室にインストールされているのが R 3.6.3 であり、今年度中は更新されないので、そちらに合わせる。最新版に特有のエラーに自分で対応する自身があるなら、4.0.0 を使ってもまったく問題ない。）</p>
+<p>まず、RStudio Cloud を自分が使いやすいようにカスタマイズしよう。[Tools] -&gt; [Global Options] を開いてカスタマイズする。どのようにカスタマイズすべきかについては、<a href="http://yukiyanai.github.io/jp/resources/">RとRStudio のインストール方法を解説した資料</a> の後半に書いてある。</p>
+<p>デスクトップ版とは異なり（実際には、デスクトップ版でも複数のバージョンをインストールしていれば選べるが）、RStudio Cloud ではRのバージョンが選べるので、Global Options の [General] -&gt; [Basic] で、[Default versions of R:] を **R version 3.6.3" に設定しよう。</p>
+<p>（この資料を作成した時点での最新版は R 4.0.0 である。大学の情報演習室にインストールされているのが R 3.6.3 であり、今年度中は更新されないので、そちらに合わせる。2020年6月9日現在、自分のパソコンに新たにR
+をインストールするとバージョンが4.0.1になるはずだが、その場合はその 4.0.1 で問題ない。）</p>
 </div>
 <div id="パッケージのインストール" class="section level3" number="1.3.4">
 <h3><span class="header-section-number">1.3.4</span> パッケージのインストール</h3>
@@ -425,7 +427,8 @@ knitr::opts_chunk$set(warning = FALSE, echo = TRUE, message = FALSE,
                       dev = &quot;cairo_pdf&quot;)
 ```</code></pre>
 <p>ここで重要なのは、 <code>dev = "cairo_pdf"</code> を指定することである。
-また、デスクトップ版のRStudioでは、PDFに日本語の図を入れる際に日本語フォントの指定が必要である。</p>
+また、デスクトップ版のRStudioでは、PDFに日本語の図を入れる際に日本語フォントの指定が必要である。
+（Macを使っていて<a href="https://www.xquartz.org/">XQuartz</a> もインストールされているなら、<code>cairo_pdf</code> の代わりに <code>quartz_pdf</code> も使える。）</p>
 <p>Macならいつも通りに、</p>
 <div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="introduction.html#cb18-1"></a><span class="kw">theme_set</span>(<span class="kw">theme_gray</span>(<span class="dt">base_size =</span> <span class="dv">10</span>, <span class="dt">base_family =</span> <span class="st">&quot;HiraginoSans-W3&quot;</span>))</span></code></pre></div>
 <p>と、書く。</p>
