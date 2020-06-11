@@ -13,6 +13,3 @@ rmd_files:
   - regression-discontinuity.Rmd
   - instrumental-variable.Rmd
   - final-presentation.Rmd
-bibliography: [metrics2ref.bib]
-biblio-style: "apalike"
-link-citations: yes

@@ -1,4 +1,423 @@
-# RCT
+# RCT（ランダム化比較試験）
 
-準備中
+- [トピック3の講義スライド](https://yukiyanai.github.io/jp/classes/econometrics2/contents/slides/metrics2_topic03_slides.pdf) (PDF, 1.4MB)
 
+## 予習、講義動画、実習課題
+
+このトピックでやるべきことは、以下のとおりである。
+
+1. [シラバス(PDFファイル)](http://yukiyanai.github.io/jp/classes/econometrics2/docs/syllabus-applied-econometrics_2020-2Q.pdf) に記載されているトピック3の予習課題を読む。
+2.  [KUTLMS (Moodle)](https://lms.kochi-tech.ac.jp/course/view.php?id=793) にあるトピック3の講義動画を視聴する。
+3. この資料の続きを読み、Rを使った実習を行うことでRCTの理解を深める。
+  - まず、書いてあるコードをそのまま実行する。
+  - 自分で数字（シミュレーションの条件）を変えて、結果がどう変わるか研究する（**課題**）。
+4. （おまけ：希望者のみ）Josh Angrist による以下の解説動画（英語）を視聴する。
+  - [Randomized Trials: The Ideal Weapon](https://www.youtube.com/watch?v=eGRd8jBdNYg)
+5. 教科書 [@yasui2020] 第1章のRを使った分析を自分でやってみる（**課題**）。
+
+## ランダム化のシミュレーション
+
+### 準備
+
+必要なパッケージを読み込み、作図用の日本語フォントを設定する。
+```{r, message = FALSE}
+pacman::p_load(tidyverse, patchwork)
+theme_set(theme_gray(base_size = 10, base_family = "HiraginoSans-W3"))  # macOS用
+#theme_set(theme_gray(base_size = 10, base_family = "Meiryo"))        # Windows用
+#theme_set(theme_gray(base_size = 10, base_family = "ipaex"))         # Ubuntu用
+#showtext::showtext_auto()                                            # Cloud用
+#theme_set(theme_gray(base_size = 10, base_family = "noto"))          # Cloud用
+```
+
+### 母集団の設定
+
+ある処置 $D$ の平均処置効果が正であると仮定して、母集団のデータを作る。
+共変量として二値の性別と、年齢（20歳から65歳）を考える。
+```{r data-generation, warnings = FALSE, message = FALSE}
+set.seed(2020-06-09)
+N <- 1e6
+y_1_m <- rnorm(N, mean = 10, sd = 4)
+y_1_f <- rnorm(N, mean = 12, sd = 4)
+y_0_m <- rnorm(N, mean = 0, sd = 2)
+y_0_f <- rnorm(N, mean = 4, sd = 2)
+age <- sample(20:65, size = N, replace = TRUE)
+df_pop <- tibble(id = 1:N,
+                 age = age) %>%
+    mutate(male = rbinom(n(), size = 1, prob = 0.5),
+           y_1  = ifelse(male, y_1_m, y_1_f) + 0.05 *(age - mean(age)),
+           y_0  = ifelse(male, y_0_m, y_0_f) + 0.05 *(age - mean(age)),
+           ITE = y_1 - y_0)
+```
+
+作成した母集団の特徴を確認する。
+```{r}
+summary(df_pop)
+```
+ITE（個体の処置効果）の分布を確認しておこう。
+```{r, fig.width = 4, fig.height = 3}
+pop_ite <- ggplot(df_pop, aes(x = ITE), after_stat(density)) +
+  geom_histogram(color = "black") +
+  labs(y = "確率密度", title = "母集団における処置効果")
+plot(pop_ite)
+```
+
+平均処置効果を計算しておこう。
+```{r ATE, warning = FALSE}
+## 平均処置効果
+pop_ATE <- mean(df_pop$ITE) %>% print()      
+## 男性における平均処置効果
+pop_ATE_m <- df_pop %>%     
+  filter(male == 1) %>% 
+  with(mean(ITE)) %>% 
+  print()
+## 女性における平均処置効果
+pop_ATE_f <- df_pop %>% 
+  filter(male == 0) %>% 
+  with(mean(ITE)) %>% 
+  print()
+```
+
+以下では、この母集団に対して異なる方法でRCTを実施した場合にどのような結果が得られるか、シミュレーションで確かめよう。
+
+
+### ベルヌーイ実験
+
+ベルヌーイ実験 (Bernoulli experiments) をRで実行しよう。まず、シミュレーションを繰り返し行うために、実験を実行する関数を作る。標本サイズ（1回の実験における被験者数） を `sample_size` で、各ベルヌーイ試行で処置に割付ける確率を `prob` で指定できるようにする。
+```{r}
+bern_experiment <- function(population, sample_size = 100,
+                            prob = 0.5, info = FALSE) {
+  df <- slice_sample(.data = population, n = sample_size)
+  df <- df %>% 
+    mutate(D = rbinom(n(), size = 1, prob = prob))
+  ATE <- with(df, mean(y_1[D == 1]) - mean(y_0[D == 0]))
+  if (info) cat('処置群の個体数:', sum(df$D), '; 統制群の個体数:', sample_size - sum(df$D), '\n')
+  return(ATE)
+}
+```
+
+
+この関数を使ってベルヌーイ実験を1度実行してみる。`sample_size = 100`、`prob = 0.5` とする（既定値なので指定しなくて良い）。
+```{r}
+bern_experiment(population = df_pop, info = TRUE)
+```
+
+もう1回やってみる。
+```{r}
+bern_experiment(population = df_pop, info = TRUE)
+```
+
+もう1回やってみる。
+```{r}
+bern_experiment(population = df_pop, info = TRUE)
+```
+
+当然ながら、実験結果は毎回変わる。
+
+実験を1000回繰り返し、結果を図示してみよう。母集団における本当の平均因果効果を赤い縦線で示す。
+標本サイズは100である。
+```{r, fig.height = 3, fig.width = 4}
+bern_100 <- replicate(1000, bern_experiment(df_pop))
+hist_bern_100 <- tibble(ATE = bern_100) %>% 
+  ggplot(aes(x = ATE)) +
+  geom_histogram(binwidth = 0.2, color = "black") +
+  geom_vline(xintercept = pop_ATE, color = "tomato") +
+  labs(y = "度数", title = "ベルヌーイ実験")
+plot(hist_bern_100)
+```
+
+1つひとつの実験は必ずしも ATE を正確に推定しているわけではないが、平均すれば正しい効果を推定できていることがわかる。「正しい」ATEが`r round(pop_ATE, 2)` であるのに対し、RCT による推定の平均値は `r round(mean(bern_100, 2))` である。
+
+処置に割付ける確率は、0.5 でなくても良い。
+```{r}
+bern_experiment(population = df_pop, prob = 0.8, info = TRUE)
+bern_experiment(population = df_pop, prob = 0.2, info = TRUE)
+bern_experiment(population = df_pop, prob = 0.1, info = TRUE)
+```
+
+
+```{r, fig.height = 3, fig.width = 4}
+bern_p80 <- replicate(1000, bern_experiment(df_pop, prob = 0.8))
+hist_bern_p80 <- tibble(ATE = bern_p80) %>% 
+  ggplot(aes(x = ATE)) +
+  geom_histogram(binwidth = 0.2, color = "black") +
+  geom_vline(xintercept = pop_ATE, color = "tomato") +
+  labs(y = "度数")
+plot(hist_bern_p80)
+```
+
+標本サイズ（被験者の数）を変えるとどうなるだろうか。
+標本サイズが30の場合：
+```{r, fig.height = 3, fig.width = 4}
+bern_30 <- replicate(1000, bern_experiment(df_pop, sample_size = 30))
+hist_bern_30 <- tibble(ATE = bern_30) %>% 
+  ggplot(aes(x = ATE)) +
+  geom_histogram(binwidth = 0.2, color = "black") +
+  geom_vline(xintercept = pop_ATE, color = "tomato") +
+  labs(y = "度数")
+plot(hist_bern_30)
+```
+
+標本サイズが50の場合：
+```{r, fig.height = 3, fig.width = 4}
+bern_50 <- replicate(1000, bern_experiment(df_pop, sample_size = 50))
+hist_bern_50 <- tibble(ATE = bern_50) %>% 
+  ggplot(aes(x = ATE)) +
+  geom_histogram(binwidth = 0.2, color = "black") +
+  geom_vline(xintercept = pop_ATE, color = "tomato") +
+  labs(y = "度数")
+plot(hist_bern_50)
+```
+
+標本サイズが500の場合：
+```{r, fig.height = 3, fig.width = 4}
+bern_500 <- replicate(1000, bern_experiment(df_pop, sample_size = 500))
+hist_bern_500 <- tibble(ATE = bern_500) %>% 
+  ggplot(aes(x = ATE)) +
+  geom_histogram(binwidth = 0.2, color = "black") +
+  geom_vline(xintercept = pop_ATE, color = "tomato") +
+  labs(y = "度数")
+plot(hist_bern_500)
+```
+
+標本サイズが小さくても、平均的には正しい因果効果を推定できている。
+しかし、標本サイズが小さいと、推定のばらつき（標準誤差）が大きくなる。
+```{r}
+sd(bern_30)
+sd(bern_50)
+sd(bern_100)
+sd(bern_500)
+```
+標準誤差が大きいと、過小推定や過大推定が多くなることがわかる。実験を1回（2回、3回）しか行わないなら、標本サイズを十分な大きさにしないと、過小推定や過大推定をしてしまうかもしれない。
+
+
+### 完全ランダム化実験
+
+次に、完全ランダム化実験 (completely random experiments) を行う。
+`sample_size` と、処置に割付ける個体の数 `n_treated` を選べるようにする。ただし、`sample_size > n_treated` である。
+
+```{r}
+cr_experiment <- function(population, sample_size = 100,
+                          n_treated = ceiling(sample_size / 2), info = FALSE) {
+  if (sample_size <= n_treated | n_treated <= 0) 
+    stop('n_treated must be a positive integer smaller than sample_size.')
+  df <- slice_sample(.data = population, n = sample_size) %>% 
+    mutate(D = sample(rep(c(1, 0), c(n_treated, sample_size - n_treated)),
+                      size = sample_size, replace = FALSE))
+  ATE <- with(df, mean(y_1[D == 1]) - mean(y_0[D == 0]))
+  if (info) cat('処置群の個体数:', n_treated, '; 統制群の個体数:', sample_size - n_treated, '\n')
+  return(ATE)
+}
+```
+
+
+`sample_size = 100`、`n_treatd = 50` （どちらも既定値）にして、1回実験を行ってみよう。
+```{r}
+cr_experiment(df_pop, info = TRUE)
+```
+もう1度やってみる。
+```{r}
+cr_experiment(df_pop, info = TRUE)
+```
+
+この実験を1000回繰り返し、結果を可視化しよう。
+```{r, fig.height = 3, fig.width = 4}
+cr_100 <- replicate(1000, cr_experiment(df_pop))
+hist_cr_100 <- tibble(ATE = cr_100) %>% 
+  ggplot(aes(x = ATE)) +
+  geom_histogram(binwidth = 0.2, color = "black") +
+  geom_vline(xintercept = pop_ATE, color = "tomato") +
+  labs(y = "度数", title = "完全ランダム化実験")
+plot(hist_cr_100)
+```
+
+やはり、平均的にはうまく推定できているようだ。ATEの推定値の平均値は、`r round(mean(cr_100), 2)` である。
+
+完全ランダム化実験で処置に割付ける数は、標本サイズの半分でなくても良い。
+```{r}
+cr_experiment(df_pop, sample_size = 100, n_treated = 70, info = TRUE)
+```
+```{r}
+cr_experiment(df_pop, sample_size = 100, n_treated = 25, info = TRUE)
+```
+
+この実験を1000回繰り返し、結果を可視化しよう。
+```{r, fig.height = 3, fig.width = 4}
+cr_prop20 <- replicate(1000, cr_experiment(df_pop, sample_size = 100, n_treated = 20))
+hist_cr_prop20 <- tibble(ATE = cr_prop20) %>% 
+  ggplot(aes(x = ATE)) +
+  geom_histogram(binwidth = 0.2, color = "black") +
+  geom_vline(xintercept = pop_ATE, color = "tomato") +
+  labs(y = "度数")
+plot(hist_cr_prop20)
+```
+
+標本サイズ（被験者数）の20％のみを処置に割付けても、平均的には正しいATEを推定できる。
+
+
+### ブロック別ランダム化実験
+
+続いて、ブロック別ランダム化実験 (stratified randomized experiments) を実施してみよう。
+ここでは、性別（男性ダミー変数）によってブロックを作る。
+処置に割付ける数は、各群における処置の割合で指定できるようにする。
+例えば、男性ブロックでは7割を処置、女性ブロックでは4割を処置するなら、`prop = c(0.7, 0.4)` と指定できるようにする。
+```{r}
+strat_experiment <- function(population, sample_size = 100,
+                             prop = c(0.5, 0.5), info = FALSE) {
+  
+  if (min(prop) <= 0 | max(prop) >= 1) stop("prop must be in (0, 1).")
+  
+  df <- slice_sample(.data = population, n = sample_size)
+  Male <- df %>% filter(male == 1)
+  Female <- df %>% filter(male == 0)
+  n_treated <- ceiling(c(nrow(Male), nrow(Female)) * prop)
+  ATE_male <- cr_experiment(Male, sample_size = nrow(Male),
+                            n_treated = n_treated[1])
+  ATE_female <- cr_experiment(Female, sample_size = nrow(Female),
+                              n_treated = n_treated[2])
+  male_prop <- mean(df$male)
+  ATE <- male_prop * ATE_male + (1 - male_prop) * ATE_female
+  if (info) {
+    cat('男性ブロック 処置群の個体数', n_treated[1], '; 統制群の個体数:', nrow(Male) - n_treated[1], '\n')
+    cat('女性ブロック 処置群の個体数', n_treated[2], '; 統制群の個体数:', nrow(Female) - n_treated[2], '\n')
+  }
+  return(ATE)
+}
+```
+
+
+`sample_size = 100`、`prop = c(0.5, 0.5)` （どちらも既定値）として、1回実験してみる。
+```{r}
+strat_experiment(df_pop, info = TRUE)
+```
+
+もう1度やってみる
+```{r}
+strat_experiment(df_pop, info = TRUE)
+```
+
+この実験を1000回繰り返し、結果を可視化しよう。
+```{r, fig.height = 3, fig.width = 4}
+strat_100 <- replicate(1000, strat_experiment(df_pop))
+hist_strat_100 <- tibble(ATE = strat_100) %>% 
+  ggplot(aes(x = ATE)) +
+  geom_histogram(binwidth = 0.2, color = "black") +
+  geom_vline(xintercept = pop_ATE, color = "tomato") +
+  labs(y = "度数", "ブロック別ランダム化実験")
+plot(hist_strat_100)
+```
+
+やはり、平均的にはうまく推定できているようだ。ATEの推定値の平均値は、`r round(mean(strat_100), 2)` である。
+
+処置する個体の数（割合）は、ブロックごとに変えても良い。
+```{r}
+strat_experiment(df_pop, prop = c(0.3, 0.15), info = TRUE)
+```
+
+```{r}
+strat_experiment(df_pop, prop = c(0.8, 0.1), info = TRUE)
+```
+
+1000回繰り返してみよう。
+```{r, fig.height = 3, fig.width = 4}
+strat_b <- replicate(1000, strat_experiment(df_pop, prop = c(0.8, 0.2)))
+hist_strat_b <- tibble(ATE = strat_b) %>% 
+  ggplot(aes(x = ATE)) +
+  geom_histogram(binwidth = 0.2, color = "black") +
+  geom_vline(xintercept = pop_ATE, color = "tomato") +
+  labs(y = "度数")
+plot(hist_strat_b)
+```
+
+ブロックごとに処置に割り付ける割合が違っても、平均的には正しい推定ができる。
+
+
+### ペア毎のランダム化実験
+
+4番目の方法として、ペア毎のランダム化試験 (paired randomized experiments) を実施しよう。
+サンプルの中で、性別が同じで、年齢が近い者同士をペアにして、ペア毎に一方を処置に、他方を統制に割付ける。
+ペアを組む都合上、標本サイズは偶数に制限し、サンプル内の男女の数がそれぞれ偶数になるように調整する。
+```{r}
+paired_experiment <- function(population, sample_size = 100) {
+  
+  ## sample_size が奇数の場合はエラー
+  if (sample_size %% 2 != 0) stop("sample_size must be an even number.")
+  
+  n_male <- sample_size / 2
+  if (n_male %% 2 != 0) n_male <- n_male + sample(c(-1, 1), size = 1)
+  n_female <- sample_size - n_male
+
+  Male <- population %>% 
+    filter(male == 1) %>% 
+    slice_sample(n = n_male) %>% 
+    arrange(age) %>% 
+    mutate(D = as.vector(replicate(n() / 2, sample(0:1, size = 2))))
+  Female <- population %>% 
+    filter(male == 0) %>% 
+    slice_sample(n = n_female) %>% 
+    arrange(age) %>% 
+    mutate(D = as.vector(replicate(n() / 2, sample(0:1, size = 2))))
+  df <- bind_rows(Male, Female)
+  ATE <- with(df, mean(y_1[D == 1]) - mean(y_0[D == 0]))
+  return(ATE)
+}
+```
+
+標本サイズ `sample_size = 100` （既定値）で1回実験してみる。
+```{r}
+paired_experiment(df_pop)
+```
+
+もう1回やってみよう。
+```{r}
+paired_experiment(df_pop)
+```
+
+この実験を1000回繰り返し、結果を可視化しよう（そこそこ時間がかかるので注意）。
+```{r, fig.height = 3, fig.width = 4}
+pair_100 <- replicate(1000, paired_experiment(df_pop))
+hist_pair_100 <- tibble(ATE = pair_100) %>% 
+  ggplot(aes(x = ATE)) +
+  geom_histogram(binwidth = 0.2, color = "black") +
+  geom_vline(xintercept = pop_ATE, color = "tomato") +
+  labs(y = "度数", title = "ペア毎のランダム化実験")
+plot(hist_pair_100)
+```
+
+やはり、平均的にはうまく推定できているようだ。ATEの推定値の平均値は、`r round(mean(pair_100), 2)` である。
+
+各ペアで処置に割り付ける確率は、0.5 でなくても良い。自分で確かめてみよう。
+
+
+### 4つのRCT を比較する
+
+最後に、それぞれのRCTの推定精度を比較しよう。どれも標本サイズは100で、処置の確率・割合・数が全体の半分（程度）になるようにしたものを比べる。
+
+1000回の実験をシミュレートしたヒストグラムを再掲する。
+```{r, fig.width = 6, fig.height = 5, warning = FALSE}
+MIN <- min(c(bern_100, cr_100, strat_100, pair_100)) - 0.2
+MAX <- max(c(bern_100, cr_100, strat_100, pair_100)) + 0.2
+((hist_bern_100  + xlim(MIN, MAX) + ylim(0, 150)) + 
+    (hist_cr_100 + xlim(MIN, MAX) + ylim(0, 150))) /
+  ((hist_strat_100 + xlim(MIN, MAX) + ylim(0, 150)) + 
+     (hist_pair_100 + xlim(MIN, MAX) + ylim(0, 150)))
+```
+
+標準誤差を比較する。
+```{r}
+sd(bern_100)
+sd(cr_100)
+sd(strat_100)
+sd(pair_100)
+```
+
+このように、処置のパタンの数が最も少ない（かつブロック[ペア]がより同質的な）ペア毎のランダム化実験の標準誤差が最も小さく、推定精度が高いことがわかる。
+
+経済実験におけるランダム化について、さらに詳細な説明は @list2011 を参照。また、RCT全般については、実験経済学（岡野先生）と実験デザイン（小谷先生）の授業で詳しく扱うはずなので、それらの授業まだ受講していない人はぜひ受講してほしい。
+
+
+## トピック3の課題
+
+- 上で行ったシミュレーションを、条件を変えて試し、どのような場合に実験がうまくいき、どのような条件だと失敗しやすいか研究しなさい。また、面白い結果や納得できない結果が出たら、Slack でシェアし、受講生同士で議論しなさい。
+- 教科書 [@yasui2020] 第1章の1.4節 (pp.24-33) の分析を自分で実行しなさい。
+
+ 今回の課題はいずれも**提出不要**だが、必ず自分で実行すること。

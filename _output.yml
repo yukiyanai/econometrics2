@@ -4,7 +4,7 @@ bookdown::gitbook:
   config:
     toc:
       before: |
-        <li><a href="./">KUT 計量経済学応用 (2020年度)</a></li>
+        <li><a href="./">KUT 計量経済学応用</a></li>
         <li><a href="https://yukiyanai.github.io/" target="_blank">矢内 勇生 (Yuki Yanai)</a></li>
       after: |
         <li><a href="https://github.com/rstudio/bookdown" target="_blank">Published with bookdown</a></li>  

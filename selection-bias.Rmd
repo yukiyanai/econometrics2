@@ -1,3 +1,422 @@
 # セレクションバイアス
 
-準備中
+- [トピック2の講義スライド](https://yukiyanai.github.io/jp/classes/econometrics2/contents/slides/metrics2_topic02_slides_pub.pdf) (PDF, 2.6MB)
+
+## 予習、講義動画、実習課題
+
+このトピックでやるべきことは、以下のとおりである。
+
+1. [シラバス(PDFファイル)](http://yukiyanai.github.io/jp/classes/econometrics2/docs/syllabus-applied-econometrics_2020-2Q.pdf) に記載されているトピック2の予習課題を読む。
+2.  [KUTLMS (Moodle)](https://lms.kochi-tech.ac.jp/course/view.php?id=793) にあるトピック2の講義動画を視聴する。
+3. この資料の続きを読み、Rを使った実習を行うことでセレクションバイアスの理解を深める。
+  - まず、書いてあるコードをそのまま実行する。
+  - 自分で数字（シミュレーションの条件）を変えて、結果がどう変わるか研究する（これが**課題**）。
+4. （おまけ：希望者のみ）Josh Angrist による以下の解説動画（英語）を視聴する。
+  - [Ceteris Paribus](https://www.youtube.com/watch?v=iPBV3BlV7jk) （他の条件が等しければ）
+  - [Selection Bias](https://www.youtube.com/watch?v=6YrIDhaUQOE)（セレクションバイアス）
+
+
+## セレクションバイアスのシミュレーション
+
+### 準備
+
+必要なパッケージを読み込み、作図用の日本語フォントを設定する。
+```{r, message = FALSE}
+pacman::p_load(tidyverse)
+theme_set(theme_gray(base_size = 10, base_family = "HiraginoSans-W3"))  # macOS用
+#theme_set(theme_gray(base_size = 10, base_family = "Meiryo"))        # Windows用
+#theme_set(theme_gray(base_size = 10, base_family = "ipaex"))         # Ubuntu用
+#showtext::showtext_auto()                                            # Cloud用
+#theme_set(theme_gray(base_size = 10, base_family = "noto"))          # Cloud用
+```
+
+### メールによる販促の効果
+
+教科書 [@yasui2020] の第1章（pp.4-6）にある、メールによる販売促進施策のセレクションバイアスを、シミュレーションによって確かめてみよう。
+
+まず、対象全体の人数を決める。
+```{r}
+N <- 1000
+```
+
+次に、N人をメールがないときに商品を買いやすいグループAと、商品をあまり買わないグループBに分けよう。ここでは、同じ人数に分けることにする。
+```{r}
+d1 <- tibble(group = rep(c("A", "B"), each = N /2))
+```
+
+グループAとBが、メールを受け取らなかったときに商品を買う確率 pA と pB を決める。ただし、pA $>$ pB である。
+```{r}
+pA <- 0.6
+pB <- 0.3
+```
+
+次に、誰にメールを送るかを決めよう。教科書 [@yasui2020] に書かれているとおり、元々商品を買いそうな人にメールを送りやすいと考えて、各グループのメンバがメールを受け取る確率をそれぞれ pA / (pA + pB)、pB / (pA + pB ) としよう。また、メールは全部で N/2 人に送ることにする。メールを受け取れば1、受けとらなければ0をとる mail という変数を作る。
+```{r}
+n_mail <- N / 2
+n_receive <- round(n_mail * c(pA, pB) / sum(pA, pB))
+d1$mail <- rep(c(1, 0, 1, 0),
+                 times = c(n_receive[1], N / 2 - n_receive[1],
+                 n_receive[2], N / 2 - n_receive[2]))
+
+```
+
+メールを送ることによって商品を購入する確率がどれくらい上がるか、つまり、メールの効果である tau ($\tau$) の値を決める。ここでは、0.05ポイント上昇することにしよう。ここで設定する値が**本当の因果効果**である。
+```{r}
+tau <- 0.05
+```
+
+メールの送信が終わった後の購買行動を決める。まず、メール送信後の各人の購買確率を計算する。
+Aの購買確率はメールを受け取らなければ pA、受け取れば pA + tau である。同様に、Bの購買確率はメールを受け取らなければ pB、受け取れば pB + tau である。
+```{r}
+d1 <- d1 %>% 
+  mutate(p_after = ifelse(group == "A", 
+                          pA + tau * mail, 
+                          pB + tau * mail))
+```
+
+確率によって、商品を買うかどうかをベルヌーイ 試行 (Bernoulli) で決める。つまり、確率 $p$ で表が出るコインを投げて、表が出たら購入し、裏が出たら購入しないと考える。
+$\mbox{Bernoulli}(p) = \mbox{Binomial}(1, p)$ なので、Rでベルヌーイ試行を実行するには、二項分布 (binomial distribution) から乱数を生成する  `rbinom()`を`size = 1` にして使えば良い。
+```{r}
+set.seed(2020)
+d1 <- d1 %>% 
+  mutate(purchase = rbinom(N, size = 1, prob = p_after))
+```
+
+メール受信状況別の購入割合は
+```{r , message = FALSE}
+d1_gr <- d1 %>% 
+  mutate(mail = factor(mail, labels = c("メールなし", "メールあり"))) %>% 
+  group_by(mail) %>% 
+  summarize(purchase_rate = mean(purchase)) %>% 
+  print()
+```
+である。図にすると、
+```{r, fig.width = 3, fig.height = 3}
+p1 <- ggplot(d1_gr, aes(x = mail, weight = purchase_rate)) +
+  geom_bar(width= 0.5) +
+  labs(x = "", y = "購買率")
+plot(p1)
+```
+
+となる。単純に比較すると、
+```{r, message = FALSE}
+d1_gr %>% 
+  pull(purchase_rate) %>% 
+  diff()
+```
+がメールの効果のように見えてしまう。しかし、実際のメールの効果は、先ほど設定したとおり`r tau` である。
+
+ちなみに、この「バイアスを含む効果」は単回帰によっても得られる。
+```{r}
+fit <- lm(purchase ~ mail, data = d1)
+summary(fit)
+```
+mail の効果の推定値は、`r round(coef(fit)[2], 2)` である。また、その $p$値が$2.85 \times 10^{-11} < 0.001$ なので、この効果は有意水準0.001（0.1%）で統計的に有意である。**単に「統計的に有意かどうか」を調べることには意味がない**ことがよくわかるだろう。
+
+このように、処置（介入）の値が結果（購入確率）に依存していると、バイアスが生じる。この場合は、効果が過大評価されてしまう。
+
+
+1回のシミュレーションでは、偶然そうなっただけかもしれないので、これを複数回（できるだけ多く）繰り返そう。
+そのために、関数を用意する。返り値（戻り値）は、単純比較から得られる効果の大きさとする。
+```{r}
+sim_mail <- function(tau = 0.05, N = 1000, n_mail = N / 2, pA = 0.6, pB = 0.3) {
+  # 引数の条件を設定する：条件を満たさない場合はエラー
+  if (pA <= pB) stop("pA must be larger than pB.")
+  if (N < n_mail) stop("N must be larger than n_mail.")
+  if (pA > 1 | pB < 0) stop("pA and pB must be in the range [0, 1].")
+  if (tau + pA > 1) stop("beta + pA must be equal to or smaller than 1.")
+  if (tau + pB < 0) stop("beta + pB must be equal to or greater than 0.")
+
+  group <-  rep(c("A", "B"), each = N /2)
+  n_receive <- round(n_mail * c(pA, pB) / sum(pA, pB))
+  mail <- rep(c(1, 0, 1, 0),
+              times = c(n_receive[1], N / 2 - n_receive[1],
+              n_receive[2], N / 2 - n_receive[2]))
+  p_after <- ifelse(group == "A", pA + tau * mail, pB + tau * mail)
+  purchase <- rbinom(N, size = 1, prob = p_after)
+  fit <- lm(purchase ~ mail)
+  return(coef(fit)[2])
+}
+```
+
+試しに、`tau = 0.05` で1回シミュレーションしてみる。
+```{r}
+sim_mail(tau = 0.05)
+```
+
+tau、pA、pB の値を変えてみる。
+```{r}
+sim_mail(tau = 0.1, pA = 0.8, pB = 0.7)
+```
+
+最初と同じ条件で、シミュレーションを1000回繰り繰り返してみる。
+```{r}
+s1_1000 <- replicate(1000, sim_mail())
+```
+
+この結果を可視化する。本当の因果効果である 0.05 の位置を赤い縦線で示す。
+```{r, fig.width = 4, fig.height = 3}
+p_s1 <- tibble(tau = s1_1000) %>% 
+  ggplot(aes(x = tau, y = after_stat(density))) +
+  geom_histogram(color = "black", binwidth = 0.02) +
+  geom_vline(xintercept = 0.05, color = "tomato") +
+  labs(x = "単純比較から得られる「効果」", y = "確率密度")
+plot(p_s1)
+```
+
+本当の効果は0.05なのに、推定された効果の平均値は`r round(mean(s1_1000), 2)` 、中央値は `r round(median(s1_1000), 2)` である。
+
+このように、サンプルセレクションのせいでセクションバイアスが生じ、効果が過大推定されることがわかる。
+サンプルセレクションの内容によっては、効果が過小評価される場合もある。
+
+
+#### 購買行動のモデリング：発展的内容*
+
+この内容はセレクションバイアスとはあまり関係ないので、興味と余力がある人のみ読めば良い。
+
+上の説明では、メールによる販促効果が一定であると考えたが、実際には
+
+- まったく買う気がない人にはあまり効果がない。
+- 元々買う予定の人にはあまり効果がない。
+- 買うか買わないか迷っている人には効果が大きい。
+
+ということが予想される。そのような効果をモデル化してみよう。
+
+個人 $i$ が商品を買うかどうかを表す変数を $Y_i$ とする。$Y_i = 1$ ならば購入、$Y_i = 0$ ならば非購入とする。$Y_i$ は二値変数なので、個人$i$が商品を買う確率を $\theta_i$ として、ベルヌーイ分布で購買モデルを考えることができる。すなわち、
+$$
+Y_i \sim  \mbox{Bernoulli}(\theta_i)
+$$
+と考える。ここで、購買確率 $\theta_i$ は、メールがない場合に商品を買おうと思っていた度合い $\alpha$ と、メールの効果 $\tau$ によって決まると考える。
+$\alpha$ が0に近ければ買うかどうか迷っている状態、絶対値が大きい負の値ならほとんど買う気がない状態、大きい正の値ならば買うつもりの状態を表す。商品を買いやすい集団Aと買いにくい集団Bがいるとすると、$\alpha$ も集団ごとに異なると考えられる。そこで、個人 $i$ が属するグループを $G_i \in \{A, B\}$ とすると、この度合いは、$\alpha_{G_i}$ と表すことができる。
+
+$M_i$ をメールを受け取ったことを表すダミー変数、つまり、メールを受け取れば $M_i = 1$、受け取らなければ $M_i = 0$ になる変数だとすると、個人 $i$ が商品を買おうと思う「度合い（確率ではない）」は、$\alpha_{G_i} + \tau M_i$ と表せる。
+
+この「度合い」は確率ではなく、$(-\infty, \infty)$ の値をとる。確率は $[0, 1]$ でなければいけないので、$(-\infty, \infty)$ を $[0, 1]$ に変換する必要がある。
+そのような変換を行うことができる関数の1つが、ロジスティック関数（ロジットの逆関数）である（詳しくは、[浅野
+・矢内 (2018)](https://github.com/yukiyanai/quant-methods-R) の第15章 を参照されたい）。
+
+この関数を使うと、購買確率は
+$$
+\theta_i = \mathrm{logit}^{-1}(\alpha_{G_i} + \tau M_i)
+$$
+となる。ただし、
+$$
+\mathrm{logit}^{-1}(x) = \frac{\exp(x)}{1 + \exp(x)} = \frac{1}{1 + \exp(-x)}
+$$
+である。この関数をRで定義しよう。
+```{r}
+inv_logit <- function(x) {
+  return(1 / (1 + exp(-x)))
+}
+```
+
+これを使うと、$\tau$ を1つの値に決めても、それが購買確率 $\theta$ に与える影響は一定ではなく、$\alpha$ の大きさに依存して影響の大きさが変化することになる。
+グラフにすると、その様子がわかる。
+```{r, fig.width = 5, fig.height = 3}
+myd <- tibble(x = seq(from = -5, to = 5, length.out = 1000)) %>% 
+  mutate(p = inv_logit(x))
+p_logistic <- ggplot(myd, aes(x = x, y = p)) +
+  geom_line(color = "royalblue") +
+  labs(x = expression(alpha[G[i]] + tau * M[i]), y = "購買確率")
+plot(p_logistic)
+```
+
+グラフが直線ではなく曲線になっており、$\alpha_{G_i} + \tau M_i$ の増分が一定でも、横軸上でどこにいるかによって変化の大きさが変わることがわかる。
+
+このような効果を想定してシミュレーションを行うと、結果は変わるだろうか？
+
+
+### 通院と健康状態：セルフセレクション
+
+講義で扱った、病院と健康状態の例 [@ang2009] を使い、セルフセレクションによるセレクションバイアスをシミュレーションによって確かめてみよう。
+
+まず、全体の人数 $N$ を決める。
+```{r}
+N <- 1e4
+```
+
+次に、元々の健康状態をランダムに決める（本当は、ここはランダムでなくても良い）。1が最悪の健康状態、5が最善の状態とする。中程度の健康状態の人のが多いことにする。これは、病院に行く前の「隠れた」健康状態であり、観測されない変数であることに注意しよう。
+```{r}
+set.seed(2020-06-09)
+d2 <- tibble(h_hidden = sample(1:5, size = N, replace = TRUE,
+                               prob = c(1, 2, 3, 2, 1)))
+```
+
+隠れた健康状態の分布を確認してみる。
+```{r, fig.width = 3, fig.height = 3}
+hist_h_hidden <- ggplot(d2, aes(x = h_hidden)) +
+  geom_bar(fill = "tomato", width = 0.5) +
+  labs(x = "健康状態", y = "人数")
+plot(hist_h_hidden)
+```
+
+この隠れた健康状態に基づき、各個人が病院に行くかどうか決められることにしよう。つまり、各個人が処置である「病院に行くこと」を、「隠れた健康状態」という結果に密接に関連する変数に基づいて自己選択する（セルフセレクション）という状況をシミュレートする。
+
+他の条件が等しければ (ceteris paribus)、健康状態が悪いほど病院に行きやすいはずだ。ここではまず、健康状態ごとに病院に行く確率の平均値 $\mu$ が異なると考えよう。そして、各個人が病院に行く確率は、平均値 $\mu$ の正規分布からランダムに生成されると考える。話を単純にするため、標準偏差は同じだと仮定する。
+（上の「購買行動のモデリング：発展的内容*」の節と同じように、健康状態を説明変数とする線形予測子を、ロジット関数を使って確率に結び付けても良い。）
+つまり、健康状態が $s$ の人が病院に行く確率 $p_s$ は、$p_s \sim \mbox{Normal}(\theta_s, \sigma)$ によって決まる。ただし、$0 \leq p_s \leq 1$ になるように調整する。例として、健康状態ごとの $\mu_s$ を $(\mu_1, \mu_2, \mu_3, \mu_4, \mu_5) = (0.75, 0.6, 0.4, 0.3, 0.2)$ としてみよう。$\sigma$ は0.1とする。
+
+Rで以下を実行して、各個人の通院確率を決める。
+```{r}
+mu <- c(0.75, 0.6, 0.4, 0.3, 0.2)
+sigma <- 0.1
+d2 <- d2 %>% 
+  mutate(prob = rnorm(n(), mean = mu[h_hidden], sd = sigma),
+         prob = case_when(
+           prob > 1 ~ 1,
+           prob < 0 ~ 0,
+           TRUE ~ prob
+         ))
+```
+
+健康状態別の通院確率の分布を図示する。
+```{r, fig.height = 5, fig.width = 4}
+hist_prob <- ggplot(d2, aes(x = prob)) + 
+  geom_histogram(binwidth = 0.05, color = "black") + 
+  facet_grid(rows = vars(h_hidden)) +
+  labs(x = "病院に行く確率", y = "人数")
+plot(hist_prob)
+```
+
+健康状態が良い（5の）場合は、ランダムに生成した「確率」が0より小さくなってしまったものを後から0に調整しているので、0の度数が正規分布より大きくなっている。したがって、このモデルは通院を説明するものとしてはあまり望ましくない。しかし、ここでの目的はセルフセレクションによるセレクションバイアスを理解することなので、これで良しとしよう。（気になるなら、もっといいモデルを自分で考えよう！）
+
+この確率に基づいて、ベルヌーイ試行で病院に行くかどうかを表す変数 $D_i \in \{0,1\}$ の値を決める。これが観察される処置の値である。
+```{r}
+d2 <- d2 %>% 
+  mutate(D = rbinom(n(), size = 1, prob = prob))
+```
+
+病院に行く人の割合は、
+```{r}
+mean(d2$D)
+```
+である。（現実よりかなり大きな値になっているが、とりあえずこれで進める。気になるなら、シミュレーションの条件を変えていろいろ試してみよう！）
+
+ここで、通院が健康状態に与える平均処置効果 (ATE) `beta` を設定する。単純化のため、ATE = ITE とする。つまり、処置効果はどの個人にとっても同じだと仮定する。試しに、`beta = 0.6` にしてみよう。これは、隠れた健康状態が3の人が病院に行くと健康状態が3.6 になるということである。実際には、健康状態は1から5の整数で観測される。隠れた健康状態が5の人が病院に行っても健康状態は5のままのはずであるが、ここでは5.6になることを許そう。どちらも、シミュレーションを単純化するための妥協である。（調査される整数値の健康状態の背景に連続的な健康状態があり、回答するときに最も近い値を選ぶと考えれば、それほど変な設定ではない。）
+```{r}
+beta <- 0.6
+```
+
+この効果を、通院した人にのみ与え、健康状態 $Y$ を観測する。
+```{r}
+d2 <- d2 %>% 
+  mutate(Y = h_hidden + beta * D)
+```
+これで、データが揃った。シミュレーションでなければ、観測されるのは $D$ と $Y$のみである。
+
+病院に行った人と行かなかった人の健康状態を単純に比較してみよう。
+```{r, message = FALSE}
+d2_D <- d2 %>% 
+  mutate(D = factor(D, label = c("病院に行かなかった", "病院に行った"))) %>% 
+  group_by(D) %>% 
+  summarize(health = mean(Y)) %>% 
+  print()
+```
+健康状態は、病院に行った人のほうが、病院に行かなかった人よりも悪いことがわかる。
+このように、本当の ATE は `r beta` なのに、観察された値を単純比較すると、`r round(diff(d2_D$health), 2)` だと誤解してしまう。
+
+これはシミュレーションなので、本来は計算できないはずのセレクションバイアスも計算することができる。
+セレクションバイアスは、
+$$
+\mathbb{E}[Y(0) \mid D = 1 ] - \mathbb{E}[Y(0) \mid D = 0]
+$$
+である。これを計算してみよう。
+まず、$\mathbb{E}[Y(0) \mid D = 1]$は、
+```{r}
+e1 <- d2 %>% 
+  filter(D == 1) %>% 
+  pull(h_hidden) %>% 
+  mean() %>% 
+  print()
+```
+である。$\mathbb{E}[Y(0) \mid D = 0]$ は、
+```{r}
+e0 <- d2 %>% 
+  filter(D == 0) %>% 
+  pull(h_hidden) %>% 
+  mean() %>% 
+  print()
+```
+である。よって、この場合のセレクションバイアスは、
+```{r}
+(sb <- e1 - e0)
+```
+である。セルフセレクションの影響で、負のセレクションバイアスが生じていることがわかる。ATEとセレクションバイアスを足した値
+```{r}
+beta + sb
+```
+は、単純比較による効果の推定値
+```{r}
+diff(d2_D$health)
+```
+に一致する。
+
+単純比較による効果の推定を回帰分析で行ってみよう。
+```{r}
+fit2 <- lm(Y ~ D, data = d2)
+summary(fit2)
+```
+（当たり前だが）上と同じ推定値が得られた。また、その効果は有意水準0.001 で統計的に有意である。繰り返すが、**「統計的に有意」な結果を見つけても、それ自体は因果推論の役に立たない**ことが、ここからわかるだろう。
+
+以上のシミュレーションを、繰り返し実行できるように関数にまとめよう。返り値は、単純比較によって得られる「バイ
+アスを含んだ因果効果」とする。
+```{r}
+sim_hospital <- function(beta = 0.6, N = 1e4, 
+                         mu = c(0.75, 0.6, 0.4, 0.3, 0.2), 
+                         sigma = rep(0.1, 5)) {
+  
+  # sigma は、健康状態ごとに変えても良いことにする
+  if (length(sigma == 1)) sigma <- rep(sigma, 5)
+  
+  h_hidden <- sample(1:5, size = N, replace = TRUE,
+                    prob = c(1, 2, 3, 2, 1))
+  prob <-  rnorm(N, mean = mu[h_hidden], sd = sigma[h_hidden])
+  prob <- case_when(
+    prob > 1 ~ 1,
+    prob < 0 ~ 0,
+    TRUE ~ prob
+  )
+  D <- rbinom(N, size = 1, prob = prob)
+  Y <- h_hidden + beta * D
+  fit <- lm(Y ~ D)
+  return(coef(fit)[2])
+}
+```
+
+`beta = 0.6` でこの関数を1度だけ実行してみる。
+```{r}
+sim_hospital(beta = 0.6)
+```
+
+シミュレーションを1000回繰り返してみよう。
+```{r}
+s2_1000 <- replicate(1000, sim_hospital())
+```
+
+この結果を図示する。
+```{r, fig.height = 3, fig.width = 4}
+p_s2 <- tibble(beta = s2_1000) %>% 
+  ggplot(aes(x = beta, y = after_stat(density))) +
+  geom_histogram(color = "black", binwidth = 0.01) +
+  #geom_vline(xintercept = 0.6, color = "tomato") +
+  labs(x= "単純比較から得られる「効果」", y = "確率密度")
+plot(p_s2)
+```
+
+本当の因果効果は0.6である。しかし、1,000回のシミュレーションで推定された因果効果の平均値は`r round(mean(s2_1000), 2)`、中央値は`r round(median(s2_1000), 2)`であり、効果を大幅に過小推定している。
+セルフセレクションによって、セレクションバイアスが生じているためである。
+
+このように、セレクションバイアスは因果推論の敵である。今回の例では負のバイアスが生じ、本来は正であるはずの効果を負だと誤解する危険があることがわかった。しかし、セレクションの内容によっては、負の効果を正と誤解したり、弱い正の効果を強い正の効果だと誤解したりするようなことも考えられる。
+
+セレクションバイアスが生じるような状況では、単純比較（単回帰）によって因果効果を推定することはできない。
+
+
+## トピック2の課題
+
+ 上で行ったシミュレーションを、条件を変えて色々試しなさい。また、面白い結果や納得できない結果が出たら、Slack でシェアし、受講生同士で議論しなさい。
+ 
+ 今回の課題は**提出不要**だが、必ず自分で実行すること。
+
+
+
+
