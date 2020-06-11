@@ -13,3 +13,4 @@ rmd_files:
   - regression-discontinuity.Rmd
   - instrumental-variable.Rmd
   - final-presentation.Rmd
+  - references.Rmd
