@@ -24,7 +24,7 @@
 <meta name="author" content="矢内 勇生" />
 
 
-<meta name="date" content="2020-06-11" />
+<meta name="date" content="2020-06-12" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -521,7 +521,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb139-3"><a href="RCT.html#cb139-3"></a><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> ATE)) <span class="op">+</span></span>
 <span id="cb139-4"><a href="RCT.html#cb139-4"></a><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="fl">0.2</span>, <span class="dt">color =</span> <span class="st">&quot;black&quot;</span>) <span class="op">+</span></span>
 <span id="cb139-5"><a href="RCT.html#cb139-5"></a><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> pop_ATE, <span class="dt">color =</span> <span class="st">&quot;tomato&quot;</span>) <span class="op">+</span></span>
-<span id="cb139-6"><a href="RCT.html#cb139-6"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">y =</span> <span class="st">&quot;度数&quot;</span>, <span class="st">&quot;ブロック別ランダム化実験&quot;</span>)</span>
+<span id="cb139-6"><a href="RCT.html#cb139-6"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">y =</span> <span class="st">&quot;度数&quot;</span>, <span class="dt">title =</span> <span class="st">&quot;ブロック別ランダム化実験&quot;</span>)</span>
 <span id="cb139-7"><a href="RCT.html#cb139-7"></a><span class="kw">plot</span>(hist_strat_<span class="dv">100</span>)</span></code></pre></div>
 <p><img src="kut-metrics2_files/figure-html/unnamed-chunk-83-1.png" width="384" /></p>
 <p>やはり、平均的にはうまく推定できているようだ。ATEの推定値の平均値は、9.01 である。</p>

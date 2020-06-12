@@ -302,7 +302,7 @@ hist_strat_100 <- tibble(ATE = strat_100) %>%
   ggplot(aes(x = ATE)) +
   geom_histogram(binwidth = 0.2, color = "black") +
   geom_vline(xintercept = pop_ATE, color = "tomato") +
-  labs(y = "度数", "ブロック別ランダム化実験")
+  labs(y = "度数", title = "ブロック別ランダム化実験")
 plot(hist_strat_100)
 ```
 
