@@ -2,7 +2,9 @@
 
 - [トピック3の講義スライド](https://yukiyanai.github.io/jp/classes/econometrics2/contents/slides/metrics2_topic03_slides.pdf) (PDF, 1.4MB)
 
-## 予習、講義動画、実習課題
+## 準備
+
+### 予習、講義動画、実習課題
 
 このトピックでやるべきことは、以下のとおりである。
 
@@ -15,9 +17,8 @@
   - [Randomized Trials: The Ideal Weapon](https://www.youtube.com/watch?v=eGRd8jBdNYg)
 5. 教科書 [@yasui2020] 第1章のRを使った分析を自分でやってみる（**課題**）。
 
-## ランダム化のシミュレーション
 
-### 準備
+### Rパッケージの読み込み
 
 必要なパッケージを読み込み、作図用の日本語フォントを設定する。
 ```{r, message = FALSE}
@@ -28,6 +29,16 @@ theme_set(theme_gray(base_size = 10, base_family = "HiraginoSans-W3"))  # macOS�
 #showtext::showtext_auto()                                            # Cloud用
 #theme_set(theme_gray(base_size = 10, base_family = "noto"))          # Cloud用
 ```
+
+
+### このトピックで使うRコードの説明
+
+このトピックでは新しい関数は使わない。
+理解できないコードがあれば、遠慮なくSlack で質問を。
+
+
+## ランダム化のシミュレーション
+
 
 ### 母集団の設定
 
@@ -44,8 +55,8 @@ age <- sample(20:65, size = N, replace = TRUE)
 df_pop <- tibble(id = 1:N,
                  age = age) %>%
     mutate(male = rbinom(n(), size = 1, prob = 0.5),
-           y_1  = ifelse(male, y_1_m, y_1_f) + 0.05 *(age - mean(age)),
-           y_0  = ifelse(male, y_0_m, y_0_f) + 0.05 *(age - mean(age)),
+           y_1  = ifelse(male, y_1_m, y_1_f) + 0.05 * (age - mean(age)),
+           y_0  = ifelse(male, y_0_m, y_0_f) + 0.05 * (age - mean(age)),
            ITE = y_1 - y_0)
 ```
 

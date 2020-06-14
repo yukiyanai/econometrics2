@@ -2,7 +2,7 @@
 title: "KUT 計量経済学応用"
 subtitle: "統計的因果推論入門"
 author: "矢内 勇生"
-date: "`r Sys.Date()`"
+date: "`r Sys.Date()` 更新（2020-06-07 公開）"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: ["metrics2ref.bib"]

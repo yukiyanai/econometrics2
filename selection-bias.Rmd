@@ -2,7 +2,9 @@
 
 - [トピック2の講義スライド](https://yukiyanai.github.io/jp/classes/econometrics2/contents/slides/metrics2_topic02_slides_pub.pdf) (PDF, 2.6MB)
 
-## 予習、講義動画、実習課題
+## 準備
+
+### 予習、講義動画、実習課題
 
 このトピックでやるべきことは、以下のとおりである。
 
@@ -15,10 +17,7 @@
   - [Ceteris Paribus](https://www.youtube.com/watch?v=iPBV3BlV7jk) （他の条件が等しければ）
   - [Selection Bias](https://www.youtube.com/watch?v=6YrIDhaUQOE)（セレクションバイアス）
 
-
-## セレクションバイアスのシミュレーション
-
-### 準備
+### Rパッケージの読み込み
 
 必要なパッケージを読み込み、作図用の日本語フォントを設定する。
 ```{r, message = FALSE}
@@ -29,6 +28,86 @@ theme_set(theme_gray(base_size = 10, base_family = "HiraginoSans-W3"))  # macOS�
 #showtext::showtext_auto()                                            # Cloud用
 #theme_set(theme_gray(base_size = 10, base_family = "noto"))          # Cloud用
 ```
+
+### このトピックで使うRコードの説明
+
+このトピックで新たに使うRの関数について説明する。
+
+
+#### `dplyr::case_when()`
+
+`dplyr::case_when()` は、複数の条件によって変数の値を変えるときに使う。
+
+例えば、gender という変数があり、値が「女」と「男」の二値だけであるとしよう。
+```{r}
+gender <- sample(c("女", "男"), size = 100, replace = TRUE)
+table(gender)
+```
+この変数の値が「女」のときは1、「男」のときは0になる female というダミー変数は、`ifelse()` で作れる。
+```{r}
+female <- ifelse(gender == "女", 1, 0)
+table(female)
+```
+同様に、male ダミーは、
+```{r}
+#male <- 1 - female　# female が既にあるのでこれでもOK
+male <- ifelse(gender == "男", 1, 0)
+table(male)
+```
+で作れる。
+
+このように、`ifelse()` は、条件が1つしかない場合分け（つまり、2つの場合に分けるとき）には便利である。
+
+次に、gender2 という変数があり、取り得る値が「女」「男」「その他」の3種類であるとする。
+```{r}
+gender2 <- sample(c("女", "男", "その他"), size = 100, 
+                  replace = TRUE, prob = c(0.45, 0.45, 0.1))
+table(gender2)
+```
+この変数の値を英語に変換したいとする。これも、`ifelse()`でできる。
+```{r}
+gender_eng1 <- ifelse(gender2 == "女", "female",
+                      ifelse(gender2 == "男", "male", "other"))
+table(gender_eng1)
+```
+このように、`ifelse()` を入れ子にして使えば、変数を3つ以上の場合に分けることもできる。
+しかし、`ifelse()` を入れ子にするとコードが読みにくい。3つの場合分けならまだマシだが、場合分けの数が増えると厄介だ。そこで、`dplyr::case_when()` を使う。
+
+次のようにする。
+```{r}
+gender_eng2 <- case_when(
+  gender2 == "女" ~ "female",
+  gender2 == "男" ~ "male",
+  TRUE            ~ "other"
+)
+table(gender_eng2)
+```
+このように、`case_when()` では、`条件 ~ 条件がTRUE のときの値` という書き方をする。条件の評価は、上から順番に行われる。したがって、上の例では `gender2 == "男"` の評価が終わった時点で残りは 「その他」だけなので、残り全てを "ohter" にするために、最後の条件を `TRUE` にしている。
+
+条件が順番に評価されることを理解するために、もう1つ例をあげる。
+まず、アルファベットをランダムに生成する。
+```{r}
+rchs <- sample(letters, size = 500, replace = TRUE)
+table(rchs)
+```
+これをアルファベット順に基づいて適当なグループに分ける。
+```{r}
+group_chs <- case_when(
+  rchs < "e" ~ "a2d",
+  rchs < "i" ~ "e2h",
+  rchs < "o" ~ "i2n",
+  rchs < "t" ~ "o2s",
+  rchs < "y" ~ "t2x",
+  TRUE       ~ "y2z"
+)
+table(group_chs)
+```
+
+
+
+
+## セレクションバイアスのシミュレーション
+
 
 ### メールによる販促の効果
 
