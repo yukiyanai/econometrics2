@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Topic 4 回帰分析 | KUT 計量経済学応用</title>
   <meta name="description" content="Topic 4 回帰分析 | KUT 計量経済学応用" />
-  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Topic 4 回帰分析 | KUT 計量経済学応用" />
   <meta property="og:type" content="book" />
@@ -32,7 +32,6 @@
   
 <link rel="prev" href="RCT.html"/>
 <link rel="next" href="propensity-score.html"/>
-<script src="libs/header-attrs-2.2/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -201,8 +200,6 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.1.2" data-path="regression.html"><a href="regression.html#rパッケージの読み込み-2"><i class="fa fa-check"></i><b>4.1.2</b> Rパッケージの読み込み</a></li>
 <li class="chapter" data-level="4.1.3" data-path="regression.html"><a href="regression.html#関数の自作"><i class="fa fa-check"></i><b>4.1.3</b> 関数の自作</a></li>
 <li class="chapter" data-level="4.1.4" data-path="regression.html"><a href="regression.html#このトピックで使うrコードの説明-2"><i class="fa fa-check"></i><b>4.1.4</b> このトピックで使うRコードの説明</a></li>
-<li class="chapter" data-level="4.1.5" data-path="regression.html"><a href="regression.html#purrrmapと-sapply"><i class="fa fa-check"></i><b>4.1.5</b> <code>purrr::map()</code>と <code>sapply()</code></a></li>
-<li class="chapter" data-level="4.1.6" data-path="regression.html"><a href="regression.html#purrrarray_tree"><i class="fa fa-check"></i><b>4.1.6</b> <code>purrr::array_tree()</code></a></li>
 </ul></li>
 <li class="chapter" data-level="4.2" data-path="regression.html"><a href="regression.html#回帰分析のシミュレーション"><i class="fa fa-check"></i><b>4.2</b> 回帰分析のシミュレーション</a>
 <ul>
@@ -219,7 +216,25 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.4" data-path="regression.html"><a href="regression.html#dag有向非巡回グラフ"><i class="fa fa-check"></i><b>4.4</b> DAG（有向非巡回グラフ）</a></li>
 <li class="chapter" data-level="4.5" data-path="regression.html"><a href="regression.html#トピック4の課題"><i class="fa fa-check"></i><b>4.5</b> トピック4の課題</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="propensity-score.html"><a href="propensity-score.html"><i class="fa fa-check"></i><b>5</b> 傾向スコア</a></li>
+<li class="chapter" data-level="5" data-path="propensity-score.html"><a href="propensity-score.html"><i class="fa fa-check"></i><b>5</b> 傾向スコア</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="propensity-score.html"><a href="propensity-score.html#準備-3"><i class="fa fa-check"></i><b>5.1</b> 準備</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="propensity-score.html"><a href="propensity-score.html#予習講義動画実習課題-3"><i class="fa fa-check"></i><b>5.1.1</b> 予習、講義動画、実習課題</a></li>
+<li class="chapter" data-level="5.1.2" data-path="propensity-score.html"><a href="propensity-score.html#rパッケージの読み込み-3"><i class="fa fa-check"></i><b>5.1.2</b> Rパッケージの読み込み</a></li>
+<li class="chapter" data-level="5.1.3" data-path="propensity-score.html"><a href="propensity-score.html#関数の自作-1"><i class="fa fa-check"></i><b>5.1.3</b> 関数の自作</a></li>
+<li class="chapter" data-level="5.1.4" data-path="propensity-score.html"><a href="propensity-score.html#このトピックで使うrコードの説明-3"><i class="fa fa-check"></i><b>5.1.4</b> このトピックで使うRコードの説明</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="propensity-score.html"><a href="propensity-score.html#傾向スコアを用いた因果推論の手順"><i class="fa fa-check"></i><b>5.2</b> 傾向スコアを用いた因果推論の手順</a></li>
+<li class="chapter" data-level="5.3" data-path="propensity-score.html"><a href="propensity-score.html#共変量の選定"><i class="fa fa-check"></i><b>5.3</b> 共変量の選定</a></li>
+<li class="chapter" data-level="5.4" data-path="propensity-score.html"><a href="propensity-score.html#傾向スコアの推定"><i class="fa fa-check"></i><b>5.4</b> 傾向スコアの推定</a></li>
+<li class="chapter" data-level="5.5" data-path="propensity-score.html"><a href="propensity-score.html#バランス調整バランスチェック因果効果の推定"><i class="fa fa-check"></i><b>5.5</b> バランス調整、バランスチェック、因果効果の推定</a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="propensity-score.html"><a href="propensity-score.html#重み付け"><i class="fa fa-check"></i><b>5.5.1</b> 重み付け</a></li>
+<li class="chapter" data-level="5.5.2" data-path="propensity-score.html"><a href="propensity-score.html#層別"><i class="fa fa-check"></i><b>5.5.2</b> 層別</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="propensity-score.html"><a href="propensity-score.html#トピック5-の課題"><i class="fa fa-check"></i><b>5.6</b> トピック5 の課題</a></li>
+</ul></li>
 <li class="chapter" data-level="6" data-path="panel-data.html"><a href="panel-data.html"><i class="fa fa-check"></i><b>6</b> パネルデータ分析</a></li>
 <li class="chapter" data-level="7" data-path="midterm-presentation.html"><a href="midterm-presentation.html"><i class="fa fa-check"></i><b>7</b> 分析計画のプレゼンテーション</a>
 <ul>
@@ -251,7 +266,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>参考文献</a></li>
 <li class="divider"></li>
-<li><a href="https://github.com/rstudio/bookdown" target="_blank">Published with bookdown</a></li>  
+<li><a href="https://github.com/rstudio/bookdown" target="_blank">Published with bookdown</a></li>
+<li >&nbsp;&nbsp;&nbsp;&copy 2020 Yuki Yanai</li>
 </ul>
 
       </nav>
@@ -303,7 +319,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li>推定結果の読み方</li>
 </ul></li>
 </ul>
-<p>これらの理解に不安がある場合は、<span class="citation">浅野 and 矢内 (<a href="#ref-asano-yanai2018" role="doc-biblioref">2018</a>)</span> の第10–14章や<a href="http://yukiyanai.github.io/jp/classes/econometrics1/contents/">計量経済学の講義資料</a> などを参照されたい。より厳密な説明は、計量経済学の教科書（たとえば、<span class="citation">Angrist and Pischke (<a href="#ref-ang2009" role="doc-biblioref">2009</a>)</span>、 <span class="citation">Hansen (<a href="#ref-hansen2020" role="doc-biblioref">2020</a>)</span>、 <span class="citation">西山 et al. (<a href="#ref-nishiyama2019" role="doc-biblioref">2019</a>)</span>、<span class="citation">末石 (<a href="#ref-sueishi2015" role="doc-biblioref">2015</a>)</span> など）を参照。</p>
+<p>これらの理解に不安がある場合は、<span class="citation">浅野 and 矢内 (<a href="#ref-asano-yanai2018" role="doc-biblioref">2018</a>)</span> の第10–14章や<a href="http://yukiyanai.github.io/jp/classes/econometrics1/contents/">計量経済学の講義資料</a> などを参照されたい。より厳密な説明は、計量経済学の教科書（たとえば、<span class="citation">Angrist and Pischke (<a href="#ref-ang2009" role="doc-biblioref">2009</a>)</span> の第3章、 <span class="citation">Hansen (<a href="#ref-hansen2020" role="doc-biblioref">2020</a>)</span> の第2章から第5章、 <span class="citation">縄田 (<a href="#ref-nawata2013" role="doc-biblioref">2013</a>)</span> の第6章、<span class="citation">西山 et al. (<a href="#ref-nishiyama2019" role="doc-biblioref">2019</a>)</span> の第6章、<span class="citation">末石 (<a href="#ref-sueishi2015" role="doc-biblioref">2015</a>)</span> の第1章など）を参照。</p>
 <p><strong>注意：</strong> 下の説明では、<code>replicate()</code> でシミュレーションを繰り返す回数を1,000 に設定しているが、自分の環境合わせて調整するように。あまり処理能力が高くないパソコンを使っている場合は、繰り返し回数を少なめ（例えば、500）にしたほうがよい。シミュレーションの結果を安定させたいなら、繰り返し回数をさらに大きくしたほうが良い。また、<code>set.seed()</code> で指定する値は適宜変えるように。</p>
 </div>
 <div id="rパッケージの読み込み-2" class="section level3" number="4.1.2">
@@ -346,9 +362,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## [1] 12.85714</code></pre>
 <p>である。</p>
 </div>
-</div>
-<div id="purrrmapと-sapply" class="section level3" number="4.1.5">
-<h3><span class="header-section-number">4.1.5</span> <code>purrr::map()</code>と <code>sapply()</code></h3>
+<div id="purrrmapと-sapply" class="section level4" number="4.1.4.2">
+<h4><span class="header-section-number">4.1.4.2</span> <code>purrr::map()</code>と <code>sapply()</code></h4>
 <p><code>purrr::map()</code> は、関数をリストまたはベクトルの各要素に適用し、リストを返す。
 <code>sapply()</code> も同様の働きをするが、返り値を単純なもの（次元が低いもの）にできる場合には単純化して値を返してくれる。例えば、各要素の長さが1で全体の長さが L のリストを返す代わりに、長さ L のベクトルを返す。
 （実は、 <code>sapply()</code> は <code>lapply()</code> を <code>simplify = TRUE</code> として使っているだけである。）</p>
@@ -441,11 +456,11 @@ f(x) = x (x + 2) = x^2 + 2x
 <span id="cb215-2"><a href="regression.html#cb215-2"></a><span class="st">  </span><span class="kw">sapply</span>(<span class="dt">FUN =</span> <span class="cf">function</span>(x) x<span class="op">^</span><span class="dv">2</span> <span class="op">+</span><span class="st"> </span><span class="dv">2</span> <span class="op">*</span><span class="st"> </span>x)</span></code></pre></div>
 <pre><code>##  [1]   3   8  15  24  35  48  63  80  99 120</code></pre>
 <p>とできる。</p>
-<p><code>map()</code> や<code>sapply()</code> を使うほうが、<code>for</code> ループを使うより計算が早くなる。また、コードもシンプルに書けることが多い。
+<p><code>map()</code> や<code>sapply()</code> を使うほうが、<code>for</code> ループを使うより計算が速くなる。また、コードもシンプルに書けることが多い。
 しかし、どうしても使い方が難しいと思うなら、無理に使おうとせず、<code>for</code> ループを使えば良い。</p>
 </div>
-<div id="purrrarray_tree" class="section level3" number="4.1.6">
-<h3><span class="header-section-number">4.1.6</span> <code>purrr::array_tree()</code></h3>
+<div id="purrrarray_tree" class="section level4" number="4.1.4.3">
+<h4><span class="header-section-number">4.1.4.3</span> <code>purrr::array_tree()</code></h4>
 <p>行列（正確には配列 [array] に使えるが、行列で説明する）をリストに変換するために、<code>purrr::array_tree()</code> を使う。</p>
 <p>まず、行列を作る。</p>
 <div class="sourceCode" id="cb217"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb217-1"><a href="regression.html#cb217-1"></a>m1 &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">12</span>, <span class="dt">byrow =</span> <span class="ot">TRUE</span>, <span class="dt">nrow =</span> <span class="dv">3</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
@@ -489,6 +504,7 @@ f(x) = x (x + 2) = x^2 + 2x
 <p>このように、<code>margin = 2</code> で <code>array_tree()</code> を使うと、行列の各列を要素にもつリストができる。</p>
 <p><br></p>
 <p><code>tibble::enframe()</code> については、教科書 <span class="citation">(安井 <a href="#ref-yasui2020" role="doc-biblioref">2020</a>)</span> の pp.55-56 を参照。</p>
+</div>
 </div>
 </div>
 <div id="回帰分析のシミュレーション" class="section level2" number="4.2">
@@ -650,10 +666,10 @@ D_i \sim \mbox{Bernoulli}(\theta_i)\\
 <div class="sourceCode" id="cb262"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb262-1"><a href="regression.html#cb262-1"></a>beta_vec &lt;-<span class="st"> </span><span class="kw">sapply</span>(<span class="op">-</span><span class="dv">4</span><span class="op">:</span><span class="dv">4</span>, beta_X, <span class="dt">data =</span> df_multiple)</span>
 <span id="cb262-2"><a href="regression.html#cb262-2"></a><span class="kw">names</span>(beta_vec) &lt;-<span class="st"> </span><span class="kw">str_c</span>(<span class="st">&quot;X=&quot;</span>, <span class="dv">-4</span><span class="op">:</span><span class="dv">4</span>)</span>
 <span id="cb262-3"><a href="regression.html#cb262-3"></a>beta_vec</span></code></pre></div>
-<pre><code>##      X=-4      X=-3      X=-2      X=-1       X=0       X=1       X=2       X=3 
-## 0.8446962 0.6572588 0.7475040 0.6917050 0.6252307 0.7681240 0.5260543 0.7046942 
-##       X=4 
-## 0.6230728</code></pre>
+<pre><code>##      X=-4      X=-3      X=-2      X=-1       X=0       X=1       X=2 
+## 0.8446962 0.6572588 0.7475040 0.6917050 0.6252307 0.7681240 0.5260543 
+##       X=3       X=4 
+## 0.7046942 0.6230728</code></pre>
 <p>ブロックごとに処置効果を求めることができた。このように、ブロックに分けて単回帰を行えば、過大推定にはならないことがわかる。これらの値を元に、全体の処置効果を加重平均で求めてみよう。</p>
 <p>ATE を求めるために <span class="math inline">\(X = x\)</span> となるブロックの重みを<span class="math inline">\(\Pr (X_i = x)\)</span>とすると、</p>
 <div class="sourceCode" id="cb264"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb264-1"><a href="regression.html#cb264-1"></a>w_ate &lt;-<span class="st"> </span><span class="kw">table</span>(df_multiple<span class="op">$</span>X)</span>
@@ -788,7 +804,7 @@ D_i \sim \mbox{Bernoulli}(\theta_i)\\
 <p>重回帰分析では複数の説明変数を使う。複数の説明変数を使う理由の1つは、ある結果に影響を与える原因が複数あると考えられるからである。そのようなとき、原因と考えられる複数の説明変数を回帰分析に含めるというのは自然な発想である。しかし、結果変数の原因となる変数のなかには、因果推論のために必ず回帰分析に含める必要があるものもあれば、回帰分析に含めても含めなくてもよいものや、回帰分析に含んではいけないものもある。統計的因果推論のための回帰分析で、統制 (control) すべき変数はどのようなものだろうか。シミュレーションを通じて理解しよう。</p>
 <div id="脱落変数バイアス-ovb" class="section level3" number="4.3.1">
 <h3><span class="header-section-number">4.3.1</span> 脱落変数バイアス (OVB)</h3>
-<p>2つの変数 <span class="math inline">\(Y\)</span> と<span class="math inline">\(D\)</span> があり、この2変数の間に強い相関があるとする。このとき、<span class="math inline">\(D\)</span> が <span class="math inline">\(Y\)</span> の原因であるとは限らない。1つの可能性は、<span class="math inline">\(Y\)</span> が <span class="math inline">\(D\)</span> の原因であるというものである。因果の向きが逆の場合については、ここでは考えない（実際の研究では、これは重要な問題である）。</p>
+<p>2つの変数 <span class="math inline">\(Y\)</span> と<span class="math inline">\(D\)</span> があり、この2変数の間に強い相関があるとする。このとき、<span class="math inline">\(D\)</span> が <span class="math inline">\(Y\)</span> の原因であるとは限らない。1つの可能性は、<span class="math inline">\(Y\)</span> が <span class="math inline">\(D\)</span> の原因であるというものである。因果の向きが逆の場合については、ここでは考えない（実際の研究においては、それぞれの変数がお互いの原因であるという「同時性 (simulteneity)」も重要な問題である）。</p>
 <p>もう1つの可能性は、第三の変数 <span class="math inline">\(X\)</span> が存在し、<span class="math inline">\(X\)</span> が <span class="math inline">\(D\)</span> の原因であると同時に、<span class="math inline">\(Y\)</span> の原因でもあるという場合である。
 <span class="math inline">\(D\)</span> と <span class="math inline">\(Y\)</span> の相関が <span class="math inline">\(X\)</span> によって説明されてしまうとき、<span class="math inline">\(D\)</span> と <span class="math inline">\(Y\)</span> の相関は、<strong>見せかけの因果関係 (spurious correlation)</strong> と呼ばれる。また、実際に <span class="math inline">\(D\)</span> が <span class="math inline">\(Y\)</span> の原因だとしても、
 <span class="math inline">\(X\)</span> のように <span class="math inline">\(D\)</span> と <span class="math inline">\(Y\)</span> の両者に影響する変数があるかもしれない。このような <span class="math inline">\(X\)</span> は、<strong>交絡変数 [交絡因子]</strong> (<strong>confouding variable</strong> or <strong>confounder</strong>) または<strong>共変量</strong> (<strong>covariate</strong>) と呼ばれる。</p>
@@ -972,11 +988,11 @@ D が Y に与える因果効果を beta、D が X に与える影響を gamma �
 <div class="sourceCode" id="cb307"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb307-1"><a href="regression.html#cb307-1"></a><span class="kw">set.seed</span>(<span class="dv">2020-06-12</span>)</span>
 <span id="cb307-2"><a href="regression.html#cb307-2"></a>df_pt1 &lt;-<span class="st"> </span><span class="kw">ptb_dgp</span>()</span>
 <span id="cb307-3"><a href="regression.html#cb307-3"></a><span class="kw">glimpse</span>(df_pt1)</span></code></pre></div>
-<pre><code>## Rows: 100
-## Columns: 3
-## $ Y &lt;dbl&gt; 0.6508057, 1.0442136, 1.3875204, 0.7219868, 1.3689279, 1.2717135, 1…
-## $ D &lt;int&gt; 0, 0, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1…
-## $ X &lt;dbl&gt; 0.30434106, 0.42179182, 0.52854906, 0.24054385, 0.53575256, 0.55885…</code></pre>
+<pre><code>## Observations: 100
+## Variables: 3
+## $ Y &lt;dbl&gt; 0.6508057, 1.0442136, 1.3875204, 0.7219868, 1.3689279, 1.27171…
+## $ D &lt;int&gt; 0, 0, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,…
+## $ X &lt;dbl&gt; 0.30434106, 0.42179182, 0.52854906, 0.24054385, 0.53575256, 0.…</code></pre>
 <p>ここで、<span class="math inline">\(D\)</span> と <span class="math inline">\(X\)</span> の相関関係を確認してみよう。</p>
 <div class="sourceCode" id="cb309"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb309-1"><a href="regression.html#cb309-1"></a><span class="kw">with</span>(df_pt1, <span class="kw">cor</span>(D, X))</span></code></pre></div>
 <pre><code>## [1] 0.6946692</code></pre>
@@ -1047,7 +1063,7 @@ Y_i = \alpha + \beta D_i + e_i.
 <p>R で DAG を描くために、<strong>dagitty</strong> と<strong>ggdag</strong> の2つのパッケージを使う。どちらか片方だけでもDAG は描けるが、両方使えると便利である。</p>
 <p>まず、<strong>dagitty</strong> だけで描いてみる。<code>daggity::dagitty()</code> で DAG を定義し、それぞれの変数の位置を
 <code>dagitty::coordinates()</code> で指定する。</p>
-<div class="sourceCode" id="cb320"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb320-1"><a href="regression.html#cb320-1"></a>dag_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">dagitty</span>(<span class="st">&quot;dag{D  -&gt; Y; X -&gt; D; X -&gt; Y}&quot;</span>)</span>
+<div class="sourceCode" id="cb320"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb320-1"><a href="regression.html#cb320-1"></a>dag_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">dagitty</span>(<span class="st">&quot;dag{D -&gt; Y; X -&gt; D; X -&gt; Y}&quot;</span>)</span>
 <span id="cb320-2"><a href="regression.html#cb320-2"></a><span class="kw">coordinates</span>(dag_<span class="dv">1</span>) &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">x =</span> <span class="kw">c</span>(<span class="dt">D =</span> <span class="dv">0</span>, <span class="dt">X =</span> <span class="dv">1</span>, <span class="dt">Y =</span> <span class="dv">2</span>),</span>
 <span id="cb320-3"><a href="regression.html#cb320-3"></a>                           <span class="dt">y =</span> <span class="kw">c</span>(<span class="dt">D =</span> <span class="dv">0</span>, <span class="dt">X =</span> <span class="dv">1</span>, <span class="dt">Y =</span> <span class="dv">0</span>))</span>
 <span id="cb320-4"><a href="regression.html#cb320-4"></a><span class="kw">plot</span>(dag_<span class="dv">1</span>)</span></code></pre></div>
@@ -1216,6 +1232,9 @@ Y_i = \alpha + \beta D_i + e_i.
 </div>
 <div id="ref-asano-yanai2018">
 <p>浅野正彦, and 矢内勇生. 2018. <em>Rによる計量政治学</em>. オーム社. <a href="https://github.com/yukiyanai/quant-methods-R">https://github.com/yukiyanai/quant-methods-R</a>.</p>
+</div>
+<div id="ref-nawata2013">
+<p>縄田和満. 2013. <em>確率・統計 I</em>. 丸善出版.</p>
 </div>
 <div id="ref-nishiyama2019">
 <p>西山慶彦, 新谷元嗣, 川口大司, and 奥井亮. 2019. <em>計量経済学</em>. 有斐閣.</p>

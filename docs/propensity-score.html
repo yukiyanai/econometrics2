@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Topic 5 傾向スコア | KUT 計量経済学応用</title>
   <meta name="description" content="Topic 5 傾向スコア | KUT 計量経済学応用" />
-  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Topic 5 傾向スコア | KUT 計量経済学応用" />
   <meta property="og:type" content="book" />
@@ -32,7 +32,6 @@
   
 <link rel="prev" href="regression.html"/>
 <link rel="next" href="panel-data.html"/>
-<script src="libs/header-attrs-2.2/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -201,8 +200,6 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.1.2" data-path="regression.html"><a href="regression.html#rパッケージの読み込み-2"><i class="fa fa-check"></i><b>4.1.2</b> Rパッケージの読み込み</a></li>
 <li class="chapter" data-level="4.1.3" data-path="regression.html"><a href="regression.html#関数の自作"><i class="fa fa-check"></i><b>4.1.3</b> 関数の自作</a></li>
 <li class="chapter" data-level="4.1.4" data-path="regression.html"><a href="regression.html#このトピックで使うrコードの説明-2"><i class="fa fa-check"></i><b>4.1.4</b> このトピックで使うRコードの説明</a></li>
-<li class="chapter" data-level="4.1.5" data-path="regression.html"><a href="regression.html#purrrmapと-sapply"><i class="fa fa-check"></i><b>4.1.5</b> <code>purrr::map()</code>と <code>sapply()</code></a></li>
-<li class="chapter" data-level="4.1.6" data-path="regression.html"><a href="regression.html#purrrarray_tree"><i class="fa fa-check"></i><b>4.1.6</b> <code>purrr::array_tree()</code></a></li>
 </ul></li>
 <li class="chapter" data-level="4.2" data-path="regression.html"><a href="regression.html#回帰分析のシミュレーション"><i class="fa fa-check"></i><b>4.2</b> 回帰分析のシミュレーション</a>
 <ul>
@@ -219,7 +216,25 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.4" data-path="regression.html"><a href="regression.html#dag有向非巡回グラフ"><i class="fa fa-check"></i><b>4.4</b> DAG（有向非巡回グラフ）</a></li>
 <li class="chapter" data-level="4.5" data-path="regression.html"><a href="regression.html#トピック4の課題"><i class="fa fa-check"></i><b>4.5</b> トピック4の課題</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="propensity-score.html"><a href="propensity-score.html"><i class="fa fa-check"></i><b>5</b> 傾向スコア</a></li>
+<li class="chapter" data-level="5" data-path="propensity-score.html"><a href="propensity-score.html"><i class="fa fa-check"></i><b>5</b> 傾向スコア</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="propensity-score.html"><a href="propensity-score.html#準備-3"><i class="fa fa-check"></i><b>5.1</b> 準備</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="propensity-score.html"><a href="propensity-score.html#予習講義動画実習課題-3"><i class="fa fa-check"></i><b>5.1.1</b> 予習、講義動画、実習課題</a></li>
+<li class="chapter" data-level="5.1.2" data-path="propensity-score.html"><a href="propensity-score.html#rパッケージの読み込み-3"><i class="fa fa-check"></i><b>5.1.2</b> Rパッケージの読み込み</a></li>
+<li class="chapter" data-level="5.1.3" data-path="propensity-score.html"><a href="propensity-score.html#関数の自作-1"><i class="fa fa-check"></i><b>5.1.3</b> 関数の自作</a></li>
+<li class="chapter" data-level="5.1.4" data-path="propensity-score.html"><a href="propensity-score.html#このトピックで使うrコードの説明-3"><i class="fa fa-check"></i><b>5.1.4</b> このトピックで使うRコードの説明</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="propensity-score.html"><a href="propensity-score.html#傾向スコアを用いた因果推論の手順"><i class="fa fa-check"></i><b>5.2</b> 傾向スコアを用いた因果推論の手順</a></li>
+<li class="chapter" data-level="5.3" data-path="propensity-score.html"><a href="propensity-score.html#共変量の選定"><i class="fa fa-check"></i><b>5.3</b> 共変量の選定</a></li>
+<li class="chapter" data-level="5.4" data-path="propensity-score.html"><a href="propensity-score.html#傾向スコアの推定"><i class="fa fa-check"></i><b>5.4</b> 傾向スコアの推定</a></li>
+<li class="chapter" data-level="5.5" data-path="propensity-score.html"><a href="propensity-score.html#バランス調整バランスチェック因果効果の推定"><i class="fa fa-check"></i><b>5.5</b> バランス調整、バランスチェック、因果効果の推定</a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="propensity-score.html"><a href="propensity-score.html#重み付け"><i class="fa fa-check"></i><b>5.5.1</b> 重み付け</a></li>
+<li class="chapter" data-level="5.5.2" data-path="propensity-score.html"><a href="propensity-score.html#層別"><i class="fa fa-check"></i><b>5.5.2</b> 層別</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="propensity-score.html"><a href="propensity-score.html#トピック5-の課題"><i class="fa fa-check"></i><b>5.6</b> トピック5 の課題</a></li>
+</ul></li>
 <li class="chapter" data-level="6" data-path="panel-data.html"><a href="panel-data.html"><i class="fa fa-check"></i><b>6</b> パネルデータ分析</a></li>
 <li class="chapter" data-level="7" data-path="midterm-presentation.html"><a href="midterm-presentation.html"><i class="fa fa-check"></i><b>7</b> 分析計画のプレゼンテーション</a>
 <ul>
@@ -251,7 +266,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>参考文献</a></li>
 <li class="divider"></li>
-<li><a href="https://github.com/rstudio/bookdown" target="_blank">Published with bookdown</a></li>  
+<li><a href="https://github.com/rstudio/bookdown" target="_blank">Published with bookdown</a></li>
+<li >&nbsp;&nbsp;&nbsp;&copy 2020 Yuki Yanai</li>
 </ul>
 
       </nav>
@@ -271,8 +287,846 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="傾向スコア" class="section level1" number="5">
 <h1><span class="header-section-number">Topic 5</span> 傾向スコア</h1>
-<p>準備中</p>
+<ul>
+<li><a href="https://yukiyanai.github.io/jp/classes/econometrics2/contents/slides/metrics2_topic05_slides.pdf">トピック5の講義スライド</a> (PDF, 1.4MB)</li>
+</ul>
+<div id="準備-3" class="section level2" number="5.1">
+<h2><span class="header-section-number">5.1</span> 準備</h2>
+<div id="予習講義動画実習課題-3" class="section level3" number="5.1.1">
+<h3><span class="header-section-number">5.1.1</span> 予習、講義動画、実習課題</h3>
+<p>このトピックでやるべきことは、以下のとおりである。</p>
+<ol style="list-style-type: decimal">
+<li><a href="http://yukiyanai.github.io/jp/classes/econometrics2/docs/syllabus-applied-econometrics_2020-2Q.pdf">シラバス(PDFファイル)</a> に記載されているトピック5の予習課題を読む。</li>
+<li><a href="https://lms.kochi-tech.ac.jp/course/view.php?id=793">KUTLMS (Moodle)</a> にあるトピック5の講義動画を視聴する。</li>
+<li>この資料の続きを読み、Rを使った実習を行うことで、傾向スコアの使い方を学ぶ。</li>
+<li>教科書 <span class="citation">(安井 <a href="#ref-yasui2020" role="doc-biblioref">2020</a>)</span> 第3章のRを使った分析を自分でやってみる。</li>
+<li>課題を提出する。</li>
+</ol>
+</div>
+<div id="rパッケージの読み込み-3" class="section level3" number="5.1.2">
+<h3><span class="header-section-number">5.1.2</span> Rパッケージの読み込み</h3>
+<p>必要なパッケージを読み込み、作図用の日本語フォントを設定する。</p>
+<div class="sourceCode" id="cb337"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb337-1"><a href="propensity-score.html#cb337-1"></a>pacman<span class="op">::</span><span class="kw">p_load</span>(tidyverse, broom,  haven,</span>
+<span id="cb337-2"><a href="propensity-score.html#cb337-2"></a>               WeightIt, cobalt, MatchIt, survey)</span>
+<span id="cb337-3"><a href="propensity-score.html#cb337-3"></a><span class="kw">theme_set</span>(<span class="kw">theme_gray</span>(<span class="dt">base_size =</span> <span class="dv">10</span>, <span class="dt">base_family =</span> <span class="st">&quot;HiraginoSans-W3&quot;</span>))  <span class="co"># macOS用</span></span>
+<span id="cb337-4"><a href="propensity-score.html#cb337-4"></a><span class="co">#theme_set(theme_gray(base_size = 10, base_family = &quot;Meiryo&quot;))        # Windows用</span></span>
+<span id="cb337-5"><a href="propensity-score.html#cb337-5"></a><span class="co">#theme_set(theme_gray(base_size = 10, base_family = &quot;ipaex&quot;))         # Ubuntu用</span></span>
+<span id="cb337-6"><a href="propensity-score.html#cb337-6"></a><span class="co">#showtext::showtext_auto()                                            # Cloud用</span></span>
+<span id="cb337-7"><a href="propensity-score.html#cb337-7"></a><span class="co">#theme_set(theme_gray(base_size = 10, base_family = &quot;noto&quot;))          # Cloud用</span></span></code></pre></div>
+</div>
+<div id="関数の自作-1" class="section level3" number="5.1.3">
+<h3><span class="header-section-number">5.1.3</span> 関数の自作</h3>
+<p>R 4.0.0 より前のバージョンで <strong>cobalt</strong> パッケージを使おうとすると、「deparse1 という関数がありません」というエラーが出る。そこで、<code>deparse1()</code> を自作しておく。
+<code>deparse1()</code> は R 4.0.0 で導入されたので、<strong>4.0.0 以降のバージョンを使っている場合、この作業は不要</strong>。</p>
+<div class="sourceCode" id="cb338"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb338-1"><a href="propensity-score.html#cb338-1"></a><span class="cf">if</span> (<span class="kw">as.integer</span>(version<span class="op">$</span>major) <span class="op">&lt;</span><span class="st"> </span><span class="dv">4</span>) {</span>
+<span id="cb338-2"><a href="propensity-score.html#cb338-2"></a>  deparse1 &lt;-<span class="st"> </span><span class="cf">function</span>(x) {</span>
+<span id="cb338-3"><a href="propensity-score.html#cb338-3"></a>    <span class="kw">paste</span>(<span class="kw">deparse</span>(x), <span class="dt">collapse =</span> <span class="st">&#39; &#39;</span>)</span>
+<span id="cb338-4"><a href="propensity-score.html#cb338-4"></a>  }</span>
+<span id="cb338-5"><a href="propensity-score.html#cb338-5"></a>}</span></code></pre></div>
+</div>
+<div id="このトピックで使うrコードの説明-3" class="section level3" number="5.1.4">
+<h3><span class="header-section-number">5.1.4</span> このトピックで使うRコードの説明</h3>
+<div id="cut" class="section level4" number="5.1.4.1">
+<h4><span class="header-section-number">5.1.4.1</span> <code>cut()</code></h4>
+<p><code>cut()</code> は連続値をとる変数をもとに、factor 型のカテゴリ変数を作るときに使う。
+例として、0から1の間の値をとる変数をカテゴリ変数にしてみよう。</p>
+<p>まず、変数をランダムに生成する。</p>
+<div class="sourceCode" id="cb339"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb339-1"><a href="propensity-score.html#cb339-1"></a>a &lt;-<span class="st"> </span><span class="kw">runif</span>(<span class="dv">100</span>, <span class="dt">min =</span> <span class="dv">0</span>, <span class="dt">max =</span> <span class="dv">1</span>)</span>
+<span id="cb339-2"><a href="propensity-score.html#cb339-2"></a><span class="kw">summary</span>(a)</span></code></pre></div>
+<pre><code>##      Min.   1st Qu.    Median      Mean   3rd Qu.      Max. 
+## 0.0009268 0.2334818 0.4748502 0.4726042 0.7045828 0.9869757</code></pre>
+<p>この変数を、[0, 0.2], (0.2, 0.4], (0.4, 0.6], (0.6, 0.8], (0.8, 1.0] の5つのカテゴリに分類するカテゴリ変数を作る。</p>
+<div class="sourceCode" id="cb341"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb341-1"><a href="propensity-score.html#cb341-1"></a>f1 &lt;-<span class="st"> </span><span class="kw">cut</span>(a, <span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dt">by =</span> <span class="fl">0.2</span>), <span class="dt">include.lowest =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb341-2"><a href="propensity-score.html#cb341-2"></a><span class="kw">table</span>(f1)</span></code></pre></div>
+<pre><code>## f1
+##   [0,0.2] (0.2,0.4] (0.4,0.6] (0.6,0.8]   (0.8,1] 
+##        20        25        21        19        15</code></pre>
+<p>同様に、[0, 0.2), [0.2, 0.4), [0.4, 0.6), [0.6, 0.8), [0.8, 1.0] の5つのカテゴリにするには、<code>right = FALSE</code> にする。</p>
+<div class="sourceCode" id="cb343"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb343-1"><a href="propensity-score.html#cb343-1"></a>f2 &lt;-<span class="st"> </span><span class="kw">cut</span>(a, <span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dt">by =</span> <span class="fl">0.2</span>), <span class="dt">include.lowest =</span> <span class="ot">TRUE</span>,</span>
+<span id="cb343-2"><a href="propensity-score.html#cb343-2"></a>          <span class="dt">right =</span> <span class="ot">FALSE</span>)</span>
+<span id="cb343-3"><a href="propensity-score.html#cb343-3"></a><span class="kw">table</span>(f2)</span></code></pre></div>
+<pre><code>## f2
+##   [0,0.2) [0.2,0.4) [0.4,0.6) [0.6,0.8)   [0.8,1] 
+##        20        25        21        19        15</code></pre>
+<p>各カテゴリに属する観測数を同数にしたいときは、<code>quantile()</code> を利用して次のようにする。</p>
+<div class="sourceCode" id="cb345"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb345-1"><a href="propensity-score.html#cb345-1"></a>f3 &lt;-<span class="st"> </span><span class="kw">cut</span>(a, <span class="dt">breaks =</span> <span class="kw">quantile</span>(a, <span class="dt">prob =</span> <span class="kw">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dt">by =</span> <span class="fl">0.2</span>)),</span>
+<span id="cb345-2"><a href="propensity-score.html#cb345-2"></a>          <span class="dt">include.lowest =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb345-3"><a href="propensity-score.html#cb345-3"></a><span class="kw">table</span>(f3)</span></code></pre></div>
+<pre><code>## f3
+## [0.000927,0.213]    (0.213,0.374]     (0.374,0.56]     (0.56,0.758] 
+##               20               20               20               20 
+##    (0.758,0.987] 
+##               20</code></pre>
+</div>
+</div>
+</div>
+<div id="傾向スコアを用いた因果推論の手順" class="section level2" number="5.2">
+<h2><span class="header-section-number">5.2</span> 傾向スコアを用いた因果推論の手順</h2>
+<p>傾向スコアを使った因果効果の推定は、以下の手順で行う。</p>
+<ol style="list-style-type: decimal">
+<li>共変量の選定</li>
+<li>傾向スコアの推定</li>
+<li>傾向スコアを用いたバランス調整</li>
+</ol>
+<ul>
+<li>重み付け</li>
+<li>層別</li>
+<li>マッチング<span class="math inline">\(\ast\)</span>（<span class="citation">King and Nielsen (<a href="#ref-king-nielsen2019" role="doc-biblioref">2019</a>)</span> によると、傾向スコアを用いたマッチングを因果効果の推定に用いることは推奨されないので、ここでは説明しない。層別も広い意味ではマッチングだが。）</li>
+</ul>
+<ol start="4" style="list-style-type: decimal">
+<li>共変量のバランスチェック</li>
+<li>処置効果（因果効果）の推定</li>
+<li>感度分析<span class="math inline">\(\ast\)</span>（この授業では時間の都合で説明できないが、興味があれば <span class="citation">Carnegie, Harada, and Hill (<a href="#ref-carnegie2016" role="doc-biblioref">2016</a>)</span> を参照されたい。<strong>treatSens</strong> というパッケージが用意されている。）</li>
+</ol>
+<p>教科書 <span class="citation">(安井 <a href="#ref-yasui2020" role="doc-biblioref">2020</a>)</span> でも分析されている <span class="citation">LaLonde (<a href="#ref-lalonde1986" role="doc-biblioref">1986</a>)</span> の実験データ <span class="citation">(Dehejia and Wahba <a href="#ref-dehejia2002" role="doc-biblioref">2002</a>)</span> を使い、傾向スコアを使った分析手順を説明する。</p>
+<p>まず、データを入手しよう（<span class="citation">安井 (<a href="#ref-yasui2020" role="doc-biblioref">2020</a>)</span> の p.120 を参照）。後で読み込み直すことも考えて、data ディレクトリに一旦ダウンロードする。</p>
+<div class="sourceCode" id="cb347"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb347-1"><a href="propensity-score.html#cb347-1"></a>base_url &lt;-<span class="st"> &quot;https://users.nber.org/~rdehejia/data/&quot;</span></span>
+<span id="cb347-2"><a href="propensity-score.html#cb347-2"></a>targets &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;nsw_dw.dta&quot;</span>, <span class="st">&quot;cps_controls.dta&quot;</span>, <span class="st">&quot;cps_controls3.dta&quot;</span>)</span>
+<span id="cb347-3"><a href="propensity-score.html#cb347-3"></a><span class="kw">download.file</span>(<span class="dt">url =</span> <span class="kw">str_c</span>(base_url, targets),</span>
+<span id="cb347-4"><a href="propensity-score.html#cb347-4"></a>              <span class="dt">destfile =</span> <span class="kw">str_c</span>(<span class="st">&quot;data/&quot;</span>, targets))</span></code></pre></div>
+<p>手に入れたデータを読み込む。</p>
+<div class="sourceCode" id="cb348"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb348-1"><a href="propensity-score.html#cb348-1"></a>d_cps1 &lt;-<span class="st"> </span><span class="kw">read_dta</span>(<span class="st">&quot;data/cps_controls.dta&quot;</span>)</span>
+<span id="cb348-2"><a href="propensity-score.html#cb348-2"></a>d_cps3 &lt;-<span class="st"> </span><span class="kw">read_dta</span>(<span class="st">&quot;data/cps_controls3.dta&quot;</span>)</span>
+<span id="cb348-3"><a href="propensity-score.html#cb348-3"></a>d_nsw &lt;-<span class="st"> </span><span class="kw">read_dta</span>(<span class="st">&quot;data/nsw_dw.dta&quot;</span>)</span></code></pre></div>
+<p>実験データである d_nsw で回帰分析をしてみる。共変量を全部タイプして <code>+</code> で繋ぐのが面倒なので、次のようにする。</p>
+<div class="sourceCode" id="cb349"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb349-1"><a href="propensity-score.html#cb349-1"></a>covariates0 &lt;-<span class="st"> </span><span class="kw">names</span>(d_nsw)[<span class="dv">2</span><span class="op">:</span>(<span class="kw">ncol</span>(d_nsw) <span class="op">-</span><span class="st"> </span><span class="dv">1</span>)] <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb349-2"><a href="propensity-score.html#cb349-2"></a><span class="st">  </span><span class="kw">str_c</span>(<span class="dt">collapse =</span> <span class="st">&quot; + &quot;</span>) </span></code></pre></div>
+<p>これで、共変量が <code>+</code> で繋がれた文字列ができた。傾向スコアの推定では、共変量の数が多くなるので、こういう方法を覚えておいたほうがいい。ただし、このままだと使えないので、さらに次のようにする。</p>
+<div class="sourceCode" id="cb350"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb350-1"><a href="propensity-score.html#cb350-1"></a>rct_formula &lt;-<span class="st"> &quot;re78 ~ &quot;</span> <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb350-2"><a href="propensity-score.html#cb350-2"></a><span class="st">  </span><span class="kw">str_c</span>(covariates0) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb350-3"><a href="propensity-score.html#cb350-3"></a><span class="st">  </span><span class="kw">formula</span>()</span></code></pre></div>
+<p>これで、<code>lm()</code> で利用できる式 (formula) ができた。</p>
+<div class="sourceCode" id="cb351"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb351-1"><a href="propensity-score.html#cb351-1"></a>rct_formula</span></code></pre></div>
+<pre><code>## re78 ~ treat + age + education + black + hispanic + married + 
+##     nodegree + re74 + re75
+## &lt;environment: 0x7fc76237ea88&gt;</code></pre>
+<p>回帰式を推定する。</p>
+<div class="sourceCode" id="cb353"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb353-1"><a href="propensity-score.html#cb353-1"></a>ate_rct &lt;-<span class="st"> </span><span class="kw">coef</span>(<span class="kw">lm</span>(rct_formula, <span class="dt">data =</span> d_nsw))[<span class="dv">2</span>] <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb353-2"><a href="propensity-score.html#cb353-2"></a><span class="st">  </span><span class="kw">print</span>()</span></code></pre></div>
+<pre><code>##    treat 
+## 1676.343</code></pre>
+<p>教科書に記載されているとおり、実験で推定された処置効果は $1676 であることがわかる。</p>
+<p>次に、d_nsw の処置（介入）群を取り出して、d_cps1の処置群として扱うデータセットを作る。</p>
+<div class="sourceCode" id="cb355"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb355-1"><a href="propensity-score.html#cb355-1"></a>d_cps1_nsw &lt;-<span class="st"> </span>d_nsw <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb355-2"><a href="propensity-score.html#cb355-2"></a><span class="st">  </span><span class="kw">filter</span>(treat <span class="op">==</span><span class="st"> </span><span class="dv">1</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb355-3"><a href="propensity-score.html#cb355-3"></a><span class="st">  </span><span class="kw">rbind</span>(d_cps1)</span></code></pre></div>
+<p>同様に、d_nsw の処置（介入）群を取り出して、d_cps3の処置群として扱うデータセットを作る。</p>
+<div class="sourceCode" id="cb356"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb356-1"><a href="propensity-score.html#cb356-1"></a>d_cps3_nsw &lt;-<span class="st"> </span>d_nsw <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb356-2"><a href="propensity-score.html#cb356-2"></a><span class="st">  </span><span class="kw">filter</span>(treat <span class="op">==</span><span class="st"> </span><span class="dv">1</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb356-3"><a href="propensity-score.html#cb356-3"></a><span class="st">  </span><span class="kw">rbind</span>(d_cps3)</span></code></pre></div>
+<p>以下では、上のd_cps1_nsw を使って、傾向スコアを使った分析の手順を説明する。
+<strong>d_cps3_nswの分析は課題とする。</strong></p>
+</div>
+<div id="共変量の選定" class="section level2" number="5.3">
+<h2><span class="header-section-number">5.3</span> 共変量の選定</h2>
+<p>まず、データ d_cps1_nsw の中身を確認しよう。変数の数がそれほど多くないことがわかっているので、全体の要約統計量を表示して確認する。</p>
+<div class="sourceCode" id="cb357"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb357-1"><a href="propensity-score.html#cb357-1"></a><span class="kw">summary</span>(d_cps1_nsw)</span></code></pre></div>
+<pre><code>##    data_id              treat              age          education    
+##  Length:16177       Min.   :0.00000   Min.   :16.00   Min.   : 0.00  
+##  Class :character   1st Qu.:0.00000   1st Qu.:24.00   1st Qu.:11.00  
+##  Mode  :character   Median :0.00000   Median :31.00   Median :12.00  
+##                     Mean   :0.01144   Mean   :33.14   Mean   :12.01  
+##                     3rd Qu.:0.00000   3rd Qu.:42.00   3rd Qu.:13.00  
+##                     Max.   :1.00000   Max.   :55.00   Max.   :18.00  
+##      black            hispanic          married          nodegree     
+##  Min.   :0.00000   Min.   :0.00000   Min.   :0.0000   Min.   :0.0000  
+##  1st Qu.:0.00000   1st Qu.:0.00000   1st Qu.:0.0000   1st Qu.:0.0000  
+##  Median :0.00000   Median :0.00000   Median :1.0000   Median :0.0000  
+##  Mean   :0.08234   Mean   :0.07189   Mean   :0.7058   Mean   :0.3006  
+##  3rd Qu.:0.00000   3rd Qu.:0.00000   3rd Qu.:1.0000   3rd Qu.:1.0000  
+##  Max.   :1.00000   Max.   :1.00000   Max.   :1.0000   Max.   :1.0000  
+##       re74            re75            re78      
+##  Min.   :    0   Min.   :    0   Min.   :    0  
+##  1st Qu.: 4075   1st Qu.: 4103   1st Qu.: 5493  
+##  Median :14892   Median :14374   Median :16240  
+##  Mean   :13880   Mean   :13512   Mean   :14749  
+##  3rd Qu.:23492   3rd Qu.:22830   3rd Qu.:25565  
+##  Max.   :35040   Max.   :25244   Max.   :60308</code></pre>
+<p>回帰分析の準備として、処置変数である treat （職業訓練の有無）と、結果変数である re78（1978年の収入）以外の変数を中心化する。また、教科書に倣い、re74 と re75 の二乗項も作る（ただし、標準化する）。</p>
+<div class="sourceCode" id="cb359"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb359-1"><a href="propensity-score.html#cb359-1"></a>myd &lt;-<span class="st"> </span>d_cps1_nsw <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb359-2"><a href="propensity-score.html#cb359-2"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">age_c =</span> age <span class="op">-</span><span class="st"> </span><span class="kw">mean</span>(age),</span>
+<span id="cb359-3"><a href="propensity-score.html#cb359-3"></a>         <span class="dt">education_c =</span> education <span class="op">-</span><span class="st"> </span><span class="kw">mean</span>(education),</span>
+<span id="cb359-4"><a href="propensity-score.html#cb359-4"></a>         <span class="dt">black_c =</span> black <span class="op">-</span><span class="st"> </span><span class="kw">mean</span>(black),</span>
+<span id="cb359-5"><a href="propensity-score.html#cb359-5"></a>         <span class="dt">hispanic_c =</span> hispanic <span class="op">-</span><span class="st"> </span><span class="kw">mean</span>(hispanic),</span>
+<span id="cb359-6"><a href="propensity-score.html#cb359-6"></a>         <span class="dt">married_c =</span> married <span class="op">-</span><span class="st"> </span><span class="kw">mean</span>(married),</span>
+<span id="cb359-7"><a href="propensity-score.html#cb359-7"></a>         <span class="dt">nodegree_c =</span> nodegree <span class="op">-</span><span class="st"> </span><span class="kw">mean</span>(nodegree),</span>
+<span id="cb359-8"><a href="propensity-score.html#cb359-8"></a>         <span class="dt">re74_c =</span> re74 <span class="op">-</span><span class="st"> </span><span class="kw">mean</span>(re74),</span>
+<span id="cb359-9"><a href="propensity-score.html#cb359-9"></a>         <span class="dt">re75_c =</span> re75 <span class="op">-</span><span class="st"> </span><span class="kw">mean</span>(re75),</span>
+<span id="cb359-10"><a href="propensity-score.html#cb359-10"></a>         <span class="dt">re74_sq_c =</span> (re74_c<span class="op">^</span><span class="dv">2</span> <span class="op">-</span><span class="st"> </span><span class="kw">mean</span>(re74_c<span class="op">^</span><span class="dv">2</span>)) <span class="op">/</span><span class="st"> </span><span class="kw">sd</span>(re74_c<span class="op">^</span><span class="dv">2</span>),</span>
+<span id="cb359-11"><a href="propensity-score.html#cb359-11"></a>         <span class="dt">re75_sq_c =</span> (re75_c<span class="op">^</span><span class="dv">2</span><span class="op">-</span><span class="st"> </span><span class="kw">mean</span>(re75_c<span class="op">^</span><span class="dv">2</span>)) <span class="op">/</span><span class="st"> </span><span class="kw">sd</span>(re75_c<span class="op">^</span><span class="dv">2</span>)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb359-12"><a href="propensity-score.html#cb359-12"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">select</span>(re78, treat, <span class="kw">ends_with</span>(<span class="st">&quot;_c&quot;</span>))</span></code></pre></div>
+<p>念のため、中心化したデータを確認する。</p>
+<div class="sourceCode" id="cb360"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb360-1"><a href="propensity-score.html#cb360-1"></a><span class="kw">summary</span>(myd)</span></code></pre></div>
+<pre><code>##       re78           treat             age_c          education_c        
+##  Min.   :    0   Min.   :0.00000   Min.   :-17.141   Min.   :-12.008283  
+##  1st Qu.: 5493   1st Qu.:0.00000   1st Qu.: -9.141   1st Qu.: -1.008283  
+##  Median :16240   Median :0.00000   Median : -2.141   Median : -0.008283  
+##  Mean   :14749   Mean   :0.01144   Mean   :  0.000   Mean   :  0.000000  
+##  3rd Qu.:25565   3rd Qu.:0.00000   3rd Qu.:  8.859   3rd Qu.:  0.991717  
+##  Max.   :60308   Max.   :1.00000   Max.   : 21.859   Max.   :  5.991717  
+##     black_c           hispanic_c         married_c         nodegree_c     
+##  Min.   :-0.08234   Min.   :-0.07189   Min.   :-0.7058   Min.   :-0.3006  
+##  1st Qu.:-0.08234   1st Qu.:-0.07189   1st Qu.:-0.7058   1st Qu.:-0.3006  
+##  Median :-0.08234   Median :-0.07189   Median : 0.2942   Median :-0.3006  
+##  Mean   : 0.00000   Mean   : 0.00000   Mean   : 0.0000   Mean   : 0.0000  
+##  3rd Qu.:-0.08234   3rd Qu.:-0.07189   3rd Qu.: 0.2942   3rd Qu.: 0.6994  
+##  Max.   : 0.91766   Max.   : 0.92811   Max.   : 0.2942   Max.   : 0.6994  
+##      re74_c           re75_c           re74_sq_c          re75_sq_c      
+##  Min.   :-13880   Min.   :-13512.2   Min.   :-1.36753   Min.   :-1.3609  
+##  1st Qu.: -9805   1st Qu.: -9408.8   1st Qu.:-1.02527   1st Qu.:-1.0265  
+##  Median :  1012   Median :   862.3   Median : 0.02418   Median : 0.0134  
+##  Mean   :     0   Mean   :     0.0   Mean   : 0.00000   Mean   : 0.0000  
+##  3rd Qu.:  9611   3rd Qu.:  9318.0   3rd Qu.: 0.75710   3rd Qu.: 0.7986  
+##  Max.   : 21160   Max.   : 11731.3   Max.   : 5.25847   Max.   : 1.5040</code></pre>
+<p>この例では、処置変数と結果変数以外の変数をすべて使って傾向スコアを推定するが、自分でリサーチクエスチョンを立ててデータ分析を行う場合には、どの変数を傾向スコアの推定に使うかを考える必要がある。</p>
+<p>ここですべての変数を使う理由は、それぞれの変数が結果変数には影響する（処置と結果の両者に影響するか、結果のみに影響する）と考えられるからである。</p>
+<p>共変量あるいは傾向スコアによる調整を行わずに、処置群と統制群を単純比較してみよう。</p>
+<div class="sourceCode" id="cb362"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb362-1"><a href="propensity-score.html#cb362-1"></a>reg_simple &lt;-<span class="st"> </span><span class="kw">lm</span>(re78 <span class="op">~</span><span class="st"> </span>treat, <span class="dt">data =</span> myd)</span>
+<span id="cb362-2"><a href="propensity-score.html#cb362-2"></a><span class="kw">tidy</span>(reg_simple)</span></code></pre></div>
+<pre><code>## # A tibble: 2 x 5
+##   term        estimate std.error statistic  p.value
+##   &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
+## 1 (Intercept)   14847.      76.1     195.  0.      
+## 2 treat         -8498.     712.      -11.9 1.07e-32</code></pre>
+<p>処置（職業訓練）は収入を $8498 <strong>減らす</strong> という誤った効果が推定されている。この回帰分析によれば、この効果は有意水準0.01 （あるいはもっと小さくてもOK。例えば0.000000001）で統計的に有意である。
+「統計的に有意な結果が出たからこれで分析は終わりだ！」などと思ってしまったら、どうなるだろうか？</p>
+</div>
+<div id="傾向スコアの推定" class="section level2" number="5.4">
+<h2><span class="header-section-number">5.4</span> 傾向スコアの推定</h2>
+<p>次に、傾向スコアを推定する。
+ここでは、ロジスティック回帰で推定することにする。Rでロジスティック回帰（あるいはその他の一般化線形モデル [GLM]）を実行するには、<code>glm()</code> を使う。</p>
+<p>ロジスティック回帰は、結果変数が <span class="math inline">\(Y \in \{0, 1\}\)</span>、説明変数が <span class="math inline">\(X\)</span> だとすると、
+<span class="math display">\[
+Y_i \sim \mbox{Bernoulli}(\theta_i)\\
+\mathrm{logit}(\theta_i) = \alpha_0 + \alpha_1 X_{1i} + \cdots + \alpha_k X_{ik}
+\]</span>
+という統計モデルである。つまり、結果変数を生成する確率分布が <span class="math inline">\(\mbox{Bernoulli}(\theta_i) = \mbox{Binomial}(1, \theta_i)\)</span> であり、リンク関数がロジット (logit) 関数であると仮定している。よって、<code>glm()</code> の引数で、<code>family = binomial(link = "logit")</code> を使い、<code>glm(Y ~ X1 + X2 + X3, family = binomial(link = 'logit'))</code> のようにして使う。</p>
+<p>この例では共変量の数が多く、共変量を全部タイプして <code>+</code> で繋ぐのが面倒なので、次のようにする。</p>
+<div class="sourceCode" id="cb364"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb364-1"><a href="propensity-score.html#cb364-1"></a>covariates &lt;-<span class="st"> </span><span class="kw">names</span>(myd)[<span class="dv">3</span><span class="op">:</span><span class="kw">ncol</span>(myd)]</span>
+<span id="cb364-2"><a href="propensity-score.html#cb364-2"></a>ps_formula &lt;-<span class="st"> </span>covariates <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb364-3"><a href="propensity-score.html#cb364-3"></a><span class="st">  </span><span class="kw">str_c</span>(<span class="dt">collapse =</span> <span class="st">&quot; + &quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb364-4"><a href="propensity-score.html#cb364-4"></a><span class="st">  </span><span class="kw">str_c</span>(<span class="st">&quot;treat ~ &quot;</span>, .) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb364-5"><a href="propensity-score.html#cb364-5"></a><span class="st">  </span><span class="kw">formula</span>()</span></code></pre></div>
+<p>これで、<code>glm()</code> で利用できる式 (formula) ができた。</p>
+<div class="sourceCode" id="cb365"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb365-1"><a href="propensity-score.html#cb365-1"></a>ps_formula</span></code></pre></div>
+<pre><code>## treat ~ age_c + education_c + black_c + hispanic_c + married_c + 
+##     nodegree_c + re74_c + re75_c + re74_sq_c + re75_sq_c
+## &lt;environment: 0x7fc792607638&gt;</code></pre>
+<p>これを使ってロジスティック回帰式を推定する。</p>
+<div class="sourceCode" id="cb367"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb367-1"><a href="propensity-score.html#cb367-1"></a>fit_logistic &lt;-<span class="st"> </span><span class="kw">glm</span>(ps_formula, <span class="dt">data =</span> myd,</span>
+<span id="cb367-2"><a href="propensity-score.html#cb367-2"></a>                    <span class="dt">family =</span> <span class="kw">binomial</span>(<span class="dt">link =</span> <span class="st">&quot;logit&quot;</span>))</span></code></pre></div>
+<p>これで推定ができた。推定結果の読み方については、<span class="citation">浅野 and 矢内 (<a href="#ref-asano-yanai2018" role="doc-biblioref">2018</a>)</span> の第15章を参照。</p>
+<p>ここでは、傾向スコアの推定値にのみ興味がある。傾向スコアすなわち <span class="math inline">\(\theta_i\)</span> の推定値は、<code>fitted()</code> で取り出せる。</p>
+<div class="sourceCode" id="cb368"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb368-1"><a href="propensity-score.html#cb368-1"></a>myd<span class="op">$</span>ps_logit &lt;-<span class="st"> </span><span class="kw">fitted</span>(fit_logistic)</span></code></pre></div>
+<p>推定された傾向スコアの分布を確認してみよう</p>
+<div class="sourceCode" id="cb369"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb369-1"><a href="propensity-score.html#cb369-1"></a>hist_ps_logit &lt;-<span class="st"> </span><span class="kw">ggplot</span>(myd, <span class="kw">aes</span>(<span class="dt">x =</span> ps_logit, <span class="dt">y =</span> <span class="kw">after_stat</span>(density))) <span class="op">+</span></span>
+<span id="cb369-2"><a href="propensity-score.html#cb369-2"></a><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">color =</span> <span class="st">&quot;black&quot;</span>) <span class="op">+</span></span>
+<span id="cb369-3"><a href="propensity-score.html#cb369-3"></a><span class="st">  </span><span class="kw">facet_grid</span>(<span class="dt">rows =</span> <span class="kw">vars</span>(treat), <span class="dt">scales =</span> <span class="st">&quot;free_y&quot;</span>) <span class="op">+</span></span>
+<span id="cb369-4"><a href="propensity-score.html#cb369-4"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;傾向スコアの推定値&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;確率密度&quot;</span>)</span>
+<span id="cb369-5"><a href="propensity-score.html#cb369-5"></a><span class="kw">plot</span>(hist_ps_logit)</span></code></pre></div>
+<p><img src="kut-metrics2_files/figure-html/unnamed-chunk-226-1.png" width="576" /></p>
+<p>統制群（0; 上段）と処置群（1; 下段）で傾向スコアの分布の傾向が大きく異なることがわかる（上段と下段で縦軸のスケールが異なる　[“free_y” を指定した] ことに注意）。</p>
+<p>念のため、他の種類の図も作ってみよう。</p>
+<div class="sourceCode" id="cb370"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb370-1"><a href="propensity-score.html#cb370-1"></a>box_ps_logit &lt;-<span class="st"> </span><span class="kw">ggplot</span>(myd, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">as.factor</span>(treat), <span class="dt">y =</span> ps_logit)) <span class="op">+</span></span>
+<span id="cb370-2"><a href="propensity-score.html#cb370-2"></a><span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="dt">width =</span> <span class="fl">0.5</span>) <span class="op">+</span></span>
+<span id="cb370-3"><a href="propensity-score.html#cb370-3"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;処置&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;傾向スコアの推定値&quot;</span>)</span>
+<span id="cb370-4"><a href="propensity-score.html#cb370-4"></a><span class="kw">plot</span>(box_ps_logit)</span></code></pre></div>
+<p><img src="kut-metrics2_files/figure-html/unnamed-chunk-227-1.png" width="288" /></p>
+<p>箱ひげ図で見ても、分布が大きく異なることがわかる（ちなみに、あまりにも分布が異なるので、バイオリン図では違いがよく見えない。また、観測数が多いので、蜂群図を作るのも大変である。この辺りは試行錯誤が必要）。ヒストグラムでは、統制群に傾向スコアの値が0.1以上の個体があるかどうかがよくわからなかったが、箱ひげ図を描いてみたところ、分布の範囲自体は重なり合っていることがわかる。つまり、「共有（共通）サポート (common support)」はありそうだ。</p>
+<p>このように、複数の種類の図を描き、多角的に検討することが必要である。</p>
+</div>
+<div id="バランス調整バランスチェック因果効果の推定" class="section level2" number="5.5">
+<h2><span class="header-section-number">5.5</span> バランス調整、バランスチェック、因果効果の推定</h2>
+<p>ここからは、バランス調整の方法別に、(1) その方法、(2) バランスチェック、(3) 因果効果の推定の3つのステップを合わせて説明する。バランス調整の方法として、次の方法を説明する</p>
+<ol style="list-style-type: decimal">
+<li>重み付け</li>
+</ol>
+<ul>
+<li>ATT を推定するための重み付け</li>
+<li>ATE を推定するための重み付け（IPW）</li>
+</ul>
+<ol start="2" style="list-style-type: decimal">
+<li>層別</li>
+</ol>
+<div id="重み付け" class="section level3" number="5.5.1">
+<h3><span class="header-section-number">5.5.1</span> 重み付け</h3>
+<p>傾向スコアを利用した重み付けで因果効果を推定する方法を紹介する。推定の対象 (estimand) によって使う重みが異なるので、自分が何を推定したいのか明確にしておく必要がある。
+通常、推定の対象としたいのは、ATE（平均処置効果）または ATT（処置群における平均処置効果）であることが多いので、この2つについて説明する。</p>
+<div id="att処置群における平均処置効果の推定" class="section level4" number="5.5.1.1">
+<h4><span class="header-section-number">5.5.1.1</span> ATT（処置群における平均処置効果）の推定</h4>
+<p>ATTを推定するために、傾向スコア <span class="math inline">\(e_i(X)\)</span> を用いて次の重み (weight) を計算する。
+<span class="math display">\[
+w_i^{\mathrm{ATT}} = D_i + (1 - D_i) \frac{e_i(X)}{1 - e_i(X)}
+\]</span>
+この重みを使うと、処置群 (<span class="math inline">\(D_i = 1\)</span>) の個体の重みは <span class="math inline">\(w_i^{\mathrm{ATT}} = 1\)</span> になる。つまり、処置群の個体には、傾向スコアに関係なく等しい重みが与えられる。</p>
+<p>それに対し、統制群 (<span class="math inline">\(D_i = 0)\)</span> の個体の重みは、<span class="math inline">\(w_i^{\mathrm{ATT}} = e_i(X) / (1 - e_i(X))\)</span>
+になる。つまり、傾向スコアが高いほど、大きな重みが与えられる。これは、傾向スコアが高い、すなわち処置群に入る確率が高いにも拘らず統制群に入った個体は、処置群の比較対象として重宝されるということを意味する。反対に、傾向スコアが低い個体は、処置群の比較対象としてあまり重要ではない（処置群にはそれによく似た個体が少ないのに、同種の個体が統制群にたくさんある）ので、割り引いて考えられるということである。</p>
+<p>この重みを計算しよう。</p>
+<div class="sourceCode" id="cb371"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb371-1"><a href="propensity-score.html#cb371-1"></a>myd &lt;-<span class="st"> </span>myd <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb371-2"><a href="propensity-score.html#cb371-2"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">w_att =</span> treat <span class="op">+</span><span class="st"> </span>(<span class="dv">1</span> <span class="op">-</span><span class="st"> </span>treat) <span class="op">*</span><span class="st"> </span>ps_logit <span class="op">/</span><span class="st"> </span>(<span class="dv">1</span> <span class="op">-</span><span class="st"> </span>ps_logit))</span></code></pre></div>
+<p>統制群でこの重みがどのように分布しているか確認しよう。</p>
+<div class="sourceCode" id="cb372"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb372-1"><a href="propensity-score.html#cb372-1"></a>hist_w_att &lt;-<span class="st"> </span>myd <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb372-2"><a href="propensity-score.html#cb372-2"></a><span class="st">  </span><span class="kw">filter</span>(treat <span class="op">==</span><span class="st"> </span><span class="dv">0</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb372-3"><a href="propensity-score.html#cb372-3"></a><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> w_att, <span class="dt">y =</span> <span class="kw">after_stat</span>(density))) <span class="op">+</span></span>
+<span id="cb372-4"><a href="propensity-score.html#cb372-4"></a><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">color =</span> <span class="st">&quot;black&quot;</span>) <span class="op">+</span></span>
+<span id="cb372-5"><a href="propensity-score.html#cb372-5"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;ATT を推定するための重み&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;˚確率密度&quot;</span>)</span>
+<span id="cb372-6"><a href="propensity-score.html#cb372-6"></a><span class="kw">plot</span>(hist_w_att)</span></code></pre></div>
+<p><img src="kut-metrics2_files/figure-html/unnamed-chunk-229-1.png" width="384" /></p>
+<p>統制群には傾向スコアが小さな個体ばかりが集まっていて、重みも0付近に集中していることがわかる。</p>
+<p><strong>WeightIt</strong> パッケージの<code>weightit()</code> を使えば、傾向スコアの推定と重みの計算が一挙にできる。傾向スコア (propensity score; ps) を使うために、<code>method = "ps"</code> を指定する。また、推定対象 (estimand) に “ATT” を指定する。</p>
+<div class="sourceCode" id="cb373"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb373-1"><a href="propensity-score.html#cb373-1"></a>w_att2 &lt;-<span class="st"> </span><span class="kw">weightit</span>(ps_formula, <span class="dt">data =</span> myd,</span>
+<span id="cb373-2"><a href="propensity-score.html#cb373-2"></a>                   <span class="dt">method =</span> <span class="st">&quot;ps&quot;</span>, <span class="dt">estimand =</span> <span class="st">&quot;ATT&quot;</span>)</span></code></pre></div>
+<p><code>weightit()</code> の結果を使うと、<strong>cobalt</strong> パッケージの <code>cobalt::bal.plot()</code> で重みによる調整前後の傾向スコアの分布も確認できる。</p>
+<div class="sourceCode" id="cb374"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb374-1"><a href="propensity-score.html#cb374-1"></a>hist_w_att2 &lt;-<span class="st"> </span><span class="kw">bal.plot</span>(w_att2, <span class="dt">var.name =</span> <span class="st">&quot;prop.score&quot;</span>, <span class="dt">which =</span> <span class="st">&quot;both&quot;</span>,</span>
+<span id="cb374-2"><a href="propensity-score.html#cb374-2"></a>         <span class="dt">type =</span> <span class="st">&quot;histogram&quot;</span>, <span class="dt">mirror =</span> <span class="ot">TRUE</span>,</span>
+<span id="cb374-3"><a href="propensity-score.html#cb374-3"></a>         <span class="dt">sample.names =</span> <span class="kw">c</span>(<span class="st">&quot;調整前&quot;</span>, <span class="st">&quot;調整後&quot;</span>)) <span class="op">+</span></span>
+<span id="cb374-4"><a href="propensity-score.html#cb374-4"></a><span class="st">  </span><span class="kw">scale_fill_discrete</span>(<span class="dt">name =</span> <span class="st">&quot;処置&quot;</span>) <span class="op">+</span></span>
+<span id="cb374-5"><a href="propensity-score.html#cb374-5"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;傾向スコア&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;割合&quot;</span>, <span class="dt">title =</span> <span class="st">&quot;傾向スコアの分布&quot;</span>)</span>
+<span id="cb374-6"><a href="propensity-score.html#cb374-6"></a><span class="kw">plot</span>(hist_w_att2)</span></code></pre></div>
+<p><img src="kut-metrics2_files/figure-html/unnamed-chunk-232-1.png" width="480" /></p>
+<p>処置群における因果効果を推定するために処置群の分布に合わせて、<strong>統制群の分布が調整された</strong>ことがわかる。</p>
+<p>この調整によって、共変量のバランスが改善したかどうか確認しよう。<code>cobalt::love.plot()</code> を使う。</p>
+<div class="sourceCode" id="cb375"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb375-1"><a href="propensity-score.html#cb375-1"></a>bal_att &lt;-<span class="st"> </span><span class="kw">love.plot</span>(w_att2, <span class="dt">threshold =</span> <span class="fl">0.1</span>, <span class="dt">abs =</span> <span class="ot">TRUE</span>, <span class="dt">grid =</span> <span class="ot">TRUE</span>, </span>
+<span id="cb375-2"><a href="propensity-score.html#cb375-2"></a>                     <span class="dt">shapes =</span> <span class="kw">c</span>(<span class="dv">18</span>, <span class="dv">20</span>), <span class="dt">color =</span> <span class="kw">c</span>(<span class="st">&quot;tomato&quot;</span>, <span class="st">&quot;royalblue&quot;</span>), </span>
+<span id="cb375-3"><a href="propensity-score.html#cb375-3"></a>                     <span class="dt">sample.names =</span> <span class="kw">c</span>(<span class="st">&quot;調整前&quot;</span>, <span class="st">&quot;調整後&quot;</span>),</span>
+<span id="cb375-4"><a href="propensity-score.html#cb375-4"></a>                     <span class="dt">title =</span> <span class="st">&quot;共変量のバランス&quot;</span>) <span class="op">+</span></span>
+<span id="cb375-5"><a href="propensity-score.html#cb375-5"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;標準化平均差の絶対値&quot;</span>,</span>
+<span id="cb375-6"><a href="propensity-score.html#cb375-6"></a>       <span class="dt">shape =</span> <span class="st">&quot;&quot;</span>, <span class="dt">size =</span> <span class="st">&quot;&quot;</span>, <span class="dt">stroke =</span> <span class="st">&quot;&quot;</span>, <span class="dt">colour =</span> <span class="st">&quot;&quot;</span>)</span>
+<span id="cb375-7"><a href="propensity-score.html#cb375-7"></a><span class="kw">plot</span>(bal_att)</span></code></pre></div>
+<p><img src="kut-metrics2_files/figure-html/unnamed-chunk-233-1.png" width="576" /></p>
+<p>すべての共変量について、重み付けによって処置群と統制群の間のバランスが改善し、標準化平均差の絶対値が0.1未満になっていることがわかる。</p>
+<p>この重みを使い、ATT <span class="math inline">\(= \mathbb{E}[Y(1) \mid D = 1] - \mathbb{E}[Y(0) \mid D = 1]\)</span>を推定してみよう。
+<span class="math inline">\(\mathbb{E}[Y(1) \mid D = 1]\)</span>は、</p>
+<div class="sourceCode" id="cb376"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb376-1"><a href="propensity-score.html#cb376-1"></a>e_y1_d1 &lt;-<span class="st"> </span>myd <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb376-2"><a href="propensity-score.html#cb376-2"></a><span class="st">  </span><span class="kw">filter</span>(treat <span class="op">==</span><span class="st"> </span><span class="dv">1</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb376-3"><a href="propensity-score.html#cb376-3"></a><span class="st">  </span><span class="kw">pull</span>(re78) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb376-4"><a href="propensity-score.html#cb376-4"></a><span class="st">  </span><span class="kw">mean</span>() <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb376-5"><a href="propensity-score.html#cb376-5"></a><span class="st">  </span><span class="kw">print</span>()</span></code></pre></div>
+<pre><code>## [1] 6349.144</code></pre>
+<p>と推定される。<span class="math inline">\(\mathbb{E}[Y(0) \mid D = 1]\)</span> は重みを使うと、</p>
+<div class="sourceCode" id="cb378"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb378-1"><a href="propensity-score.html#cb378-1"></a>e_y0_d1 &lt;-<span class="st"> </span>myd <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb378-2"><a href="propensity-score.html#cb378-2"></a><span class="st">  </span><span class="kw">filter</span>(treat <span class="op">==</span><span class="st"> </span><span class="dv">0</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb378-3"><a href="propensity-score.html#cb378-3"></a><span class="st">  </span><span class="kw">with</span>(<span class="kw">weighted.mean</span>(re78, <span class="dt">w =</span> w_att)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb378-4"><a href="propensity-score.html#cb378-4"></a><span class="st">  </span><span class="kw">print</span>()</span></code></pre></div>
+<pre><code>## [1] 5104.037</code></pre>
+<p>と、推定される。これらの差をとると、ATTは</p>
+<div class="sourceCode" id="cb380"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb380-1"><a href="propensity-score.html#cb380-1"></a>e_y1_d1 <span class="op">-</span><span class="st"> </span>e_y0_d1</span></code></pre></div>
+<pre><code>## [1] 1245.106</code></pre>
+<p>であると推定される。RCT によるATEの推定結果は 1676.34 なので、効果が小さく推定されているが、重みを使わない単純な平均値の差に比べると、バイアスがかなり小さくなったことがわかる。</p>
+<p><code>lm()</code> で <code>weight</code> を指定すれば、これと同じ推定値が得られる。</p>
+<div class="sourceCode" id="cb382"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb382-1"><a href="propensity-score.html#cb382-1"></a>ps_weight_att1 &lt;-<span class="st"> </span><span class="kw">lm</span>(re78 <span class="op">~</span><span class="st"> </span>treat, <span class="dt">data =</span> myd, <span class="dt">weight =</span> w_att)</span>
+<span id="cb382-2"><a href="propensity-score.html#cb382-2"></a><span class="kw">tidy</span>(ps_weight_att1)</span></code></pre></div>
+<pre><code>## # A tibble: 2 x 5
+##   term        estimate std.error statistic  p.value
+##   &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
+## 1 (Intercept)    5104.      78.8      64.8 0.      
+## 2 treat          1245.     111.       11.2 6.58e-29</code></pre>
+<p><strong>WeightIt</strong> パッケージの<code>weightit()</code> で推定した重みを使っても、同じ結果が得られる。</p>
+<div class="sourceCode" id="cb384"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb384-1"><a href="propensity-score.html#cb384-1"></a>ps_weight_att2 &lt;-<span class="st"> </span><span class="kw">lm</span>(re78 <span class="op">~</span><span class="st"> </span>treat, <span class="dt">weights =</span> w_att2<span class="op">$</span>weights, <span class="dt">data =</span> myd)</span>
+<span id="cb384-2"><a href="propensity-score.html#cb384-2"></a><span class="kw">tidy</span>(ps_weight_att2)</span></code></pre></div>
+<pre><code>## # A tibble: 2 x 5
+##   term        estimate std.error statistic  p.value
+##   &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
+## 1 (Intercept)    5104.      78.8      64.8 0.      
+## 2 treat          1245.     111.       11.2 6.58e-29</code></pre>
+</div>
+<div id="ipw-ate平均処置効果の推定" class="section level4" number="5.5.1.2">
+<h4><span class="header-section-number">5.5.1.2</span> IPW: ATE（平均処置効果）の推定</h4>
+<p>続いて、ATEを推定するための重み付けについて説明する。
+ATE を推定するためには、<strong>IPW</strong> (inverse probability weighting; 逆確率重み付け) という方法を用いる。
+ATE <span class="math inline">\(= \mathbb{E}[Y(1)] - \mathbb{E}[Y(0)]\)</span> のそれぞれの項を、傾向スコアを利用した重み付けによって推定する。</p>
+<p><span class="math inline">\(\mathbb{E}[Y(1)]\)</span>の推定値は、重み
+<span class="math display">\[
+w_{1i} = \frac{D_i}{e_i(X)}
+\]</span>
+を使って、
+<span class="math display">\[
+\hat{\mathbb{E}}[Y(1)] =
+\sum{\frac{w_{1i}Y_i}{\sum w_{1i}}} =
+\sum{\frac{D_i / e_i(X)}{\sum \left[D_i / e_i(X)\right]} Y_i}
+\]</span>
+である。また、<span class="math inline">\(\mathbb{E}[Y(0)]\)</span>の推定値は、重みを
+<span class="math display">\[
+w_{0i} = \frac{1 - D_i}{1 - e_i(X)}
+\]</span>
+として、
+<span class="math display">\[
+\hat{\mathbb{E}}[Y(0)] =
+\sum{\frac{w_{0i}Y_i}{\sum w_{0i}}} =
+\sum{\frac{(1 - D_i) / (1 - e_i(X))}{\sum \left[(1 - D_i) / (1 - e_i(X))\right]} Y_i}
+\]</span>
+である。</p>
+<p>このように、処置群と統制群のそれぞれについてその群に割り付けられる傾向スコアの逆数で重みが決まるので、この名前が付いている。IPW では、それぞれの群で珍しい個体ほど重みが大きくなる。
+この重み、
+<span class="math display">\[
+w_i =   \frac{D_i}{e_i(X)} + \frac{1 - D_i}{1 - e_i(X)}
+\]</span>
+を計算しよう</p>
+<div class="sourceCode" id="cb386"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb386-1"><a href="propensity-score.html#cb386-1"></a>myd &lt;-<span class="st"> </span>myd <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb386-2"><a href="propensity-score.html#cb386-2"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">w_ate =</span> <span class="kw">ifelse</span>(treat <span class="op">==</span><span class="st"> </span><span class="dv">1</span>, </span>
+<span id="cb386-3"><a href="propensity-score.html#cb386-3"></a>                        <span class="dv">1</span> <span class="op">/</span><span class="st"> </span>ps_logit, </span>
+<span id="cb386-4"><a href="propensity-score.html#cb386-4"></a>                        <span class="dv">1</span> <span class="op">/</span><span class="st"> </span>(<span class="dv">1</span> <span class="op">-</span><span class="st"> </span>ps_logit)))</span></code></pre></div>
+<p>この重みがどのように分布しているか確認しよう。</p>
+<div class="sourceCode" id="cb387"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb387-1"><a href="propensity-score.html#cb387-1"></a>hist_w_ate &lt;-<span class="st"> </span>myd <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb387-2"><a href="propensity-score.html#cb387-2"></a><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> w_ate, <span class="dt">y =</span> <span class="kw">after_stat</span>(density))) <span class="op">+</span></span>
+<span id="cb387-3"><a href="propensity-score.html#cb387-3"></a><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">color =</span> <span class="st">&quot;black&quot;</span>) <span class="op">+</span></span>
+<span id="cb387-4"><a href="propensity-score.html#cb387-4"></a><span class="st">  </span><span class="kw">facet_grid</span>(<span class="dt">row =</span> <span class="kw">vars</span>(treat)) <span class="op">+</span></span>
+<span id="cb387-5"><a href="propensity-score.html#cb387-5"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;IPWによる重み&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;˚確率密度&quot;</span>)</span>
+<span id="cb387-6"><a href="propensity-score.html#cb387-6"></a><span class="kw">plot</span>(hist_w_ate)</span></code></pre></div>
+<p><img src="kut-metrics2_files/figure-html/unnamed-chunk-240-1.png" width="384" /></p>
+<p>処置群で傾向スコアが大きい個体の重みが割り引かれている一方で、統制群に傾向スコアが大きい個体があまりないため、重みが割増されている個体はあまりないことがわかる。</p>
+<p><code>WeightIt::weightit()</code> で重みを計算してみよう。推定対象 (estimand) に “ATE” を指定する。</p>
+<div class="sourceCode" id="cb388"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb388-1"><a href="propensity-score.html#cb388-1"></a>w_ate2 &lt;-<span class="st"> </span><span class="kw">weightit</span>(ps_formula, <span class="dt">data =</span> myd,</span>
+<span id="cb388-2"><a href="propensity-score.html#cb388-2"></a>                   <span class="dt">method =</span> <span class="st">&quot;ps&quot;</span>, <span class="dt">estimand =</span> <span class="st">&quot;ATE&quot;</span>)</span></code></pre></div>
+<p><code>cobalt::bal.plot()</code> で重みによる調整前後の傾向スコアの分布を確認する。</p>
+<div class="sourceCode" id="cb389"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb389-1"><a href="propensity-score.html#cb389-1"></a>hist_w_ate2 &lt;-<span class="st"> </span><span class="kw">bal.plot</span>(w_ate2, <span class="dt">var.name =</span> <span class="st">&quot;prop.score&quot;</span>, <span class="dt">which =</span> <span class="st">&quot;both&quot;</span>,</span>
+<span id="cb389-2"><a href="propensity-score.html#cb389-2"></a>         <span class="dt">type =</span> <span class="st">&quot;histogram&quot;</span>, <span class="dt">mirror =</span> <span class="ot">TRUE</span>,</span>
+<span id="cb389-3"><a href="propensity-score.html#cb389-3"></a>         <span class="dt">sample.names =</span> <span class="kw">c</span>(<span class="st">&quot;調整前&quot;</span>, <span class="st">&quot;調整後&quot;</span>)) <span class="op">+</span></span>
+<span id="cb389-4"><a href="propensity-score.html#cb389-4"></a><span class="st">  </span><span class="kw">scale_fill_discrete</span>(<span class="dt">name =</span> <span class="st">&quot;処置&quot;</span>) <span class="op">+</span></span>
+<span id="cb389-5"><a href="propensity-score.html#cb389-5"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;傾向スコア&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;割合&quot;</span>, <span class="dt">title =</span> <span class="st">&quot;傾向スコアの分布&quot;</span>)</span>
+<span id="cb389-6"><a href="propensity-score.html#cb389-6"></a><span class="kw">plot</span>(hist_w_ate2)</span></code></pre></div>
+<p><img src="kut-metrics2_files/figure-html/unnamed-chunk-242-1.png" width="480" /></p>
+<p>調整後に、処置群の分布が統制群の分布に近づいていることがわかる。これは、処置群の観測数が 185 であるのに対して、統制群の観測数が 16,177 もあるためである。</p>
+<p>この調整によって、共変量のバランスが改善したかどうか確認しよう。<code>cobalt::love.plot()</code> を使う。</p>
+<div class="sourceCode" id="cb390"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb390-1"><a href="propensity-score.html#cb390-1"></a>bal_ate &lt;-<span class="st"> </span><span class="kw">love.plot</span>(w_ate2, <span class="dt">threshold =</span> <span class="fl">0.1</span>, <span class="dt">abs =</span> <span class="ot">TRUE</span>, <span class="dt">grid =</span> <span class="ot">TRUE</span>, </span>
+<span id="cb390-2"><a href="propensity-score.html#cb390-2"></a>                     <span class="dt">shapes =</span> <span class="kw">c</span>(<span class="dv">18</span>, <span class="dv">20</span>),</span>
+<span id="cb390-3"><a href="propensity-score.html#cb390-3"></a>                     <span class="dt">color =</span> <span class="kw">c</span>(<span class="st">&quot;tomato&quot;</span>, <span class="st">&quot;royalblue&quot;</span>), </span>
+<span id="cb390-4"><a href="propensity-score.html#cb390-4"></a>                     <span class="dt">sample.names =</span> <span class="kw">c</span>(<span class="st">&quot;調整前&quot;</span>, <span class="st">&quot;調整後&quot;</span>),</span>
+<span id="cb390-5"><a href="propensity-score.html#cb390-5"></a>                     <span class="dt">title =</span> <span class="st">&quot;共変量のバランス&quot;</span>) <span class="op">+</span></span>
+<span id="cb390-6"><a href="propensity-score.html#cb390-6"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;標準化平均差の絶対値&quot;</span>,</span>
+<span id="cb390-7"><a href="propensity-score.html#cb390-7"></a>       <span class="dt">shape =</span> <span class="st">&quot;&quot;</span>, <span class="dt">size =</span> <span class="st">&quot;&quot;</span>, <span class="dt">stroke =</span> <span class="st">&quot;&quot;</span>, <span class="dt">colour =</span> <span class="st">&quot;&quot;</span>)</span>
+<span id="cb390-8"><a href="propensity-score.html#cb390-8"></a><span class="kw">plot</span>(bal_ate)</span></code></pre></div>
+<p><img src="kut-metrics2_files/figure-html/unnamed-chunk-243-1.png" width="576" /></p>
+<p>すべての共変量についてバランスの改善は見られるものの、標準化平均値の絶対値が0.1未満になった共変量は3つだけであり、処置群と統制群のバランスがあまりよくないことがわかる。そのため、このまま処置効果を推定してもうまくいかない（バイアスが残る）ことが予想される。</p>
+<p>実際のデータ分析では、このような場合には処置効果を推定しないほうがいい。ここでは、推定をしてしまうとどうなるか見てみよう。</p>
+<p>上で計算した重みを使い、ATE <span class="math inline">\(= \mathbb{E}[Y(1)] - \mathbb{E}[Y(0)]\)</span>を推定する。
+まず、<span class="math inline">\(Y(1)\)</span> の期待値の推定値は、</p>
+<div class="sourceCode" id="cb391"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb391-1"><a href="propensity-score.html#cb391-1"></a>e_y1 &lt;-<span class="st"> </span>myd <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb391-2"><a href="propensity-score.html#cb391-2"></a><span class="st">  </span><span class="kw">filter</span>(treat <span class="op">==</span><span class="st"> </span><span class="dv">1</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb391-3"><a href="propensity-score.html#cb391-3"></a><span class="st">  </span><span class="kw">with</span>(<span class="kw">weighted.mean</span>(re78, <span class="dt">w =</span> w_ate)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb391-4"><a href="propensity-score.html#cb391-4"></a><span class="st">  </span><span class="kw">print</span>()</span></code></pre></div>
+<pre><code>## [1] 7108.675</code></pre>
+<p>である。<span class="math inline">\(Y(0)\)</span> の期待値の推定値は、</p>
+<div class="sourceCode" id="cb393"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb393-1"><a href="propensity-score.html#cb393-1"></a>e_y0 &lt;-<span class="st"> </span>myd <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb393-2"><a href="propensity-score.html#cb393-2"></a><span class="st">  </span><span class="kw">filter</span>(treat <span class="op">==</span><span class="st"> </span><span class="dv">0</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb393-3"><a href="propensity-score.html#cb393-3"></a><span class="st">  </span><span class="kw">with</span>(<span class="kw">weighted.mean</span>(re78, <span class="dt">w =</span> w_ate)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb393-4"><a href="propensity-score.html#cb393-4"></a><span class="st">  </span><span class="kw">print</span>()</span></code></pre></div>
+<pre><code>## [1] 14735.48</code></pre>
+<p>である。これらの差をとると、ATEは</p>
+<div class="sourceCode" id="cb395"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb395-1"><a href="propensity-score.html#cb395-1"></a>e_y1 <span class="op">-</span><span class="st"> </span>e_y0</span></code></pre></div>
+<pre><code>## [1] -7626.806</code></pre>
+<p>であると推定される。教科書 (pp.127-130) にも書かれているとおり、推定に大きなバイアスがあることがわかる。</p>
+<p><code>lm()</code> で <code>weight</code> を指定すれば、これと同じ結果が得られる。</p>
+<div class="sourceCode" id="cb397"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb397-1"><a href="propensity-score.html#cb397-1"></a>ps_weight_ate1 &lt;-<span class="st"> </span><span class="kw">lm</span>(re78 <span class="op">~</span><span class="st"> </span>treat, <span class="dt">data =</span> myd, <span class="dt">weight =</span> w_ate)</span>
+<span id="cb397-2"><a href="propensity-score.html#cb397-2"></a><span class="kw">tidy</span>(ps_weight_ate1)</span></code></pre></div>
+<pre><code>## # A tibble: 2 x 5
+##   term        estimate std.error statistic p.value
+##   &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;
+## 1 (Intercept)   14735.      82.8     178.        0
+## 2 treat         -7627.     135.      -56.5       0</code></pre>
+<p><code>WeightIt::weightit()</code> で計算した重みを使っても、同じ結果が得られる。</p>
+<div class="sourceCode" id="cb399"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb399-1"><a href="propensity-score.html#cb399-1"></a>ps_weight_ate2 &lt;-<span class="st"> </span><span class="kw">lm</span>(re78 <span class="op">~</span><span class="st"> </span>treat, <span class="dt">weights =</span> w_ate2<span class="op">$</span>weights, <span class="dt">data =</span> myd)</span>
+<span id="cb399-2"><a href="propensity-score.html#cb399-2"></a><span class="kw">tidy</span>(ps_weight_ate2)</span></code></pre></div>
+<pre><code>## # A tibble: 2 x 5
+##   term        estimate std.error statistic p.value
+##   &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;
+## 1 (Intercept)   14735.      82.8     178.        0
+## 2 treat         -7627.     135.      -56.5       0</code></pre>
+<p>このように、共変量のバランスがとれていない状態で因果効果を推定しようとすると、バイアスのある推定結果を得ることになるので、注意が必要である。</p>
+</div>
+</div>
+<div id="層別" class="section level3" number="5.5.2">
+<h3><span class="header-section-number">5.5.2</span> 層別</h3>
+<p>推定した傾向スコアを利用して、サンプルを層 (strata) に分ける。まず、層の数を決める必要がある。ここでは5にする（層の数については、<span class="citation">Thoermmes and Kim (<a href="#ref-thoe2011" role="doc-biblioref">2011</a>)</span> を参照）
+。処置群と統制群の合計数がほぼ同じになるように、傾向スコアによって5つの層を作ろう。</p>
+<div class="sourceCode" id="cb401"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb401-1"><a href="propensity-score.html#cb401-1"></a>myd <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb401-2"><a href="propensity-score.html#cb401-2"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">subclass =</span> <span class="kw">cut</span>(ps_logit, </span>
+<span id="cb401-3"><a href="propensity-score.html#cb401-3"></a>                        <span class="dt">breaks =</span> <span class="kw">quantile</span>(ps_logit, <span class="dt">prob =</span> <span class="kw">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dt">by =</span> <span class="fl">0.2</span>)),</span>
+<span id="cb401-4"><a href="propensity-score.html#cb401-4"></a>                        <span class="dt">include.lowest =</span> <span class="ot">TRUE</span>)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb401-5"><a href="propensity-score.html#cb401-5"></a><span class="st">  </span><span class="kw">with</span>(<span class="kw">table</span>(treat, subclass))</span></code></pre></div>
+<pre><code>##      subclass
+## treat [3.72e-06,2.88e-05] (2.88e-05,7.85e-05] (7.85e-05,0.000463]
+##     0                3238                3233                3235
+##     1                   0                   0                   0
+##      subclass
+## treat (0.000463,0.00293] (0.00293,0.513]
+##     0               3231            3055
+##     1                  4             181</code></pre>
+<p>このような5つの層 (stratum; subclass) ができる。</p>
+<p><strong>MatchIt</strong> パッケージの <code>matchit()</code> を使えば、傾向スコアの推定と層別が一挙にできる。
+層別のために <code>method = "subclass"</code> を指定する。また、層の数を <code>subclass = 5</code> で、処置群と統制群の合計数、つまりサンプル全体の数を基準にして層別を行うため、 <code>sub.by = "all"</code> を指定する。</p>
+<div class="sourceCode" id="cb403"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb403-1"><a href="propensity-score.html#cb403-1"></a><span class="kw">matchit</span>(ps_formula,  <span class="dt">data =</span> myd,</span>
+<span id="cb403-2"><a href="propensity-score.html#cb403-2"></a>        <span class="dt">method =</span> <span class="st">&quot;subclass&quot;</span>, <span class="dt">subclass =</span> <span class="dv">5</span>, <span class="dt">sub.by =</span> <span class="st">&quot;all&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb403-3"><a href="propensity-score.html#cb403-3"></a><span class="st">  </span><span class="kw">with</span>(<span class="kw">table</span>(treat, subclass))</span></code></pre></div>
+<pre><code>##      subclass
+## treat    1    2    3    4    5
+##     0 3235 3236 3235 3231 3055
+##     1    0    0    0    4  181</code></pre>
+<p>先ほどと同じ5つの層ができた。</p>
+<p>この層別では、3つの層で処置群の個体数が0になってしまった。そんため、それら3つの層では処置効果が推定できない。この例から、処置群と統制群で傾向スコアの分布が大きく異なると、層別が難しいことがわかる。統制群のほとんどの個体にとって、処置群に比較対象となる個体が存在しない状況なので、ATE や ATC を推定するのは困難である。</p>
+<p>このデータでは、統制群の観測数に対して処置群の観測数が非常に少ないので、処置群の観測数が等しくなるような5層を作り、ATT の推定を目指すことにしよう。</p>
+<p>まず、処置群の個体を5分割するためのカットポイントを見つける。すべてのデータを含むために、最下限と最上限は0と1にする。</p>
+<div class="sourceCode" id="cb405"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb405-1"><a href="propensity-score.html#cb405-1"></a>cutpoints &lt;-<span class="st"> </span>myd <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb405-2"><a href="propensity-score.html#cb405-2"></a><span class="st">  </span><span class="kw">filter</span>(treat <span class="op">==</span><span class="st"> </span><span class="dv">1</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb405-3"><a href="propensity-score.html#cb405-3"></a><span class="st">  </span><span class="kw">pull</span>(ps_logit) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb405-4"><a href="propensity-score.html#cb405-4"></a><span class="st">  </span><span class="kw">quantile</span>(<span class="dt">prob =</span> <span class="kw">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dt">by =</span> <span class="fl">0.2</span>))</span>
+<span id="cb405-5"><a href="propensity-score.html#cb405-5"></a>cutpoints[<span class="dv">1</span>] &lt;-<span class="st"> </span><span class="dv">0</span></span>
+<span id="cb405-6"><a href="propensity-score.html#cb405-6"></a>cutpoints[<span class="dv">6</span>] &lt;-<span class="st"> </span><span class="dv">1</span></span></code></pre></div>
+<p>このカットポイントを使って、サンプルを5層に分ける。</p>
+<div class="sourceCode" id="cb406"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb406-1"><a href="propensity-score.html#cb406-1"></a>myd <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb406-2"><a href="propensity-score.html#cb406-2"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">subclass =</span> <span class="kw">cut</span>(ps_logit, <span class="dt">breaks =</span> cutpoints, <span class="dt">include.lowest =</span> <span class="ot">TRUE</span>)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb406-3"><a href="propensity-score.html#cb406-3"></a><span class="st">  </span><span class="kw">with</span>(<span class="kw">table</span>(treat, subclass))</span></code></pre></div>
+<pre><code>##      subclass
+## treat [0,0.0791] (0.0791,0.265] (0.265,0.299] (0.299,0.495] (0.495,1]
+##     0      15607            239            38            79        29
+##     1         37             37            37            37        37</code></pre>
+<p>このように、処置群の観測数が等しい5つの層ができた。</p>
+<p><code>MatchIt::matchit()</code> で層別を行ってみよう。処置群に基づいて層別を行うために、<code>sub.by = "treat"</code> を指定する。</p>
+<div class="sourceCode" id="cb408"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb408-1"><a href="propensity-score.html#cb408-1"></a>stratification &lt;-<span class="st"> </span><span class="kw">matchit</span>(ps_formula,  <span class="dt">data =</span> myd,</span>
+<span id="cb408-2"><a href="propensity-score.html#cb408-2"></a>        <span class="dt">method =</span> <span class="st">&quot;subclass&quot;</span>, <span class="dt">subclass =</span> <span class="dv">5</span>, <span class="dt">sub.by =</span> <span class="st">&quot;treat&quot;</span>) </span>
+<span id="cb408-3"><a href="propensity-score.html#cb408-3"></a><span class="kw">with</span>(stratification, <span class="kw">table</span>(treat, subclass))</span></code></pre></div>
+<pre><code>##      subclass
+## treat     1     2     3     4     5
+##     0 15607   239    38    79    29
+##     1    37    37    37    37    37</code></pre>
+<p>上と同じ層別ができた。層の名前が整数値で1から5になっているこちらの層別のほうが便利なので、以下ではこのカテゴリ変数を使う。</p>
+<div class="sourceCode" id="cb410"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb410-1"><a href="propensity-score.html#cb410-1"></a>myd<span class="op">$</span>subclass &lt;-<span class="st"> </span>stratification<span class="op">$</span>subclass</span></code></pre></div>
+<p>バランスチェックは、<strong>MatchIt</strong> パッケージの機能を使って行うことができる。<code>MatchIt::matchit()</code> の結果に対し、<code>summary()</code> を使う。</p>
+<div class="sourceCode" id="cb411"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb411-1"><a href="propensity-score.html#cb411-1"></a><span class="kw">summary</span>(stratification, <span class="dt">standardize =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## matchit(formula = ps_formula, data = myd, method = &quot;subclass&quot;, 
+##     subclass = 5, sub.by = &quot;treat&quot;)
+## Summary of balance for all data:
+##             Means Treated Means Control Std. Mean Diff. eCDF Med eCDF Mean
+## distance           0.2835        0.0083          1.5328   0.5260    0.4935
+## age_c             -7.3243        0.0847         -1.0355   0.1969    0.1863
+## education_c       -1.6623        0.0192         -0.8363   0.0376    0.0908
+## black_c            0.7609       -0.0088          2.1113   0.3849    0.3849
+## hispanic_c        -0.0124        0.0001         -0.0530   0.0063    0.0063
+## married_c         -0.5166        0.0060         -1.3306   0.2613    0.2613
+## nodegree_c         0.4076       -0.0047          0.9044   0.2061    0.2061
+## re74_c        -11784.8956      136.3310         -2.4396   0.5001    0.4591
+## re75_c        -11980.1583      138.5899         -3.7645   0.5125    0.4751
+## re74_sq_c          1.0393       -0.0120          1.1257   0.2437    0.2455
+## re75_sq_c          1.0529       -0.0122          1.4492   0.3105    0.2759
+##             eCDF Max
+## distance      0.8156
+## age_c         0.3427
+## education_c   0.4123
+## black_c       0.7697
+## hispanic_c    0.0126
+## married_c     0.5225
+## nodegree_c    0.4123
+## re74_c        0.6031
+## re75_c        0.6509
+## re74_sq_c     0.5939
+## re75_sq_c     0.5663
+## 
+## 
+## Summary of balance by subclasses:
+## , , Subclass 1
+## 
+##             Means Treated Means Control Std. Mean Diff.    eCDF Med
+## distance           0.0219        0.0025          0.1081      0.4653
+## age_c             -7.1135        0.2167         -1.0245      0.2308
+## education_c       -1.3596        0.0518         -0.7020      0.0361
+## black_c            0.1609       -0.0304          0.5247      0.0956
+## hispanic_c         0.1984        0.0006          0.8339      0.0989
+## married_c         -0.3544        0.0162         -0.9436      0.1853
+## nodegree_c         0.2670       -0.0112          0.6103      0.1391
+## re74_c         -9565.1077      433.9322         -2.0462      0.4014
+## re75_c         -9811.0064      446.7994         -3.1864      0.4176
+## re74_sq_c          0.4700       -0.0355          0.5412      0.0580
+## re75_sq_c          0.6385       -0.0393          0.9222      0.1932
+##               eCDF Mean    eCDF Max
+## distance         0.4271      0.7228
+## age_c            0.1850      0.3159
+## education_c      0.0870      0.2782
+## black_c          0.0956      0.1913
+## hispanic_c       0.0989      0.1977
+## married_c        0.1853      0.3706
+## nodegree_c       0.1391      0.2782
+## re74_c           0.3857      0.4976
+## re75_c           0.4010      0.5571
+## re74_sq_c        0.0995      0.4360
+## re75_sq_c        0.1777      0.4074
+## 
+## , , Subclass 2
+## 
+##             Means Treated Means Control Std. Mean Diff.    eCDF Med
+## distance           0.1740        0.1487          0.1408      0.1512
+## age_c             -5.4108       -2.2158         -0.4465      0.1133
+## education_c       -1.9813       -0.9539         -0.5110      0.0251
+## black_c            0.8906        0.8340          0.1554      0.0283
+## hispanic_c        -0.0449        0.0118         -0.2389      0.0283
+## married_c         -0.3274       -0.2288         -0.2511      0.0493
+## nodegree_c         0.4022        0.1220          0.6145      0.1401
+## re74_c        -10372.8386   -11220.4982          0.1735      0.0952
+## re75_c        -11067.0379   -12058.3668          0.3079      0.1222
+## re74_sq_c          0.4712        0.7476         -0.2960      0.1000
+## re75_sq_c          0.6374        0.9916         -0.4819      0.1222
+##               eCDF Mean    eCDF Max
+## distance         0.1258      0.2428
+## age_c            0.1132      0.1987
+## education_c      0.0671      0.2801
+## black_c          0.0283      0.0567
+## hispanic_c       0.0283      0.0567
+## married_c        0.0493      0.0986
+## nodegree_c       0.1401      0.2801
+## re74_c           0.0909      0.1550
+## re75_c           0.1630      0.3261
+## re74_sq_c        0.1000      0.1676
+## re75_sq_c        0.1630      0.3261
+## 
+## , , Subclass 3
+## 
+##             Means Treated Means Control Std. Mean Diff.    eCDF Med
+## distance           0.2823        0.2834         -0.0061      0.0573
+## age_c             -6.0054       -5.1931         -0.1135      0.0761
+## education_c       -0.1434        0.1759         -0.1588      0.0782
+## black_c            0.9177        0.9177          0.0000      0.0000
+## hispanic_c        -0.0719       -0.0719          0.0000      0.0000
+## married_c         -0.5166       -0.6794          0.4147      0.0814
+## nodegree_c         0.0238       -0.0637          0.1919      0.0437
+## re74_c        -13325.9836   -12267.4256         -0.2166      0.1046
+## re75_c        -13056.7155   -12983.7387         -0.0227      0.0228
+## re74_sq_c          1.3652        1.1627          0.2169      0.1046
+## re75_sq_c          1.3344        1.3069          0.0373      0.0228
+##               eCDF Mean    eCDF Max
+## distance         0.0593      0.1664
+## age_c            0.0837      0.2027
+## education_c      0.0667      0.1294
+## black_c          0.0000      0.0000
+## hispanic_c       0.0000      0.0000
+## married_c        0.0814      0.1629
+## nodegree_c       0.0437      0.0875
+## re74_c           0.1311      0.3129
+## re75_c           0.0255      0.1003
+## re74_sq_c        0.1286      0.3129
+## re75_sq_c        0.0255      0.1003
+## 
+## , , Subclass 4
+## 
+##             Means Treated Means Control Std. Mean Diff.    eCDF Med
+## distance           0.4367        0.4141          0.1258      0.1204
+## age_c             -6.6810      -11.0139          0.6056      0.0486
+## education_c       -2.9542       -2.7298         -0.1116      0.0161
+## black_c            0.9177        0.9177          0.0000      0.0000
+## hispanic_c        -0.0719       -0.0719          0.0000      0.0000
+## married_c         -0.6787       -0.7058          0.0688      0.0135
+## nodegree_c         0.6454        0.6615         -0.0353      0.0080
+## re74_c        -11780.0790   -13187.5337          0.2880      0.0862
+## re75_c        -12453.8182   -12528.5787          0.0232      0.0724
+## re74_sq_c          1.4064        1.2208          0.1988      0.0783
+## re75_sq_c          1.1502        1.1171          0.0451      0.0724
+##               eCDF Mean    eCDF Max
+## distance         0.1387      0.3431
+## age_c            0.1475      0.4191
+## education_c      0.0310      0.1108
+## black_c          0.0000      0.0000
+## hispanic_c       0.0000      0.0000
+## married_c        0.0135      0.0270
+## nodegree_c       0.0080      0.0161
+## re74_c           0.1262      0.3534
+## re75_c           0.1177      0.3414
+## re74_sq_c        0.1263      0.3804
+## re75_sq_c        0.1177      0.3414
+## 
+## , , Subclass 5
+## 
+##             Means Treated Means Control Std. Mean Diff.    eCDF Med
+## distance           0.5026        0.5045         -0.0106      0.0993
+## age_c            -11.4108      -14.8302          0.4779      0.2684
+## education_c       -1.8731       -2.1807          0.1530      0.0620
+## black_c            0.9177        0.9177          0.0000      0.0000
+## hispanic_c        -0.0719       -0.0719          0.0000      0.0000
+## married_c         -0.7058       -0.7058          0.0000      0.0000
+## nodegree_c         0.6994        0.6994          0.0000      0.0000
+## re74_c        -13880.4693   -13879.2532         -0.0002      0.0172
+## re75_c        -13512.2136   -13509.6208         -0.0008      0.0172
+## re74_sq_c          1.4838        1.4833          0.0005      0.0172
+## re75_sq_c          1.5040        1.5029          0.0015      0.0172
+##               eCDF Mean    eCDF Max
+## distance         0.1000      0.2377
+## age_c            0.2346      0.4026
+## education_c      0.0769      0.1836
+## black_c          0.0000      0.0000
+## hispanic_c       0.0000      0.0000
+## married_c        0.0000      0.0000
+## nodegree_c       0.0000      0.0000
+## re74_c           0.0172      0.0345
+## re75_c           0.0172      0.0345
+## re74_sq_c        0.0172      0.0345
+## re75_sq_c        0.0172      0.0345
+## 
+## 
+## Sample sizes by subclasses:
+##         Subclass 1 Subclass 2 Subclass 3 Subclass 4 Subclass 5
+## Treated         37         37         37         37         37
+## Control      15607        239         38         79         29
+## Total        15644        276         75        116         66
+## 
+## Summary of balance across subclasses
+##             Means Treated Means Control Std. Mean Diff. eCDF Med eCDF Mean
+## distance           0.2835        0.2706          0.0436   0.1787    0.1702
+## age_c             -7.3243       -6.6073          0.2725   0.1474    0.1528
+## education_c       -1.6623       -1.1273          0.1805   0.0435    0.0657
+## black_c            0.7609        0.7113          0.1094   0.0248    0.0248
+## hispanic_c        -0.0124       -0.0406          0.1735   0.0254    0.0254
+## married_c         -0.5166       -0.4607          0.2126   0.0659    0.0659
+## nodegree_c         0.4076        0.2816          0.1775   0.0662    0.0662
+## re74_c        -11784.8956   -10024.1557          0.4170   0.1409    0.1502
+## re75_c        -11980.1583   -10126.7011          0.6403   0.1304    0.1449
+## re74_sq_c          1.0393        0.9158          0.1367   0.0716    0.0943
+## re75_sq_c          1.0529        0.9758          0.2084   0.0856    0.1002
+##             eCDF Max
+## distance      0.3426
+## age_c         0.3078
+## education_c   0.1964
+## black_c       0.0496
+## hispanic_c    0.0509
+## married_c     0.1318
+## nodegree_c    0.1324
+## re74_c        0.2707
+## re75_c        0.2719
+## re74_sq_c     0.2663
+## re75_sq_c     0.2419
+## 
+## Percent Balance Improvement:
+##             Std. Mean Diff.  eCDF Med eCDF Mean  eCDF Max
+## distance            95.3285   66.0277   65.5163   57.9989
+## age_c               90.3223   25.1233   17.9695   10.1943
+## education_c         68.1847  -15.7669   27.6059   52.3516
+## black_c             93.5577   93.5577   93.5577   93.5577
+## hispanic_c        -124.3598 -304.5522 -304.5522 -304.5522
+## married_c           89.3108   74.7742   74.7742   74.7742
+## nodegree_c          69.4512   67.8911   67.8911   67.8911
+## re74_c              85.2302   71.8249   67.2800   55.1151
+## re75_c              84.7059   74.5490   69.5076   58.2287
+## re74_sq_c           88.2488   70.6169   61.5797   55.1611
+## re75_sq_c           92.7662   72.4394   63.6699   57.2740</code></pre>
+<p>サンプル全体での共変量のバランス (Summary of balance for all data) と、各層 (subclass) での共変量のバランス (Summary of balance by subclasses) が表示されている。ほとんどの共変量について、全体よりも層別した方が標準化平均差 (Std. Mean Diff.) の絶対値 が小さくなっている。しかし、基準である 0.1 または 0.25 よりも大きい差が複数残されており、層別によるバランスはあまり良くないことがわかる。
+ヒスパニックであることを示す変数については全体でのバランスが元々良いため、サブクラスにすることによってバランスがむしろ悪化している（特に、層1と層2で特に平均差が大きい）。</p>
+<p>図でバランスチェックするには、例えば次のようにする。</p>
+<div class="sourceCode" id="cb413"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb413-1"><a href="propensity-score.html#cb413-1"></a>bal_subclass &lt;-<span class="st"> </span>stratification <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb413-2"><a href="propensity-score.html#cb413-2"></a><span class="st">  </span><span class="kw">love.plot</span>(<span class="dt">stats =</span> <span class="st">&quot;m&quot;</span>,    <span class="co"># 平均差</span></span>
+<span id="cb413-3"><a href="propensity-score.html#cb413-3"></a>            <span class="dt">binary =</span> <span class="st">&quot;std&quot;</span>, <span class="co"># 標準化</span></span>
+<span id="cb413-4"><a href="propensity-score.html#cb413-4"></a>            <span class="dt">abs =</span> <span class="ot">TRUE</span>,     <span class="co"># 絶対値</span></span>
+<span id="cb413-5"><a href="propensity-score.html#cb413-5"></a>            <span class="dt">disp.subclass =</span> <span class="ot">TRUE</span>,</span>
+<span id="cb413-6"><a href="propensity-score.html#cb413-6"></a>            <span class="dt">threshold =</span> <span class="fl">0.1</span>, <span class="dt">grid =</span> <span class="ot">TRUE</span>,</span>
+<span id="cb413-7"><a href="propensity-score.html#cb413-7"></a>            <span class="dt">shapes =</span> <span class="kw">c</span>(<span class="dv">18</span>, <span class="dv">20</span>), <span class="dt">color =</span> <span class="kw">c</span>(<span class="st">&quot;tomato&quot;</span>, <span class="st">&quot;royalblue&quot;</span>), </span>
+<span id="cb413-8"><a href="propensity-score.html#cb413-8"></a>            <span class="dt">title =</span> <span class="st">&quot;共変量のバランス&quot;</span>) <span class="op">+</span></span>
+<span id="cb413-9"><a href="propensity-score.html#cb413-9"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;標準化平均差の絶対値&quot;</span>,</span>
+<span id="cb413-10"><a href="propensity-score.html#cb413-10"></a>       <span class="dt">shape =</span> <span class="st">&quot;&quot;</span>, <span class="dt">size =</span> <span class="st">&quot;&quot;</span>, <span class="dt">stroke =</span> <span class="st">&quot;&quot;</span>, <span class="dt">colour =</span> <span class="st">&quot;&quot;</span>)</span>
+<span id="cb413-11"><a href="propensity-score.html#cb413-11"></a><span class="kw">plot</span>(bal_subclass)</span></code></pre></div>
+<p><img src="kut-metrics2_files/figure-html/unnamed-chunk-257-1.png" width="672" />
+このように、処置群と統制群の間のバランスが悪いので、実際のデータ分析であれば因果効果を推定しない方が良い。しかし、ここではこの層別を利用してATTを推定するとどうなるか確認してみよう。</p>
+<p>まず、層別のATTを推定する。各層で処置群と統制群の平均値の差を計算すれば良い。</p>
+<div class="sourceCode" id="cb414"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb414-1"><a href="propensity-score.html#cb414-1"></a>subclass_att &lt;-<span class="st"> </span>myd <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb414-2"><a href="propensity-score.html#cb414-2"></a><span class="st">  </span><span class="kw">group_by</span>(subclass, treat) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb414-3"><a href="propensity-score.html#cb414-3"></a><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">mean =</span> <span class="kw">mean</span>(re78)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb414-4"><a href="propensity-score.html#cb414-4"></a><span class="st">  </span><span class="kw">group_by</span>(subclass) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb414-5"><a href="propensity-score.html#cb414-5"></a><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">att =</span> <span class="kw">diff</span>(mean)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb414-6"><a href="propensity-score.html#cb414-6"></a><span class="st">  </span><span class="kw">pull</span>(att) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb414-7"><a href="propensity-score.html#cb414-7"></a><span class="st">  </span><span class="kw">print</span>()</span></code></pre></div>
+<pre><code>## [1] -8198.9656  1112.3861  4218.7575  2462.4248  -254.7994</code></pre>
+<p>この層別のATTの加重平均がATT である。その際の重みは、各層に属する処置群の個体数を、処置群全体の個体数で割ったものである。同じ個体数で5つの層に分けたので、当然すべての重みが0.2であるが、一応計算しておく。</p>
+<div class="sourceCode" id="cb416"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb416-1"><a href="propensity-score.html#cb416-1"></a>w_subclass &lt;-<span class="st"> </span>myd <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb416-2"><a href="propensity-score.html#cb416-2"></a><span class="st">  </span><span class="kw">filter</span>(treat <span class="op">==</span><span class="st"> </span><span class="dv">1</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb416-3"><a href="propensity-score.html#cb416-3"></a><span class="st">  </span><span class="kw">with</span>(<span class="kw">table</span>(subclass) <span class="op">/</span><span class="st"> </span><span class="kw">sum</span>(<span class="kw">table</span>(subclass))) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb416-4"><a href="propensity-score.html#cb416-4"></a><span class="st">  </span><span class="kw">print</span>()</span></code></pre></div>
+<pre><code>## subclass
+##   1   2   3   4   5 
+## 0.2 0.2 0.2 0.2 0.2</code></pre>
+<p>（ちなみに、ATEを推定する場合の各層の重みは、各層に属する個体数をサンプルサイズで割ったものである。つまり、全サンプルに占める各層の割合が重みとなる。）</p>
+<p>よって、ATTの推定値は、</p>
+<div class="sourceCode" id="cb418"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb418-1"><a href="propensity-score.html#cb418-1"></a><span class="co">#mean(subclass_att) # すべて同じ重みなので、単純平均でも同じ</span></span>
+<span id="cb418-2"><a href="propensity-score.html#cb418-2"></a><span class="kw">weighted.mean</span>(subclass_att, <span class="dt">w =</span> w_subclass)</span></code></pre></div>
+<pre><code>## [1] -132.0394</code></pre>
+<p>である。効果が過小推定されており、バイアスが残っていることがわかる。やはり、<strong>バランスが悪いのに因果効果を推定しようとしてはいけない</strong>。</p>
+<p>標準誤差も知りたいので、<strong>survey</strong> パッケージを利用して計算しよう。
+まず、<code>survey::svydesign()</code> で利用するデータセットを指定する。引数 <code>ids</code> が必須だが、ここでは id （観測個体の識別子）を利用した分析を行わないので <code>ids = ~ 0</code> とする（<code>svydesign()</code> の引数に <code>strata</code> があるが、これはサーベイの層別を指定するための引数で、傾向スコアによる層別を指定するものではないので注意。ここでは何も指定しない）。</p>
+<div class="sourceCode" id="cb420"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb420-1"><a href="propensity-score.html#cb420-1"></a>survey_design &lt;-<span class="st"> </span><span class="kw">svydesign</span>(<span class="dt">ids =</span> <span class="op">~</span><span class="st"> </span><span class="dv">0</span>, <span class="dt">data =</span> myd)</span></code></pre></div>
+<p>次に、<code>survey::svyby()</code> を使って、層別に結果変数の平均値を計算する。<code>formula</code> に平均値を計算したい結果変数を指定し、<code>by</code> に処置変数と層別の変数を指定する。
+平均値を計算するので、<code>FUN = svymean</code> とする。</p>
+<div class="sourceCode" id="cb421"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb421-1"><a href="propensity-score.html#cb421-1"></a>sub_means &lt;-<span class="st"> </span><span class="kw">svyby</span>(<span class="dt">formula =</span> <span class="op">~</span><span class="st"> </span>re78, <span class="dt">by =</span> <span class="op">~</span><span class="st"> </span>treat <span class="op">+</span><span class="st"> </span>subclass, </span>
+<span id="cb421-2"><a href="propensity-score.html#cb421-2"></a>                   <span class="dt">design =</span> survey_design, <span class="dt">FUN =</span> svymean) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb421-3"><a href="propensity-score.html#cb421-3"></a><span class="st">  </span><span class="kw">print</span>()</span></code></pre></div>
+<pre><code>##     treat subclass      re78         se
+## 0.1     0        1 15099.216   76.70063
+## 1.1     1        1  6900.250 1004.16699
+## 0.2     0        2  4777.960  411.31318
+## 1.2     1        2  5890.346  987.67556
+## 0.3     0        3  3655.507  847.17351
+## 1.3     1        3  7874.264 1364.47511
+## 0.4     0        4  4723.113  658.70935
+## 1.4     1        4  7185.538 1901.99061
+## 0.5     0        5  4150.119  866.27710
+## 1.5     1        5  3895.319  773.29914</code></pre>
+<p>このように、各層別に、処置群と統制群のそれぞれで結果変数の平均値が計算される。</p>
+<p>最後にATT の推定値と標準誤差を、<code>survey::svycontrast()</code> で計算する。
+そのために、重みをリストで与える必要がある。上の表（処置・層別の平均値の表）で表示されている順番に重みを指定する。その際、処置群には先ほど計算した重みである0.2 を与え、統制群にはそれを負の値にしたものを与える。</p>
+<div class="sourceCode" id="cb423"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb423-1"><a href="propensity-score.html#cb423-1"></a><span class="kw">svycontrast</span>(sub_means, <span class="kw">list</span>(<span class="dt">ATT =</span> <span class="kw">rep</span>(<span class="kw">c</span>(<span class="op">-</span><span class="fl">0.2</span>, <span class="fl">0.2</span>), <span class="dv">5</span>)))</span></code></pre></div>
+<pre><code>##     contrast     SE
+## ATT  -132.04 636.81</code></pre>
+<p>上で計算したものと同じ推定値が得られた。また、標準誤差は636.8 であることがわかった。
+（これは有意水準 0.05 で統計的に有意ではない。）</p>
+<p>このように、調査・観察データを使った因果推論には、様々な工夫が必要であり、慎重に分析を進める必要がある。
+また、さまざまな仮定をおいて分析を行っており、仮定が成り立たない場合には、因果効果を正しく推定できない。
+自分がどのような仮定に基づいてデータを分析しているのか、常に意識するようにしよう。</p>
+</div>
+</div>
+<div id="トピック5-の課題" class="section level2" number="5.6">
+<h2><span class="header-section-number">5.6</span> トピック5 の課題</h2>
+<p>上で作ったデータセット d_cps3_nsw を使って、傾向スコアを用いた因果推論を行いなさい。
+以下の内容を必ず含めること。</p>
+<ol style="list-style-type: decimal">
+<li>傾向スコアを使わずに、統制群と処置群を単純比較した場合の効果の推定値を求める。</li>
+<li>傾向スコアによるバランスの調整（ATEとATTのどちらを推定しようとしているか明確に）。以下の2つを実施する。</li>
+</ol>
+<ul>
+<li>重み付け</li>
+<li>層別</li>
+</ul>
+<ol start="3" style="list-style-type: decimal">
+<li>上のそれぞれについて、バランスチェックを行う。</li>
+<li>それぞれの方法で、処置効果を推定する。</li>
+<li>1で求めた推定値と4で求めた推定値を比較して、どのようなことがわかるか説明する。</li>
+</ol>
+<p><strong>注意事項</strong></p>
+<ul>
+<li>課題レポートは R Markdown で作成し、PDF に knit して提出すること。</li>
+<li>提出するファイル：metrics_hw05_LastFirst.pdf</li>
+<li>提出方法：Slack のダイレクトメッセージで提出。</li>
+<li><strong>提出期限：2020年7月6日（月）正午</strong>（日本時間）</li>
+</ul>
 
+</div>
+</div>
+<h3>参考文献</h3>
+<div id="refs" class="references">
+<div id="ref-carnegie2016">
+<p>Carnegie, Nicole Bohme, Masataka Harada, and Jennifer L. Hill. 2016. “Assesing Sensitivity to Unmeasured Confounding Using a Simulated Potential Confounder.” <em>Journal of Research on Education Effectiveness</em> 9 (3): 395–420. <a href="https://doi.org/10.1080/19345747.2015.1078862">https://doi.org/10.1080/19345747.2015.1078862</a>.</p>
+</div>
+<div id="ref-dehejia2002">
+<p>Dehejia, Rajeev H., and Sadek Wahba. 2002. “Propensity Score-Matching Methods for Nonexperimental Causal Studies.” <em>Review of Economics and Statistics</em> 84 (1): 151–61. <a href="https://doi.org/10.1162/003465302317331982">https://doi.org/10.1162/003465302317331982</a>.</p>
+</div>
+<div id="ref-king-nielsen2019">
+<p>King, Gary, and Richard Nielsen. 2019. “Why Propensity Scores Should Not Be Used for Matching.” <em>Political Analysis</em> 27 (4): 435–54. <a href="https://doi.org/10.1017/pan.2019.11">https://doi.org/10.1017/pan.2019.11</a>.</p>
+</div>
+<div id="ref-lalonde1986">
+<p>LaLonde, Robert J. 1986. “Evaluating the Econometric Evaluations of Training Programs with Experimental Data.” <em>American Economic Review</em> 76 (4): 604–20. <a href="http://www.jstor.com/stable/1806062">http://www.jstor.com/stable/1806062</a>.</p>
+</div>
+<div id="ref-thoe2011">
+<p>Thoermmes, Felix. J., and Eun Sook Kim. 2011. “A Systematic Review of Propensity Score Methods in the Social Sciences.” <em>Multivariate Behavioral Research</em> 3 (46): 514–43. <a href="https://doi.org/10.1080/00273171.2011.540475">https://doi.org/10.1080/00273171.2011.540475</a>.</p>
+</div>
+<div id="ref-yasui2020">
+<p>安井翔太. 2020. <em>効果検証入門：正しい比較のための因果推論/計量経済学の基礎</em>. 技術評論社.</p>
+</div>
+<div id="ref-asano-yanai2018">
+<p>浅野正彦, and 矢内勇生. 2018. <em>Rによる計量政治学</em>. オーム社. <a href="https://github.com/yukiyanai/quant-methods-R">https://github.com/yukiyanai/quant-methods-R</a>.</p>
+</div>
 </div>
             </section>
 
