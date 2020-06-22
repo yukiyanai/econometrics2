@@ -288,7 +288,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="傾向スコア" class="section level1" number="5">
 <h1><span class="header-section-number">Topic 5</span> 傾向スコア</h1>
 <ul>
-<li><a href="https://yukiyanai.github.io/jp/classes/econometrics2/contents/slides/metrics2_topic05_slides.pdf">トピック5の講義スライド</a> (PDF, 1.4MB)</li>
+<li><a href="http://yukiyanai.github.io/jp/classes/econometrics2/contents/slides/metrics2_topic05_slides.pdf">トピック5の講義スライド</a> (PDF, 1.4MB)</li>
 </ul>
 <div id="準備-3" class="section level2" number="5.1">
 <h2><span class="header-section-number">5.1</span> 準備</h2>
@@ -399,7 +399,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb351"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb351-1"><a href="propensity-score.html#cb351-1"></a>rct_formula</span></code></pre></div>
 <pre><code>## re78 ~ treat + age + education + black + hispanic + married + 
 ##     nodegree + re74 + re75
-## &lt;environment: 0x7fc76237ea88&gt;</code></pre>
+## &lt;environment: 0x7f9076894190&gt;</code></pre>
 <p>回帰式を推定する。</p>
 <div class="sourceCode" id="cb353"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb353-1"><a href="propensity-score.html#cb353-1"></a>ate_rct &lt;-<span class="st"> </span><span class="kw">coef</span>(<span class="kw">lm</span>(rct_formula, <span class="dt">data =</span> d_nsw))[<span class="dv">2</span>] <span class="op">%&gt;%</span><span class="st"> </span></span>
 <span id="cb353-2"><a href="propensity-score.html#cb353-2"></a><span class="st">  </span><span class="kw">print</span>()</span></code></pre></div>
@@ -511,7 +511,7 @@ Y_i \sim \mbox{Bernoulli}(\theta_i)\\
 <div class="sourceCode" id="cb365"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb365-1"><a href="propensity-score.html#cb365-1"></a>ps_formula</span></code></pre></div>
 <pre><code>## treat ~ age_c + education_c + black_c + hispanic_c + married_c + 
 ##     nodegree_c + re74_c + re75_c + re74_sq_c + re75_sq_c
-## &lt;environment: 0x7fc792607638&gt;</code></pre>
+## &lt;environment: 0x7f9082332310&gt;</code></pre>
 <p>これを使ってロジスティック回帰式を推定する。</p>
 <div class="sourceCode" id="cb367"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb367-1"><a href="propensity-score.html#cb367-1"></a>fit_logistic &lt;-<span class="st"> </span><span class="kw">glm</span>(ps_formula, <span class="dt">data =</span> myd,</span>
 <span id="cb367-2"><a href="propensity-score.html#cb367-2"></a>                    <span class="dt">family =</span> <span class="kw">binomial</span>(<span class="dt">link =</span> <span class="st">&quot;logit&quot;</span>))</span></code></pre></div>

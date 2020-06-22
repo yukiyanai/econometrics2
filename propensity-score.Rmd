@@ -1,6 +1,6 @@
 # 傾向スコア
 
-- [トピック5の講義スライド](https://yukiyanai.github.io/jp/classes/econometrics2/contents/slides/metrics2_topic05_slides.pdf) (PDF, 1.4MB)
+- [トピック5の講義スライド](http://yukiyanai.github.io/jp/classes/econometrics2/contents/slides/metrics2_topic05_slides.pdf) (PDF, 1.4MB)
 
 ## 準備
 
