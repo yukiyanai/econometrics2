@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Topic 1 イントロダクション | KUT 計量経済学応用</title>
   <meta name="description" content="Topic 1 イントロダクション | KUT 計量経済学応用" />
-  <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Topic 1 イントロダクション | KUT 計量経済学応用" />
   <meta property="og:type" content="book" />
@@ -32,6 +32,7 @@
   
 <link rel="prev" href="index.html"/>
 <link rel="next" href="selection-bias.html"/>
+<script src="libs/header-attrs-2.2/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -235,7 +236,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="5.6" data-path="propensity-score.html"><a href="propensity-score.html#トピック5-の課題"><i class="fa fa-check"></i><b>5.6</b> トピック5 の課題</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="panel-data.html"><a href="panel-data.html"><i class="fa fa-check"></i><b>6</b> パネルデータ分析</a></li>
+<li class="chapter" data-level="6" data-path="panel-data_null.html"><a href="panel-data_null.html"><i class="fa fa-check"></i><b>6</b> パネルデータ分析</a></li>
 <li class="chapter" data-level="7" data-path="midterm-presentation.html"><a href="midterm-presentation.html"><i class="fa fa-check"></i><b>7</b> 分析計画のプレゼンテーション</a>
 <ul>
 <li class="chapter" data-level="7.1" data-path="midterm-presentation.html"><a href="midterm-presentation.html#このトピックでやるべきこと"><i class="fa fa-check"></i><b>7.1</b> このトピックでやるべきこと</a></li>
@@ -532,7 +533,7 @@ knitr::opts_chunk$set(warning = FALSE, echo = TRUE, message = FALSE,
 <p>Windows でも、PDF をknit する場合には同様の作業が必要である。ヒラギノフォントが使えないので、次のようにする。</p>
 <div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="introduction.html#cb19-1"></a><span class="kw">theme_set</span>(<span class="kw">theme_gray</span>(<span class="dt">base_size =</span> <span class="dv">10</span>, <span class="dt">base_family =</span> <span class="st">&quot;Meiryo&quot;</span>))</span></code></pre></div>
 <p>Ubuntuの場合は、（IPAex フォントがあるという前提で）次のようにする。</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="introduction.html#cb20-1"></a><span class="kw">theme_set</span>(<span class="kw">theme_gray</span>(<span class="dt">base_size =</span> <span class="dv">10</span>, <span class="dt">base_family =</span> <span class="st">&quot;ipaex&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="introduction.html#cb20-1"></a><span class="kw">theme_set</span>(<span class="kw">theme_gray</span>(<span class="dt">base_size =</span> <span class="dv">10</span>, <span class="dt">base_family =</span> <span class="st">&quot;IPAGothic&quot;</span>))</span></code></pre></div>
 <p>これらのうち、自分のOSに合ったもの1つを、<strong>tidyverse</strong>（または <strong>ggplot2</strong>） パッケージを読み込んだ直後に一度書いておけばよい。これで、図に日本語が含まれていても PDFがknit される。</p>
 <p>ただし、RStudio Cloud を使っている場合は、これでも文字化けが直らない。文字化けした図が表示されるようになるだけである。このように、RStudio Cloud は日本語の処理に難がある。
 この授業では、図のラベルや凡例などはすべて英語でも減点しない。意味がわかればローマ字 でも良い （例：Mitsudo）。しかし、これは不便なので、やはり自分のパソコンにRとRStudio をインストールして使ったほうが良いだろう。インストール手順については、<a href="http://yukiyanai.github.io/jp/resources/">ココ</a> にある資料を参照。</p>

@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Topic 2 セレクションバイアス | KUT 計量経済学応用</title>
   <meta name="description" content="Topic 2 セレクションバイアス | KUT 計量経済学応用" />
-  <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Topic 2 セレクションバイアス | KUT 計量経済学応用" />
   <meta property="og:type" content="book" />
@@ -32,6 +32,7 @@
   
 <link rel="prev" href="introduction.html"/>
 <link rel="next" href="RCT.html"/>
+<script src="libs/header-attrs-2.2/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -235,7 +236,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="5.6" data-path="propensity-score.html"><a href="propensity-score.html#トピック5-の課題"><i class="fa fa-check"></i><b>5.6</b> トピック5 の課題</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="panel-data.html"><a href="panel-data.html"><i class="fa fa-check"></i><b>6</b> パネルデータ分析</a></li>
+<li class="chapter" data-level="6" data-path="panel-data_null.html"><a href="panel-data_null.html"><i class="fa fa-check"></i><b>6</b> パネルデータ分析</a></li>
 <li class="chapter" data-level="7" data-path="midterm-presentation.html"><a href="midterm-presentation.html"><i class="fa fa-check"></i><b>7</b> 分析計画のプレゼンテーション</a>
 <ul>
 <li class="chapter" data-level="7.1" data-path="midterm-presentation.html"><a href="midterm-presentation.html#このトピックでやるべきこと"><i class="fa fa-check"></i><b>7.1</b> このトピックでやるべきこと</a></li>
@@ -318,7 +319,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="selection-bias.html#cb21-1"></a>pacman<span class="op">::</span><span class="kw">p_load</span>(tidyverse)</span>
 <span id="cb21-2"><a href="selection-bias.html#cb21-2"></a><span class="kw">theme_set</span>(<span class="kw">theme_gray</span>(<span class="dt">base_size =</span> <span class="dv">10</span>, <span class="dt">base_family =</span> <span class="st">&quot;HiraginoSans-W3&quot;</span>))  <span class="co"># macOS用</span></span>
 <span id="cb21-3"><a href="selection-bias.html#cb21-3"></a><span class="co">#theme_set(theme_gray(base_size = 10, base_family = &quot;Meiryo&quot;))        # Windows用</span></span>
-<span id="cb21-4"><a href="selection-bias.html#cb21-4"></a><span class="co">#theme_set(theme_gray(base_size = 10, base_family = &quot;ipaex&quot;))         # Ubuntu用</span></span>
+<span id="cb21-4"><a href="selection-bias.html#cb21-4"></a><span class="co">#theme_set(theme_gray(base_size = 10, base_family = &quot;IPAGothic&quot;))     # Ubuntu用</span></span>
 <span id="cb21-5"><a href="selection-bias.html#cb21-5"></a><span class="co">#showtext::showtext_auto()                                            # Cloud用</span></span>
 <span id="cb21-6"><a href="selection-bias.html#cb21-6"></a><span class="co">#theme_set(theme_gray(base_size = 10, base_family = &quot;noto&quot;))          # Cloud用</span></span></code></pre></div>
 </div>
@@ -381,10 +382,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="selection-bias.html#cb34-1"></a>rchs &lt;-<span class="st"> </span><span class="kw">sample</span>(letters, <span class="dt">size =</span> <span class="dv">500</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>)</span>
 <span id="cb34-2"><a href="selection-bias.html#cb34-2"></a><span class="kw">table</span>(rchs)</span></code></pre></div>
 <pre><code>## rchs
-##  a  b  c  d  e  f  g  h  i  j  k  l  m  n  o  p  q  r  s  t  u  v  w  x  y 
-## 19 15 19 14 21 21 23 17 19 15 21 13 28 16 16 20 21 24 24 11 16 28 19 23 19 
-##  z 
-## 18</code></pre>
+##  a  b  c  d  e  f  g  h  i  j  k  l  m  n  o  p  q  r  s  t  u  v  w  x  y  z 
+## 19 15 19 14 21 21 23 17 19 15 21 13 28 16 16 20 21 24 24 11 16 28 19 23 19 18</code></pre>
 <p>これをアルファベット順に基づいて適当なグループに分ける。</p>
 <div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="selection-bias.html#cb36-1"></a>group_chs &lt;-<span class="st"> </span><span class="kw">case_when</span>(</span>
 <span id="cb36-2"><a href="selection-bias.html#cb36-2"></a>  rchs <span class="op">&lt;</span><span class="st"> &quot;e&quot;</span> <span class="op">~</span><span class="st"> &quot;a2d&quot;</span>,</span>

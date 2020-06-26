@@ -8,7 +8,7 @@ rmd_files:
   - RCT.Rmd
   - regression.Rmd
   - propensity-score.Rmd
-  - panel-data.Rmd
+  - panel-data_null.Rmd
   - midterm-presentation.Rmd
   - regression-discontinuity.Rmd
   - instrumental-variable.Rmd

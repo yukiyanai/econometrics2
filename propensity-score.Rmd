@@ -22,7 +22,7 @@ pacman::p_load(tidyverse, broom,  haven,
                WeightIt, cobalt, MatchIt, survey)
 theme_set(theme_gray(base_size = 10, base_family = "HiraginoSans-W3"))  # macOS用
 #theme_set(theme_gray(base_size = 10, base_family = "Meiryo"))        # Windows用
-#theme_set(theme_gray(base_size = 10, base_family = "ipaex"))         # Ubuntu用
+#theme_set(theme_gray(base_size = 10, base_family = "IPAGothic"))     # Ubuntu用
 #showtext::showtext_auto()                                            # Cloud用
 #theme_set(theme_gray(base_size = 10, base_family = "noto"))          # Cloud用
 ```

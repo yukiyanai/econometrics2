@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Topic 6 パネルデータ分析 | KUT 計量経済学応用</title>
   <meta name="description" content="Topic 6 パネルデータ分析 | KUT 計量経済学応用" />
-  <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Topic 6 パネルデータ分析 | KUT 計量経済学応用" />
   <meta property="og:type" content="book" />
@@ -32,6 +32,7 @@
   
 <link rel="prev" href="propensity-score.html"/>
 <link rel="next" href="midterm-presentation.html"/>
+<script src="libs/header-attrs-2.2/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -235,7 +236,19 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="5.6" data-path="propensity-score.html"><a href="propensity-score.html#トピック5-の課題"><i class="fa fa-check"></i><b>5.6</b> トピック5 の課題</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="panel-data.html"><a href="panel-data.html"><i class="fa fa-check"></i><b>6</b> パネルデータ分析</a></li>
+<li class="chapter" data-level="6" data-path="panel-data.html"><a href="panel-data.html"><i class="fa fa-check"></i><b>6</b> パネルデータ分析</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="panel-data.html"><a href="panel-data.html#準備-4"><i class="fa fa-check"></i><b>6.1</b> 準備</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="panel-data.html"><a href="panel-data.html#予習講義動画実習課題-4"><i class="fa fa-check"></i><b>6.1.1</b> 予習、講義動画、実習課題</a></li>
+<li class="chapter" data-level="6.1.2" data-path="panel-data.html"><a href="panel-data.html#rパッケージの読み込み-4"><i class="fa fa-check"></i><b>6.1.2</b> Rパッケージの読み込み</a></li>
+<li class="chapter" data-level="6.1.3" data-path="panel-data.html"><a href="panel-data.html#関数の自作-2"><i class="fa fa-check"></i><b>6.1.3</b> 関数の自作</a></li>
+<li class="chapter" data-level="6.1.4" data-path="panel-data.html"><a href="panel-data.html#このトピックで使うrコードの説明-4"><i class="fa fa-check"></i><b>6.1.4</b> このトピックで使うRコードの説明</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="panel-data.html"><a href="panel-data.html#差の差法"><i class="fa fa-check"></i><b>6.2</b> 差の差法</a></li>
+<li class="chapter" data-level="6.3" data-path="panel-data.html"><a href="panel-data.html#合成コントロール法"><i class="fa fa-check"></i><b>6.3</b> 合成コントロール法</a></li>
+<li class="chapter" data-level="6.4" data-path="panel-data.html"><a href="panel-data.html#トピック6の課題"><i class="fa fa-check"></i><b>6.4</b> トピック6の課題</a></li>
+</ul></li>
 <li class="chapter" data-level="7" data-path="midterm-presentation.html"><a href="midterm-presentation.html"><i class="fa fa-check"></i><b>7</b> 分析計画のプレゼンテーション</a>
 <ul>
 <li class="chapter" data-level="7.1" data-path="midterm-presentation.html"><a href="midterm-presentation.html#このトピックでやるべきこと"><i class="fa fa-check"></i><b>7.1</b> このトピックでやるべきこと</a></li>
@@ -287,8 +300,222 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="パネルデータ分析" class="section level1" number="6">
 <h1><span class="header-section-number">Topic 6</span> パネルデータ分析</h1>
-<p>準備中</p>
+<!--
+- [トピック6の講義スライド](http://yukiyanai.github.io/jp/classes/econometrics2/contents/slides/metrics2_topic06_slides.pdf) (PDF, 1.4MB)
+-->
+<div id="準備-4" class="section level2" number="6.1">
+<h2><span class="header-section-number">6.1</span> 準備</h2>
+<div id="予習講義動画実習課題-4" class="section level3" number="6.1.1">
+<h3><span class="header-section-number">6.1.1</span> 予習、講義動画、実習課題</h3>
+<p>このトピックでやるべきことは、以下のとおりである。</p>
+<ol style="list-style-type: decimal">
+<li><a href="http://yukiyanai.github.io/jp/classes/econometrics2/docs/syllabus-applied-econometrics_2020-2Q.pdf">シラバス(PDFファイル)</a> に記載されているトピック6の予習課題を読む。</li>
+<li><a href="https://lms.kochi-tech.ac.jp/course/view.php?id=793">KUTLMS (Moodle)</a> にあるトピック6の講義動画を視聴する。</li>
+<li>この資料の続きを読み、Rを使った実習を行うことで、傾向スコアの使い方を学ぶ。</li>
+<li>教科書 <span class="citation">(安井 <a href="#ref-yasui2020" role="doc-biblioref">2020</a>)</span> 第4章のRを使った分析を自分でやってみる。</li>
+<li>課題を提出する。</li>
+</ol>
+</div>
+<div id="rパッケージの読み込み-4" class="section level3" number="6.1.2">
+<h3><span class="header-section-number">6.1.2</span> Rパッケージの読み込み</h3>
+<p>必要なパッケージを読み込み、作図用の日本語フォントを設定する。</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="panel-data.html#cb1-1"></a>pacman<span class="op">::</span><span class="kw">p_load</span>(tidyverse, broom, estimatr)</span>
+<span id="cb1-2"><a href="panel-data.html#cb1-2"></a><span class="kw">theme_set</span>(<span class="kw">theme_gray</span>(<span class="dt">base_size =</span> <span class="dv">10</span>, <span class="dt">base_family =</span> <span class="st">&quot;HiraginoSans-W3&quot;</span>))  <span class="co"># macOS用</span></span>
+<span id="cb1-3"><a href="panel-data.html#cb1-3"></a><span class="co">#theme_set(theme_gray(base_size = 10, base_family = &quot;Meiryo&quot;))        # Windows用</span></span>
+<span id="cb1-4"><a href="panel-data.html#cb1-4"></a><span class="co">#theme_set(theme_gray(base_size = 10, base_family = &quot;IPAGothic&quot;))     # Ubuntu用</span></span>
+<span id="cb1-5"><a href="panel-data.html#cb1-5"></a><span class="co">#showtext::showtext_auto()                                            # Cloud用</span></span>
+<span id="cb1-6"><a href="panel-data.html#cb1-6"></a><span class="co">#theme_set(theme_gray(base_size = 10, base_family = &quot;noto&quot;))          # Cloud用</span></span></code></pre></div>
+</div>
+<div id="関数の自作-2" class="section level3" number="6.1.3">
+<h3><span class="header-section-number">6.1.3</span> 関数の自作</h3>
+</div>
+<div id="このトピックで使うrコードの説明-4" class="section level3" number="6.1.4">
+<h3><span class="header-section-number">6.1.4</span> このトピックで使うRコードの説明</h3>
+</div>
+</div>
+<div id="差の差法" class="section level2" number="6.2">
+<h2><span class="header-section-number">6.2</span> 差の差法</h2>
+<p>差の差 (difference in differences; DID) 法</p>
+<p><span class="citation">Card and Krueger (<a href="#ref-card-krueger1994" role="doc-biblioref">1994</a>)</span> が分析した、最低賃金の上昇が失業に与える影響の研究を例に考えよう。データは、著者の一人である <a href="http://davidcard.berkeley.edu/">David Card 先生のウェブサイト</a>で公開されている。ここでは、<span class="citation">今井 (<a href="#ref-imai2018jpn" role="doc-biblioref">2018</a>)</span> （2.5節: pp.76-88）のデータを利用させてもらおう。</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="panel-data.html#cb2-1"></a><span class="kw">download.file</span>(<span class="dt">url =</span> <span class="st">&quot;http://qss.princeton.press/student-files/CAUSALITY/minwage.csv&quot;</span>,</span>
+<span id="cb2-2"><a href="panel-data.html#cb2-2"></a>              <span class="dt">destfile =</span> <span class="st">&quot;data/minwage.csv&quot;</span>)</span></code></pre></div>
+<p>データを読み込み、中身を確認する。</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="panel-data.html#cb3-1"></a>minwage &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/minwage.csv&quot;</span>)</span>
+<span id="cb3-2"><a href="panel-data.html#cb3-2"></a><span class="kw">glimpse</span>(minwage)</span></code></pre></div>
+<pre><code>## Rows: 358
+## Columns: 8
+## $ chain      &lt;chr&gt; &quot;wendys&quot;, &quot;wendys&quot;, &quot;burgerking&quot;, &quot;burgerking&quot;, &quot;kfc&quot;, &quot;kf…
+## $ location   &lt;chr&gt; &quot;PA&quot;, &quot;PA&quot;, &quot;PA&quot;, &quot;PA&quot;, &quot;PA&quot;, &quot;PA&quot;, &quot;PA&quot;, &quot;PA&quot;, &quot;PA&quot;, &quot;PA&quot;…
+## $ wageBefore &lt;dbl&gt; 5.00, 5.50, 5.00, 5.00, 5.25, 5.00, 5.00, 5.00, 5.00, 5.50…
+## $ wageAfter  &lt;dbl&gt; 5.25, 4.75, 4.75, 5.00, 5.00, 5.00, 4.75, 5.00, 4.50, 4.75…
+## $ fullBefore &lt;dbl&gt; 20.0, 6.0, 50.0, 10.0, 2.0, 2.0, 2.5, 40.0, 8.0, 10.5, 6.0…
+## $ fullAfter  &lt;dbl&gt; 0.0, 28.0, 15.0, 26.0, 3.0, 2.0, 1.0, 9.0, 7.0, 18.0, 5.0,…
+## $ partBefore &lt;dbl&gt; 20.0, 26.0, 35.0, 17.0, 8.0, 10.0, 20.0, 30.0, 27.0, 30.0,…
+## $ partAfter  &lt;dbl&gt; 36, 3, 18, 9, 12, 9, 25, 32, 39, 10, 20, 4, 13, 20, 15, 19…</code></pre>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="panel-data.html#cb5-1"></a><span class="kw">summary</span>(minwage)</span></code></pre></div>
+<pre><code>##     chain             location           wageBefore      wageAfter    
+##  Length:358         Length:358         Min.   :4.250   Min.   :4.250  
+##  Class :character   Class :character   1st Qu.:4.250   1st Qu.:5.050  
+##  Mode  :character   Mode  :character   Median :4.500   Median :5.050  
+##                                        Mean   :4.618   Mean   :4.994  
+##                                        3rd Qu.:4.987   3rd Qu.:5.050  
+##                                        Max.   :5.750   Max.   :6.250  
+##    fullBefore       fullAfter        partBefore      partAfter    
+##  Min.   : 0.000   Min.   : 0.000   Min.   : 0.00   Min.   : 0.00  
+##  1st Qu.: 2.125   1st Qu.: 2.000   1st Qu.:11.00   1st Qu.:11.00  
+##  Median : 6.000   Median : 6.000   Median :16.25   Median :17.00  
+##  Mean   : 8.475   Mean   : 8.362   Mean   :18.75   Mean   :18.69  
+##  3rd Qu.:12.000   3rd Qu.:12.000   3rd Qu.:25.00   3rd Qu.:25.00  
+##  Max.   :60.000   Max.   :40.000   Max.   :60.00   Max.   :60.00</code></pre>
+<p>location の中身を確認する。</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="panel-data.html#cb7-1"></a><span class="kw">with</span>(minwage, <span class="kw">table</span>(location))</span></code></pre></div>
+<pre><code>## location
+## centralNJ   northNJ        PA   shoreNJ   southNJ 
+##        45       146        67        33        67</code></pre>
+<p>ペンシルバニア (PA) は1つのカテゴリだが、ニュージャージー (NJ) は4つのカテゴリに分かれている。
+場所をNJとPAの二つに分ける変数を作ろう。</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="panel-data.html#cb9-1"></a>minwage &lt;-<span class="st"> </span>minwage <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb9-2"><a href="panel-data.html#cb9-2"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">state =</span> <span class="kw">ifelse</span>(location <span class="op">==</span><span class="st"> &quot;PA&quot;</span>, <span class="st">&quot;PA&quot;</span>, <span class="st">&quot;NJ&quot;</span>))</span></code></pre></div>
+<p>PAとNJのデータを分ける。</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="panel-data.html#cb10-1"></a>minw_NJ &lt;-<span class="st"> </span>minwage <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(location <span class="op">!=</span><span class="st"> &quot;PA&quot;</span>)</span>
+<span id="cb10-2"><a href="panel-data.html#cb10-2"></a>minw_PA &lt;-<span class="st"> </span>minwage <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(location <span class="op">==</span><span class="st"> &quot;PA&quot;</span>)</span></code></pre></div>
+<p>賃金が5.05ドル以下のファーストフード店の割合。</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="panel-data.html#cb11-1"></a>minwage <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb11-2"><a href="panel-data.html#cb11-2"></a><span class="st">  </span><span class="kw">group_by</span>(state) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb11-3"><a href="panel-data.html#cb11-3"></a><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">before =</span> <span class="kw">mean</span>(wageBefore <span class="op">&lt;</span><span class="st"> </span><span class="fl">5.05</span>),</span>
+<span id="cb11-4"><a href="panel-data.html#cb11-4"></a>            <span class="dt">after =</span> <span class="kw">mean</span>(wageAfter <span class="op">&lt;</span><span class="st"> </span><span class="fl">5.05</span>)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb11-5"><a href="panel-data.html#cb11-5"></a><span class="st">  </span>knitr<span class="op">::</span><span class="kw">kable</span>(<span class="dt">digits =</span> <span class="dv">3</span>)</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">state</th>
+<th align="right">before</th>
+<th align="right">after</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">NJ</td>
+<td align="right">0.911</td>
+<td align="right">0.003</td>
+</tr>
+<tr class="even">
+<td align="left">PA</td>
+<td align="right">0.940</td>
+<td align="right">0.955</td>
+</tr>
+</tbody>
+</table>
+<p>常勤労働者の割合を表す変数を作る。</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="panel-data.html#cb12-1"></a>minwage &lt;-<span class="st"> </span>minwage <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb12-2"><a href="panel-data.html#cb12-2"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">full_prop_after =</span> fullAfter <span class="op">/</span><span class="st"> </span>(fullAfter <span class="op">+</span><span class="st"> </span>partAfter))</span></code></pre></div>
+<p>常勤労働者の割合を表すデータを作る。</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="panel-data.html#cb13-1"></a>d_full &lt;-<span class="st"> </span>minwage <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb13-2"><a href="panel-data.html#cb13-2"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">full_prop_before =</span> fullBefore <span class="op">/</span><span class="st"> </span>(fullBefore <span class="op">+</span><span class="st"> </span>partBefore),</span>
+<span id="cb13-3"><a href="panel-data.html#cb13-3"></a>         <span class="dt">full_prop_after =</span> fullAfter <span class="op">/</span><span class="st"> </span>(fullAfter <span class="op">+</span><span class="st"> </span>partAfter)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb13-4"><a href="panel-data.html#cb13-4"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">select</span>(state, <span class="kw">starts_with</span>(<span class="st">&quot;full_&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb13-5"><a href="panel-data.html#cb13-5"></a><span class="st">  </span><span class="kw">group_by</span>(state) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb13-6"><a href="panel-data.html#cb13-6"></a><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">full_before =</span> <span class="kw">mean</span>(full_prop_before),</span>
+<span id="cb13-7"><a href="panel-data.html#cb13-7"></a>            <span class="dt">full_after =</span> <span class="kw">mean</span>(full_prop_after)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb13-8"><a href="panel-data.html#cb13-8"></a><span class="st">  </span><span class="kw">pivot_longer</span>(<span class="dt">cols =</span> <span class="kw">starts_with</span>(<span class="st">&quot;full&quot;</span>),</span>
+<span id="cb13-9"><a href="panel-data.html#cb13-9"></a>               <span class="dt">names_to =</span> <span class="st">&quot;time&quot;</span>,</span>
+<span id="cb13-10"><a href="panel-data.html#cb13-10"></a>               <span class="dt">names_prefix =</span> <span class="st">&quot;full_&quot;</span>,</span>
+<span id="cb13-11"><a href="panel-data.html#cb13-11"></a>               <span class="dt">values_to =</span> <span class="st">&quot;prop&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb13-12"><a href="panel-data.html#cb13-12"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">time =</span> <span class="kw">factor</span>(time, <span class="dt">levels =</span> <span class="kw">c</span>(<span class="st">&quot;before&quot;</span>, <span class="st">&quot;after&quot;</span>),</span>
+<span id="cb13-13"><a href="panel-data.html#cb13-13"></a>                       <span class="dt">label =</span> <span class="kw">c</span>(<span class="st">&quot;施行前&quot;</span>, <span class="st">&quot;施行後&quot;</span>)))</span></code></pre></div>
+<pre><code>## `summarise()` ungrouping output (override with `.groups` argument)</code></pre>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="panel-data.html#cb15-1"></a>p_did &lt;-<span class="st"> </span><span class="kw">ggplot</span>(d_full, <span class="kw">aes</span>(<span class="dt">x =</span> time, <span class="dt">y =</span> prop, <span class="dt">group =</span> state)) <span class="op">+</span></span>
+<span id="cb15-2"><a href="panel-data.html#cb15-2"></a><span class="st">  </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">color =</span> state)) <span class="op">+</span></span>
+<span id="cb15-3"><a href="panel-data.html#cb15-3"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">shape =</span> state)) <span class="op">+</span></span>
+<span id="cb15-4"><a href="panel-data.html#cb15-4"></a><span class="st">  </span><span class="kw">ylim</span>(<span class="fl">0.25</span>, <span class="fl">0.35</span>) <span class="op">+</span></span>
+<span id="cb15-5"><a href="panel-data.html#cb15-5"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;常勤労働者の平均割合&quot;</span>) <span class="op">+</span></span>
+<span id="cb15-6"><a href="panel-data.html#cb15-6"></a><span class="st">  </span><span class="kw">scale_color_discrete</span>(<span class="dt">name =</span> <span class="st">&quot;&quot;</span>) <span class="op">+</span></span>
+<span id="cb15-7"><a href="panel-data.html#cb15-7"></a><span class="st">  </span><span class="kw">scale_shape_discrete</span>(<span class="dt">name =</span> <span class="st">&quot;&quot;</span>)</span>
+<span id="cb15-8"><a href="panel-data.html#cb15-8"></a><span class="kw">plot</span>(p_did)</span></code></pre></div>
+<p><img src="kut-metrics2_files/figure-html/unnamed-chunk-10-1.png" width="480" /></p>
+<p>平均の差を計算する。</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="panel-data.html#cb16-1"></a>minwage <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb16-2"><a href="panel-data.html#cb16-2"></a><span class="st">  </span><span class="kw">group_by</span>(state) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb16-3"><a href="panel-data.html#cb16-3"></a><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">full_prop =</span> <span class="kw">mean</span>(full_prop_after)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb16-4"><a href="panel-data.html#cb16-4"></a><span class="st">  </span><span class="kw">pull</span>(full_prop) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb16-5"><a href="panel-data.html#cb16-5"></a><span class="st">  </span><span class="kw">diff</span>() <span class="op">*</span><span class="st"> </span><span class="dv">-1</span></span></code></pre></div>
+<pre><code>## [1] 0.04811886</code></pre>
+<p>ファーストフード店の割合を確認する。</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="panel-data.html#cb18-1"></a>minwage <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb18-2"><a href="panel-data.html#cb18-2"></a><span class="st">  </span><span class="kw">with</span>(<span class="kw">table</span>(state, chain)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb18-3"><a href="panel-data.html#cb18-3"></a><span class="st">  </span><span class="kw">prop.table</span>(<span class="dt">margin =</span> <span class="dv">1</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb18-4"><a href="panel-data.html#cb18-4"></a><span class="st">  </span>knitr<span class="op">::</span><span class="kw">kable</span>()</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th align="right">burgerking</th>
+<th align="right">kfc</th>
+<th align="right">roys</th>
+<th align="right">wendys</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>NJ</td>
+<td align="right">0.4054983</td>
+<td align="right">0.2233677</td>
+<td align="right">0.2508591</td>
+<td align="right">0.1202749</td>
+</tr>
+<tr class="even">
+<td>PA</td>
+<td align="right">0.4626866</td>
+<td align="right">0.1492537</td>
+<td align="right">0.2238806</td>
+<td align="right">0.1641791</td>
+</tr>
+</tbody>
+</table>
+<p>バーガーキングのみ取り出す。</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="panel-data.html#cb19-1"></a>minw_NJ.bk &lt;-<span class="st"> </span>minw_NJ <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(chain <span class="op">==</span><span class="st"> &quot;burgerking&quot;</span>)</span>
+<span id="cb19-2"><a href="panel-data.html#cb19-2"></a>minw_PA.bk &lt;-<span class="st"> </span>minw_PA <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(chain <span class="op">==</span><span class="st"> &quot;burgerking&quot;</span>)</span></code></pre></div>
+<p>常勤雇用の割合を比較する。</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="panel-data.html#cb20-1"></a><span class="kw">mean</span>(minw_NJ.bk<span class="op">$</span>fullPropAfter) <span class="op">-</span><span class="st"> </span><span class="kw">mean</span>(minw_PA.bk<span class="op">$</span>fullPropAfter) </span></code></pre></div>
+<pre><code>## Warning: Unknown or uninitialised column: `fullPropAfter`.</code></pre>
+<pre><code>## Warning in mean.default(minw_NJ.bk$fullPropAfter): argument is not numeric or
+## logical: returning NA</code></pre>
+<pre><code>## Warning: Unknown or uninitialised column: `fullPropAfter`.</code></pre>
+<pre><code>## Warning in mean.default(minw_PA.bk$fullPropAfter): argument is not numeric or
+## logical: returning NA</code></pre>
+<pre><code>## [1] NA</code></pre>
+</div>
+<div id="合成コントロール法" class="section level2" number="6.3">
+<h2><span class="header-section-number">6.3</span> 合成コントロール法</h2>
+<p>合成コントロール法 (統合制御法, synthetic control method; SCM)</p>
+</div>
+<div id="トピック6の課題" class="section level2" number="6.4">
+<h2><span class="header-section-number">6.4</span> トピック6の課題</h2>
+<ul>
+<li>課題レポートは R Markdown で作成し、PDF に knit して提出すること。</li>
+<li>提出するファイル：metrics_hw06_LastFirst.pdf</li>
+<li>提出方法：Slack のダイレクトメッセージで提出。</li>
+<li><strong>提出期限：2020年7月13日（月）正午</strong>（日本時間）</li>
+<li><strong>トピック6, 8, 9 の課題からどれか2つを選んで提出</strong>
+<ul>
+<li>どの2つを選んでも良いが、提出期限が異なるので注意</li>
+<li>3つとも提出した場合、最も評価が低いものを成績評価の対象から外す</li>
+</ul></li>
+</ul>
 
+</div>
+</div>
+<h3>参考文献</h3>
+<div id="refs" class="references">
+<div id="ref-card-krueger1994">
+<p>Card, David, and Alan B. Krueger. 1994. “Minimum Wages and Employment: A Case Study of the Fast-Food Industry in New Jersey and Pennsylvania.” <em>American Economic Review</em> 84 (4): 772–93. <a href="https://pubs.aeaweb.org/doi/pdf/10.1257/aer.90.5.1362">https://pubs.aeaweb.org/doi/pdf/10.1257/aer.90.5.1362</a>.</p>
+</div>
+<div id="ref-imai2018jpn">
+<p>今井耕介. 2018. <em>社会科学のためのデータ分析入門（上）（下）</em>. 岩波書店. <a href="https://www.iwanami.co.jp/book/b352348.html">https://www.iwanami.co.jp/book/b352348.html</a>.</p>
+</div>
+<div id="ref-yasui2020">
+<p>安井翔太. 2020. <em>効果検証入門：正しい比較のための因果推論/計量経済学の基礎</em>. 技術評論社.</p>
+</div>
 </div>
             </section>
 
@@ -346,20 +573,6 @@ gitbook.start({
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:")
-      if (/^https?:/.test(src))
-        src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>

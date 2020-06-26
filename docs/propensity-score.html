@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Topic 5 傾向スコア | KUT 計量経済学応用</title>
   <meta name="description" content="Topic 5 傾向スコア | KUT 計量経済学応用" />
-  <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Topic 5 傾向スコア | KUT 計量経済学応用" />
   <meta property="og:type" content="book" />
@@ -31,7 +31,8 @@
   
   
 <link rel="prev" href="regression.html"/>
-<link rel="next" href="panel-data.html"/>
+<link rel="next" href="panel-data_null.html"/>
+<script src="libs/header-attrs-2.2/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -235,7 +236,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="5.6" data-path="propensity-score.html"><a href="propensity-score.html#トピック5-の課題"><i class="fa fa-check"></i><b>5.6</b> トピック5 の課題</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="panel-data.html"><a href="panel-data.html"><i class="fa fa-check"></i><b>6</b> パネルデータ分析</a></li>
+<li class="chapter" data-level="6" data-path="panel-data_null.html"><a href="panel-data_null.html"><i class="fa fa-check"></i><b>6</b> パネルデータ分析</a></li>
 <li class="chapter" data-level="7" data-path="midterm-presentation.html"><a href="midterm-presentation.html"><i class="fa fa-check"></i><b>7</b> 分析計画のプレゼンテーション</a>
 <ul>
 <li class="chapter" data-level="7.1" data-path="midterm-presentation.html"><a href="midterm-presentation.html#このトピックでやるべきこと"><i class="fa fa-check"></i><b>7.1</b> このトピックでやるべきこと</a></li>
@@ -310,7 +311,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb337-2"><a href="propensity-score.html#cb337-2"></a>               WeightIt, cobalt, MatchIt, survey)</span>
 <span id="cb337-3"><a href="propensity-score.html#cb337-3"></a><span class="kw">theme_set</span>(<span class="kw">theme_gray</span>(<span class="dt">base_size =</span> <span class="dv">10</span>, <span class="dt">base_family =</span> <span class="st">&quot;HiraginoSans-W3&quot;</span>))  <span class="co"># macOS用</span></span>
 <span id="cb337-4"><a href="propensity-score.html#cb337-4"></a><span class="co">#theme_set(theme_gray(base_size = 10, base_family = &quot;Meiryo&quot;))        # Windows用</span></span>
-<span id="cb337-5"><a href="propensity-score.html#cb337-5"></a><span class="co">#theme_set(theme_gray(base_size = 10, base_family = &quot;ipaex&quot;))         # Ubuntu用</span></span>
+<span id="cb337-5"><a href="propensity-score.html#cb337-5"></a><span class="co">#theme_set(theme_gray(base_size = 10, base_family = &quot;IPAGothic&quot;))     # Ubuntu用</span></span>
 <span id="cb337-6"><a href="propensity-score.html#cb337-6"></a><span class="co">#showtext::showtext_auto()                                            # Cloud用</span></span>
 <span id="cb337-7"><a href="propensity-score.html#cb337-7"></a><span class="co">#theme_set(theme_gray(base_size = 10, base_family = &quot;noto&quot;))          # Cloud用</span></span></code></pre></div>
 </div>
@@ -399,7 +400,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb351"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb351-1"><a href="propensity-score.html#cb351-1"></a>rct_formula</span></code></pre></div>
 <pre><code>## re78 ~ treat + age + education + black + hispanic + married + 
 ##     nodegree + re74 + re75
-## &lt;environment: 0x7f9076894190&gt;</code></pre>
+## &lt;environment: 0x7fd861240aa0&gt;</code></pre>
 <p>回帰式を推定する。</p>
 <div class="sourceCode" id="cb353"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb353-1"><a href="propensity-score.html#cb353-1"></a>ate_rct &lt;-<span class="st"> </span><span class="kw">coef</span>(<span class="kw">lm</span>(rct_formula, <span class="dt">data =</span> d_nsw))[<span class="dv">2</span>] <span class="op">%&gt;%</span><span class="st"> </span></span>
 <span id="cb353-2"><a href="propensity-score.html#cb353-2"></a><span class="st">  </span><span class="kw">print</span>()</span></code></pre></div>
@@ -511,7 +512,7 @@ Y_i \sim \mbox{Bernoulli}(\theta_i)\\
 <div class="sourceCode" id="cb365"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb365-1"><a href="propensity-score.html#cb365-1"></a>ps_formula</span></code></pre></div>
 <pre><code>## treat ~ age_c + education_c + black_c + hispanic_c + married_c + 
 ##     nodegree_c + re74_c + re75_c + re74_sq_c + re75_sq_c
-## &lt;environment: 0x7f9082332310&gt;</code></pre>
+## &lt;environment: 0x7fd849ee72c0&gt;</code></pre>
 <p>これを使ってロジスティック回帰式を推定する。</p>
 <div class="sourceCode" id="cb367"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb367-1"><a href="propensity-score.html#cb367-1"></a>fit_logistic &lt;-<span class="st"> </span><span class="kw">glm</span>(ps_formula, <span class="dt">data =</span> myd,</span>
 <span id="cb367-2"><a href="propensity-score.html#cb367-2"></a>                    <span class="dt">family =</span> <span class="kw">binomial</span>(<span class="dt">link =</span> <span class="st">&quot;logit&quot;</span>))</span></code></pre></div>
@@ -827,138 +828,138 @@ w_i =   \frac{D_i}{e_i(X)} + \frac{1 - D_i}{1 - e_i(X)}
 ## Summary of balance by subclasses:
 ## , , Subclass 1
 ## 
-##             Means Treated Means Control Std. Mean Diff.    eCDF Med
-## distance           0.0219        0.0025          0.1081      0.4653
-## age_c             -7.1135        0.2167         -1.0245      0.2308
-## education_c       -1.3596        0.0518         -0.7020      0.0361
-## black_c            0.1609       -0.0304          0.5247      0.0956
-## hispanic_c         0.1984        0.0006          0.8339      0.0989
-## married_c         -0.3544        0.0162         -0.9436      0.1853
-## nodegree_c         0.2670       -0.0112          0.6103      0.1391
-## re74_c         -9565.1077      433.9322         -2.0462      0.4014
-## re75_c         -9811.0064      446.7994         -3.1864      0.4176
-## re74_sq_c          0.4700       -0.0355          0.5412      0.0580
-## re75_sq_c          0.6385       -0.0393          0.9222      0.1932
-##               eCDF Mean    eCDF Max
-## distance         0.4271      0.7228
-## age_c            0.1850      0.3159
-## education_c      0.0870      0.2782
-## black_c          0.0956      0.1913
-## hispanic_c       0.0989      0.1977
-## married_c        0.1853      0.3706
-## nodegree_c       0.1391      0.2782
-## re74_c           0.3857      0.4976
-## re75_c           0.4010      0.5571
-## re74_sq_c        0.0995      0.4360
-## re75_sq_c        0.1777      0.4074
+##             Means Treated Means Control Std. Mean Diff.    eCDF Med   eCDF Mean
+## distance           0.0219        0.0025          0.1081      0.4653      0.4271
+## age_c             -7.1135        0.2167         -1.0245      0.2308      0.1850
+## education_c       -1.3596        0.0518         -0.7020      0.0361      0.0870
+## black_c            0.1609       -0.0304          0.5247      0.0956      0.0956
+## hispanic_c         0.1984        0.0006          0.8339      0.0989      0.0989
+## married_c         -0.3544        0.0162         -0.9436      0.1853      0.1853
+## nodegree_c         0.2670       -0.0112          0.6103      0.1391      0.1391
+## re74_c         -9565.1077      433.9322         -2.0462      0.4014      0.3857
+## re75_c         -9811.0064      446.7994         -3.1864      0.4176      0.4010
+## re74_sq_c          0.4700       -0.0355          0.5412      0.0580      0.0995
+## re75_sq_c          0.6385       -0.0393          0.9222      0.1932      0.1777
+##                eCDF Max
+## distance         0.7228
+## age_c            0.3159
+## education_c      0.2782
+## black_c          0.1913
+## hispanic_c       0.1977
+## married_c        0.3706
+## nodegree_c       0.2782
+## re74_c           0.4976
+## re75_c           0.5571
+## re74_sq_c        0.4360
+## re75_sq_c        0.4074
 ## 
 ## , , Subclass 2
 ## 
-##             Means Treated Means Control Std. Mean Diff.    eCDF Med
-## distance           0.1740        0.1487          0.1408      0.1512
-## age_c             -5.4108       -2.2158         -0.4465      0.1133
-## education_c       -1.9813       -0.9539         -0.5110      0.0251
-## black_c            0.8906        0.8340          0.1554      0.0283
-## hispanic_c        -0.0449        0.0118         -0.2389      0.0283
-## married_c         -0.3274       -0.2288         -0.2511      0.0493
-## nodegree_c         0.4022        0.1220          0.6145      0.1401
-## re74_c        -10372.8386   -11220.4982          0.1735      0.0952
-## re75_c        -11067.0379   -12058.3668          0.3079      0.1222
-## re74_sq_c          0.4712        0.7476         -0.2960      0.1000
-## re75_sq_c          0.6374        0.9916         -0.4819      0.1222
-##               eCDF Mean    eCDF Max
-## distance         0.1258      0.2428
-## age_c            0.1132      0.1987
-## education_c      0.0671      0.2801
-## black_c          0.0283      0.0567
-## hispanic_c       0.0283      0.0567
-## married_c        0.0493      0.0986
-## nodegree_c       0.1401      0.2801
-## re74_c           0.0909      0.1550
-## re75_c           0.1630      0.3261
-## re74_sq_c        0.1000      0.1676
-## re75_sq_c        0.1630      0.3261
+##             Means Treated Means Control Std. Mean Diff.    eCDF Med   eCDF Mean
+## distance           0.1740        0.1487          0.1408      0.1512      0.1258
+## age_c             -5.4108       -2.2158         -0.4465      0.1133      0.1132
+## education_c       -1.9813       -0.9539         -0.5110      0.0251      0.0671
+## black_c            0.8906        0.8340          0.1554      0.0283      0.0283
+## hispanic_c        -0.0449        0.0118         -0.2389      0.0283      0.0283
+## married_c         -0.3274       -0.2288         -0.2511      0.0493      0.0493
+## nodegree_c         0.4022        0.1220          0.6145      0.1401      0.1401
+## re74_c        -10372.8386   -11220.4982          0.1735      0.0952      0.0909
+## re75_c        -11067.0379   -12058.3668          0.3079      0.1222      0.1630
+## re74_sq_c          0.4712        0.7476         -0.2960      0.1000      0.1000
+## re75_sq_c          0.6374        0.9916         -0.4819      0.1222      0.1630
+##                eCDF Max
+## distance         0.2428
+## age_c            0.1987
+## education_c      0.2801
+## black_c          0.0567
+## hispanic_c       0.0567
+## married_c        0.0986
+## nodegree_c       0.2801
+## re74_c           0.1550
+## re75_c           0.3261
+## re74_sq_c        0.1676
+## re75_sq_c        0.3261
 ## 
 ## , , Subclass 3
 ## 
-##             Means Treated Means Control Std. Mean Diff.    eCDF Med
-## distance           0.2823        0.2834         -0.0061      0.0573
-## age_c             -6.0054       -5.1931         -0.1135      0.0761
-## education_c       -0.1434        0.1759         -0.1588      0.0782
-## black_c            0.9177        0.9177          0.0000      0.0000
-## hispanic_c        -0.0719       -0.0719          0.0000      0.0000
-## married_c         -0.5166       -0.6794          0.4147      0.0814
-## nodegree_c         0.0238       -0.0637          0.1919      0.0437
-## re74_c        -13325.9836   -12267.4256         -0.2166      0.1046
-## re75_c        -13056.7155   -12983.7387         -0.0227      0.0228
-## re74_sq_c          1.3652        1.1627          0.2169      0.1046
-## re75_sq_c          1.3344        1.3069          0.0373      0.0228
-##               eCDF Mean    eCDF Max
-## distance         0.0593      0.1664
-## age_c            0.0837      0.2027
-## education_c      0.0667      0.1294
-## black_c          0.0000      0.0000
-## hispanic_c       0.0000      0.0000
-## married_c        0.0814      0.1629
-## nodegree_c       0.0437      0.0875
-## re74_c           0.1311      0.3129
-## re75_c           0.0255      0.1003
-## re74_sq_c        0.1286      0.3129
-## re75_sq_c        0.0255      0.1003
+##             Means Treated Means Control Std. Mean Diff.    eCDF Med   eCDF Mean
+## distance           0.2823        0.2834         -0.0061      0.0573      0.0593
+## age_c             -6.0054       -5.1931         -0.1135      0.0761      0.0837
+## education_c       -0.1434        0.1759         -0.1588      0.0782      0.0667
+## black_c            0.9177        0.9177          0.0000      0.0000      0.0000
+## hispanic_c        -0.0719       -0.0719          0.0000      0.0000      0.0000
+## married_c         -0.5166       -0.6794          0.4147      0.0814      0.0814
+## nodegree_c         0.0238       -0.0637          0.1919      0.0437      0.0437
+## re74_c        -13325.9836   -12267.4256         -0.2166      0.1046      0.1311
+## re75_c        -13056.7155   -12983.7387         -0.0227      0.0228      0.0255
+## re74_sq_c          1.3652        1.1627          0.2169      0.1046      0.1286
+## re75_sq_c          1.3344        1.3069          0.0373      0.0228      0.0255
+##                eCDF Max
+## distance         0.1664
+## age_c            0.2027
+## education_c      0.1294
+## black_c          0.0000
+## hispanic_c       0.0000
+## married_c        0.1629
+## nodegree_c       0.0875
+## re74_c           0.3129
+## re75_c           0.1003
+## re74_sq_c        0.3129
+## re75_sq_c        0.1003
 ## 
 ## , , Subclass 4
 ## 
-##             Means Treated Means Control Std. Mean Diff.    eCDF Med
-## distance           0.4367        0.4141          0.1258      0.1204
-## age_c             -6.6810      -11.0139          0.6056      0.0486
-## education_c       -2.9542       -2.7298         -0.1116      0.0161
-## black_c            0.9177        0.9177          0.0000      0.0000
-## hispanic_c        -0.0719       -0.0719          0.0000      0.0000
-## married_c         -0.6787       -0.7058          0.0688      0.0135
-## nodegree_c         0.6454        0.6615         -0.0353      0.0080
-## re74_c        -11780.0790   -13187.5337          0.2880      0.0862
-## re75_c        -12453.8182   -12528.5787          0.0232      0.0724
-## re74_sq_c          1.4064        1.2208          0.1988      0.0783
-## re75_sq_c          1.1502        1.1171          0.0451      0.0724
-##               eCDF Mean    eCDF Max
-## distance         0.1387      0.3431
-## age_c            0.1475      0.4191
-## education_c      0.0310      0.1108
-## black_c          0.0000      0.0000
-## hispanic_c       0.0000      0.0000
-## married_c        0.0135      0.0270
-## nodegree_c       0.0080      0.0161
-## re74_c           0.1262      0.3534
-## re75_c           0.1177      0.3414
-## re74_sq_c        0.1263      0.3804
-## re75_sq_c        0.1177      0.3414
+##             Means Treated Means Control Std. Mean Diff.    eCDF Med   eCDF Mean
+## distance           0.4367        0.4141          0.1258      0.1204      0.1387
+## age_c             -6.6810      -11.0139          0.6056      0.0486      0.1475
+## education_c       -2.9542       -2.7298         -0.1116      0.0161      0.0310
+## black_c            0.9177        0.9177          0.0000      0.0000      0.0000
+## hispanic_c        -0.0719       -0.0719          0.0000      0.0000      0.0000
+## married_c         -0.6787       -0.7058          0.0688      0.0135      0.0135
+## nodegree_c         0.6454        0.6615         -0.0353      0.0080      0.0080
+## re74_c        -11780.0790   -13187.5337          0.2880      0.0862      0.1262
+## re75_c        -12453.8182   -12528.5787          0.0232      0.0724      0.1177
+## re74_sq_c          1.4064        1.2208          0.1988      0.0783      0.1263
+## re75_sq_c          1.1502        1.1171          0.0451      0.0724      0.1177
+##                eCDF Max
+## distance         0.3431
+## age_c            0.4191
+## education_c      0.1108
+## black_c          0.0000
+## hispanic_c       0.0000
+## married_c        0.0270
+## nodegree_c       0.0161
+## re74_c           0.3534
+## re75_c           0.3414
+## re74_sq_c        0.3804
+## re75_sq_c        0.3414
 ## 
 ## , , Subclass 5
 ## 
-##             Means Treated Means Control Std. Mean Diff.    eCDF Med
-## distance           0.5026        0.5045         -0.0106      0.0993
-## age_c            -11.4108      -14.8302          0.4779      0.2684
-## education_c       -1.8731       -2.1807          0.1530      0.0620
-## black_c            0.9177        0.9177          0.0000      0.0000
-## hispanic_c        -0.0719       -0.0719          0.0000      0.0000
-## married_c         -0.7058       -0.7058          0.0000      0.0000
-## nodegree_c         0.6994        0.6994          0.0000      0.0000
-## re74_c        -13880.4693   -13879.2532         -0.0002      0.0172
-## re75_c        -13512.2136   -13509.6208         -0.0008      0.0172
-## re74_sq_c          1.4838        1.4833          0.0005      0.0172
-## re75_sq_c          1.5040        1.5029          0.0015      0.0172
-##               eCDF Mean    eCDF Max
-## distance         0.1000      0.2377
-## age_c            0.2346      0.4026
-## education_c      0.0769      0.1836
-## black_c          0.0000      0.0000
-## hispanic_c       0.0000      0.0000
-## married_c        0.0000      0.0000
-## nodegree_c       0.0000      0.0000
-## re74_c           0.0172      0.0345
-## re75_c           0.0172      0.0345
-## re74_sq_c        0.0172      0.0345
-## re75_sq_c        0.0172      0.0345
+##             Means Treated Means Control Std. Mean Diff.    eCDF Med   eCDF Mean
+## distance           0.5026        0.5045         -0.0106      0.0993      0.1000
+## age_c            -11.4108      -14.8302          0.4779      0.2684      0.2346
+## education_c       -1.8731       -2.1807          0.1530      0.0620      0.0769
+## black_c            0.9177        0.9177          0.0000      0.0000      0.0000
+## hispanic_c        -0.0719       -0.0719          0.0000      0.0000      0.0000
+## married_c         -0.7058       -0.7058          0.0000      0.0000      0.0000
+## nodegree_c         0.6994        0.6994          0.0000      0.0000      0.0000
+## re74_c        -13880.4693   -13879.2532         -0.0002      0.0172      0.0172
+## re75_c        -13512.2136   -13509.6208         -0.0008      0.0172      0.0172
+## re74_sq_c          1.4838        1.4833          0.0005      0.0172      0.0172
+## re75_sq_c          1.5040        1.5029          0.0015      0.0172      0.0172
+##                eCDF Max
+## distance         0.2377
+## age_c            0.4026
+## education_c      0.1836
+## black_c          0.0000
+## hispanic_c       0.0000
+## married_c        0.0000
+## nodegree_c       0.0000
+## re74_c           0.0345
+## re75_c           0.0345
+## re74_sq_c        0.0345
+## re75_sq_c        0.0345
 ## 
 ## 
 ## Sample sizes by subclasses:
@@ -1134,7 +1135,7 @@ w_i =   \frac{D_i}{e_i(X)} + \frac{1 - D_i}{1 - e_i(X)}
         </div>
       </div>
 <a href="regression.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="panel-data.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="panel-data_null.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

@@ -325,7 +325,7 @@ theme_set(theme_gray(base_size = 10, base_family = "Meiryo"))
 
 Ubuntuの場合は、（IPAex フォントがあるという前提で）次のようにする。
 ```{r, eval = FALSE}
-theme_set(theme_gray(base_size = 10, base_family = "ipaex"))
+theme_set(theme_gray(base_size = 10, base_family = "IPAGothic"))
 ```
 これらのうち、自分のOSに合ったもの1つを、**tidyverse**（または **ggplot2**） パッケージを読み込んだ直後に一度書いておけばよい。これで、図に日本語が含まれていても PDFがknit される。
 

@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Topic 4 回帰分析 | KUT 計量経済学応用</title>
   <meta name="description" content="Topic 4 回帰分析 | KUT 計量経済学応用" />
-  <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Topic 4 回帰分析 | KUT 計量経済学応用" />
   <meta property="og:type" content="book" />
@@ -32,6 +32,7 @@
   
 <link rel="prev" href="RCT.html"/>
 <link rel="next" href="propensity-score.html"/>
+<script src="libs/header-attrs-2.2/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -235,7 +236,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="5.6" data-path="propensity-score.html"><a href="propensity-score.html#トピック5-の課題"><i class="fa fa-check"></i><b>5.6</b> トピック5 の課題</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="panel-data.html"><a href="panel-data.html"><i class="fa fa-check"></i><b>6</b> パネルデータ分析</a></li>
+<li class="chapter" data-level="6" data-path="panel-data_null.html"><a href="panel-data_null.html"><i class="fa fa-check"></i><b>6</b> パネルデータ分析</a></li>
 <li class="chapter" data-level="7" data-path="midterm-presentation.html"><a href="midterm-presentation.html"><i class="fa fa-check"></i><b>7</b> 分析計画のプレゼンテーション</a>
 <ul>
 <li class="chapter" data-level="7.1" data-path="midterm-presentation.html"><a href="midterm-presentation.html#このトピックでやるべきこと"><i class="fa fa-check"></i><b>7.1</b> このトピックでやるべきこと</a></li>
@@ -329,7 +330,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb178-2"><a href="regression.html#cb178-2"></a>               dagitty, ggdag)</span>
 <span id="cb178-3"><a href="regression.html#cb178-3"></a><span class="kw">theme_set</span>(<span class="kw">theme_gray</span>(<span class="dt">base_size =</span> <span class="dv">10</span>, <span class="dt">base_family =</span> <span class="st">&quot;HiraginoSans-W3&quot;</span>))  <span class="co"># macOS用</span></span>
 <span id="cb178-4"><a href="regression.html#cb178-4"></a><span class="co">#theme_set(theme_gray(base_size = 10, base_family = &quot;Meiryo&quot;))        # Windows用</span></span>
-<span id="cb178-5"><a href="regression.html#cb178-5"></a><span class="co">#theme_set(theme_gray(base_size = 10, base_family = &quot;ipaex&quot;))         # Ubuntu用</span></span>
+<span id="cb178-5"><a href="regression.html#cb178-5"></a><span class="co">#theme_set(theme_gray(base_size = 10, base_family = &quot;IPAGothic&quot;))     # Ubuntu用</span></span>
 <span id="cb178-6"><a href="regression.html#cb178-6"></a><span class="co">#showtext::showtext_auto()                                            # Cloud用</span></span>
 <span id="cb178-7"><a href="regression.html#cb178-7"></a><span class="co">#theme_set(theme_gray(base_size = 10, base_family = &quot;noto&quot;))          # Cloud用</span></span></code></pre></div>
 </div>
@@ -515,7 +516,7 @@ f(x) = x (x + 2) = x^2 + 2x
 <p>処置変数 <span class="math inline">\(D_i \in \{0, 1\}\)</span> と結果変数 <span class="math inline">\(Y_i \in \mathbb{R}\)</span> を考える。
 <span class="math inline">\(Y_i\)</span> が <span class="math inline">\(D_i\)</span> の関数で
 <span class="math display">\[
-Y_i = 0.5 + 0.7 D_i + e_i
+Y_i = 0.5 + 0.8 D_i + e_i
 \]</span>
 と表されるとする。この状況をシミュレートする。</p>
 <div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb227-1"><a href="regression.html#cb227-1"></a><span class="kw">set.seed</span>(<span class="dv">12345</span>)</span>
@@ -666,10 +667,10 @@ D_i \sim \mbox{Bernoulli}(\theta_i)\\
 <div class="sourceCode" id="cb262"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb262-1"><a href="regression.html#cb262-1"></a>beta_vec &lt;-<span class="st"> </span><span class="kw">sapply</span>(<span class="op">-</span><span class="dv">4</span><span class="op">:</span><span class="dv">4</span>, beta_X, <span class="dt">data =</span> df_multiple)</span>
 <span id="cb262-2"><a href="regression.html#cb262-2"></a><span class="kw">names</span>(beta_vec) &lt;-<span class="st"> </span><span class="kw">str_c</span>(<span class="st">&quot;X=&quot;</span>, <span class="dv">-4</span><span class="op">:</span><span class="dv">4</span>)</span>
 <span id="cb262-3"><a href="regression.html#cb262-3"></a>beta_vec</span></code></pre></div>
-<pre><code>##      X=-4      X=-3      X=-2      X=-1       X=0       X=1       X=2 
-## 0.8446962 0.6572588 0.7475040 0.6917050 0.6252307 0.7681240 0.5260543 
-##       X=3       X=4 
-## 0.7046942 0.6230728</code></pre>
+<pre><code>##      X=-4      X=-3      X=-2      X=-1       X=0       X=1       X=2       X=3 
+## 0.8446962 0.6572588 0.7475040 0.6917050 0.6252307 0.7681240 0.5260543 0.7046942 
+##       X=4 
+## 0.6230728</code></pre>
 <p>ブロックごとに処置効果を求めることができた。このように、ブロックに分けて単回帰を行えば、過大推定にはならないことがわかる。これらの値を元に、全体の処置効果を加重平均で求めてみよう。</p>
 <p>ATE を求めるために <span class="math inline">\(X = x\)</span> となるブロックの重みを<span class="math inline">\(\Pr (X_i = x)\)</span>とすると、</p>
 <div class="sourceCode" id="cb264"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb264-1"><a href="regression.html#cb264-1"></a>w_ate &lt;-<span class="st"> </span><span class="kw">table</span>(df_multiple<span class="op">$</span>X)</span>
@@ -988,11 +989,11 @@ D が Y に与える因果効果を beta、D が X に与える影響を gamma �
 <div class="sourceCode" id="cb307"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb307-1"><a href="regression.html#cb307-1"></a><span class="kw">set.seed</span>(<span class="dv">2020-06-12</span>)</span>
 <span id="cb307-2"><a href="regression.html#cb307-2"></a>df_pt1 &lt;-<span class="st"> </span><span class="kw">ptb_dgp</span>()</span>
 <span id="cb307-3"><a href="regression.html#cb307-3"></a><span class="kw">glimpse</span>(df_pt1)</span></code></pre></div>
-<pre><code>## Observations: 100
-## Variables: 3
-## $ Y &lt;dbl&gt; 0.6508057, 1.0442136, 1.3875204, 0.7219868, 1.3689279, 1.27171…
-## $ D &lt;int&gt; 0, 0, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,…
-## $ X &lt;dbl&gt; 0.30434106, 0.42179182, 0.52854906, 0.24054385, 0.53575256, 0.…</code></pre>
+<pre><code>## Rows: 100
+## Columns: 3
+## $ Y &lt;dbl&gt; 0.6508057, 1.0442136, 1.3875204, 0.7219868, 1.3689279, 1.2717135, 1…
+## $ D &lt;int&gt; 0, 0, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1…
+## $ X &lt;dbl&gt; 0.30434106, 0.42179182, 0.52854906, 0.24054385, 0.53575256, 0.55885…</code></pre>
 <p>ここで、<span class="math inline">\(D\)</span> と <span class="math inline">\(X\)</span> の相関関係を確認してみよう。</p>
 <div class="sourceCode" id="cb309"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb309-1"><a href="regression.html#cb309-1"></a><span class="kw">with</span>(df_pt1, <span class="kw">cor</span>(D, X))</span></code></pre></div>
 <pre><code>## [1] 0.6946692</code></pre>

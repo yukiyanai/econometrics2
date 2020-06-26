@@ -39,7 +39,7 @@ pacman::p_load(tidyverse, ggbeeswarm, broom, patchwork,
                dagitty, ggdag)
 theme_set(theme_gray(base_size = 10, base_family = "HiraginoSans-W3"))  # macOS用
 #theme_set(theme_gray(base_size = 10, base_family = "Meiryo"))        # Windows用
-#theme_set(theme_gray(base_size = 10, base_family = "ipaex"))         # Ubuntu用
+#theme_set(theme_gray(base_size = 10, base_family = "IPAGothic"))     # Ubuntu用
 #showtext::showtext_auto()                                            # Cloud用
 #theme_set(theme_gray(base_size = 10, base_family = "noto"))          # Cloud用
 ```
@@ -252,7 +252,7 @@ length(list_col)
 処置変数 $D_i \in \{0, 1\}$ と結果変数 $Y_i \in \mathbb{R}$ を考える。
 $Y_i$ が $D_i$ の関数で
 $$
-Y_i = 0.5 + 0.7 D_i + e_i
+Y_i = 0.5 + 0.8 D_i + e_i
 $$
 と表されるとする。この状況をシミュレートする。
 ```{r}

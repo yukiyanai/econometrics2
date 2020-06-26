@@ -1,4 +1,166 @@
 # パネルデータ分析
 
-準備中
+<!--
+- [トピック6の講義スライド](http://yukiyanai.github.io/jp/classes/econometrics2/contents/slides/metrics2_topic06_slides.pdf) (PDF, 1.4MB)
+-->
 
+## 準備
+
+### 予習、講義動画、実習課題
+
+このトピックでやるべきことは、以下のとおりである。
+
+1. [シラバス(PDFファイル)](http://yukiyanai.github.io/jp/classes/econometrics2/docs/syllabus-applied-econometrics_2020-2Q.pdf) に記載されているトピック6の予習課題を読む。
+2.  [KUTLMS (Moodle)](https://lms.kochi-tech.ac.jp/course/view.php?id=793) にあるトピック6の講義動画を視聴する。
+3. この資料の続きを読み、Rを使った実習を行うことで、傾向スコアの使い方を学ぶ。
+4. 教科書 [@yasui2020] 第4章のRを使った分析を自分でやってみる。
+5. 課題を提出する。
+
+
+### Rパッケージの読み込み
+
+必要なパッケージを読み込み、作図用の日本語フォントを設定する。
+```{r, message = FALSE}
+pacman::p_load(tidyverse, broom, estimatr)
+theme_set(theme_gray(base_size = 10, base_family = "HiraginoSans-W3"))  # macOS用
+#theme_set(theme_gray(base_size = 10, base_family = "Meiryo"))        # Windows用
+#theme_set(theme_gray(base_size = 10, base_family = "IPAGothic"))     # Ubuntu用
+#showtext::showtext_auto()                                            # Cloud用
+#theme_set(theme_gray(base_size = 10, base_family = "noto"))          # Cloud用
+```
+
+### 関数の自作
+
+### このトピックで使うRコードの説明
+
+
+## 差の差法
+
+差の差 (difference in differences; DID) 法
+
+
+@card-krueger1994 が分析した、最低賃金の上昇が失業に与える影響の研究を例に考えよう。データは、著者の一人である [David Card 先生のウェブサイト](http://davidcard.berkeley.edu/)で公開されている。ここでは、@imai2018jpn （2.5節: pp.76-88）のデータを利用させてもらおう。
+```{r, eval = FALSE}
+download.file(url = "http://qss.princeton.press/student-files/CAUSALITY/minwage.csv",
+              destfile = "data/minwage.csv")
+```
+
+データを読み込み、中身を確認する。
+```{r, warning = FALSE, message = FALSE}
+minwage <- read_csv("data/minwage.csv")
+glimpse(minwage)
+summary(minwage)
+```
+
+location の中身を確認する。
+```{r}
+with(minwage, table(location))
+```
+
+ペンシルバニア (PA) は1つのカテゴリだが、ニュージャージー (NJ) は4つのカテゴリに分かれている。
+場所をNJとPAの二つに分ける変数を作ろう。
+```{r}
+minwage <- minwage %>% 
+  mutate(state = ifelse(location == "PA", "PA", "NJ"))
+```
+
+
+
+PAとNJのデータを分ける。
+```{r}
+minw_NJ <- minwage %>% filter(location != "PA")
+minw_PA <- minwage %>% filter(location == "PA")
+```
+
+賃金が5.05ドル以下のファーストフード店の割合。
+```{r, warning = FALSE, message = FALSE}
+minwage %>% 
+  group_by(state) %>% 
+  summarize(before = mean(wageBefore < 5.05),
+            after = mean(wageAfter < 5.05)) %>% 
+  knitr::kable(digits = 3)
+```
+
+常勤労働者の割合を表す変数を作る。
+```{r}
+minwage <- minwage %>% 
+  mutate(full_prop_after = fullAfter / (fullAfter + partAfter))
+```
+
+常勤労働者の割合を表すデータを作る。
+```{r}
+d_full <- minwage %>% 
+  mutate(full_prop_before = fullBefore / (fullBefore + partBefore),
+         full_prop_after = fullAfter / (fullAfter + partAfter)) %>% 
+  dplyr::select(state, starts_with("full_")) %>% 
+  group_by(state) %>% 
+  summarize(full_before = mean(full_prop_before),
+            full_after = mean(full_prop_after)) %>% 
+  pivot_longer(cols = starts_with("full"),
+               names_to = "time",
+               names_prefix = "full_",
+               values_to = "prop") %>% 
+  mutate(time = factor(time, levels = c("before", "after"),
+                       label = c("施行前", "施行後")))
+```
+
+
+```{r, fig.height = 3, fig.width = 5}
+p_did <- ggplot(d_full, aes(x = time, y = prop, group = state)) +
+  geom_line(aes(color = state)) +
+  geom_point(aes(shape = state)) +
+  ylim(0.25, 0.35) +
+  labs(x = "", y = "常勤労働者の平均割合") +
+  scale_color_discrete(name = "") +
+  scale_shape_discrete(name = "")
+plot(p_did)
+```
+
+
+
+平均の差を計算する。
+```{r, warning = FALSE, message = FALSE}
+minwage %>% 
+  group_by(state) %>% 
+  summarize(full_prop = mean(full_prop_after)) %>% 
+  pull(full_prop) %>% 
+  diff() * -1
+```
+ファーストフード店の割合を確認する。
+```{r}
+minwage %>% 
+  with(table(state, chain)) %>% 
+  prop.table(margin = 1) %>% 
+  knitr::kable()
+```
+
+バーガーキングのみ取り出す。
+```{r}
+
+minw_NJ.bk <- minw_NJ %>% filter(chain == "burgerking")
+minw_PA.bk <- minw_PA %>% filter(chain == "burgerking")
+```
+
+常勤雇用の割合を比較する。
+```{r}
+mean(minw_NJ.bk$fullPropAfter) - mean(minw_PA.bk$fullPropAfter) 
+```
+
+
+
+
+## 合成コントロール法
+
+合成コントロール法 (統合制御法, synthetic control method; SCM)
+
+
+## トピック6の課題
+
+
+- 課題レポートは R Markdown で作成し、PDF に knit して提出すること。
+- 提出するファイル：metrics_hw06_LastFirst.pdf
+- 提出方法：Slack のダイレクトメッセージで提出。
+- **提出期限：2020年7月13日（月）正午**（日本時間）
+- **トピック6, 8, 9 の課題からどれか2つを選んで提出**
+  - どの2つを選んでも良いが、提出期限が異なるので注意
+  - 3つとも提出した場合、最も評価が低いものを成績評価の対象から外す
