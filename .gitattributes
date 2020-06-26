@@ -1,1 +1,4 @@
-docs/* linguist-vendored
+*.Rmd linguist-language=R
+
+_bookdon_files/* linguist-vendored
+docs/* linguist-documentation
