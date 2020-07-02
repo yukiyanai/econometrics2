@@ -1,0 +1,1154 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Topic 6 差分の差分法 | KUT 計量経済学応用</title>
+  <meta name="description" content="Topic 6 差分の差分法 | KUT 計量経済学応用" />
+  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Topic 6 差分の差分法 | KUT 計量経済学応用" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Topic 6 差分の差分法 | KUT 計量経済学応用" />
+  
+  
+  
+
+<meta name="author" content="矢内 勇生" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="propensity-score.html"/>
+<link rel="next" href="midterm-presentation.html"/>
+<script src="libs/header-attrs-2.2/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
+<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="libs/datatables-binding-0.11/datatables.js"></script>
+<link href="libs/dt-core-1.10.19/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.10.19/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.10.19/js/jquery.dataTables.min.js"></script>
+<link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  background-color: #f8f8f8; }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">KUT 計量経済学応用</a></li>
+<li><a href="https://yukiyanai.github.io/" target="_blank">矢内 勇生 (Yuki Yanai)</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>はじめに</a>
+<ul>
+<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#この資料について"><i class="fa fa-check"></i><b>0.1</b> この資料について</a></li>
+<li class="chapter" data-level="0.2" data-path="index.html"><a href="index.html#履修条件"><i class="fa fa-check"></i><b>0.2</b> 履修条件</a></li>
+<li class="chapter" data-level="0.3" data-path="index.html"><a href="index.html#r-とrstudio-のインストール"><i class="fa fa-check"></i><b>0.3</b> R とRStudio のインストール</a></li>
+<li class="chapter" data-level="0.4" data-path="index.html"><a href="index.html#授業計画"><i class="fa fa-check"></i><b>0.4</b> 授業計画</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#license"><i class="fa fa-check"></i>License</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> イントロダクション</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#予習と講義動画の視聴"><i class="fa fa-check"></i><b>1.1</b> 予習と講義動画の視聴</a></li>
+<li class="chapter" data-level="1.2" data-path="introduction.html"><a href="introduction.html#slack"><i class="fa fa-check"></i><b>1.2</b> Slack</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="introduction.html"><a href="introduction.html#slack-とは"><i class="fa fa-check"></i><b>1.2.1</b> Slack とは？</a></li>
+<li class="chapter" data-level="1.2.2" data-path="introduction.html"><a href="introduction.html#授業用ワークスペースへの登録"><i class="fa fa-check"></i><b>1.2.2</b> 授業用ワークスペースへの登録</a></li>
+<li class="chapter" data-level="1.2.3" data-path="introduction.html"><a href="introduction.html#利用上の注意"><i class="fa fa-check"></i><b>1.2.3</b> 利用上の注意</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="introduction.html"><a href="introduction.html#rstudio-cloud-の初期設定"><i class="fa fa-check"></i><b>1.3</b> RStudio Cloud の初期設定</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="introduction.html"><a href="introduction.html#ユーザ登録"><i class="fa fa-check"></i><b>1.3.1</b> ユーザ登録</a></li>
+<li class="chapter" data-level="1.3.2" data-path="introduction.html"><a href="introduction.html#授業用のプロジェクトを作る"><i class="fa fa-check"></i><b>1.3.2</b> 授業用のプロジェクトを作る</a></li>
+<li class="chapter" data-level="1.3.3" data-path="introduction.html"><a href="introduction.html#rstudio-のカスタマイズ"><i class="fa fa-check"></i><b>1.3.3</b> RStudio のカスタマイズ</a></li>
+<li class="chapter" data-level="1.3.4" data-path="introduction.html"><a href="introduction.html#パッケージのインストール"><i class="fa fa-check"></i><b>1.3.4</b> パッケージのインストール</a></li>
+<li class="chapter" data-level="1.3.5" data-path="introduction.html"><a href="introduction.html#ディレクトリの作成"><i class="fa fa-check"></i><b>1.3.5</b> ディレクトリの作成</a></li>
+<li class="chapter" data-level="1.3.6" data-path="introduction.html"><a href="introduction.html#図で日本語が使えるようにする"><i class="fa fa-check"></i><b>1.3.6</b> 図で日本語が使えるようにする</a></li>
+<li class="chapter" data-level="1.3.7" data-path="introduction.html"><a href="introduction.html#r-markdown-からpdfファイルを作る"><i class="fa fa-check"></i><b>1.3.7</b> R Markdown からPDFファイルを作る</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="introduction.html"><a href="introduction.html#トピック1の課題"><i class="fa fa-check"></i><b>1.4</b> トピック1の課題</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="selection-bias.html"><a href="selection-bias.html"><i class="fa fa-check"></i><b>2</b> セレクションバイアス</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="selection-bias.html"><a href="selection-bias.html#準備"><i class="fa fa-check"></i><b>2.1</b> 準備</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="selection-bias.html"><a href="selection-bias.html#予習講義動画実習課題"><i class="fa fa-check"></i><b>2.1.1</b> 予習、講義動画、実習課題</a></li>
+<li class="chapter" data-level="2.1.2" data-path="selection-bias.html"><a href="selection-bias.html#rパッケージの読み込み"><i class="fa fa-check"></i><b>2.1.2</b> Rパッケージの読み込み</a></li>
+<li class="chapter" data-level="2.1.3" data-path="selection-bias.html"><a href="selection-bias.html#このトピックで使うrコードの説明"><i class="fa fa-check"></i><b>2.1.3</b> このトピックで使うRコードの説明</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="selection-bias.html"><a href="selection-bias.html#セレクションバイアスのシミュレーション"><i class="fa fa-check"></i><b>2.2</b> セレクションバイアスのシミュレーション</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="selection-bias.html"><a href="selection-bias.html#メールによる販促の効果"><i class="fa fa-check"></i><b>2.2.1</b> メールによる販促の効果</a></li>
+<li class="chapter" data-level="2.2.2" data-path="selection-bias.html"><a href="selection-bias.html#通院と健康状態セルフセレクション"><i class="fa fa-check"></i><b>2.2.2</b> 通院と健康状態：セルフセレクション</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="selection-bias.html"><a href="selection-bias.html#トピック2の課題"><i class="fa fa-check"></i><b>2.3</b> トピック2の課題</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="RCT.html"><a href="RCT.html"><i class="fa fa-check"></i><b>3</b> RCT（ランダム化比較試験）</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="RCT.html"><a href="RCT.html#準備-1"><i class="fa fa-check"></i><b>3.1</b> 準備</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="RCT.html"><a href="RCT.html#予習講義動画実習課題-1"><i class="fa fa-check"></i><b>3.1.1</b> 予習、講義動画、実習課題</a></li>
+<li class="chapter" data-level="3.1.2" data-path="RCT.html"><a href="RCT.html#rパッケージの読み込み-1"><i class="fa fa-check"></i><b>3.1.2</b> Rパッケージの読み込み</a></li>
+<li class="chapter" data-level="3.1.3" data-path="RCT.html"><a href="RCT.html#このトピックで使うrコードの説明-1"><i class="fa fa-check"></i><b>3.1.3</b> このトピックで使うRコードの説明</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="RCT.html"><a href="RCT.html#ランダム化のシミュレーション"><i class="fa fa-check"></i><b>3.2</b> ランダム化のシミュレーション</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="RCT.html"><a href="RCT.html#母集団の設定"><i class="fa fa-check"></i><b>3.2.1</b> 母集団の設定</a></li>
+<li class="chapter" data-level="3.2.2" data-path="RCT.html"><a href="RCT.html#ベルヌーイ実験"><i class="fa fa-check"></i><b>3.2.2</b> ベルヌーイ実験</a></li>
+<li class="chapter" data-level="3.2.3" data-path="RCT.html"><a href="RCT.html#完全ランダム化実験"><i class="fa fa-check"></i><b>3.2.3</b> 完全ランダム化実験</a></li>
+<li class="chapter" data-level="3.2.4" data-path="RCT.html"><a href="RCT.html#ブロック別ランダム化実験"><i class="fa fa-check"></i><b>3.2.4</b> ブロック別ランダム化実験</a></li>
+<li class="chapter" data-level="3.2.5" data-path="RCT.html"><a href="RCT.html#ペア毎のランダム化実験"><i class="fa fa-check"></i><b>3.2.5</b> ペア毎のランダム化実験</a></li>
+<li class="chapter" data-level="3.2.6" data-path="RCT.html"><a href="RCT.html#つのrct-を比較する"><i class="fa fa-check"></i><b>3.2.6</b> 4つのRCT を比較する</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="RCT.html"><a href="RCT.html#トピック3の課題"><i class="fa fa-check"></i><b>3.3</b> トピック3の課題</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="regression.html"><a href="regression.html"><i class="fa fa-check"></i><b>4</b> 回帰分析</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="regression.html"><a href="regression.html#準備-2"><i class="fa fa-check"></i><b>4.1</b> 準備</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="regression.html"><a href="regression.html#予習講義動画実習課題-2"><i class="fa fa-check"></i><b>4.1.1</b> 予習、講義動画、実習課題</a></li>
+<li class="chapter" data-level="4.1.2" data-path="regression.html"><a href="regression.html#rパッケージの読み込み-2"><i class="fa fa-check"></i><b>4.1.2</b> Rパッケージの読み込み</a></li>
+<li class="chapter" data-level="4.1.3" data-path="regression.html"><a href="regression.html#関数の自作"><i class="fa fa-check"></i><b>4.1.3</b> 関数の自作</a></li>
+<li class="chapter" data-level="4.1.4" data-path="regression.html"><a href="regression.html#このトピックで使うrコードの説明-2"><i class="fa fa-check"></i><b>4.1.4</b> このトピックで使うRコードの説明</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="regression.html"><a href="regression.html#回帰分析のシミュレーション"><i class="fa fa-check"></i><b>4.2</b> 回帰分析のシミュレーション</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="regression.html"><a href="regression.html#単回帰"><i class="fa fa-check"></i><b>4.2.1</b> 単回帰</a></li>
+<li class="chapter" data-level="4.2.2" data-path="regression.html"><a href="regression.html#重回帰"><i class="fa fa-check"></i><b>4.2.2</b> 重回帰</a></li>
+<li class="chapter" data-level="4.2.3" data-path="regression.html"><a href="regression.html#重回帰によるブロッキング"><i class="fa fa-check"></i><b>4.2.3</b> 重回帰によるブロッキング</a></li>
+<li class="chapter" data-level="4.2.4" data-path="regression.html"><a href="regression.html#重回帰分析によるセレクションバイアスの除去"><i class="fa fa-check"></i><b>4.2.4</b> 重回帰分析によるセレクションバイアスの除去</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="regression.html"><a href="regression.html#脱落変数バイアスと処置後変数バイアス"><i class="fa fa-check"></i><b>4.3</b> 脱落変数バイアスと処置後変数バイアス</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="regression.html"><a href="regression.html#脱落変数バイアス-ovb"><i class="fa fa-check"></i><b>4.3.1</b> 脱落変数バイアス (OVB)</a></li>
+<li class="chapter" data-level="4.3.2" data-path="regression.html"><a href="regression.html#処置後変数バイアス"><i class="fa fa-check"></i><b>4.3.2</b> 処置後変数バイアス</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="regression.html"><a href="regression.html#dag有向非巡回グラフ"><i class="fa fa-check"></i><b>4.4</b> DAG（有向非巡回グラフ）</a></li>
+<li class="chapter" data-level="4.5" data-path="regression.html"><a href="regression.html#トピック4の課題"><i class="fa fa-check"></i><b>4.5</b> トピック4の課題</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="propensity-score.html"><a href="propensity-score.html"><i class="fa fa-check"></i><b>5</b> 傾向スコア</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="propensity-score.html"><a href="propensity-score.html#準備-3"><i class="fa fa-check"></i><b>5.1</b> 準備</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="propensity-score.html"><a href="propensity-score.html#予習講義動画実習課題-3"><i class="fa fa-check"></i><b>5.1.1</b> 予習、講義動画、実習課題</a></li>
+<li class="chapter" data-level="5.1.2" data-path="propensity-score.html"><a href="propensity-score.html#rパッケージの読み込み-3"><i class="fa fa-check"></i><b>5.1.2</b> Rパッケージの読み込み</a></li>
+<li class="chapter" data-level="5.1.3" data-path="propensity-score.html"><a href="propensity-score.html#関数の自作-1"><i class="fa fa-check"></i><b>5.1.3</b> 関数の自作</a></li>
+<li class="chapter" data-level="5.1.4" data-path="propensity-score.html"><a href="propensity-score.html#このトピックで使うrコードの説明-3"><i class="fa fa-check"></i><b>5.1.4</b> このトピックで使うRコードの説明</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="propensity-score.html"><a href="propensity-score.html#傾向スコアを用いた因果推論の手順"><i class="fa fa-check"></i><b>5.2</b> 傾向スコアを用いた因果推論の手順</a></li>
+<li class="chapter" data-level="5.3" data-path="propensity-score.html"><a href="propensity-score.html#共変量の選定"><i class="fa fa-check"></i><b>5.3</b> 共変量の選定</a></li>
+<li class="chapter" data-level="5.4" data-path="propensity-score.html"><a href="propensity-score.html#傾向スコアの推定"><i class="fa fa-check"></i><b>5.4</b> 傾向スコアの推定</a></li>
+<li class="chapter" data-level="5.5" data-path="propensity-score.html"><a href="propensity-score.html#バランス調整バランスチェック因果効果の推定"><i class="fa fa-check"></i><b>5.5</b> バランス調整、バランスチェック、因果効果の推定</a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="propensity-score.html"><a href="propensity-score.html#重み付け"><i class="fa fa-check"></i><b>5.5.1</b> 重み付け</a></li>
+<li class="chapter" data-level="5.5.2" data-path="propensity-score.html"><a href="propensity-score.html#層別"><i class="fa fa-check"></i><b>5.5.2</b> 層別</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="propensity-score.html"><a href="propensity-score.html#トピック5-の課題"><i class="fa fa-check"></i><b>5.6</b> トピック5 の課題</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="difference-in-differences.html"><a href="difference-in-differences.html"><i class="fa fa-check"></i><b>6</b> 差分の差分法</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="difference-in-differences.html"><a href="difference-in-differences.html#準備-4"><i class="fa fa-check"></i><b>6.1</b> 準備</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="difference-in-differences.html"><a href="difference-in-differences.html#予習講義動画実習課題-4"><i class="fa fa-check"></i><b>6.1.1</b> 予習、講義動画、実習課題</a></li>
+<li class="chapter" data-level="6.1.2" data-path="difference-in-differences.html"><a href="difference-in-differences.html#rパッケージの読み込み-4"><i class="fa fa-check"></i><b>6.1.2</b> Rパッケージの読み込み</a></li>
+<li class="chapter" data-level="6.1.3" data-path="difference-in-differences.html"><a href="difference-in-differences.html#このトピックで使うrコードの説明-4"><i class="fa fa-check"></i><b>6.1.3</b> このトピックで使うRコードの説明</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="difference-in-differences.html"><a href="difference-in-differences.html#最低賃金の影響"><i class="fa fa-check"></i><b>6.2</b> 最低賃金の影響</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="difference-in-differences.html"><a href="difference-in-differences.html#card-and-krueger-1994-の研究"><i class="fa fa-check"></i><b>6.2.1</b> Card and Krueger (1994) の研究</a></li>
+<li class="chapter" data-level="6.2.2" data-path="difference-in-differences.html"><a href="difference-in-differences.html#処置の確認"><i class="fa fa-check"></i><b>6.2.2</b> 処置の確認</a></li>
+<li class="chapter" data-level="6.2.3" data-path="difference-in-differences.html"><a href="difference-in-differences.html#単純比較-i-個体間比較"><i class="fa fa-check"></i><b>6.2.3</b> 単純比較 I： 個体間比較</a></li>
+<li class="chapter" data-level="6.2.4" data-path="difference-in-differences.html"><a href="difference-in-differences.html#単純比較-ii前後比較"><i class="fa fa-check"></i><b>6.2.4</b> 単純比較 II：前後比較</a></li>
+<li class="chapter" data-level="6.2.5" data-path="difference-in-differences.html"><a href="difference-in-differences.html#did"><i class="fa fa-check"></i><b>6.2.5</b> DID</a></li>
+<li class="chapter" data-level="6.2.6" data-path="difference-in-differences.html"><a href="difference-in-differences.html#回帰分析によるdid-の推定"><i class="fa fa-check"></i><b>6.2.6</b> 回帰分析によるDID の推定</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="difference-in-differences.html"><a href="difference-in-differences.html#法定飲酒年齢の影響"><i class="fa fa-check"></i><b>6.3</b> 法定飲酒年齢の影響</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="difference-in-differences.html"><a href="difference-in-differences.html#angrist-and-pischke-2009-の例"><i class="fa fa-check"></i><b>6.3.1</b> Angrist and Pischke (2009) の例</a></li>
+<li class="chapter" data-level="6.3.2" data-path="difference-in-differences.html"><a href="difference-in-differences.html#did-回帰"><i class="fa fa-check"></i><b>6.3.2</b> DID 回帰</a></li>
+<li class="chapter" data-level="6.3.3" data-path="difference-in-differences.html"><a href="difference-in-differences.html#平行トレンドの仮定"><i class="fa fa-check"></i><b>6.3.3</b> 平行トレンドの仮定</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="difference-in-differences.html"><a href="difference-in-differences.html#シミュレーション"><i class="fa fa-check"></i><b>6.4</b> シミュレーション</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="difference-in-differences.html"><a href="difference-in-differences.html#シミュレーションの設定"><i class="fa fa-check"></i><b>6.4.1</b> シミュレーションの設定</a></li>
+<li class="chapter" data-level="6.4.2" data-path="difference-in-differences.html"><a href="difference-in-differences.html#シミュレーションの繰り返し実行"><i class="fa fa-check"></i><b>6.4.2</b> シミュレーションの繰り返し実行</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="difference-in-differences.html"><a href="difference-in-differences.html#トピック6の課題"><i class="fa fa-check"></i><b>6.5</b> トピック6の課題</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="midterm-presentation.html"><a href="midterm-presentation.html"><i class="fa fa-check"></i><b>7</b> 分析計画のプレゼンテーション</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="midterm-presentation.html"><a href="midterm-presentation.html#このトピックでやるべきこと"><i class="fa fa-check"></i><b>7.1</b> このトピックでやるべきこと</a></li>
+<li class="chapter" data-level="7.2" data-path="midterm-presentation.html"><a href="midterm-presentation.html#分析計画のプレゼンテーション-1"><i class="fa fa-check"></i><b>7.2</b> 分析計画のプレゼンテーション</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="midterm-presentation.html"><a href="midterm-presentation.html#プレゼンテーションの内容"><i class="fa fa-check"></i><b>7.2.1</b> プレゼンテーションの内容</a></li>
+<li class="chapter" data-level="7.2.2" data-path="midterm-presentation.html"><a href="midterm-presentation.html#プレゼンテーションの方法"><i class="fa fa-check"></i><b>7.2.2</b> プレゼンテーションの方法</a></li>
+<li class="chapter" data-level="7.2.3" data-path="midterm-presentation.html"><a href="midterm-presentation.html#プレゼンテーション動画の作成法"><i class="fa fa-check"></i><b>7.2.3</b> プレゼンテーション動画の作成法</a></li>
+<li class="chapter" data-level="7.2.4" data-path="midterm-presentation.html"><a href="midterm-presentation.html#提出方法と提出期限"><i class="fa fa-check"></i><b>7.2.4</b> 提出方法と提出期限</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="midterm-presentation.html"><a href="midterm-presentation.html#他の受講生へのコメントについて"><i class="fa fa-check"></i><b>7.3</b> 他の受講生へのコメントについて</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="regression-discontinuity.html"><a href="regression-discontinuity.html"><i class="fa fa-check"></i><b>8</b> 回帰不連続デザイン</a></li>
+<li class="chapter" data-level="9" data-path="instrumental-variable.html"><a href="instrumental-variable.html"><i class="fa fa-check"></i><b>9</b> 操作変数法</a></li>
+<li class="chapter" data-level="10" data-path="final-presentation.html"><a href="final-presentation.html"><i class="fa fa-check"></i><b>10</b> 分析結果のプレゼンテーション</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="final-presentation.html"><a href="final-presentation.html#このトピックでやるべきこと-1"><i class="fa fa-check"></i><b>10.1</b> このトピックでやるべきこと</a></li>
+<li class="chapter" data-level="10.2" data-path="final-presentation.html"><a href="final-presentation.html#分析結果のレポート期末レポート"><i class="fa fa-check"></i><b>10.2</b> 分析結果のレポート（期末レポート）</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="final-presentation.html"><a href="final-presentation.html#レポートの内容"><i class="fa fa-check"></i><b>10.2.1</b> レポートの内容</a></li>
+<li class="chapter" data-level="10.2.2" data-path="final-presentation.html"><a href="final-presentation.html#レポートの形式と提出方法"><i class="fa fa-check"></i><b>10.2.2</b> レポートの形式と提出方法</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="final-presentation.html"><a href="final-presentation.html#分析結果のプレゼンテーション-1"><i class="fa fa-check"></i><b>10.3</b> 分析結果のプレゼンテーション</a>
+<ul>
+<li class="chapter" data-level="10.3.1" data-path="final-presentation.html"><a href="final-presentation.html#プレゼンテーションの内容-1"><i class="fa fa-check"></i><b>10.3.1</b> プレゼンテーションの内容</a></li>
+<li class="chapter" data-level="10.3.2" data-path="final-presentation.html"><a href="final-presentation.html#提出方法と提出期限-1"><i class="fa fa-check"></i><b>10.3.2</b> 提出方法と提出期限</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html"><i class="fa fa-check"></i>補遺</a>
+<ul>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#実行環境"><i class="fa fa-check"></i>実行環境</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>参考文献</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="_blank">Published with bookdown</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">KUT 計量経済学応用</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="差分の差分法" class="section level1" number="6">
+<h1><span class="header-section-number">Topic 6</span> 差分の差分法</h1>
+<ul>
+<li><a href="http://yukiyanai.github.io/jp/classes/econometrics2/contents/slides/metrics2_topic06_slides_pub.pdf">トピック6の講義スライド</a> (PDF, 978KB)</li>
+</ul>
+<div id="準備-4" class="section level2" number="6.1">
+<h2><span class="header-section-number">6.1</span> 準備</h2>
+<div id="予習講義動画実習課題-4" class="section level3" number="6.1.1">
+<h3><span class="header-section-number">6.1.1</span> 予習、講義動画、実習課題</h3>
+<p>このトピックでやるべきことは、以下のとおりである。</p>
+<ol style="list-style-type: decimal">
+<li><a href="http://yukiyanai.github.io/jp/classes/econometrics2/docs/syllabus-applied-econometrics_2020-2Q.pdf">シラバス(PDFファイル)</a> に記載されているトピック6の予習課題を読む。</li>
+<li><a href="https://lms.kochi-tech.ac.jp/course/view.php?id=793">KUTLMS (Moodle)</a> にあるトピック6の講義動画を視聴する。</li>
+<li>この資料の続きを読み、Rを使った実習を行うことで、差分の差分 (DID) 法の使い方を学ぶ。</li>
+<li>教科書 <span class="citation">(安井 <a href="#ref-yasui2020" role="doc-biblioref">2020</a>)</span> 第4章のRを使った分析を自分でやってみる（ただし、CausalImpactを使った分析はやらなくても良い）。</li>
+<li>課題を提出する（選択制）。</li>
+</ol>
+</div>
+<div id="rパッケージの読み込み-4" class="section level3" number="6.1.2">
+<h3><span class="header-section-number">6.1.2</span> Rパッケージの読み込み</h3>
+<p>必要なパッケージを読み込み、作図用の日本語フォントを設定する。</p>
+<div class="sourceCode" id="cb425"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb425-1"><a href="difference-in-differences.html#cb425-1"></a>pacman<span class="op">::</span><span class="kw">p_load</span>(tidyverse, broom, estimatr, haven, DT, patchwork)</span>
+<span id="cb425-2"><a href="difference-in-differences.html#cb425-2"></a><span class="kw">theme_set</span>(<span class="kw">theme_gray</span>(<span class="dt">base_size =</span> <span class="dv">10</span>, <span class="dt">base_family =</span> <span class="st">&quot;HiraginoSans-W3&quot;</span>))  <span class="co"># macOS用</span></span>
+<span id="cb425-3"><a href="difference-in-differences.html#cb425-3"></a><span class="co">#theme_set(theme_gray(base_size = 10, base_family = &quot;Meiryo&quot;))        # Windows用</span></span>
+<span id="cb425-4"><a href="difference-in-differences.html#cb425-4"></a><span class="co">#theme_set(theme_gray(base_size = 10, base_family = &quot;IPAGothic&quot;))     # Ubuntu用</span></span>
+<span id="cb425-5"><a href="difference-in-differences.html#cb425-5"></a><span class="co">#showtext::showtext_auto()                                            # Cloud用</span></span>
+<span id="cb425-6"><a href="difference-in-differences.html#cb425-6"></a><span class="co">#theme_set(theme_gray(base_size = 10, base_family = &quot;noto&quot;))          # Cloud用</span></span></code></pre></div>
+</div>
+<div id="このトピックで使うrコードの説明-4" class="section level3" number="6.1.3">
+<h3><span class="header-section-number">6.1.3</span> このトピックで使うRコードの説明</h3>
+<div id="dplyrpivot_longer" class="section level4" number="6.1.3.1">
+<h4><span class="header-section-number">6.1.3.1</span> <code>dplyr::pivot_longer()</code></h4>
+<p>横長 (wide) フォーマットのデータを縦長 (long) に変換するために、<code>dplyr::pivot_longer()</code> を使う。</p>
+<p>まず、例として使う横長データを作る。作り方に特に意味はない（現実のデータ生成過程をモデル化しているわけではないので注意）。</p>
+<div class="sourceCode" id="cb426"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb426-1"><a href="difference-in-differences.html#cb426-1"></a>wide &lt;-<span class="st"> </span><span class="kw">tibble</span>(</span>
+<span id="cb426-2"><a href="difference-in-differences.html#cb426-2"></a>  <span class="dt">country =</span> LETTERS[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>],</span>
+<span id="cb426-3"><a href="difference-in-differences.html#cb426-3"></a>  <span class="dt">GDP2001 =</span> <span class="kw">rnorm</span>(<span class="dv">10</span>, <span class="dt">mean =</span> <span class="dv">20</span>, <span class="dt">sd =</span> <span class="dv">3</span>)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb426-4"><a href="difference-in-differences.html#cb426-4"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">GDP2002 =</span> GDP2001 <span class="op">+</span><span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">10</span>, <span class="dt">mean =</span> <span class="dv">0</span>, <span class="dt">sd =</span> <span class="dv">2</span>),</span>
+<span id="cb426-5"><a href="difference-in-differences.html#cb426-5"></a>         <span class="dt">GDP2003 =</span> GDP2002 <span class="op">+</span><span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">10</span>, <span class="dt">mean =</span> <span class="dv">0</span>, <span class="dt">sd =</span> <span class="dv">2</span>),</span>
+<span id="cb426-6"><a href="difference-in-differences.html#cb426-6"></a>         <span class="dt">GDP2004 =</span> GDP2003 <span class="op">+</span><span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">10</span>, <span class="dt">mean =</span> <span class="dv">0</span>, <span class="dt">sd =</span> <span class="dv">2</span>),</span>
+<span id="cb426-7"><a href="difference-in-differences.html#cb426-7"></a>         <span class="dt">GDP2005 =</span> GDP2004 <span class="op">+</span><span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">10</span>, <span class="dt">mean =</span> <span class="dv">0</span>, <span class="dt">sd =</span> <span class="dv">2</span>),</span>
+<span id="cb426-8"><a href="difference-in-differences.html#cb426-8"></a>         <span class="dt">GDP2006 =</span> GDP2005 <span class="op">+</span><span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">10</span>, <span class="dt">mean =</span> <span class="dv">0</span>, <span class="dt">sd =</span> <span class="dv">2</span>),</span>
+<span id="cb426-9"><a href="difference-in-differences.html#cb426-9"></a>         <span class="dt">GDP2007 =</span> GDP2006 <span class="op">+</span><span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">10</span>, <span class="dt">mean =</span> <span class="dv">0</span>, <span class="dt">sd =</span> <span class="dv">2</span>),</span>
+<span id="cb426-10"><a href="difference-in-differences.html#cb426-10"></a>         <span class="dt">GDP2008 =</span> GDP2007 <span class="op">+</span><span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">10</span>, <span class="dt">mean =</span> <span class="dv">0</span>, <span class="dt">sd =</span> <span class="dv">2</span>),</span>
+<span id="cb426-11"><a href="difference-in-differences.html#cb426-11"></a>         <span class="dt">GDP2009 =</span> GDP2008 <span class="op">+</span><span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">10</span>, <span class="dt">mean =</span> <span class="dv">0</span>, <span class="dt">sd =</span> <span class="dv">2</span>),</span>
+<span id="cb426-12"><a href="difference-in-differences.html#cb426-12"></a>         <span class="dt">GDP2010 =</span> GDP2009 <span class="op">+</span><span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">10</span>, <span class="dt">mean =</span> <span class="dv">0</span>, <span class="dt">sd =</span> <span class="dv">2</span>))</span>
+<span id="cb426-13"><a href="difference-in-differences.html#cb426-13"></a><span class="kw">dim</span>(wide)</span></code></pre></div>
+<pre><code>## [1] 10 11</code></pre>
+<p>これで10行11列の横長データができた。</p>
+<div class="sourceCode" id="cb428"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb428-1"><a href="difference-in-differences.html#cb428-1"></a><span class="kw">datatable</span>(wide, <span class="dt">rownames =</span> <span class="ot">FALSE</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb428-2"><a href="difference-in-differences.html#cb428-2"></a><span class="st">  </span><span class="kw">formatRound</span>(<span class="dt">columns =</span> <span class="kw">str_c</span>(<span class="st">&quot;GDP&quot;</span>, <span class="dv">2001</span><span class="op">:</span><span class="dv">2010</span>), <span class="dt">digits =</span> <span class="dv">3</span>)</span></code></pre></div>
+<div id="htmlwidget-6babf918bf541f7f5186" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-6babf918bf541f7f5186">{"x":{"filter":"none","data":[["A","B","C","D","E","F","G","H","I","J"],[22.6092006797077,22.1667839754943,22.2189088986412,20.2012112091671,21.2724497607519,23.5652729091978,19.8105869030886,18.993456046116,23.7189111197005,23.3495900266265],[24.1894650952106,23.3079534637178,22.7508080906022,21.974649502253,22.2305958576693,23.5840507242337,16.2713595421656,16.2363727422375,23.2318117234694,23.9410992864472],[26.4427162635242,24.8217061360914,21.3471546160859,24.1466580200042,21.1129692168322,25.4062379507157,15.8374617955813,15.4564054990381,23.4737388696693,25.0106872368866],[27.1657908301993,26.9581588438208,22.6840217063203,26.298649582024,22.3370696965877,23.308136102051,16.7371736994214,15.0917114423017,22.3987393284231,32.2920052890915],[27.2007553036782,26.4783544676991,26.6811690920356,24.1113260396748,20.2260679101052,21.2616761954701,12.4039801642221,15.161657335604,27.5203985273583,33.3291798175881],[24.6192227742281,27.2953546290806,27.776209648562,24.9573435312841,17.9115235171802,24.0145336305205,12.0405384897702,16.2602776793165,24.9881615430978,33.1347329817099],[26.1099706303094,26.6463872716578,27.5300022691852,22.1919190382656,18.1399162691806,23.8249888582088,9.49951968612259,18.8762323720512,23.5536481528866,34.8043135290496],[27.4765384025883,25.268229207304,27.4087363817913,22.9196169049382,15.71198617759,24.2622630728895,5.4287380673315,18.7512759330154,22.3364266464437,35.5194690481636],[26.3706870763759,24.7724130018969,28.150101205891,23.7457262505446,15.555563667205,25.8090184825633,6.95749962770185,18.8366572605536,20.7895542193922,35.660389547061],[21.364250102174,26.8393174994219,29.8928058199485,22.6776322793658,15.4975565733606,26.4025669335131,9.40473698388172,20.6167609344669,23.5720662547419,36.5829947953587]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>country<\/th>\n      <th>GDP2001<\/th>\n      <th>GDP2002<\/th>\n      <th>GDP2003<\/th>\n      <th>GDP2004<\/th>\n      <th>GDP2005<\/th>\n      <th>GDP2006<\/th>\n      <th>GDP2007<\/th>\n      <th>GDP2008<\/th>\n      <th>GDP2009<\/th>\n      <th>GDP2010<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[1,2,3,4,5,6,7,8,9,10]}],"order":[],"autoWidth":false,"orderClasses":false,"rowCallback":"function(row, data) {\nDTWidget.formatRound(this, row, data, 1, 3, 3, \",\", \".\");\nDTWidget.formatRound(this, row, data, 2, 3, 3, \",\", \".\");\nDTWidget.formatRound(this, row, data, 3, 3, 3, \",\", \".\");\nDTWidget.formatRound(this, row, data, 4, 3, 3, \",\", \".\");\nDTWidget.formatRound(this, row, data, 5, 3, 3, \",\", \".\");\nDTWidget.formatRound(this, row, data, 6, 3, 3, \",\", \".\");\nDTWidget.formatRound(this, row, data, 7, 3, 3, \",\", \".\");\nDTWidget.formatRound(this, row, data, 8, 3, 3, \",\", \".\");\nDTWidget.formatRound(this, row, data, 9, 3, 3, \",\", \".\");\nDTWidget.formatRound(this, row, data, 10, 3, 3, \",\", \".\");\n}"}},"evals":["options.rowCallback"],"jsHooks":[]}</script>
+<p>このデータフレームは、AからJまでの10か国について、2001年から2010年までのGDPの値を記録しているので、国-年パネルデータ (country-year panel) である。</p>
+<p>しかし、パネルデータは横長だと使いにくい。例えば、このままだと <code>ggplot()</code> でGDPの時系列グラフを作るのが難しい。そこで、<code>pivot_longer()</code> で縦長のデータフレームに変換する。</p>
+<p>縦長にする際には、どの列を1列にまとめるかを<code>cols</code> で指定する。この例では、GDPxxxx を1つの列にまとめたいので、<code>cols = starts_with("GDP")</code> とする。<code>starts_with("GDP")</code> は、変数名が “GDP” から
+始まるものという意味である（他に、<code>ends_with()</code> や <code>contains()</code> などがある）。この例の場合には、まとめたい変数が順番に並んでいるので、順番の最初 (GDP2001)と最後 (GDP2010) を使って、<code>cols = GDP2001:GDP2010</code> とすることもできる。あるいは、country 以外の列は全部まとめるので、<code>cols = -country</code> としても良い。</p>
+<p>次に、元々どの列にあったのかを区別する変数の名前を <code>names_to</code> で指定する。この例では、GDPが年 (year) によって区別されているので、<code>names_to = "year"</code> とする。“year” の部分は自分で選べるので、“nen” や “toshi” にしてもコードは動く（おすすめはしない）。このまま何も指定しないと、新しい縦長のデータで変数 <strong>year</strong> の列に入る値は、“GDP2001”, “GDP2002”, <span class="math inline">\(\dots\)</span> になる。年を表すのに “GDP”の部分は必要ないので、<code>names_prefix = "GDP"</code> を指定する。こうすると、year 列の値は、元の列名（変数名）の<strong>冒頭</strong>から “GDP” を取り除いた値、つまり、2001, 2002, <span class="math inline">\(\dots\)</span> になる。</p>
+<p>最後に、GDPの値を保存する列の名前を <code>values_to</code> で指定する。ここでは、新たな列名を “gdp” にするため、<code>values_to = "gdp"</code> と指定する。</p>
+<p>以上の内容を、以下のように実行する。</p>
+<div class="sourceCode" id="cb429"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb429-1"><a href="difference-in-differences.html#cb429-1"></a>long &lt;-<span class="st"> </span>wide <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb429-2"><a href="difference-in-differences.html#cb429-2"></a><span class="st">  </span><span class="kw">pivot_longer</span>(<span class="dt">cols =</span> <span class="kw">starts_with</span>(<span class="st">&quot;GDP&quot;</span>),</span>
+<span id="cb429-3"><a href="difference-in-differences.html#cb429-3"></a>               <span class="dt">names_to =</span> <span class="st">&quot;year&quot;</span>,</span>
+<span id="cb429-4"><a href="difference-in-differences.html#cb429-4"></a>               <span class="dt">names_prefix =</span> <span class="st">&quot;GDP&quot;</span>,</span>
+<span id="cb429-5"><a href="difference-in-differences.html#cb429-5"></a>               <span class="dt">values_to =</span> <span class="st">&quot;gdp&quot;</span>)</span></code></pre></div>
+<p>これで横長データを縦長データに変換することができた。</p>
+<div class="sourceCode" id="cb430"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb430-1"><a href="difference-in-differences.html#cb430-1"></a><span class="kw">datatable</span>(long, <span class="dt">rownames =</span> <span class="ot">FALSE</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb430-2"><a href="difference-in-differences.html#cb430-2"></a><span class="st">  </span><span class="kw">formatRound</span>(<span class="dt">columns =</span> <span class="kw">c</span>(<span class="st">&quot;gdp&quot;</span>), <span class="dt">digits =</span> <span class="dv">3</span>)</span></code></pre></div>
+<div id="htmlwidget-d724c8b5564098b2b4b9" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-d724c8b5564098b2b4b9">{"x":{"filter":"none","data":[["A","A","A","A","A","A","A","A","A","A","B","B","B","B","B","B","B","B","B","B","C","C","C","C","C","C","C","C","C","C","D","D","D","D","D","D","D","D","D","D","E","E","E","E","E","E","E","E","E","E","F","F","F","F","F","F","F","F","F","F","G","G","G","G","G","G","G","G","G","G","H","H","H","H","H","H","H","H","H","H","I","I","I","I","I","I","I","I","I","I","J","J","J","J","J","J","J","J","J","J"],["2001","2002","2003","2004","2005","2006","2007","2008","2009","2010","2001","2002","2003","2004","2005","2006","2007","2008","2009","2010","2001","2002","2003","2004","2005","2006","2007","2008","2009","2010","2001","2002","2003","2004","2005","2006","2007","2008","2009","2010","2001","2002","2003","2004","2005","2006","2007","2008","2009","2010","2001","2002","2003","2004","2005","2006","2007","2008","2009","2010","2001","2002","2003","2004","2005","2006","2007","2008","2009","2010","2001","2002","2003","2004","2005","2006","2007","2008","2009","2010","2001","2002","2003","2004","2005","2006","2007","2008","2009","2010","2001","2002","2003","2004","2005","2006","2007","2008","2009","2010"],[22.6092006797077,24.1894650952106,26.4427162635242,27.1657908301993,27.2007553036782,24.6192227742281,26.1099706303094,27.4765384025883,26.3706870763759,21.364250102174,22.1667839754943,23.3079534637178,24.8217061360914,26.9581588438208,26.4783544676991,27.2953546290806,26.6463872716578,25.268229207304,24.7724130018969,26.8393174994219,22.2189088986412,22.7508080906022,21.3471546160859,22.6840217063203,26.6811690920356,27.776209648562,27.5300022691852,27.4087363817913,28.150101205891,29.8928058199485,20.2012112091671,21.974649502253,24.1466580200042,26.298649582024,24.1113260396748,24.9573435312841,22.1919190382656,22.9196169049382,23.7457262505446,22.6776322793658,21.2724497607519,22.2305958576693,21.1129692168322,22.3370696965877,20.2260679101052,17.9115235171802,18.1399162691806,15.71198617759,15.555563667205,15.4975565733606,23.5652729091978,23.5840507242337,25.4062379507157,23.308136102051,21.2616761954701,24.0145336305205,23.8249888582088,24.2622630728895,25.8090184825633,26.4025669335131,19.8105869030886,16.2713595421656,15.8374617955813,16.7371736994214,12.4039801642221,12.0405384897702,9.49951968612259,5.4287380673315,6.95749962770185,9.40473698388172,18.993456046116,16.2363727422375,15.4564054990381,15.0917114423017,15.161657335604,16.2602776793165,18.8762323720512,18.7512759330154,18.8366572605536,20.6167609344669,23.7189111197005,23.2318117234694,23.4737388696693,22.3987393284231,27.5203985273583,24.9881615430978,23.5536481528866,22.3364266464437,20.7895542193922,23.5720662547419,23.3495900266265,23.9410992864472,25.0106872368866,32.2920052890915,33.3291798175881,33.1347329817099,34.8043135290496,35.5194690481636,35.660389547061,36.5829947953587]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>country<\/th>\n      <th>year<\/th>\n      <th>gdp<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":2}],"order":[],"autoWidth":false,"orderClasses":false,"rowCallback":"function(row, data) {\nDTWidget.formatRound(this, row, data, 2, 3, 3, \",\", \".\");\n}"}},"evals":["options.rowCallback"],"jsHooks":[]}</script>
+<div class="sourceCode" id="cb431"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb431-1"><a href="difference-in-differences.html#cb431-1"></a><span class="kw">dim</span>(long)</span></code></pre></div>
+<pre><code>## [1] 100   3</code></pre>
+<p>100行3列の縦長データになっていることが確認できる。（授業で説明したとおり、これよりも縦長にすることもできる。できるだけ長くすれば良いというものではない。）</p>
+<p>縦長のパネルデータは、<code>ggplot()</code> で簡単に図にすることができる。</p>
+<div class="sourceCode" id="cb433"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb433-1"><a href="difference-in-differences.html#cb433-1"></a>p0 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(long, <span class="kw">aes</span>(<span class="dt">x =</span> year, <span class="dt">y =</span> gdp, <span class="dt">group =</span> country)) <span class="op">+</span></span>
+<span id="cb433-2"><a href="difference-in-differences.html#cb433-2"></a><span class="st">  </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">color =</span> country)) <span class="op">+</span></span>
+<span id="cb433-3"><a href="difference-in-differences.html#cb433-3"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;年&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;GDP (千ドル)&quot;</span>) <span class="op">+</span></span>
+<span id="cb433-4"><a href="difference-in-differences.html#cb433-4"></a><span class="st">  </span><span class="kw">scale_color_discrete</span>(<span class="dt">name =</span> <span class="st">&quot;国&quot;</span>)</span>
+<span id="cb433-5"><a href="difference-in-differences.html#cb433-5"></a><span class="kw">plot</span>(p0)</span></code></pre></div>
+<p><img src="kut-metrics2_files/figure-html/unnamed-chunk-270-1.png" width="576" /></p>
+</div>
+<div id="dplyracross" class="section level4" number="6.1.3.2">
+<h4><span class="header-section-number">6.1.3.2</span> <code>dplyr::across()</code></h4>
+<p>これまでの授業でも、<strong>dplyr::summarize()</strong> は利用してきた。最近のdplyrのアップデートにより、<code>acorss()</code> という便利な関数が使えるようになったので、利用する。</p>
+<p>これを使うには、<strong>dplyr</strong> のバージョンを1.0.0 （以降）にする必要がある。バージョンは、<code>packageVersion("dplyr")</code> で確認できるので、古いバージョンを使っていてアップデートしたい場合は、<code>update.packages("dplyr")</code> を実行する。</p>
+<p>上で作った wide と long を使って説明する。
+例えば、各年のGDPについて10か国の平均を求めたい場合、縦長データだと、</p>
+<div class="sourceCode" id="cb434"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb434-1"><a href="difference-in-differences.html#cb434-1"></a>long <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb434-2"><a href="difference-in-differences.html#cb434-2"></a><span class="st">  </span><span class="kw">group_by</span>(year) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb434-3"><a href="difference-in-differences.html#cb434-3"></a><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">mean_gdp =</span> <span class="kw">mean</span>(gdp),</span>
+<span id="cb434-4"><a href="difference-in-differences.html#cb434-4"></a>            <span class="dt">.groups =</span> <span class="st">&quot;drop&quot;</span>) </span></code></pre></div>
+<pre><code>## # A tibble: 10 x 2
+##    year  mean_gdp
+##    &lt;chr&gt;    &lt;dbl&gt;
+##  1 2001      21.8
+##  2 2002      21.8
+##  3 2003      22.3
+##  4 2004      23.5
+##  5 2005      23.4
+##  6 2006      23.3
+##  7 2007      23.1
+##  8 2008      22.5
+##  9 2009      22.7
+## 10 2010      23.3</code></pre>
+<p>として求められる。</p>
+<p><code>across()</code> を使うと、データフレーム内の複数列にわたって変数を要約することができるので、横長データでも年ごとのGDPの平均値を求められる。
+<code>.col</code> で対象となる列を指定し（指定の方法は、上の <code>pivot_longer()</code> の説明を参照）、<code>.fns</code> で適用する関数を指定する。ここでは、<code>mean()</code> で平均値を求める。</p>
+<div class="sourceCode" id="cb436"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb436-1"><a href="difference-in-differences.html#cb436-1"></a>wide <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb436-2"><a href="difference-in-differences.html#cb436-2"></a><span class="st">  </span><span class="kw">summarize</span>(<span class="kw">across</span>(<span class="dt">.cols =</span> <span class="op">-</span>country, <span class="dt">.fns =</span> mean))</span></code></pre></div>
+<pre><code>## # A tibble: 1 x 10
+##   GDP2001 GDP2002 GDP2003 GDP2004 GDP2005 GDP2006 GDP2007 GDP2008 GDP2009
+##     &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
+## 1    21.8    21.8    22.3    23.5    23.4    23.3    23.1    22.5    22.7
+## # … with 1 more variable: GDP2010 &lt;dbl&gt;</code></pre>
+<p>このように、各列の要約統計量を求めることができる。値は long を元に計算したものと同じであることが確認できる。</p>
+<p>さらに、この例の場合には、country が character（文字列）型、GDPの値が numeric（数値）型なので、<code>where()</code> を使って次のように書くことができる。</p>
+<div class="sourceCode" id="cb438"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb438-1"><a href="difference-in-differences.html#cb438-1"></a>wide <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb438-2"><a href="difference-in-differences.html#cb438-2"></a><span class="st">  </span><span class="kw">summarize</span>(<span class="kw">across</span>(<span class="kw">where</span>(is.numeric), <span class="dt">.fns =</span> mean)) </span></code></pre></div>
+<pre><code>## # A tibble: 1 x 10
+##   GDP2001 GDP2002 GDP2003 GDP2004 GDP2005 GDP2006 GDP2007 GDP2008 GDP2009
+##     &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
+## 1    21.8    21.8    22.3    23.5    23.4    23.3    23.1    22.5    22.7
+## # … with 1 more variable: GDP2010 &lt;dbl&gt;</code></pre>
+<p>一度に2種類以上の要約を行うこともできる。その場合は、名前付きリスト (named list) を以下のように使う。</p>
+<div class="sourceCode" id="cb440"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb440-1"><a href="difference-in-differences.html#cb440-1"></a>wide <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb440-2"><a href="difference-in-differences.html#cb440-2"></a><span class="st">  </span><span class="kw">summarize</span>(<span class="kw">across</span>(<span class="kw">where</span>(is.numeric),</span>
+<span id="cb440-3"><a href="difference-in-differences.html#cb440-3"></a>                   <span class="dt">.fns =</span> <span class="kw">list</span>(<span class="dt">med =</span> median, <span class="dt">sd =</span> sd)))</span></code></pre></div>
+<pre><code>## # A tibble: 1 x 20
+##   GDP2001_med GDP2001_sd GDP2002_med GDP2002_sd GDP2003_med GDP2003_sd
+##         &lt;dbl&gt;      &lt;dbl&gt;       &lt;dbl&gt;      &lt;dbl&gt;       &lt;dbl&gt;      &lt;dbl&gt;
+## 1        22.2       1.66        23.0       2.99        23.8       3.89
+## # … with 14 more variables: GDP2004_med &lt;dbl&gt;, GDP2004_sd &lt;dbl&gt;,
+## #   GDP2005_med &lt;dbl&gt;, GDP2005_sd &lt;dbl&gt;, GDP2006_med &lt;dbl&gt;, GDP2006_sd &lt;dbl&gt;,
+## #   GDP2007_med &lt;dbl&gt;, GDP2007_sd &lt;dbl&gt;, GDP2008_med &lt;dbl&gt;, GDP2008_sd &lt;dbl&gt;,
+## #   GDP2009_med &lt;dbl&gt;, GDP2009_sd &lt;dbl&gt;, GDP2010_med &lt;dbl&gt;, GDP2010_sd &lt;dbl&gt;</code></pre>
+<p>リストで使った名前が、列名を区別するのに使われていることがわかる。</p>
+<p><strong>dplyr</strong> パッケージ全般についての詳細は、宋ジェヒョン先生による「<a href="https://www.jaysong.net/dplyr_intro/">dplyr入門（新版）</a>」を参照されたい。</p>
+</div>
+</div>
+</div>
+<div id="最低賃金の影響" class="section level2" number="6.2">
+<h2><span class="header-section-number">6.2</span> 最低賃金の影響</h2>
+<p>まず、差分の差分 (difference[s]-in-differences; DID, DD) 法の仕組みを理解しよう。</p>
+<div id="card-and-krueger-1994-の研究" class="section level3" number="6.2.1">
+<h3><span class="header-section-number">6.2.1</span> Card and Krueger (1994) の研究</h3>
+<p>ここでは、<span class="citation">Card and Krueger (<a href="#ref-card-krueger1994" role="doc-biblioref">1994</a>)</span> が分析した、最低賃金の上昇が失業に与える影響の研究を例に考えよう。最低賃金が引き上げられると、雇用は減るのだろうか。<span class="citation">Card and Krueger (<a href="#ref-card-krueger1994" role="doc-biblioref">1994</a>)</span> は、1992年にアメリカのニュージャージー州 (NJ) で最低時給が 4.25ドルから5.05ドルに上昇したのに対し、隣接するペンシルバニア州 (PA) では最低時給の上昇がなかった事実を利用して、分析を行った。</p>
+<p>データは、著者の一人である <a href="http://davidcard.berkeley.edu/">David Card 先生のウェブサイト</a>で公開されている。
+まず、データとコードブックが含まれている zip ファイルをダウンロードして保存し、<code>unzip()</code> で展開する。</p>
+<div class="sourceCode" id="cb442"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb442-1"><a href="difference-in-differences.html#cb442-1"></a><span class="kw">dir.create</span>(<span class="st">&quot;tmp&quot;</span>)</span>
+<span id="cb442-2"><a href="difference-in-differences.html#cb442-2"></a><span class="kw">download.file</span>(<span class="dt">url =</span> <span class="st">&quot;http://davidcard.berkeley.edu/data_sets/njmin.zip&quot;</span>,</span>
+<span id="cb442-3"><a href="difference-in-differences.html#cb442-3"></a>              <span class="dt">destfile =</span> <span class="st">&quot;tmp/njmin.zip&quot;</span>)</span>
+<span id="cb442-4"><a href="difference-in-differences.html#cb442-4"></a><span class="kw">unzip</span>(<span class="st">&quot;tmp/njmin.zip&quot;</span>, <span class="dt">exdir =</span> <span class="st">&quot;data&quot;</span>)</span></code></pre></div>
+<p>zip ファイルの中身をdata ディレクトリに展開できたら、データの本体である public.dat を読み込む（注意：.dta [Stata 形式] ではない）。このデータには変数名がついておらず、1行目から値が保存されているので、<code>col_names = FALSE</code> とする。また、欠測が . で表されているので、<code>na = "."</code> を指定する。</p>
+<div class="sourceCode" id="cb443"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb443-1"><a href="difference-in-differences.html#cb443-1"></a>myd &lt;-<span class="st"> </span><span class="kw">read_table</span>(<span class="st">&quot;data/public.dat&quot;</span>, <span class="dt">col_names =</span> <span class="ot">FALSE</span>, <span class="dt">na =</span> <span class="st">&quot;.&quot;</span>)</span></code></pre></div>
+<p>変数名を確認する。</p>
+<div class="sourceCode" id="cb444"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb444-1"><a href="difference-in-differences.html#cb444-1"></a><span class="kw">names</span>(myd)</span></code></pre></div>
+<pre><code>##  [1] &quot;X1&quot;  &quot;X2&quot;  &quot;X3&quot;  &quot;X4&quot;  &quot;X5&quot;  &quot;X6&quot;  &quot;X7&quot;  &quot;X8&quot;  &quot;X9&quot;  &quot;X10&quot; &quot;X11&quot; &quot;X12&quot;
+## [13] &quot;X13&quot; &quot;X14&quot; &quot;X15&quot; &quot;X16&quot; &quot;X17&quot; &quot;X18&quot; &quot;X19&quot; &quot;X20&quot; &quot;X21&quot; &quot;X22&quot; &quot;X23&quot; &quot;X24&quot;
+## [25] &quot;X25&quot; &quot;X26&quot; &quot;X27&quot; &quot;X28&quot; &quot;X29&quot; &quot;X30&quot; &quot;X31&quot; &quot;X32&quot; &quot;X33&quot; &quot;X34&quot; &quot;X35&quot; &quot;X36&quot;
+## [37] &quot;X37&quot; &quot;X38&quot; &quot;X39&quot; &quot;X40&quot; &quot;X41&quot; &quot;X42&quot; &quot;X43&quot; &quot;X44&quot; &quot;X45&quot; &quot;X46&quot;</code></pre>
+<p>このままだと、変数の区別が難しいので、変数名をつける。変数は、先ほどダウンロードしたzipファイルの中にある codebook に書かれている。コードブックから<a href="http://yukiyanai.github.io/jp/classes/econometrics2/contents/data/card-krueger_vars.txt">変数名だけを抜き出したファイル</a> を用意したので、これを使って変数名をつけよう。</p>
+<div class="sourceCode" id="cb446"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb446-1"><a href="difference-in-differences.html#cb446-1"></a>var_names &lt;-<span class="st"> </span><span class="kw">read_lines</span>(<span class="st">&quot;https://yukiyanai.github.io/jp/classes/econometrics2/contents/data/card-krueger_vars.txt&quot;</span>)</span>
+<span id="cb446-2"><a href="difference-in-differences.html#cb446-2"></a><span class="kw">names</span>(myd) &lt;-<span class="st"> </span>var_names <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">print</span>()</span></code></pre></div>
+<pre><code>##  [1] &quot;SHEET&quot;    &quot;CHAIN&quot;    &quot;CO_OWNED&quot; &quot;STATE&quot;    &quot;SOUTHJ&quot;   &quot;CENTRALJ&quot;
+##  [7] &quot;NORTHJ&quot;   &quot;PA1&quot;      &quot;PA2&quot;      &quot;SHORE&quot;    &quot;NCALLS&quot;   &quot;EMPFT&quot;   
+## [13] &quot;EMPPT&quot;    &quot;NMGRS&quot;    &quot;WAGE_ST&quot;  &quot;INCTIME&quot;  &quot;FIRSTINC&quot; &quot;BONUS&quot;   
+## [19] &quot;PCTAFF&quot;   &quot;MEALS&quot;    &quot;OPEN&quot;     &quot;HRSOPEN&quot;  &quot;PSODA&quot;    &quot;PFRY&quot;    
+## [25] &quot;PENTREE&quot;  &quot;NREGS&quot;    &quot;NREGS11&quot;  &quot;TYPE2&quot;    &quot;STATUS2&quot;  &quot;DATE2&quot;   
+## [31] &quot;NCALLS2&quot;  &quot;EMPFT2&quot;   &quot;EMPPT2&quot;   &quot;NMGRS2&quot;   &quot;WAGE_ST2&quot; &quot;INCTIME2&quot;
+## [37] &quot;FIRSTIN2&quot; &quot;SPECIAL2&quot; &quot;MEALS2&quot;   &quot;OPEN2R&quot;   &quot;HRSOPEN2&quot; &quot;PSODA2&quot;  
+## [43] &quot;PFRY2&quot;    &quot;PENTREE2&quot; &quot;NREGS2&quot;   &quot;NREGS112&quot;</code></pre>
+<p>コードブック (codebook) を読み、分析に使う変数を分かりやすい名前に変えて抜き出す。変数の変換は <code>mutate()</code> で、変数名の変換は <code>rename()</code> でできるが、変換した変数だけをデータフレームに残したいので、<code>transmute()</code> を使う。</p>
+<div class="sourceCode" id="cb448"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb448-1"><a href="difference-in-differences.html#cb448-1"></a>minwage &lt;-<span class="st"> </span>myd <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb448-2"><a href="difference-in-differences.html#cb448-2"></a><span class="st">  </span><span class="kw">transmute</span>(</span>
+<span id="cb448-3"><a href="difference-in-differences.html#cb448-3"></a>    <span class="dt">state =</span> <span class="kw">ifelse</span>(STATE <span class="op">==</span><span class="st"> </span><span class="dv">1</span>, <span class="st">&quot;NJ&quot;</span>, <span class="st">&quot;PA&quot;</span>),  <span class="co"># 州</span></span>
+<span id="cb448-4"><a href="difference-in-differences.html#cb448-4"></a>    <span class="dt">fulltime_before =</span> EMPFT,    <span class="co"># 最低時給上昇前のフルタイム労働者の数</span></span>
+<span id="cb448-5"><a href="difference-in-differences.html#cb448-5"></a>    <span class="dt">parttime_before =</span> EMPPT,    <span class="co"># 最低時給上昇前のパートタイム労働者の数</span></span>
+<span id="cb448-6"><a href="difference-in-differences.html#cb448-6"></a>    <span class="dt">wage_before     =</span> WAGE_ST,  <span class="co"># 最低時給上昇前の賃金</span></span>
+<span id="cb448-7"><a href="difference-in-differences.html#cb448-7"></a>    <span class="dt">fulltime_after  =</span> EMPFT2,   <span class="co"># 最低時給上昇後のフルタイム労働者の数</span></span>
+<span id="cb448-8"><a href="difference-in-differences.html#cb448-8"></a>    <span class="dt">parttime_after  =</span> EMPPT2,   <span class="co"># 最低時給上昇後のパートタイム労働者の数</span></span>
+<span id="cb448-9"><a href="difference-in-differences.html#cb448-9"></a>    <span class="dt">wage_after      =</span> WAGE_ST2, <span class="co"># 最低時給上昇後の賃金</span></span>
+<span id="cb448-10"><a href="difference-in-differences.html#cb448-10"></a>    <span class="dt">full_prop_before =</span> fulltime_before <span class="op">/</span><span class="st"> </span>(fulltime_before <span class="op">+</span><span class="st"> </span>parttime_before),</span>
+<span id="cb448-11"><a href="difference-in-differences.html#cb448-11"></a>    <span class="dt">full_prop_after  =</span> fulltime_after  <span class="op">/</span><span class="st"> </span>(fulltime_after <span class="op">+</span><span class="st"> </span>parttime_after)</span>
+<span id="cb448-12"><a href="difference-in-differences.html#cb448-12"></a>  ) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb448-13"><a href="difference-in-differences.html#cb448-13"></a><span class="st">  </span><span class="kw">na.omit</span>()                     <span class="co"># 説明のため、完全ケース分析にする</span></span></code></pre></div>
+</div>
+<div id="処置の確認" class="section level3" number="6.2.2">
+<h3><span class="header-section-number">6.2.2</span> 処置の確認</h3>
+<p>まず、最低時給の上昇が、実際に最低時給を引き上げたかどうかを確認しよう。
+そのために、賃金（時給）が5.05ドル未満のファーストフード店の割合を求める。</p>
+<div class="sourceCode" id="cb449"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb449-1"><a href="difference-in-differences.html#cb449-1"></a>minwage <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb449-2"><a href="difference-in-differences.html#cb449-2"></a><span class="st">  </span><span class="kw">group_by</span>(state) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb449-3"><a href="difference-in-differences.html#cb449-3"></a><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">before =</span> <span class="kw">mean</span>(wage_before <span class="op">&lt;</span><span class="st"> </span><span class="fl">5.05</span>),</span>
+<span id="cb449-4"><a href="difference-in-differences.html#cb449-4"></a>            <span class="dt">after =</span> <span class="kw">mean</span>(wage_after <span class="op">&lt;</span><span class="st"> </span><span class="fl">5.05</span>),</span>
+<span id="cb449-5"><a href="difference-in-differences.html#cb449-5"></a>            <span class="dt">.groups =</span> <span class="st">&quot;drop&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb449-6"><a href="difference-in-differences.html#cb449-6"></a><span class="st">  </span>knitr<span class="op">::</span><span class="kw">kable</span>(<span class="dt">digits =</span> <span class="dv">3</span>)</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">state</th>
+<th align="right">before</th>
+<th align="right">after</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">NJ</td>
+<td align="right">0.911</td>
+<td align="right">0.003</td>
+</tr>
+<tr class="even">
+<td align="left">PA</td>
+<td align="right">0.940</td>
+<td align="right">0.955</td>
+</tr>
+</tbody>
+</table>
+<p>処置（NJでの最低時給引き上げ）前には、どちらの州でも大半（9割以上）の労働者の時給が5.05ドル未満である。それに対し、処置後は、処置がなかったPAでの割合に大きな変化がない一方で、処置を受けた NJ では時給が5.05ドル未満なのは0.3%のみであり、基本的には最低時給が守られていることがわかる。つまり、法律上の最低時給の引き上げは、実際に最低時給を引き上げたことが確認できる。</p>
+</div>
+<div id="単純比較-i-個体間比較" class="section level3" number="6.2.3">
+<h3><span class="header-section-number">6.2.3</span> 単純比較 I： 個体間比較</h3>
+<p>最低時給の引き上げが雇用にどのような影響を与えたか、単純比較による推定を試みよう。
+まず、処置後のNJとPAのフルタイム労働者の割合を比較する。</p>
+<div class="sourceCode" id="cb450"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb450-1"><a href="difference-in-differences.html#cb450-1"></a>minwage <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb450-2"><a href="difference-in-differences.html#cb450-2"></a><span class="st">  </span><span class="kw">group_by</span>(state) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb450-3"><a href="difference-in-differences.html#cb450-3"></a><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">fulltime =</span> <span class="kw">mean</span>(full_prop_after),</span>
+<span id="cb450-4"><a href="difference-in-differences.html#cb450-4"></a>            <span class="dt">.groups =</span> <span class="st">&quot;drop&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb450-5"><a href="difference-in-differences.html#cb450-5"></a><span class="st">  </span>knitr<span class="op">::</span><span class="kw">kable</span>(<span class="dt">digits =</span> <span class="dv">4</span>)</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">state</th>
+<th align="right">fulltime</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">NJ</td>
+<td align="right">0.3204</td>
+</tr>
+<tr class="even">
+<td align="left">PA</td>
+<td align="right">0.2723</td>
+</tr>
+</tbody>
+</table>
+<p>単純比較を信じるなら（<strong>もちろん信じてはいけない！</strong>）、最低賃金の上昇は、フルタイム労働者を 4.8ポイント増やしたということになる。言い換えると、最低賃金の上昇は、雇用を増やす。</p>
+</div>
+<div id="単純比較-ii前後比較" class="section level3" number="6.2.4">
+<h3><span class="header-section-number">6.2.4</span> 単純比較 II：前後比較</h3>
+<p>次に、処置の前後でフルタイム労働者の割合を単純に比較してみよう。</p>
+<div class="sourceCode" id="cb451"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb451-1"><a href="difference-in-differences.html#cb451-1"></a>minwage <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb451-2"><a href="difference-in-differences.html#cb451-2"></a><span class="st">  </span><span class="kw">filter</span>(state <span class="op">==</span><span class="st"> &quot;NJ&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb451-3"><a href="difference-in-differences.html#cb451-3"></a><span class="st">  </span><span class="kw">summarize</span>(<span class="kw">across</span>(<span class="dt">.cols =</span> <span class="kw">starts_with</span>(<span class="st">&quot;full_&quot;</span>), mean)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb451-4"><a href="difference-in-differences.html#cb451-4"></a><span class="st">  </span>knitr<span class="op">::</span><span class="kw">kable</span>(<span class="dt">digits =</span> <span class="dv">4</span>)</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="right">full_prop_before</th>
+<th align="right">full_prop_after</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">0.2965</td>
+<td align="right">0.3204</td>
+</tr>
+</tbody>
+</table>
+<p>単純比較を信じるなら（<strong>もちろん信じてはいけない！</strong>）、最低賃金の上昇は、フルタイム労働者を 2.4ポイント増やしたということになる。言い換えると、最低賃金の上昇は、雇用を増やす。</p>
+</div>
+<div id="did" class="section level3" number="6.2.5">
+<h3><span class="header-section-number">6.2.5</span> DID</h3>
+<p>差分の差分によって、因果効果を推定する。まず、個体間と処置前後のフルタイム労働者の割合を表にしてみよう。</p>
+<div class="sourceCode" id="cb452"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb452-1"><a href="difference-in-differences.html#cb452-1"></a>d_full &lt;-<span class="st"> </span>minwage <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb452-2"><a href="difference-in-differences.html#cb452-2"></a><span class="st">  </span><span class="kw">group_by</span>(state) <span class="op">%&gt;%</span></span>
+<span id="cb452-3"><a href="difference-in-differences.html#cb452-3"></a><span class="st">  </span><span class="kw">summarize</span>(<span class="kw">across</span>(<span class="dt">.cols =</span> <span class="kw">starts_with</span>(<span class="st">&quot;full_&quot;</span>), mean),</span>
+<span id="cb452-4"><a href="difference-in-differences.html#cb452-4"></a>            <span class="dt">.groups =</span> <span class="st">&quot;drop&quot;</span>)</span>
+<span id="cb452-5"><a href="difference-in-differences.html#cb452-5"></a>knitr<span class="op">::</span><span class="kw">kable</span>(d_full, <span class="dt">digits =</span> <span class="dv">3</span>)</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">state</th>
+<th align="right">full_prop_before</th>
+<th align="right">full_prop_after</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">NJ</td>
+<td align="right">0.297</td>
+<td align="right">0.320</td>
+</tr>
+<tr class="even">
+<td align="left">PA</td>
+<td align="right">0.310</td>
+<td align="right">0.272</td>
+</tr>
+</tbody>
+</table>
+<p>ここで示した4つの数字を、図で表してみよう。</p>
+<div class="sourceCode" id="cb453"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb453-1"><a href="difference-in-differences.html#cb453-1"></a>p_did &lt;-<span class="st"> </span>d_full <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb453-2"><a href="difference-in-differences.html#cb453-2"></a><span class="st">  </span><span class="kw">pivot_longer</span>(<span class="dt">cols =</span> <span class="kw">starts_with</span>(<span class="st">&quot;full&quot;</span>),</span>
+<span id="cb453-3"><a href="difference-in-differences.html#cb453-3"></a>               <span class="dt">names_to =</span> <span class="st">&quot;time&quot;</span>,</span>
+<span id="cb453-4"><a href="difference-in-differences.html#cb453-4"></a>               <span class="dt">names_prefix =</span> <span class="st">&quot;full_prop_&quot;</span>,</span>
+<span id="cb453-5"><a href="difference-in-differences.html#cb453-5"></a>               <span class="dt">values_to =</span> <span class="st">&quot;prop&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb453-6"><a href="difference-in-differences.html#cb453-6"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">time =</span> <span class="kw">factor</span>(time, <span class="dt">levels =</span> <span class="kw">c</span>(<span class="st">&quot;before&quot;</span>, <span class="st">&quot;after&quot;</span>),</span>
+<span id="cb453-7"><a href="difference-in-differences.html#cb453-7"></a>                       <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;処置前&quot;</span>, <span class="st">&quot;処置後&quot;</span>))) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb453-8"><a href="difference-in-differences.html#cb453-8"></a><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> time, <span class="dt">y =</span> prop, <span class="dt">group =</span> state)) <span class="op">+</span></span>
+<span id="cb453-9"><a href="difference-in-differences.html#cb453-9"></a><span class="st">  </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">color =</span> state)) <span class="op">+</span></span>
+<span id="cb453-10"><a href="difference-in-differences.html#cb453-10"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">shape =</span> state)) <span class="op">+</span></span>
+<span id="cb453-11"><a href="difference-in-differences.html#cb453-11"></a><span class="st">  </span><span class="kw">ylim</span>(<span class="fl">0.25</span>, <span class="fl">0.35</span>) <span class="op">+</span></span>
+<span id="cb453-12"><a href="difference-in-differences.html#cb453-12"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;フルタイム労働者の平均割合&quot;</span>) <span class="op">+</span></span>
+<span id="cb453-13"><a href="difference-in-differences.html#cb453-13"></a><span class="st">  </span><span class="kw">scale_color_discrete</span>(<span class="dt">name =</span> <span class="st">&quot;&quot;</span>) <span class="op">+</span></span>
+<span id="cb453-14"><a href="difference-in-differences.html#cb453-14"></a><span class="st">  </span><span class="kw">scale_shape_discrete</span>(<span class="dt">name =</span> <span class="st">&quot;&quot;</span>)</span>
+<span id="cb453-15"><a href="difference-in-differences.html#cb453-15"></a><span class="kw">plot</span>(p_did)</span></code></pre></div>
+<p><img src="kut-metrics2_files/figure-html/unnamed-chunk-284-1.png" width="480" /></p>
+<p>NJ と PA のフルタイム労働者の割合に<strong>平行トレンドが仮定できるなら</strong>、差分の差分によって、最低時給上昇の処置効果を推定することができる。平行トレンドがあると仮定して、差の差を計算してみよう。</p>
+<div class="sourceCode" id="cb454"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb454-1"><a href="difference-in-differences.html#cb454-1"></a>minwage <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb454-2"><a href="difference-in-differences.html#cb454-2"></a><span class="st">  </span><span class="kw">group_by</span>(state) <span class="op">%&gt;%</span></span>
+<span id="cb454-3"><a href="difference-in-differences.html#cb454-3"></a><span class="st">  </span><span class="kw">summarize</span>(<span class="kw">across</span>(<span class="dt">.cols =</span> <span class="kw">starts_with</span>(<span class="st">&quot;full_&quot;</span>), mean),</span>
+<span id="cb454-4"><a href="difference-in-differences.html#cb454-4"></a>            <span class="dt">.groups =</span> <span class="st">&quot;drop&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb454-5"><a href="difference-in-differences.html#cb454-5"></a><span class="st">   </span><span class="kw">mutate</span>(<span class="dt">dif_ba =</span> full_prop_after <span class="op">-</span><span class="st"> </span>full_prop_before) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb454-6"><a href="difference-in-differences.html#cb454-6"></a><span class="st">  </span><span class="kw">with</span>(dif_ba[state <span class="op">==</span><span class="st"> &quot;NJ&quot;</span>] <span class="op">-</span><span class="st"> </span>dif_ba[state <span class="op">==</span><span class="st"> &quot;PA&quot;</span>])</span></code></pre></div>
+<pre><code>## [1] 0.06155831</code></pre>
+<p>差分の差分を使うと、最低賃金の引き上げは、フルタイム労働者の割合を6.2ポイント上昇せると推定される。この推定値は、個体間の単純比較や前後比較による推定値よりも大きい。</p>
+<p><strong>差分の差分法による推定値が、個体間比較や前後比較の推定値より大きくなったのはなぜか、上の図を使って考えてみよう</strong>（ヒント：平行トレンドの仮定が示唆する補助線を書くとどうなる？）。</p>
+</div>
+<div id="回帰分析によるdid-の推定" class="section level3" number="6.2.6">
+<h3><span class="header-section-number">6.2.6</span> 回帰分析によるDID の推定</h3>
+<p>DIDによる推定値を、回帰分析によって得る方法を考えよう。
+DID回帰のために必要なのは、処置群を表すダミー変数 <span class="math inline">\(D\)</span>、処置後を表すダミー変数 <span class="math inline">\(P\)</span> とそれらの交差項である。
+ここまで使ってきたデータは横長（wide: 処置前と処置後の結果変数の値が異なる列にある）ので、<code>pivot_longer()</code> で縦長 (long) に変換し、必要な変数を作る。</p>
+<div class="sourceCode" id="cb456"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb456-1"><a href="difference-in-differences.html#cb456-1"></a>minwage_long &lt;-<span class="st"> </span>minwage <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb456-2"><a href="difference-in-differences.html#cb456-2"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">select</span>(state, <span class="kw">starts_with</span>(<span class="st">&quot;full_&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb456-3"><a href="difference-in-differences.html#cb456-3"></a><span class="st">  </span><span class="kw">pivot_longer</span>(<span class="dt">cols =</span> <span class="kw">starts_with</span>(<span class="st">&quot;full&quot;</span>),</span>
+<span id="cb456-4"><a href="difference-in-differences.html#cb456-4"></a>               <span class="dt">names_to =</span> <span class="st">&quot;time&quot;</span>,</span>
+<span id="cb456-5"><a href="difference-in-differences.html#cb456-5"></a>               <span class="dt">names_prefix =</span> <span class="st">&quot;full_prop_&quot;</span>,</span>
+<span id="cb456-6"><a href="difference-in-differences.html#cb456-6"></a>               <span class="dt">values_to =</span> <span class="st">&quot;prop&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb456-7"><a href="difference-in-differences.html#cb456-7"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">D =</span> <span class="kw">ifelse</span>(state <span class="op">==</span><span class="st"> &quot;NJ&quot;</span>, <span class="dv">1</span>, <span class="dv">0</span>),</span>
+<span id="cb456-8"><a href="difference-in-differences.html#cb456-8"></a>         <span class="dt">P =</span> <span class="kw">ifelse</span>(time <span class="op">==</span><span class="st"> &quot;after&quot;</span>, <span class="dv">1</span>, <span class="dv">0</span>))</span></code></pre></div>
+<p>このデータフレームを使って回帰分析を行う。</p>
+<div class="sourceCode" id="cb457"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb457-1"><a href="difference-in-differences.html#cb457-1"></a>did_fit00 &lt;-<span class="st"> </span><span class="kw">lm</span>(prop <span class="op">~</span><span class="st"> </span>D <span class="op">*</span><span class="st"> </span>P, <span class="dt">data =</span> minwage_long)</span>
+<span id="cb457-2"><a href="difference-in-differences.html#cb457-2"></a><span class="kw">tidy</span>(did_fit00) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb457-3"><a href="difference-in-differences.html#cb457-3"></a><span class="st">  </span><span class="kw">select</span>(term, estimate) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb457-4"><a href="difference-in-differences.html#cb457-4"></a><span class="st">  </span>knitr<span class="op">::</span><span class="kw">kable</span>()</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">term</th>
+<th align="right">estimate</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">(Intercept)</td>
+<td align="right">0.3099657</td>
+</tr>
+<tr class="even">
+<td align="left">D</td>
+<td align="right">-0.0134395</td>
+</tr>
+<tr class="odd">
+<td align="left">P</td>
+<td align="right">-0.0376836</td>
+</tr>
+<tr class="even">
+<td align="left">D:P</td>
+<td align="right">0.0615583</td>
+</tr>
+</tbody>
+</table>
+<p>得られた推定値のうち、D:P（<span class="math inline">\(D\)</span> と <span class="math inline">\(P\)</span> の交差項）の係数が、DIDによる推定値（先ほど計算した差の差の値と同じ）であることがわかる。</p>
+<p>このように、DID推定値は回帰分析によって得ることができる。交絡因子が想定される場合には、交絡を含めた重回帰分析を行う。</p>
+</div>
+</div>
+<div id="法定飲酒年齢の影響" class="section level2" number="6.3">
+<h2><span class="header-section-number">6.3</span> 法定飲酒年齢の影響</h2>
+<div id="angrist-and-pischke-2009-の例" class="section level3" number="6.3.1">
+<h3><span class="header-section-number">6.3.1</span> Angrist and Pischke (2009) の例</h3>
+<p><span class="citation">Angrist and Pischke (<a href="#ref-ang2009" role="doc-biblioref">2009</a>)</span> の5.2節 (pp.191-203) にある、法定飲酒年齢 (minimum legal drinking age; MLDA) の変更が18歳から20歳までの若者の死に与える影響を分析してみよう。</p>
+<p>データは、<a href="https://www.masteringmetrics.com/resources/">Mastering ’Metrics</a> から入手できる。</p>
+<div class="sourceCode" id="cb458"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb458-1"><a href="difference-in-differences.html#cb458-1"></a><span class="kw">download.file</span>(<span class="dt">url =</span> <span class="st">&quot;http://masteringmetrics.com/wp-content/uploads/2015/01/deaths.dta&quot;</span>,</span>
+<span id="cb458-2"><a href="difference-in-differences.html#cb458-2"></a>              <span class="dt">destfile =</span> <span class="st">&quot;data/deaths.dta&quot;</span>)</span></code></pre></div>
+<p>Stata 形式のデータなので、<code>haven::read_dta()</code> で読み込む。</p>
+<div class="sourceCode" id="cb459"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb459-1"><a href="difference-in-differences.html#cb459-1"></a>MLDA &lt;-<span class="st"> </span><span class="kw">read_dta</span>(<span class="st">&quot;data/deaths.dta&quot;</span>)</span></code></pre></div>
+<p>分析に必要なのはデータの一部なので、その部分を抜き出す。
+<span class="citation">Angrist and Pischke (<a href="#ref-ang2009" role="doc-biblioref">2009</a>)</span> は、(1) すべての死; All deaths (dtype = 1), (2) 自動車事故による死; Motor vehicle accidents (dtype = 2), (3) 自殺; Suicide (dtype = 3), (4) 内蔵疾患による死; All internal causes (dtype = 6) の4種類の死を結果変数として分析しているが、ここでは (1) のみを扱うことにする。</p>
+<div class="sourceCode" id="cb460"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb460-1"><a href="difference-in-differences.html#cb460-1"></a>myd &lt;-<span class="st"> </span>MLDA <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb460-2"><a href="difference-in-differences.html#cb460-2"></a><span class="st">  </span><span class="kw">filter</span>(year <span class="op">&lt;=</span><span class="st"> </span><span class="dv">1983</span>,</span>
+<span id="cb460-3"><a href="difference-in-differences.html#cb460-3"></a>         agegr <span class="op">==</span><span class="st"> </span><span class="dv">2</span>,      <span class="co"># 18-21 years old</span></span>
+<span id="cb460-4"><a href="difference-in-differences.html#cb460-4"></a>         dtype <span class="op">==</span><span class="st"> </span><span class="dv">1</span>) <span class="op">%&gt;%</span><span class="st">  </span><span class="co"># all deaths      </span></span>
+<span id="cb460-5"><a href="difference-in-differences.html#cb460-5"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">state =</span> <span class="kw">factor</span>(state),</span>
+<span id="cb460-6"><a href="difference-in-differences.html#cb460-6"></a>         <span class="dt">year_fct =</span> <span class="kw">factor</span>(year))</span></code></pre></div>
+<p>このデータは、州 (state) と年 (year) の組み合わせが1つひとつの行を構成する 州-年パネル (state-year panel) である。
+州の数と観測期間の数を確認しよう。</p>
+<div class="sourceCode" id="cb461"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb461-1"><a href="difference-in-differences.html#cb461-1"></a>myd <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb461-2"><a href="difference-in-differences.html#cb461-2"></a><span class="st">  </span><span class="kw">summarize</span>(<span class="kw">across</span>(<span class="dt">.cols =</span> <span class="kw">c</span>(state, year), </span>
+<span id="cb461-3"><a href="difference-in-differences.html#cb461-3"></a>                   <span class="dt">.fns =</span> n_distinct))</span></code></pre></div>
+<pre><code>## # A tibble: 1 x 2
+##   state  year
+##   &lt;int&gt; &lt;int&gt;
+## 1    51    14</code></pre>
+<p>対象となる州は51（50州とワシントンD.C.）、年は14期（14年）あることがわかる。</p>
+<p>分析に使う結果変数は <strong>mrate</strong>（死亡率; mortality rate） である。10万人あたりの死者数が記録されている。
+分布を確認しておこう。</p>
+<div class="sourceCode" id="cb463"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb463-1"><a href="difference-in-differences.html#cb463-1"></a>hist_mrate &lt;-<span class="st"> </span><span class="kw">ggplot</span>(myd, <span class="kw">aes</span>(<span class="dt">x =</span> mrate, <span class="dt">y =</span> <span class="kw">after_stat</span>(density))) <span class="op">+</span></span>
+<span id="cb463-2"><a href="difference-in-differences.html#cb463-2"></a><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">color =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">binwidth =</span> <span class="dv">10</span>) <span class="op">+</span></span>
+<span id="cb463-3"><a href="difference-in-differences.html#cb463-3"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;死者数（10万人あたり）&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;確率密度&quot;</span>)</span>
+<span id="cb463-4"><a href="difference-in-differences.html#cb463-4"></a><span class="kw">plot</span>(hist_mrate)</span></code></pre></div>
+<p><img src="kut-metrics2_files/figure-html/unnamed-chunk-292-1.png" width="384" /></p>
+<p>死亡率の時系列変化を可視化しよう。</p>
+<div class="sourceCode" id="cb464"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb464-1"><a href="difference-in-differences.html#cb464-1"></a>ts_mrate &lt;-<span class="st"> </span><span class="kw">ggplot</span>(myd, <span class="kw">aes</span>(<span class="dt">x =</span> year, <span class="dt">y =</span> mrate, <span class="dt">group =</span> state)) <span class="op">+</span></span>
+<span id="cb464-2"><a href="difference-in-differences.html#cb464-2"></a><span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span></span>
+<span id="cb464-3"><a href="difference-in-differences.html#cb464-3"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;年&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;死者数（10万人あたり）&quot;</span>) <span class="op">+</span></span>
+<span id="cb464-4"><a href="difference-in-differences.html#cb464-4"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;none&quot;</span>)</span>
+<span id="cb464-5"><a href="difference-in-differences.html#cb464-5"></a><span class="kw">plot</span>(ts_mrate)</span></code></pre></div>
+<p><img src="kut-metrics2_files/figure-html/unnamed-chunk-293-1.png" width="576" /></p>
+<p>上の最低賃金の例で見たように、DID回帰に必要な説明変数は、個体の差（処置群と統制群の区別）を表す <span class="math inline">\(D\)</span>、時間（処置・施策が実施される前後の区別）を表す <span class="math inline">\(P\)</span>、処置を受けた後の観測値であることを示す <span class="math inline">\(D \times P\)</span> の3つだった。</p>
+<p>この分析では、個体の差には州を表す <strong>state</strong> が、時間には年を表す <strong>year_fct</strong> が使える（year をそのまま使うと数値として扱われてしまうので、factor 型の year_fctを使う）。しかし、処置後の観測値であるかどうかは、これら2つの交差項では表現できない。</p>
+<p>この分析で考える処置（介入）はMLDAの変更であるが、MLDA は18歳, 19歳, 20歳, 21歳のいずれかである。
+また、MLDA が変更されるタイミングは、州によって異なる。さらに、（少なとも理論的には）複数回の MLDA 変更も可能である。</p>
+<p>そこで、このデータセットには、処置変数として <strong>legal</strong> が用意されている。この変数は、特定の年の特定の州で、18歳から20歳までの人口のうち何割が合法的に飲酒できるかを表す。例えば、<span class="math inline">\(t\)</span>年の<span class="math inline">\(s\)</span>州でのMLDAが21歳だとすると、20歳以下で合法的に飲酒できる者はいないので、この変数の値は0になる。MLDAが18歳なら、18歳以上の全員が合法的に飲酒できるので、この変数の値は1になる（さらに、年の途中でMLDAが変更された場合には、その期間に応じて値が調整される）。この値が大きいほど、若者（18-20歳）がアルコールにアクセスしやすいということを意味する。MLDAを引き下げるという処置（施策）を実行すると、legal の値が大きくなるということである。</p>
+</div>
+<div id="did-回帰" class="section level3" number="6.3.2">
+<h3><span class="header-section-number">6.3.2</span> DID 回帰</h3>
+<p>分析に使う変数が揃ったので、差分の差分を利用した回帰分析によって、MLDAの平均処置効果を推定しよう。
+state は51州を表すカテゴリ変数、year_fct は14年のうちいずれかの年を表すカテゴリ変数であるが、参照カテゴリを用意していないので、回帰式の formula に <code>0</code> を書くことにより、切片なしのモデルを推定する。</p>
+<div class="sourceCode" id="cb465"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb465-1"><a href="difference-in-differences.html#cb465-1"></a>fit_ap0 &lt;-<span class="st"> </span><span class="kw">lm</span>(mrate <span class="op">~</span><span class="st"> </span><span class="dv">0</span> <span class="op">+</span><span class="st"> </span>legal <span class="op">+</span><span class="st"> </span>state <span class="op">+</span><span class="st"> </span>year_fct, <span class="dt">data =</span> myd)</span>
+<span id="cb465-2"><a href="difference-in-differences.html#cb465-2"></a><span class="kw">tidy</span>(fit_ap0) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb465-3"><a href="difference-in-differences.html#cb465-3"></a><span class="st">  </span><span class="kw">select</span>(term, estimate, std.error) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb465-4"><a href="difference-in-differences.html#cb465-4"></a><span class="st">  </span><span class="kw">filter</span>(term <span class="op">==</span><span class="st"> &quot;legal&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb465-5"><a href="difference-in-differences.html#cb465-5"></a><span class="st">  </span>knitr<span class="op">::</span><span class="kw">kable</span>(<span class="dt">digits =</span> <span class="dv">2</span>)</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">term</th>
+<th align="right">estimate</th>
+<th align="right">std.error</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">legal</td>
+<td align="right">10.8</td>
+<td align="right">3.14</td>
+</tr>
+</tbody>
+</table>
+<p>変数 legal の効果が10.8 と推定された。これが平均処置効果である。これは、18-20歳の人々がアルコールを摂取できない状況から摂取できる状況に変化すると、10万人あたりの死者数が約11人増えるということを意味する。言い換えると、MLDA を下げると死者が増える。</p>
+<p>これで <span class="citation">Angrist and Pischke (<a href="#ref-ang2009" role="doc-biblioref">2009</a>)</span> (p.196) の表5.2 と同じ推定値が得られたが、標準誤差が異なる。ここで得た標準誤差のほうが小さい。それは、この分析では同一州内の観測値が似ているという問題を考慮していないため、不確実性を低く見積もってしまっているためである。</p>
+<p>そこで、州というクラスタを考慮に入れた標準誤差 (cluster-robust standard error) を求めよう。そのために、<strong>estimatr</strong> パッケージの <code>estimatr::lm_robust()</code> を使う。<code>lm_robust()</code> でクラスタ標準誤差を得るためには、<code>lm()</code> を使うときに指定する内容に加え、<code>cluster</code> と <code>se_type</code> を指定する。<code>cluster</code> には、クラスタを表す変数を指定する。ここでは、<code>cluster = state</code> とする。
+<code>se_type</code> には、標準誤差を計算する方法を指定する。既定値は “CR2” だが、ここでは <span class="citation">Angrist and Pischke (<a href="#ref-ang2009" role="doc-biblioref">2009</a>)</span> と同じ結果を得るために、Stata と同じ計算方法である “stata” を指定する　<span class="citation">(Arnold <a href="#ref-arnold2018" role="doc-biblioref">2018</a>)</span>。</p>
+<p>では、推定してみよう。</p>
+<div class="sourceCode" id="cb466"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb466-1"><a href="difference-in-differences.html#cb466-1"></a>fit_ap1 &lt;-<span class="st"> </span><span class="kw">lm_robust</span>(mrate <span class="op">~</span><span class="st"> </span><span class="dv">0</span> <span class="op">+</span><span class="st"> </span>legal <span class="op">+</span><span class="st"> </span>state <span class="op">+</span><span class="st"> </span>year_fct, <span class="dt">data =</span> myd,</span>
+<span id="cb466-2"><a href="difference-in-differences.html#cb466-2"></a>                     <span class="dt">clusters =</span> state, <span class="dt">se_type =</span> <span class="st">&quot;stata&quot;</span>)</span>
+<span id="cb466-3"><a href="difference-in-differences.html#cb466-3"></a><span class="kw">tidy</span>(fit_ap1) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb466-4"><a href="difference-in-differences.html#cb466-4"></a><span class="st">  </span><span class="kw">select</span>(term, estimate, std.error) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb466-5"><a href="difference-in-differences.html#cb466-5"></a><span class="st">  </span><span class="kw">filter</span>(term <span class="op">==</span><span class="st"> &quot;legal&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb466-6"><a href="difference-in-differences.html#cb466-6"></a><span class="st">  </span>knitr<span class="op">::</span><span class="kw">kable</span>(<span class="dt">digits =</span> <span class="dv">2</span>)</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">term</th>
+<th align="right">estimate</th>
+<th align="right">std.error</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">legal</td>
+<td align="right">10.8</td>
+<td align="right">4.59</td>
+</tr>
+</tbody>
+</table>
+<p>legal の係数の推定値は先ほどとまったく同じであるが、標準誤差が先ほどより大きくなった。クラスタ化を考慮しない分析では、標準誤差が過小評価されていたことがうかがえる。この係数の推定値と標準誤差の値は、<span class="citation">Angrist and Pischke (<a href="#ref-ang2009" role="doc-biblioref">2009</a>)</span> (p.196) の表5.2 の “All deaths” の行の (1) の列にある数値に一致する。</p>
+</div>
+<div id="平行トレンドの仮定" class="section level3" number="6.3.3">
+<h3><span class="header-section-number">6.3.3</span> 平行トレンドの仮定</h3>
+<p>DID 分析では、平行トレンドが仮定されているが、分析対象となる個体と期間の両者が多い場合には、仮定を緩めた分析をすることができる。個体ごとの時間トレンドの違いを説明する変数を回帰分析に加えることにより、トレンドが完全に平行でなくても、平均置効果を推定することができるようになるのである。</p>
+<p>ここでは、それぞれの州の時間トレンドは線形（つまり、処置がない場合の死亡者数は、変化なし、単調増加、単調減少のいずれか）であることを仮定する。 <span class="citation">Angrist and Pischke (<a href="#ref-ang2009" role="doc-biblioref">2009</a>)</span> (p.196) の表5.2 の (2) 列では、州ごとの時間トレンドが考慮されている。州ごとの時間トレンドは、state <span class="math inline">\(\times\)</span> year（factor 型でなく、数値）で表すことができる。（<strong>注意：state*year としてしまうと、sate, year, state:year の3つの項が
+入ってしまうので、state:year とする。</strong>）</p>
+<div class="sourceCode" id="cb467"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb467-1"><a href="difference-in-differences.html#cb467-1"></a>fit_ap2 &lt;-<span class="st"> </span><span class="kw">lm_robust</span>(mrate <span class="op">~</span><span class="st"> </span><span class="dv">0</span> <span class="op">+</span><span class="st"> </span>legal <span class="op">+</span><span class="st"> </span>state  <span class="op">+</span><span class="st"> </span>year_fct <span class="op">+</span><span class="st"> </span>state<span class="op">:</span>year, </span>
+<span id="cb467-2"><a href="difference-in-differences.html#cb467-2"></a>                     <span class="dt">data =</span> myd,</span>
+<span id="cb467-3"><a href="difference-in-differences.html#cb467-3"></a>                     <span class="dt">clusters =</span> state, <span class="dt">se_type =</span> <span class="st">&quot;stata&quot;</span>)</span>
+<span id="cb467-4"><a href="difference-in-differences.html#cb467-4"></a><span class="kw">tidy</span>(fit_ap2) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb467-5"><a href="difference-in-differences.html#cb467-5"></a><span class="st">  </span><span class="kw">select</span>(term, estimate, std.error) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb467-6"><a href="difference-in-differences.html#cb467-6"></a><span class="st">  </span><span class="kw">filter</span>(term <span class="op">==</span><span class="st"> &quot;legal&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb467-7"><a href="difference-in-differences.html#cb467-7"></a><span class="st">  </span>knitr<span class="op">::</span><span class="kw">kable</span>(<span class="dt">digits =</span> <span class="dv">2</span>)</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">term</th>
+<th align="right">estimate</th>
+<th align="right">std.error</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">legal</td>
+<td align="right">8.47</td>
+<td align="right">5.1</td>
+</tr>
+</tbody>
+</table>
+<p>表5.2 の “All deaths” の行の (2) の列と同じ結果が得られた。</p>
+<p>表5.2 の (3) の列では、州の人口を重みとする重み付き回帰が行われている。<code>lm()</code> 同様、<code>lm_robust()</code> でも <code>weights</code> で重みが指定できる。人口は、popという変数に記録されている。</p>
+<div class="sourceCode" id="cb468"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb468-1"><a href="difference-in-differences.html#cb468-1"></a>fit_ap3 &lt;-<span class="st"> </span><span class="kw">lm_robust</span>(mrate <span class="op">~</span><span class="st"> </span><span class="dv">0</span> <span class="op">+</span><span class="st"> </span>legal <span class="op">+</span><span class="st"> </span>state <span class="op">+</span><span class="st"> </span>year_fct,</span>
+<span id="cb468-2"><a href="difference-in-differences.html#cb468-2"></a>                     <span class="dt">data =</span> myd, <span class="dt">weights =</span> pop,</span>
+<span id="cb468-3"><a href="difference-in-differences.html#cb468-3"></a>                     <span class="dt">clusters =</span> state, <span class="dt">se_type =</span> <span class="st">&quot;stata&quot;</span>)</span>
+<span id="cb468-4"><a href="difference-in-differences.html#cb468-4"></a><span class="kw">tidy</span>(fit_ap3) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb468-5"><a href="difference-in-differences.html#cb468-5"></a><span class="st">  </span><span class="kw">select</span>(term, estimate, std.error) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb468-6"><a href="difference-in-differences.html#cb468-6"></a><span class="st">  </span><span class="kw">filter</span>(term <span class="op">==</span><span class="st"> &quot;legal&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb468-7"><a href="difference-in-differences.html#cb468-7"></a><span class="st">  </span>knitr<span class="op">::</span><span class="kw">kable</span>(<span class="dt">digits =</span> <span class="dv">2</span>)</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">term</th>
+<th align="right">estimate</th>
+<th align="right">std.error</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">legal</td>
+<td align="right">12.41</td>
+<td align="right">4.6</td>
+</tr>
+</tbody>
+</table>
+<p>表5.2 の “All deaths” の行の (3) の列と同じ結果が得られた。</p>
+<p>最後に、(4) の列は、トレンドと重み付けの両方を利用している。</p>
+<div class="sourceCode" id="cb469"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb469-1"><a href="difference-in-differences.html#cb469-1"></a>fit_ap4 &lt;-<span class="st"> </span><span class="kw">lm_robust</span>(mrate <span class="op">~</span><span class="st"> </span><span class="dv">0</span> <span class="op">+</span><span class="st"> </span>legal <span class="op">+</span><span class="st"> </span>state <span class="op">+</span><span class="st"> </span>year_fct <span class="op">+</span><span class="st"> </span>state<span class="op">:</span>year,</span>
+<span id="cb469-2"><a href="difference-in-differences.html#cb469-2"></a>                     <span class="dt">data =</span> myd, <span class="dt">weights =</span> pop,</span>
+<span id="cb469-3"><a href="difference-in-differences.html#cb469-3"></a>                     <span class="dt">clusters =</span> state, <span class="dt">se_type =</span> <span class="st">&quot;stata&quot;</span>)</span>
+<span id="cb469-4"><a href="difference-in-differences.html#cb469-4"></a><span class="kw">tidy</span>(fit_ap4) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb469-5"><a href="difference-in-differences.html#cb469-5"></a><span class="st">  </span><span class="kw">select</span>(term, estimate, std.error) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb469-6"><a href="difference-in-differences.html#cb469-6"></a><span class="st">  </span><span class="kw">filter</span>(term <span class="op">==</span><span class="st"> &quot;legal&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb469-7"><a href="difference-in-differences.html#cb469-7"></a><span class="st">  </span>knitr<span class="op">::</span><span class="kw">kable</span>(<span class="dt">digits =</span> <span class="dv">2</span>)</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">term</th>
+<th align="right">estimate</th>
+<th align="right">std.error</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">legal</td>
+<td align="right">9.65</td>
+<td align="right">4.64</td>
+</tr>
+</tbody>
+</table>
+<p>表5.2 の “All deaths” の行の (4) の列と同じ結果が得られた。</p>
+</div>
+</div>
+<div id="シミュレーション" class="section level2" number="6.4">
+<h2><span class="header-section-number">6.4</span> シミュレーション</h2>
+<p>平行トレンドの仮定が成り立たない場合について、シミュレーションによってもう少し調べてみよう。</p>
+<div id="シミュレーションの設定" class="section level3" number="6.4.1">
+<h3><span class="header-section-number">6.4.1</span> シミュレーションの設定</h3>
+<p>47の個体（prefecture, 県：1から47までの整数で区別される）について、1990年から2019年までの値をもつパネルデータを作る。</p>
+<div class="sourceCode" id="cb470"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb470-1"><a href="difference-in-differences.html#cb470-1"></a><span class="kw">set.seed</span>(<span class="dv">2020-07-01</span>)</span>
+<span id="cb470-2"><a href="difference-in-differences.html#cb470-2"></a>sim_df &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">year =</span> <span class="dv">1990</span><span class="op">:</span><span class="dv">2019</span>)</span>
+<span id="cb470-3"><a href="difference-in-differences.html#cb470-3"></a>init &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">47</span>, <span class="dt">mean =</span> <span class="dv">100</span>, <span class="dt">sd =</span> <span class="dv">30</span>)</span>
+<span id="cb470-4"><a href="difference-in-differences.html#cb470-4"></a>trend &lt;-<span class="st"> </span><span class="dv">-3</span> <span class="op">+</span><span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">47</span> <span class="op">*</span><span class="st"> </span><span class="fl">0.2</span> <span class="op">+</span><span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">47</span>, <span class="dt">mean =</span> <span class="dv">0</span>, <span class="dt">sd =</span> <span class="dv">1</span>)</span>
+<span id="cb470-5"><a href="difference-in-differences.html#cb470-5"></a>outcome &lt;-<span class="st"> </span><span class="kw">sapply</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">47</span>, <span class="cf">function</span>(i) init[i] <span class="op">+</span><span class="st"> </span>trend[i] <span class="op">*</span><span class="st"> </span><span class="dv">0</span><span class="op">:</span><span class="dv">29</span>)</span>
+<span id="cb470-6"><a href="difference-in-differences.html#cb470-6"></a><span class="kw">colnames</span>(outcome) &lt;-<span class="st"> </span><span class="kw">str_c</span>(<span class="st">&quot;pref_&quot;</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">47</span>)</span>
+<span id="cb470-7"><a href="difference-in-differences.html#cb470-7"></a>sim_df &lt;-<span class="st"> </span>outcome <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb470-8"><a href="difference-in-differences.html#cb470-8"></a><span class="st">  </span><span class="kw">as_tibble</span>() <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb470-9"><a href="difference-in-differences.html#cb470-9"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">year =</span> <span class="dv">1990</span><span class="op">:</span><span class="dv">2019</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb470-10"><a href="difference-in-differences.html#cb470-10"></a><span class="st">  </span><span class="kw">pivot_longer</span>(<span class="dt">cols =</span> <span class="kw">starts_with</span>(<span class="st">&quot;pref&quot;</span>),</span>
+<span id="cb470-11"><a href="difference-in-differences.html#cb470-11"></a>               <span class="dt">names_to =</span> <span class="st">&quot;pref&quot;</span>,</span>
+<span id="cb470-12"><a href="difference-in-differences.html#cb470-12"></a>               <span class="dt">names_prefix =</span> <span class="st">&quot;pref_&quot;</span>,</span>
+<span id="cb470-13"><a href="difference-in-differences.html#cb470-13"></a>               <span class="dt">values_to =</span> <span class="st">&quot;y0&quot;</span>)</span></code></pre></div>
+<p>このデータセットには、県を表す pref、年を表す year と、処置がない場合の結果変数 y0 の3つの変数がある。
+処置がまったくない場合に結果変数がどのような変化示すか、図示しておこう。</p>
+<div class="sourceCode" id="cb471"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb471-1"><a href="difference-in-differences.html#cb471-1"></a>ts_notreatment &lt;-<span class="st"> </span><span class="kw">ggplot</span>(sim_df, <span class="kw">aes</span>(<span class="dt">x =</span> year, <span class="dt">y =</span> y0, <span class="dt">group =</span> pref)) <span class="op">+</span></span>
+<span id="cb471-2"><a href="difference-in-differences.html#cb471-2"></a><span class="st">  </span><span class="kw">geom_line</span>()</span>
+<span id="cb471-3"><a href="difference-in-differences.html#cb471-3"></a><span class="kw">plot</span>(ts_notreatment)  </span></code></pre></div>
+<p><img src="kut-metrics2_files/figure-html/unnamed-chunk-300-1.png" width="480" /></p>
+<p>この図から分かるとおり、トレンドが平行ではない。ただし、どのトレンドも線形（直線）である。</p>
+<p>次に、処置を受ける県を決める。ここでは、47県のうち、1から20までが処置を受け（処置群）、21から47までは処置を受けない（統制群）ことにしよう。</p>
+<div class="sourceCode" id="cb472"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb472-1"><a href="difference-in-differences.html#cb472-1"></a>sim_df &lt;-<span class="st"> </span>sim_df <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb472-2"><a href="difference-in-differences.html#cb472-2"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">D =</span> <span class="kw">ifelse</span>(pref <span class="op">%in%</span><span class="st"> </span><span class="kw">as.character</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">20</span>), <span class="dv">1</span>, <span class="dv">0</span>))</span></code></pre></div>
+<p>次に、処置を受けるタイミングを決める。話を単純にするため、処置を受けるタイミングは、2どの個体も同じ2010年としよう。2010年に処置を受けるので、効果は2011年（2010年と2011年の差）に現れることになる。</p>
+<div class="sourceCode" id="cb473"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb473-1"><a href="difference-in-differences.html#cb473-1"></a>sim_df &lt;-<span class="st"> </span>sim_df <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb473-2"><a href="difference-in-differences.html#cb473-2"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">P =</span> <span class="kw">ifelse</span>(year <span class="op">&gt;</span><span class="st"> </span><span class="dv">2010</span>, <span class="dv">1</span>, <span class="dv">0</span>))</span></code></pre></div>
+<p>最後に、処置群の個体に、平均 delta の処置効果を与えよう。ここでは、<code>delta = 20</code> とする。</p>
+<div class="sourceCode" id="cb474"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb474-1"><a href="difference-in-differences.html#cb474-1"></a>delta &lt;-<span class="st"> </span><span class="dv">20</span></span>
+<span id="cb474-2"><a href="difference-in-differences.html#cb474-2"></a>effect &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="kw">rnorm</span>(<span class="dv">47</span>, <span class="dt">mean =</span> delta, <span class="dt">sd =</span> <span class="dv">2</span>), <span class="dt">each =</span> <span class="dv">30</span>)</span>
+<span id="cb474-3"><a href="difference-in-differences.html#cb474-3"></a>sim_df &lt;-<span class="st"> </span>sim_df <span class="op">%&gt;%</span></span>
+<span id="cb474-4"><a href="difference-in-differences.html#cb474-4"></a><span class="st">  </span><span class="kw">arrange</span>(pref, year) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb474-5"><a href="difference-in-differences.html#cb474-5"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">outcome =</span> <span class="kw">case_when</span>(</span>
+<span id="cb474-6"><a href="difference-in-differences.html#cb474-6"></a>    D <span class="op">==</span><span class="st"> </span><span class="dv">0</span> <span class="op">~</span><span class="st">       </span>y0,</span>
+<span id="cb474-7"><a href="difference-in-differences.html#cb474-7"></a>    P <span class="op">==</span><span class="st"> </span><span class="dv">0</span> <span class="op">~</span><span class="st">       </span>y0,</span>
+<span id="cb474-8"><a href="difference-in-differences.html#cb474-8"></a>    <span class="ot">TRUE</span>         <span class="op">~</span><span class="st"> </span>y0 <span class="op">+</span><span class="st"> </span>effect </span>
+<span id="cb474-9"><a href="difference-in-differences.html#cb474-9"></a>  ))</span></code></pre></div>
+<p>これで1回分のシミュレーションデータができた。結果変数を可視化しよう。
+処置群と統制群を異なる色で示す。</p>
+<div class="sourceCode" id="cb475"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb475-1"><a href="difference-in-differences.html#cb475-1"></a>ts_sim_data &lt;-<span class="st"> </span><span class="kw">ggplot</span>(sim_df, <span class="kw">aes</span>(<span class="dt">x =</span> year, <span class="dt">y =</span> outcome, <span class="dt">group =</span> pref)) <span class="op">+</span></span>
+<span id="cb475-2"><a href="difference-in-differences.html#cb475-2"></a><span class="st">  </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">color =</span> <span class="kw">as.factor</span>(D))) <span class="op">+</span></span>
+<span id="cb475-3"><a href="difference-in-differences.html#cb475-3"></a><span class="st">  </span><span class="kw">scale_color_discrete</span>(<span class="dt">name =</span> <span class="st">&quot;&quot;</span>, <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;統制群&quot;</span>, <span class="st">&quot;処置群&quot;</span>)) <span class="op">+</span></span>
+<span id="cb475-4"><a href="difference-in-differences.html#cb475-4"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;年&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;結果変数&quot;</span>)</span>
+<span id="cb475-5"><a href="difference-in-differences.html#cb475-5"></a><span class="kw">plot</span>(ts_sim_data)  </span></code></pre></div>
+<p><img src="kut-metrics2_files/figure-html/unnamed-chunk-304-1.png" width="576" /></p>
+<p>上のデータ作成では、トレンドが平行ではなく、処置群のトレンドのほう統制群のトレンドよりも負の傾きになりやすことが分かる。</p>
+<p>このデータに対し、トレンドをコントロールせずにDID回帰を実行してみよう</p>
+<div class="sourceCode" id="cb476"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb476-1"><a href="difference-in-differences.html#cb476-1"></a>fit_s1 &lt;-<span class="st"> </span><span class="kw">lm_robust</span>(outcome <span class="op">~</span><span class="st"> </span>D <span class="op">*</span><span class="st"> </span>P, <span class="dt">data =</span> sim_df,</span>
+<span id="cb476-2"><a href="difference-in-differences.html#cb476-2"></a>                    <span class="dt">clusters =</span> pref, <span class="dt">se_type =</span> <span class="st">&quot;stata&quot;</span>)</span>
+<span id="cb476-3"><a href="difference-in-differences.html#cb476-3"></a><span class="kw">tidy</span>(fit_s1) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb476-4"><a href="difference-in-differences.html#cb476-4"></a><span class="st">  </span><span class="kw">filter</span>(term <span class="op">==</span><span class="st"> &quot;D:P&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb476-5"><a href="difference-in-differences.html#cb476-5"></a><span class="st">  </span><span class="kw">select</span>(term, estimate, std.error) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb476-6"><a href="difference-in-differences.html#cb476-6"></a><span class="st">  </span>knitr<span class="op">::</span><span class="kw">kable</span>(<span class="dt">digits =</span> <span class="dv">2</span>)</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">term</th>
+<th align="right">estimate</th>
+<th align="right">std.error</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">D:P</td>
+<td align="right">-55.03</td>
+<td align="right">7.55</td>
+</tr>
+</tbody>
+</table>
+<p>設定した平均処置効果がである20 とはかけ離れた推定値が得られた。このように、平行トレンドの仮定が成り立たないときに、差の差によって平均処置効果を推定しようとしてもうまくいかない。</p>
+<p>では、トレンドをコントロールするとどうなるだろうか。県によって異なる線形の時間トレンド <code>pref:year</code> をコントロールして、回帰分析を行ってみよう。</p>
+<div class="sourceCode" id="cb477"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb477-1"><a href="difference-in-differences.html#cb477-1"></a>fit_s2 &lt;-<span class="st"> </span><span class="kw">lm_robust</span>(outcome <span class="op">~</span><span class="st"> </span>D <span class="op">*</span><span class="st"> </span>P <span class="op">+</span><span class="st"> </span>pref<span class="op">:</span>year, <span class="dt">data =</span> sim_df,</span>
+<span id="cb477-2"><a href="difference-in-differences.html#cb477-2"></a>                    <span class="dt">clusters =</span> pref, <span class="dt">se_type =</span> <span class="st">&quot;stata&quot;</span>)</span>
+<span id="cb477-3"><a href="difference-in-differences.html#cb477-3"></a><span class="kw">tidy</span>(fit_s2) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb477-4"><a href="difference-in-differences.html#cb477-4"></a><span class="st">  </span><span class="kw">filter</span>(term <span class="op">==</span><span class="st"> &quot;D:P&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb477-5"><a href="difference-in-differences.html#cb477-5"></a><span class="st">  </span><span class="kw">select</span>(term, estimate, std.error) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb477-6"><a href="difference-in-differences.html#cb477-6"></a><span class="st">  </span>knitr<span class="op">::</span><span class="kw">kable</span>(<span class="dt">digits =</span> <span class="dv">2</span>)</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">term</th>
+<th align="right">estimate</th>
+<th align="right">std.error</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">D:P</td>
+<td align="right">19.66</td>
+<td align="right">0.47</td>
+</tr>
+</tbody>
+</table>
+<p>県ごとのトレンドをコントロールすることにより、設定した値に近い平均処置効果が推定できた。</p>
+</div>
+<div id="シミュレーションの繰り返し実行" class="section level3" number="6.4.2">
+<h3><span class="header-section-number">6.4.2</span> シミュレーションの繰り返し実行</h3>
+<p>上の結果は偶然かもしれないので、シミュレーションを繰り返すとどうなるか確かめてみよう。
+まず、1回のシミュレーションを行う関数を作る。</p>
+<div class="sourceCode" id="cb478"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb478-1"><a href="difference-in-differences.html#cb478-1"></a>did_trend_sim &lt;-<span class="st"> </span><span class="cf">function</span>(<span class="dt">delta =</span> <span class="dv">20</span>, <span class="dt">n_units =</span> <span class="dv">47</span>, <span class="dt">n_periods =</span> <span class="dv">30</span>,</span>
+<span id="cb478-2"><a href="difference-in-differences.html#cb478-2"></a>                          <span class="dt">n_treat =</span> <span class="dv">20</span>, <span class="dt">treat_timing =</span> <span class="dv">20</span>) {</span>
+<span id="cb478-3"><a href="difference-in-differences.html#cb478-3"></a>  </span>
+<span id="cb478-4"><a href="difference-in-differences.html#cb478-4"></a>  <span class="cf">if</span> (n_treat <span class="op">&gt;</span><span class="st"> </span>n_units) <span class="kw">stop</span>(<span class="st">&quot;n_treat must be smaller than n_units.&quot;</span>)</span>
+<span id="cb478-5"><a href="difference-in-differences.html#cb478-5"></a>  <span class="cf">if</span> (treat_timing <span class="op">&gt;=</span><span class="st"> </span>n_periods <span class="op">|</span><span class="st"> </span>treat_timing <span class="op">&lt;</span><span class="st"> </span><span class="dv">2</span>) <span class="kw">stop</span>(<span class="st">&quot;treat_timing must be within time periods.&quot;</span>)</span>
+<span id="cb478-6"><a href="difference-in-differences.html#cb478-6"></a>  </span>
+<span id="cb478-7"><a href="difference-in-differences.html#cb478-7"></a>  sim_df &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">year =</span> <span class="dv">1</span><span class="op">:</span>n_periods)</span>
+<span id="cb478-8"><a href="difference-in-differences.html#cb478-8"></a>  init &lt;-<span class="st"> </span><span class="kw">rnorm</span>(n_units, <span class="dt">mean =</span> <span class="dv">100</span>, <span class="dt">sd =</span> <span class="dv">20</span>)</span>
+<span id="cb478-9"><a href="difference-in-differences.html#cb478-9"></a>  trend &lt;-<span class="st">  </span><span class="op">-</span>n_units<span class="op">/</span><span class="dv">20</span> <span class="op">+</span><span class="st"> </span><span class="dv">1</span><span class="op">:</span>n_units <span class="op">*</span><span class="st"> </span><span class="fl">0.2</span> <span class="op">+</span><span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">47</span>, <span class="dt">mean =</span> <span class="dv">0</span>, <span class="dt">sd =</span> <span class="dv">1</span>)</span>
+<span id="cb478-10"><a href="difference-in-differences.html#cb478-10"></a>  outcome &lt;-<span class="st"> </span><span class="kw">sapply</span>(<span class="dv">1</span><span class="op">:</span>n_units, <span class="cf">function</span>(i) init[i] <span class="op">+</span><span class="st"> </span>trend[i] <span class="op">*</span><span class="st"> </span>((<span class="dv">1</span><span class="op">:</span>n_periods) <span class="op">-</span><span class="st"> </span><span class="dv">1</span>))</span>
+<span id="cb478-11"><a href="difference-in-differences.html#cb478-11"></a>  <span class="kw">colnames</span>(outcome) &lt;-<span class="st"> </span><span class="kw">str_c</span>(<span class="st">&quot;unit_&quot;</span>, <span class="dv">1</span><span class="op">:</span>n_units)</span>
+<span id="cb478-12"><a href="difference-in-differences.html#cb478-12"></a>  sim_df &lt;-<span class="st"> </span>outcome <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb478-13"><a href="difference-in-differences.html#cb478-13"></a><span class="st">    </span><span class="kw">as_tibble</span>() <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb478-14"><a href="difference-in-differences.html#cb478-14"></a><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">time =</span> <span class="dv">1</span><span class="op">:</span>n_periods) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb478-15"><a href="difference-in-differences.html#cb478-15"></a><span class="st">    </span><span class="kw">pivot_longer</span>(<span class="dt">cols =</span> <span class="kw">starts_with</span>(<span class="st">&quot;unit&quot;</span>),</span>
+<span id="cb478-16"><a href="difference-in-differences.html#cb478-16"></a>                 <span class="dt">names_to =</span> <span class="st">&quot;unit&quot;</span>,</span>
+<span id="cb478-17"><a href="difference-in-differences.html#cb478-17"></a>                 <span class="dt">names_prefix =</span> <span class="st">&quot;unit_&quot;</span>,</span>
+<span id="cb478-18"><a href="difference-in-differences.html#cb478-18"></a>                 <span class="dt">values_to =</span> <span class="st">&quot;y0&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb478-19"><a href="difference-in-differences.html#cb478-19"></a><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">D =</span> <span class="kw">ifelse</span>(unit <span class="op">%in%</span><span class="st"> </span><span class="kw">as.character</span>(<span class="dv">1</span><span class="op">:</span>n_treat), <span class="dv">1</span>, <span class="dv">0</span>)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb478-20"><a href="difference-in-differences.html#cb478-20"></a><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">P =</span> <span class="kw">ifelse</span>(time <span class="op">&gt;</span><span class="st"> </span>treat_timing, <span class="dv">1</span>, <span class="dv">0</span>)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb478-21"><a href="difference-in-differences.html#cb478-21"></a><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">outcome =</span> <span class="kw">case_when</span>(</span>
+<span id="cb478-22"><a href="difference-in-differences.html#cb478-22"></a>      D <span class="op">==</span><span class="st"> </span><span class="dv">0</span> <span class="op">~</span><span class="st"> </span>y0,</span>
+<span id="cb478-23"><a href="difference-in-differences.html#cb478-23"></a>      P <span class="op">==</span><span class="st"> </span><span class="dv">0</span> <span class="op">~</span><span class="st"> </span>y0,</span>
+<span id="cb478-24"><a href="difference-in-differences.html#cb478-24"></a>      <span class="ot">TRUE</span>   <span class="op">~</span><span class="st"> </span>y0 <span class="op">+</span><span class="st"> </span><span class="kw">rnorm</span>(<span class="kw">n</span>(), <span class="dt">mean =</span> delta, <span class="dt">sd =</span> <span class="dv">2</span>)</span>
+<span id="cb478-25"><a href="difference-in-differences.html#cb478-25"></a>    ))</span>
+<span id="cb478-26"><a href="difference-in-differences.html#cb478-26"></a>  </span>
+<span id="cb478-27"><a href="difference-in-differences.html#cb478-27"></a>  <span class="co">##  標準誤差は記録しないので、lm() で推定する</span></span>
+<span id="cb478-28"><a href="difference-in-differences.html#cb478-28"></a>  f1 &lt;-<span class="st"> </span><span class="kw">lm</span>(outcome <span class="op">~</span><span class="st"> </span>D <span class="op">*</span><span class="st"> </span>P, <span class="dt">data =</span> sim_df)</span>
+<span id="cb478-29"><a href="difference-in-differences.html#cb478-29"></a>  f2 &lt;-<span class="st"> </span><span class="kw">lm</span>(outcome <span class="op">~</span><span class="st"> </span>D <span class="op">*</span><span class="st"> </span>P <span class="op">+</span><span class="st"> </span>unit<span class="op">:</span>time, <span class="dt">data =</span> sim_df)</span>
+<span id="cb478-30"><a href="difference-in-differences.html#cb478-30"></a>  <span class="kw">return</span>(<span class="kw">c</span>(<span class="kw">coef</span>(f1)[<span class="dv">4</span>], <span class="kw">coef</span>(f2)[<span class="dv">4</span>]))</span>
+<span id="cb478-31"><a href="difference-in-differences.html#cb478-31"></a>}</span></code></pre></div>
+<p>この関数を使い、シミュレーションを1000回繰り返す。</p>
+<div class="sourceCode" id="cb479"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb479-1"><a href="difference-in-differences.html#cb479-1"></a>res &lt;-<span class="st"> </span><span class="kw">replicate</span>(<span class="dv">1000</span>, <span class="kw">did_trend_sim</span>(<span class="dt">delta =</span> <span class="dv">20</span>))</span></code></pre></div>
+<p>結果を図示してみよう。</p>
+<div class="sourceCode" id="cb480"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb480-1"><a href="difference-in-differences.html#cb480-1"></a>res_df &lt;-<span class="st"> </span>res <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb480-2"><a href="difference-in-differences.html#cb480-2"></a><span class="st">  </span><span class="kw">t</span>() <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb480-3"><a href="difference-in-differences.html#cb480-3"></a><span class="st">  </span><span class="kw">as_tibble</span>(<span class="dt">.name_repair =</span> <span class="kw">c</span>(<span class="st">&quot;unique&quot;</span>))</span>
+<span id="cb480-4"><a href="difference-in-differences.html#cb480-4"></a><span class="kw">names</span>(res_df) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;no_trend&quot;</span>, <span class="st">&quot;with_trend&quot;</span>)</span>
+<span id="cb480-5"><a href="difference-in-differences.html#cb480-5"></a>hist_res1 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(res_df, <span class="kw">aes</span>(<span class="dt">x =</span> no_trend, <span class="dt">y =</span> <span class="kw">after_stat</span>(density))) <span class="op">+</span></span>
+<span id="cb480-6"><a href="difference-in-differences.html#cb480-6"></a><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">color =</span> <span class="st">&quot;black&quot;</span>) <span class="op">+</span></span>
+<span id="cb480-7"><a href="difference-in-differences.html#cb480-7"></a><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="dv">20</span>, <span class="dt">color =</span> <span class="st">&quot;tomato&quot;</span>) <span class="op">+</span></span>
+<span id="cb480-8"><a href="difference-in-differences.html#cb480-8"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;推定値&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;確率密度&quot;</span>, <span class="dt">title =</span> <span class="st">&quot;トレンドのコントロールなし&quot;</span>)</span>
+<span id="cb480-9"><a href="difference-in-differences.html#cb480-9"></a>hist_res2 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(res_df, <span class="kw">aes</span>(<span class="dt">x =</span> with_trend, <span class="dt">y =</span> <span class="kw">after_stat</span>(density))) <span class="op">+</span></span>
+<span id="cb480-10"><a href="difference-in-differences.html#cb480-10"></a><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">color =</span> <span class="st">&quot;black&quot;</span>) <span class="op">+</span></span>
+<span id="cb480-11"><a href="difference-in-differences.html#cb480-11"></a><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="dv">20</span>, <span class="dt">color =</span> <span class="st">&quot;tomato&quot;</span>) <span class="op">+</span></span>
+<span id="cb480-12"><a href="difference-in-differences.html#cb480-12"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;推定値&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;確率密度&quot;</span>, <span class="dt">title =</span> <span class="st">&quot;トレンドのコントロールあり&quot;</span>)</span>
+<span id="cb480-13"><a href="difference-in-differences.html#cb480-13"></a><span class="kw">plot</span>(hist_res1 <span class="op">+</span><span class="st"> </span>hist_res2)</span></code></pre></div>
+<p><img src="kut-metrics2_files/figure-html/unnamed-chunk-309-1.png" width="576" /></p>
+<p>このように、平行トレンドの仮定が成り立たない場合には、トレンドを考慮に入れないと正しい推定ができない。そのような場合には、トレンドをコントロールすることによって平均処置効果の推定が可能になることがわかる。</p>
+<p>ただし、これは作成したデータのトレンドが線形だった（そしてそれを知っていた）からうまくいっただけだということに注意してほしい。非線形のトレンドがある場合、線形トレンドをコントロールしても、推定はうまくいかないことが予想される。パネルデータの分析では、どのようなトレンドがあるのか見極めることが重要である。</p>
+</div>
+</div>
+<div id="トピック6の課題" class="section level2" number="6.5">
+<h2><span class="header-section-number">6.5</span> トピック6の課題</h2>
+<p><span class="citation">Angrist and Pischke (<a href="#ref-ang2009" role="doc-biblioref">2009</a>)</span> の例について、以下を実行しなさい。</p>
+<ol style="list-style-type: decimal">
+<li>“All deaths” 以外の3つの死 (dtype = 2, 3, 6) を使って DID 回帰を実行し、表5.2（KUTLMS にアップロードされた授業用のスライドを参照）と同じ結果が再現できることを確認しなさい。</li>
+<li>1で得られたそれぞれの推定値について、因果効果を解釈しなさい。</li>
+<li>1で得られた標準誤差（または <span class="math inline">\(p\)</span> 値）から、推定の不確実性を解釈しなさい。</li>
+</ol>
+<ul>
+<li>課題レポートは R Markdown で作成し、PDF に knit して提出すること。</li>
+<li>提出するファイル：metrics_hw06_LastFirst.pdf</li>
+<li>提出方法：Slack のダイレクトメッセージで提出。</li>
+<li><strong>提出期限：2020年7月13日（月）正午</strong>（日本時間）</li>
+<li><strong>トピック6, 8, 9 の課題からどれか1つを選んで提出</strong>
+<ul>
+<li>どれを選んでも良いが、提出期限が異なるので注意。</li>
+<li>2つ以上提出した場合、最も評価が高いものを成績評価の対象とする。</li>
+</ul></li>
+</ul>
+
+</div>
+</div>
+<h3>参考文献</h3>
+<div id="refs" class="references">
+<div id="ref-ang2009">
+<p>Angrist, Joshua D., and Jörn-Steffen Pischke. 2009. <em>Mostly Harmless Econometrics: An Empiricist’s Companion</em>. Princeton: Princeton University Press.</p>
+</div>
+<div id="ref-arnold2018">
+<p>Arnold, Jeffrey B. 2018. <em>R Code for Mastering ’Metrics</em>. <a href="https://jrnold.github.io/masteringmetrics/">https://jrnold.github.io/masteringmetrics/</a>.</p>
+</div>
+<div id="ref-card-krueger1994">
+<p>Card, David, and Alan B. Krueger. 1994. “Minimum Wages and Employment: A Case Study of the Fast-Food Industry in New Jersey and Pennsylvania.” <em>American Economic Review</em> 84 (4): 772–93. <a href="https://pubs.aeaweb.org/doi/pdf/10.1257/aer.90.5.1362">https://pubs.aeaweb.org/doi/pdf/10.1257/aer.90.5.1362</a>.</p>
+</div>
+<div id="ref-yasui2020">
+<p>安井翔太. 2020. <em>効果検証入門：正しい比較のための因果推論/計量経済学の基礎</em>. 技術評論社.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="propensity-score.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="midterm-presentation.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

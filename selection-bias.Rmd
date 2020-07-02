@@ -162,11 +162,12 @@ d1 <- d1 %>%
 ```
 
 メール受信状況別の購入割合は
-```{r , message = FALSE}
+```{r}
 d1_gr <- d1 %>% 
   mutate(mail = factor(mail, labels = c("メールなし", "メールあり"))) %>% 
   group_by(mail) %>% 
-  summarize(purchase_rate = mean(purchase)) %>% 
+  summarize(purchase_rate = mean(purchase),
+            .groups = "drop") %>% 
   print()
 ```
 である。図にすると、

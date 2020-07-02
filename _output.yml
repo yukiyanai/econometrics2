@@ -8,4 +8,3 @@ bookdown::gitbook:
         <li><a href="https://yukiyanai.github.io/" target="_blank">矢内 勇生 (Yuki Yanai)</a></li>
       after: |
         <li><a href="https://github.com/rstudio/bookdown" target="_blank">Published with bookdown</a></li>
-        <li >&nbsp;&nbsp;&nbsp;&copy 2020 Yuki Yanai</li>

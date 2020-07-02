@@ -743,6 +743,9 @@ sim_1 <- replicate(n_trials, sim_regression())
 
 ```{r}
 sim1 <- array_tree(sim_1, margin = 2)
+# 本当は、
+# sim_1 <- replicate(n_trials, sim_regression(), simplify = FALSE)
+# としておけば済む
 ```
 
 モデルごとの推定値を取り出して、データフレームにまとめる。

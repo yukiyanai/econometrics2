@@ -13,7 +13,8 @@ nocite: |
 
 ```{r global_option, include = FALSE}
 knitr::opts_chunk$set(warning = FALSE, echo = TRUE, message = FALSE, 
-                      fig.height = 2, fig.width = 3.5)
+                      fig.height = 2, fig.width = 3.5,
+                      knitr.kable.format = "markdown")
 ```
 
 
@@ -78,4 +79,8 @@ RとRStudio を自分のパソコンにインストールして使いたい場�
 
 他方、各トピックは独立に実行できる。例えば、トピック3に書かれているコードを実行するために、トピック2に書かれたRコードを実行する必要はない。トピック3の冒頭から実行すれば十分である。
 ただし、トピック1の内容は全員1度は実行済みであると仮定する。1度実行すれば、Rをインストールし直すか、バージョンアップするまで再度実行する必要はない。
+
+## License {-}
+
+The text of this work is licensed under the [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/). The R Code in this work is licensed under the [MIT License](license.txt).
 

@@ -18,7 +18,7 @@
 
 必要なパッケージを読み込み、作図用の日本語フォントを設定する。
 ```{r, message = FALSE}
-pacman::p_load(tidyverse, broom,  haven,
+pacman::p_load(tidyverse, broom, haven,
                WeightIt, cobalt, MatchIt, survey)
 theme_set(theme_gray(base_size = 10, base_family = "HiraginoSans-W3"))  # macOS用
 #theme_set(theme_gray(base_size = 10, base_family = "Meiryo"))        # Windows用
@@ -598,12 +598,14 @@ plot(bal_subclass)
 このように、処置群と統制群の間のバランスが悪いので、実際のデータ分析であれば因果効果を推定しない方が良い。しかし、ここではこの層別を利用してATTを推定するとどうなるか確認してみよう。
 
 まず、層別のATTを推定する。各層で処置群と統制群の平均値の差を計算すれば良い。
-```{r, message = FALSE, warning = FALSE}
+```{r}
 subclass_att <- myd %>% 
   group_by(subclass, treat) %>% 
-  summarize(mean = mean(re78)) %>% 
+  summarize(mean = mean(re78),
+            .groups = "drop_last") %>% 
   group_by(subclass) %>% 
-  summarize(att = diff(mean)) %>% 
+  summarize(att = diff(mean),
+            .groups = "drop") %>% 
   pull(att) %>% 
   print()
 ```

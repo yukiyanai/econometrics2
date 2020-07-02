@@ -50,6 +50,14 @@
 
 
 
+<script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
+<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="libs/datatables-binding-0.11/datatables.js"></script>
+<link href="libs/dt-core-1.10.19/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.10.19/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.10.19/js/jquery.dataTables.min.js"></script>
+<link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
 
 
 <style type="text/css">
@@ -137,6 +145,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="0.2" data-path="index.html"><a href="index.html#履修条件"><i class="fa fa-check"></i><b>0.2</b> 履修条件</a></li>
 <li class="chapter" data-level="0.3" data-path="index.html"><a href="index.html#r-とrstudio-のインストール"><i class="fa fa-check"></i><b>0.3</b> R とRStudio のインストール</a></li>
 <li class="chapter" data-level="0.4" data-path="index.html"><a href="index.html#授業計画"><i class="fa fa-check"></i><b>0.4</b> 授業計画</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#license"><i class="fa fa-check"></i>License</a></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> イントロダクション</a>
 <ul>
@@ -236,7 +245,36 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="5.6" data-path="propensity-score.html"><a href="propensity-score.html#トピック5-の課題"><i class="fa fa-check"></i><b>5.6</b> トピック5 の課題</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="panel-data_null.html"><a href="panel-data_null.html"><i class="fa fa-check"></i><b>6</b> パネルデータ分析</a></li>
+<li class="chapter" data-level="6" data-path="difference-in-differences.html"><a href="difference-in-differences.html"><i class="fa fa-check"></i><b>6</b> 差分の差分法</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="difference-in-differences.html"><a href="difference-in-differences.html#準備-4"><i class="fa fa-check"></i><b>6.1</b> 準備</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="difference-in-differences.html"><a href="difference-in-differences.html#予習講義動画実習課題-4"><i class="fa fa-check"></i><b>6.1.1</b> 予習、講義動画、実習課題</a></li>
+<li class="chapter" data-level="6.1.2" data-path="difference-in-differences.html"><a href="difference-in-differences.html#rパッケージの読み込み-4"><i class="fa fa-check"></i><b>6.1.2</b> Rパッケージの読み込み</a></li>
+<li class="chapter" data-level="6.1.3" data-path="difference-in-differences.html"><a href="difference-in-differences.html#このトピックで使うrコードの説明-4"><i class="fa fa-check"></i><b>6.1.3</b> このトピックで使うRコードの説明</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="difference-in-differences.html"><a href="difference-in-differences.html#最低賃金の影響"><i class="fa fa-check"></i><b>6.2</b> 最低賃金の影響</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="difference-in-differences.html"><a href="difference-in-differences.html#card-and-krueger-1994-の研究"><i class="fa fa-check"></i><b>6.2.1</b> Card and Krueger (1994) の研究</a></li>
+<li class="chapter" data-level="6.2.2" data-path="difference-in-differences.html"><a href="difference-in-differences.html#処置の確認"><i class="fa fa-check"></i><b>6.2.2</b> 処置の確認</a></li>
+<li class="chapter" data-level="6.2.3" data-path="difference-in-differences.html"><a href="difference-in-differences.html#単純比較-i-個体間比較"><i class="fa fa-check"></i><b>6.2.3</b> 単純比較 I： 個体間比較</a></li>
+<li class="chapter" data-level="6.2.4" data-path="difference-in-differences.html"><a href="difference-in-differences.html#単純比較-ii前後比較"><i class="fa fa-check"></i><b>6.2.4</b> 単純比較 II：前後比較</a></li>
+<li class="chapter" data-level="6.2.5" data-path="difference-in-differences.html"><a href="difference-in-differences.html#did"><i class="fa fa-check"></i><b>6.2.5</b> DID</a></li>
+<li class="chapter" data-level="6.2.6" data-path="difference-in-differences.html"><a href="difference-in-differences.html#回帰分析によるdid-の推定"><i class="fa fa-check"></i><b>6.2.6</b> 回帰分析によるDID の推定</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="difference-in-differences.html"><a href="difference-in-differences.html#法定飲酒年齢の影響"><i class="fa fa-check"></i><b>6.3</b> 法定飲酒年齢の影響</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="difference-in-differences.html"><a href="difference-in-differences.html#angrist-and-pischke-2009-の例"><i class="fa fa-check"></i><b>6.3.1</b> Angrist and Pischke (2009) の例</a></li>
+<li class="chapter" data-level="6.3.2" data-path="difference-in-differences.html"><a href="difference-in-differences.html#did-回帰"><i class="fa fa-check"></i><b>6.3.2</b> DID 回帰</a></li>
+<li class="chapter" data-level="6.3.3" data-path="difference-in-differences.html"><a href="difference-in-differences.html#平行トレンドの仮定"><i class="fa fa-check"></i><b>6.3.3</b> 平行トレンドの仮定</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="difference-in-differences.html"><a href="difference-in-differences.html#シミュレーション"><i class="fa fa-check"></i><b>6.4</b> シミュレーション</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="difference-in-differences.html"><a href="difference-in-differences.html#シミュレーションの設定"><i class="fa fa-check"></i><b>6.4.1</b> シミュレーションの設定</a></li>
+<li class="chapter" data-level="6.4.2" data-path="difference-in-differences.html"><a href="difference-in-differences.html#シミュレーションの繰り返し実行"><i class="fa fa-check"></i><b>6.4.2</b> シミュレーションの繰り返し実行</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="difference-in-differences.html"><a href="difference-in-differences.html#トピック6の課題"><i class="fa fa-check"></i><b>6.5</b> トピック6の課題</a></li>
+</ul></li>
 <li class="chapter" data-level="7" data-path="midterm-presentation.html"><a href="midterm-presentation.html"><i class="fa fa-check"></i><b>7</b> 分析計画のプレゼンテーション</a>
 <ul>
 <li class="chapter" data-level="7.1" data-path="midterm-presentation.html"><a href="midterm-presentation.html#このトピックでやるべきこと"><i class="fa fa-check"></i><b>7.1</b> このトピックでやるべきこと</a></li>
@@ -265,10 +303,13 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="10.3.2" data-path="final-presentation.html"><a href="final-presentation.html#提出方法と提出期限-1"><i class="fa fa-check"></i><b>10.3.2</b> 提出方法と提出期限</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html"><i class="fa fa-check"></i>補遺</a>
+<ul>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#実行環境"><i class="fa fa-check"></i>実行環境</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>参考文献</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="_blank">Published with bookdown</a></li>
-<li >&nbsp;&nbsp;&nbsp;&copy 2020 Yuki Yanai</li>
 </ul>
 
       </nav>
@@ -290,7 +331,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <h1 class="title">KUT 計量経済学応用</h1>
 <h2 class="subtitle"><em>統計的因果推論入門</em></h2>
 <p class="author"><em>矢内 勇生</em></p>
-<p class="date"><em>2020-06-26 更新（2020-06-07 公開）</em></p>
+<p class="date"><em>2020-07-01 更新（2020-06-07 公開）</em></p>
 </div>
 <div id="はじめに" class="section level1 unnumbered" number="">
 <h1>はじめに</h1>
@@ -360,6 +401,10 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p>この資料は上に挙げたトピック単位で作成している。各トピックに例として書かれたRコードは、トピックを途中から実行することを想定していない。たとえば、1.3.6節に書いてあるコードを実行するためには、トピック1の冒頭から 順番にRコードを実行する必要がある。途中のコードだけ実行しても動かない可能性が高い。</p>
 <p>他方、各トピックは独立に実行できる。例えば、トピック3に書かれているコードを実行するために、トピック2に書かれたRコードを実行する必要はない。トピック3の冒頭から実行すれば十分である。
 ただし、トピック1の内容は全員1度は実行済みであると仮定する。1度実行すれば、Rをインストールし直すか、バージョンアップするまで再度実行する必要はない。</p>
+</div>
+<div id="license" class="section level2 unnumbered" number="">
+<h2>License</h2>
+<p>The text of this work is licensed under the <a href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>. The R Code in this work is licensed under the <a href="license.txt">MIT License</a>.</p>
 
 </div>
 </div>
