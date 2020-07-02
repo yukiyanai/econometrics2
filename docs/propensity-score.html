@@ -348,7 +348,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="rパッケージの読み込み-3" class="section level3" number="5.1.2">
 <h3><span class="header-section-number">5.1.2</span> Rパッケージの読み込み</h3>
 <p>必要なパッケージを読み込み、作図用の日本語フォントを設定する。</p>
-<div class="sourceCode" id="cb337"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb337-1"><a href="propensity-score.html#cb337-1"></a>pacman<span class="op">::</span><span class="kw">p_load</span>(tidyverse, broom,  haven,</span>
+<div class="sourceCode" id="cb337"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb337-1"><a href="propensity-score.html#cb337-1"></a>pacman<span class="op">::</span><span class="kw">p_load</span>(tidyverse, broom, haven,</span>
 <span id="cb337-2"><a href="propensity-score.html#cb337-2"></a>               WeightIt, cobalt, MatchIt, survey)</span>
 <span id="cb337-3"><a href="propensity-score.html#cb337-3"></a><span class="kw">theme_set</span>(<span class="kw">theme_gray</span>(<span class="dt">base_size =</span> <span class="dv">10</span>, <span class="dt">base_family =</span> <span class="st">&quot;HiraginoSans-W3&quot;</span>))  <span class="co"># macOS用</span></span>
 <span id="cb337-4"><a href="propensity-score.html#cb337-4"></a><span class="co">#theme_set(theme_gray(base_size = 10, base_family = &quot;Meiryo&quot;))        # Windows用</span></span>
@@ -441,7 +441,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb351"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb351-1"><a href="propensity-score.html#cb351-1"></a>rct_formula</span></code></pre></div>
 <pre><code>## re78 ~ treat + age + education + black + hispanic + married + 
 ##     nodegree + re74 + re75
-## &lt;environment: 0x7ff5260322e8&gt;</code></pre>
+## &lt;environment: 0x7f892253e4c0&gt;</code></pre>
 <p>回帰式を推定する。</p>
 <div class="sourceCode" id="cb353"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb353-1"><a href="propensity-score.html#cb353-1"></a>ate_rct &lt;-<span class="st"> </span><span class="kw">coef</span>(<span class="kw">lm</span>(rct_formula, <span class="dt">data =</span> d_nsw))[<span class="dv">2</span>] <span class="op">%&gt;%</span><span class="st"> </span></span>
 <span id="cb353-2"><a href="propensity-score.html#cb353-2"></a><span class="st">  </span><span class="kw">print</span>()</span></code></pre></div>
@@ -553,7 +553,7 @@ Y_i \sim \mbox{Bernoulli}(\theta_i)\\
 <div class="sourceCode" id="cb365"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb365-1"><a href="propensity-score.html#cb365-1"></a>ps_formula</span></code></pre></div>
 <pre><code>## treat ~ age_c + education_c + black_c + hispanic_c + married_c + 
 ##     nodegree_c + re74_c + re75_c + re74_sq_c + re75_sq_c
-## &lt;environment: 0x7ff54b8ecee0&gt;</code></pre>
+## &lt;environment: 0x7f892f00e4a8&gt;</code></pre>
 <p>これを使ってロジスティック回帰式を推定する。</p>
 <div class="sourceCode" id="cb367"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb367-1"><a href="propensity-score.html#cb367-1"></a>fit_logistic &lt;-<span class="st"> </span><span class="kw">glm</span>(ps_formula, <span class="dt">data =</span> myd,</span>
 <span id="cb367-2"><a href="propensity-score.html#cb367-2"></a>                    <span class="dt">family =</span> <span class="kw">binomial</span>(<span class="dt">link =</span> <span class="st">&quot;logit&quot;</span>))</span></code></pre></div>

@@ -1,6 +1,6 @@
 # 差分の差分法
 
-- [トピック6の講義スライド](http://yukiyanai.github.io/jp/classes/econometrics2/contents/slides/metrics2_topic06_slides_pub.pdf) (PDF, 978KB)
+- [トピック6の講義スライド](http://yukiyanai.github.io/jp/classes/econometrics2/contents/slides/metrics2_topic06_slides_pub.pdf) (PDF, 975KB)
 
 
 ## 準備
