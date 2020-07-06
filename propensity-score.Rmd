@@ -91,7 +91,7 @@ table(f3)
 
 教科書 [@yasui2020] でも分析されている @lalonde1986 の実験データ [@dehejia2002] を使い、傾向スコアを使った分析手順を説明する。
 
-まず、データを入手しよう（@yasui2020 の p.120 を参照）。後で読み込み直すことも考えて、data ディレクトリに一旦ダウンロードする。
+まず、データを入手しよう（@yasui2020 の p.120 を参照）。後で読み込み直すことも考えて、data ディレクトリに一旦ダウンロードする。`download.file()` を使ったダウンロードがうまくいかない場合は、ウェブブラウザで ["https://users.nber.org/~rdehejia/data/]("https://users.nber.org/~rdehejia/data/) にアクセスし、必要なデータを手動でダウンロードする。
 ```{r, eval = FALSE}
 base_url <- "https://users.nber.org/~rdehejia/data/"
 targets <- c("nsw_dw.dta", "cps_controls.dta", "cps_controls3.dta")

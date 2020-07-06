@@ -46,7 +46,9 @@ knitr::opts_chunk$set(warning = FALSE, echo = TRUE, message = FALSE,
 - R とRStudio の基本的な使い方は説明しない。以下を思い出しておくこと。
   - RStudio のプロジェクト機能の使い方。
   - ggplot2 による作図の方法。
-  - RMarkdownの書き方。特に、文章とコードチャンクの使い分け。
+  - R Markdownの書き方。特に、文章とコードチャンクの使い分け。
+    - [R Markdown チートシート](https://www.rstudio.com/wp-content/uploads/2016/03/rmarkdown-cheatsheet-2.0.pdf)
+    - [R Makdown入門](https://kazutan.github.io/kazutanR/Rmd_intro.html) (by [kazutan.R](https://kazutan.github.io/kazutanR/index.html))
 
 これらの点に不安がある場合は、2Qの早い時期（6月の第3週頃まで）に自分で計量経済学の内容を学習（復習）するか、今年度の3Qに「計量経済学」を受講してから、来年度の「計量経済学応用」を受講すること。自分で学習する場合は、最低でも浅野正彦・矢内勇生『[Rによる計量政治学](https://github.com/yukiyanai/quant-methods-R)』（2018年、オーム社）の第4章から第14章までの内容を学習すること。
 
@@ -67,7 +69,7 @@ RとRStudio を自分のパソコンにインストールして使いたい場�
 3. RCT（第3回）
 4. 回帰分析（第4回、第5回）
 5. 傾向スコア（第6回、第7回）
-6. パネルデータ分析（第8回、第9回）
+6. 差分の差分法（第8回、第9回）
 8. 分析計画のプレゼンテーション（第10回）
 9. 回帰不連続デザイン（第11回、第12回）
 10. 操作変数法（第13回、第14回）

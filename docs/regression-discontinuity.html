@@ -287,7 +287,22 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="7.3" data-path="midterm-presentation.html"><a href="midterm-presentation.html#他の受講生へのコメントについて"><i class="fa fa-check"></i><b>7.3</b> 他の受講生へのコメントについて</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="regression-discontinuity.html"><a href="regression-discontinuity.html"><i class="fa fa-check"></i><b>8</b> 回帰不連続デザイン</a></li>
+<li class="chapter" data-level="8" data-path="regression-discontinuity.html"><a href="regression-discontinuity.html"><i class="fa fa-check"></i><b>8</b> 回帰不連続デザイン</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="regression-discontinuity.html"><a href="regression-discontinuity.html#準備-5"><i class="fa fa-check"></i><b>8.1</b> 準備</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="regression-discontinuity.html"><a href="regression-discontinuity.html#予習講義動画実習課題-5"><i class="fa fa-check"></i><b>8.1.1</b> 予習、講義動画、実習課題</a></li>
+<li class="chapter" data-level="8.1.2" data-path="regression-discontinuity.html"><a href="regression-discontinuity.html#rパッケージの読み込み-5"><i class="fa fa-check"></i><b>8.1.2</b> Rパッケージの読み込み</a></li>
+<li class="chapter" data-level="8.1.3" data-path="regression-discontinuity.html"><a href="regression-discontinuity.html#このトピックで使うrコードの説明-5"><i class="fa fa-check"></i><b>8.1.3</b> このトピックで使うRコードの説明</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="regression-discontinuity.html"><a href="regression-discontinuity.html#法定飲酒年齢の影響-1"><i class="fa fa-check"></i><b>8.2</b> 法定飲酒年齢の影響</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="regression-discontinuity.html"><a href="regression-discontinuity.html#angrist-and-pischke-2009-の例-1"><i class="fa fa-check"></i><b>8.2.1</b> Angrist and Pischke (2009) の例</a></li>
+<li class="chapter" data-level="8.2.2" data-path="regression-discontinuity.html"><a href="regression-discontinuity.html#パラメトリックrd"><i class="fa fa-check"></i><b>8.2.2</b> パラメトリックRD</a></li>
+<li class="chapter" data-level="8.2.3" data-path="regression-discontinuity.html"><a href="regression-discontinuity.html#ノンパラメトリックrd"><i class="fa fa-check"></i><b>8.2.3</b> ノンパラメトリックRD</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="regression-discontinuity.html"><a href="regression-discontinuity.html#トピック8の課題"><i class="fa fa-check"></i><b>8.3</b> トピック8の課題</a></li>
+</ul></li>
 <li class="chapter" data-level="9" data-path="instrumental-variable.html"><a href="instrumental-variable.html"><i class="fa fa-check"></i><b>9</b> 操作変数法</a></li>
 <li class="chapter" data-level="10" data-path="final-presentation.html"><a href="final-presentation.html"><i class="fa fa-check"></i><b>10</b> 分析結果のプレゼンテーション</a>
 <ul>
@@ -329,8 +344,604 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="回帰不連続デザイン" class="section level1" number="8">
 <h1><span class="header-section-number">Topic 8</span> 回帰不連続デザイン</h1>
-<p>準備中</p>
+<ul>
+<li><a href="http://yukiyanai.github.io/jp/classes/econometrics2/contents/slides/metrics2_topic08_slides_pub.pdf">トピック8の講義スライド</a> (PDF, 1MB)</li>
+</ul>
+<div id="準備-5" class="section level2" number="8.1">
+<h2><span class="header-section-number">8.1</span> 準備</h2>
+<div id="予習講義動画実習課題-5" class="section level3" number="8.1.1">
+<h3><span class="header-section-number">8.1.1</span> 予習、講義動画、実習課題</h3>
+<p>このトピックでやるべきことは、以下のとおりである。</p>
+<ol style="list-style-type: decimal">
+<li><a href="http://yukiyanai.github.io/jp/classes/econometrics2/docs/syllabus-applied-econometrics_2020-2Q.pdf">シラバス(PDFファイル)</a> に記載されているトピック8の予習課題を読む。</li>
+<li><a href="https://lms.kochi-tech.ac.jp/course/view.php?id=793">KUTLMS (Moodle)</a> にあるトピック8の講義動画を視聴する。</li>
+<li>この資料の続きを読み、Rを使った実習を行うことで、回帰不連続デザイン (RDD) の使い方を学ぶ。</li>
+<li>教科書 <span class="citation">(安井 <a href="#ref-yasui2020" role="doc-biblioref">2020</a>)</span> 第5章のRを使った分析を自分でやってみる。</li>
+<li>課題を提出する（選択制）。</li>
+</ol>
+</div>
+<div id="rパッケージの読み込み-5" class="section level3" number="8.1.2">
+<h3><span class="header-section-number">8.1.2</span> Rパッケージの読み込み</h3>
+<p>必要なパッケージを読み込み、作図用の日本語フォントを設定する。</p>
+<div class="sourceCode" id="cb481"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb481-1"><a href="regression-discontinuity.html#cb481-1"></a>pacman<span class="op">::</span><span class="kw">p_load</span>(tidyverse, broom, rdd, haven)</span>
+<span id="cb481-2"><a href="regression-discontinuity.html#cb481-2"></a><span class="kw">theme_set</span>(<span class="kw">theme_gray</span>(<span class="dt">base_size =</span> <span class="dv">10</span>, <span class="dt">base_family =</span> <span class="st">&quot;HiraginoSans-W3&quot;</span>))  <span class="co"># macOS用</span></span>
+<span id="cb481-3"><a href="regression-discontinuity.html#cb481-3"></a><span class="co">#theme_set(theme_gray(base_size = 10, base_family = &quot;Meiryo&quot;))        # Windows用</span></span>
+<span id="cb481-4"><a href="regression-discontinuity.html#cb481-4"></a><span class="co">#theme_set(theme_gray(base_size = 10, base_family = &quot;IPAGothic&quot;))     # Ubuntu用</span></span>
+<span id="cb481-5"><a href="regression-discontinuity.html#cb481-5"></a><span class="co">#showtext::showtext_auto()                                            # Cloud用</span></span>
+<span id="cb481-6"><a href="regression-discontinuity.html#cb481-6"></a><span class="co">#theme_set(theme_gray(base_size = 10, base_family = &quot;noto&quot;))          # Cloud用</span></span></code></pre></div>
+</div>
+<div id="このトピックで使うrコードの説明-5" class="section level3" number="8.1.3">
+<h3><span class="header-section-number">8.1.3</span> このトピックで使うRコードの説明</h3>
+<div id="alist" class="section level4" number="8.1.3.1">
+<h4><span class="header-section-number">8.1.3.1</span> <code>alist()</code></h4>
+<p>式の内容を評価せずに、式（あるいはその他の表現）自体のリストを作りたいときに、<code>list()</code> の代わりに <code>alist()</code> を使う。</p>
+<p>例えば、次のようなリストを考える。</p>
+<div class="sourceCode" id="cb482"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb482-1"><a href="regression-discontinuity.html#cb482-1"></a>list1 &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">s =</span> <span class="dv">100</span> <span class="op">+</span><span class="st"> </span><span class="dv">2</span>,</span>
+<span id="cb482-2"><a href="regression-discontinuity.html#cb482-2"></a>              <span class="dt">d =</span> <span class="dv">100</span> <span class="op">-</span><span class="st"> </span><span class="dv">2</span>,</span>
+<span id="cb482-3"><a href="regression-discontinuity.html#cb482-3"></a>              <span class="dt">p =</span> <span class="dv">100</span> <span class="op">*</span><span class="st"> </span><span class="dv">2</span>,</span>
+<span id="cb482-4"><a href="regression-discontinuity.html#cb482-4"></a>              <span class="dt">d =</span> <span class="dv">100</span> <span class="op">/</span><span class="st"> </span><span class="dv">2</span>)</span></code></pre></div>
+<p>これで、長さが4のリストができた。確認してみよう。</p>
+<div class="sourceCode" id="cb483"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb483-1"><a href="regression-discontinuity.html#cb483-1"></a><span class="kw">is.list</span>(list1)</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode" id="cb485"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb485-1"><a href="regression-discontinuity.html#cb485-1"></a><span class="kw">length</span>(list1)</span></code></pre></div>
+<pre><code>## [1] 4</code></pre>
+<p>リストの中身を表示してみよう。</p>
+<div class="sourceCode" id="cb487"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb487-1"><a href="regression-discontinuity.html#cb487-1"></a>list1</span></code></pre></div>
+<pre><code>## $s
+## [1] 102
+## 
+## $d
+## [1] 98
+## 
+## $p
+## [1] 200
+## 
+## $d
+## [1] 50</code></pre>
+<p>このように、リストを作るときに指定した式の計算結果がリストの中に保存されている。</p>
+<p>これに対し、<code>alist()</code> は式の中身を評価（計算）しない。</p>
+<div class="sourceCode" id="cb489"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb489-1"><a href="regression-discontinuity.html#cb489-1"></a>list2 &lt;-<span class="st"> </span><span class="kw">alist</span>(<span class="dt">s =</span> <span class="dv">100</span> <span class="op">+</span><span class="st"> </span><span class="dv">2</span>,</span>
+<span id="cb489-2"><a href="regression-discontinuity.html#cb489-2"></a>               <span class="dt">d =</span> <span class="dv">100</span> <span class="op">-</span><span class="st"> </span><span class="dv">2</span>,</span>
+<span id="cb489-3"><a href="regression-discontinuity.html#cb489-3"></a>               <span class="dt">p =</span> <span class="dv">100</span> <span class="op">*</span><span class="st"> </span><span class="dv">2</span>,</span>
+<span id="cb489-4"><a href="regression-discontinuity.html#cb489-4"></a>               <span class="dt">r =</span> <span class="dv">100</span> <span class="op">/</span><span class="st"> </span><span class="dv">2</span>)</span></code></pre></div>
+<p>これで、長さが4のリストができた。確認してみよう。</p>
+<div class="sourceCode" id="cb490"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb490-1"><a href="regression-discontinuity.html#cb490-1"></a><span class="kw">is.list</span>(list2)</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode" id="cb492"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb492-1"><a href="regression-discontinuity.html#cb492-1"></a><span class="kw">length</span>(list2)</span></code></pre></div>
+<pre><code>## [1] 4</code></pre>
+<p>リストの中身を表示してみよう。</p>
+<div class="sourceCode" id="cb494"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb494-1"><a href="regression-discontinuity.html#cb494-1"></a>list2</span></code></pre></div>
+<pre><code>## $s
+## 100 + 2
+## 
+## $d
+## 100 - 2
+## 
+## $p
+## 100 * 2
+## 
+## $r
+## 100/2</code></pre>
+<p>このように、リストの中に式そのものが保存されていることがわかる。</p>
+</div>
+</div>
+</div>
+<div id="法定飲酒年齢の影響-1" class="section level2" number="8.2">
+<h2><span class="header-section-number">8.2</span> 法定飲酒年齢の影響</h2>
+<div id="angrist-and-pischke-2009-の例-1" class="section level3" number="8.2.1">
+<h3><span class="header-section-number">8.2.1</span> Angrist and Pischke (2009) の例</h3>
+<p><span class="citation">Angrist and Pischke (<a href="#ref-ang2009" role="doc-biblioref">2009</a>)</span> の第4章にある、法定飲酒年齢 (minimum legal drinking age; MLDA) の存在が21歳の誕生日付近の死亡者数に与える影響を分析してみよう。</p>
+<p>データは、<a href="https://www.masteringmetrics.com/resources/">Mastering ’Metrics</a> から入手できる（トピック6で使ったものとは異なるデータなので注意）。
+<code>download.file()</code> でファイルがうまくダウンロードできない場合は、ウェブブラウザで指定のURLにアクセスして手動でデータを入手する。</p>
+<div class="sourceCode" id="cb496"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb496-1"><a href="regression-discontinuity.html#cb496-1"></a><span class="kw">download.file</span>(<span class="dt">url =</span> <span class="st">&quot;http://masteringmetrics.com/wp-content/uploads/2015/01/AEJfigs.dta&quot;</span>,</span>
+<span id="cb496-2"><a href="regression-discontinuity.html#cb496-2"></a>              <span class="dt">dest =</span> <span class="st">&quot;data/AEJfigs.dta&quot;</span>)</span></code></pre></div>
+<p>ダウンロードしたデータを読み込む。</p>
+<div class="sourceCode" id="cb497"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb497-1"><a href="regression-discontinuity.html#cb497-1"></a>MLDA &lt;-<span class="st"> </span><span class="kw">read_dta</span>(<span class="st">&quot;data/AEJfigs.dta&quot;</span>)</span></code></pre></div>
+<p>トピック6とは異なり、このデータにはMLDAが21歳の場合のみが含まれている。また、このデータの観測単位は、「誕生日によって区切られた年齢グループ」である。例えば、「19歳の誕生日になってから1ヶ月未満の人たち」「19歳の誕生日になってから1ヶ月以上2ヶ月未満の人たち」といいうように、年齢（約30日単位）が1つの観測点を構成している。</p>
+<p>データの中身を確認しておこう。</p>
+<div class="sourceCode" id="cb498"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb498-1"><a href="regression-discontinuity.html#cb498-1"></a><span class="kw">summary</span>(MLDA)</span></code></pre></div>
+<pre><code>##     agecell           all           allfitted         internal    
+##  Min.   :19.07   Min.   : 88.43   Min.   : 91.71   Min.   :15.98  
+##  1st Qu.:20.08   1st Qu.: 92.79   1st Qu.: 93.04   1st Qu.:18.60  
+##  Median :21.00   Median : 95.69   Median : 95.18   Median :20.29  
+##  Mean   :21.00   Mean   : 95.67   Mean   : 95.80   Mean   :20.29  
+##  3rd Qu.:21.92   3rd Qu.: 98.03   3rd Qu.: 97.79   3rd Qu.:21.98  
+##  Max.   :22.93   Max.   :105.27   Max.   :102.89   Max.   :24.37  
+##                  NA&#39;s   :2                         NA&#39;s   :2      
+##  internalfitted     external     externalfitted     alcohol      
+##  Min.   :16.74   Min.   :71.34   Min.   :73.16   Min.   :0.6391  
+##  1st Qu.:18.67   1st Qu.:73.04   1st Qu.:74.06   1st Qu.:0.9962  
+##  Median :20.54   Median :74.81   Median :74.74   Median :1.2119  
+##  Mean   :20.28   Mean   :75.39   Mean   :75.52   Mean   :1.2573  
+##  3rd Qu.:21.66   3rd Qu.:77.24   3rd Qu.:76.06   3rd Qu.:1.4701  
+##  Max.   :24.04   Max.   :83.33   Max.   :81.78   Max.   :2.5193  
+##                  NA&#39;s   :2                       NA&#39;s   :2       
+##  alcoholfitted       homicide     homicidefitted     suicide     
+##  Min.   :0.7943   Min.   :14.95   Min.   :16.26   Min.   :10.89  
+##  1st Qu.:1.0724   1st Qu.:16.61   1st Qu.:16.54   1st Qu.:11.61  
+##  Median :1.2471   Median :16.99   Median :16.99   Median :12.20  
+##  Mean   :1.2674   Mean   :16.91   Mean   :16.95   Mean   :12.35  
+##  3rd Qu.:1.4455   3rd Qu.:17.29   3rd Qu.:17.25   3rd Qu.:12.82  
+##  Max.   :1.8174   Max.   :18.41   Max.   :17.76   Max.   :14.83  
+##                   NA&#39;s   :2                       NA&#39;s   :2      
+##  suicidefitted        mva          mvafitted         drugs      
+##  Min.   :11.59   Min.   :26.86   Min.   :27.87   Min.   :3.202  
+##  1st Qu.:11.61   1st Qu.:30.12   1st Qu.:30.17   1st Qu.:3.755  
+##  Median :12.25   Median :31.64   Median :31.73   Median :4.314  
+##  Mean   :12.36   Mean   :31.62   Mean   :31.68   Mean   :4.250  
+##  3rd Qu.:13.04   3rd Qu.:33.10   3rd Qu.:33.40   3rd Qu.:4.756  
+##  Max.   :13.55   Max.   :36.39   Max.   :34.82   Max.   :5.565  
+##                  NA&#39;s   :2                       NA&#39;s   :2      
+##   drugsfitted    externalother    externalotherfitted
+##  Min.   :3.449   Min.   : 7.973   Min.   : 8.388     
+##  1st Qu.:3.769   1st Qu.: 9.149   1st Qu.: 9.347     
+##  Median :4.323   Median : 9.561   Median : 9.690     
+##  Mean   :4.255   Mean   : 9.599   Mean   : 9.610     
+##  3rd Qu.:4.679   3rd Qu.:10.122   3rd Qu.: 9.939     
+##  Max.   :5.130   Max.   :11.483   Max.   :10.353     
+##                  NA&#39;s   :2</code></pre>
+<p>年齢を記録した変数は agecell、死者数（全ての死因）は all である。all には欠測値が2つある。</p>
+<p>回帰分析を行うために、いくつかの変数を変換・作成する。</p>
+<div class="sourceCode" id="cb500"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb500-1"><a href="regression-discontinuity.html#cb500-1"></a>MLDA &lt;-<span class="st"> </span>MLDA <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb500-2"><a href="regression-discontinuity.html#cb500-2"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">age =</span> agecell <span class="op">-</span><span class="st"> </span><span class="dv">21</span>,  <span class="co"># 21歳を中心に年齢を中心化（21歳の誕生日からのズレを測る変数）</span></span>
+<span id="cb500-3"><a href="regression-discontinuity.html#cb500-3"></a>         <span class="dt">over =</span> <span class="kw">as.integer</span>(agecell <span class="op">&gt;</span><span class="st"> </span><span class="dv">21</span>), <span class="co"># 21歳以上を示すダミー変数: 処置を表す</span></span>
+<span id="cb500-4"><a href="regression-discontinuity.html#cb500-4"></a>         <span class="dt">age_sq =</span> age<span class="op">^</span><span class="dv">2</span>)</span></code></pre></div>
+<p>説明を簡単にするため（<span class="citation">Angrist and Pischke (<a href="#ref-ang2009" role="doc-biblioref">2009</a>)</span> の分析に合わせるため）に、死者数に欠測がある観測個体を除外する（欠測値のより望ましい取り扱いについては、<span class="citation">高橋 and 渡辺 (<a href="#ref-takahashi2017" role="doc-biblioref">2017</a>)</span>, <span class="citation">Buuren (<a href="#ref-buu2018" role="doc-biblioref">2018</a>)</span> を参照されたい）。</p>
+<div class="sourceCode" id="cb501"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb501-1"><a href="regression-discontinuity.html#cb501-1"></a>myd &lt;-<span class="st"> </span>MLDA <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb501-2"><a href="regression-discontinuity.html#cb501-2"></a><span class="st">  </span><span class="kw">filter</span>(<span class="kw">complete.cases</span>(all))</span></code></pre></div>
+<p>以下では、このデータを使って分析を行う</p>
+</div>
+<div id="パラメトリックrd" class="section level3" number="8.2.2">
+<h3><span class="header-section-number">8.2.2</span> パラメトリックRD</h3>
+<p>統計学において、「パラメトリックな (parametric)」手法と「ノンパラメトリックな (nonparametric)」手法の違いを大雑把に捉えると、</p>
+<ul>
+<li>仮定が厳しいのがパラメトリック、緩いのがノンパラメトリック</li>
+<li>推定する母数 (parameter) が少ないのがパラメトリック、多いのがノンパラメトリック</li>
+</ul>
+<p>である。RDDの文脈では、回帰式に特定の関数形を仮定してから推定するのがパラメトリックRD、特定の関数形を仮定しないのが、ノンパラメトリックRDである。</p>
+<p>例えば、「<span class="math inline">\(Y\)</span> を <span class="math inline">\(X\)</span> に回帰する」とき、回帰関数を
+<span class="math display">\[
+Y_i = f(X_i) 
+\]</span>
+とだけ考えるのは、ノンパラメトリック回帰である。<span class="math inline">\(f(X)\)</span> の関数形は無数にありうる。</p>
+<p>無数にある関数形のうち、特定の関数形、例えば
+<span class="math display">\[
+Y_i = \beta_0 + \beta_1 X_i + e_i
+\]</span>
+や
+<span class="math display">\[
+Y_i = \gamma_0 + \gamma_1 X_i + \gamma_2 X_i^2 + u_i
+\]</span>
+などを仮定し、特定した関数形に現れるパラメタ (parameters) を推定するのがパラメトリック回帰である。</p>
+<p>ここでは、すべての死因による死者数の回帰関数として、以下の4つの関数形を考える。</p>
+<p>利用する変数：</p>
+<ul>
+<li>結果変数 <span class="math inline">\(Y\)</span>：すべての死因による死者数（10万人あたり）、変数 <strong>all</strong></li>
+<li>処置変数 <span class="math inline">\(D\)</span>：法律で飲酒が認められていることを表すダミー変数 <strong>over</strong></li>
+<li>割当変数 <span class="math inline">\(R\)</span>：年齢。21歳を基準に中心化、変数 <strong>age</strong></li>
+</ul>
+<p>推定に使う関数形（モデル）：</p>
+<ol style="list-style-type: decimal">
+<li><p><span class="math inline">\(Y_i = \alpha + \rho D_i + \beta R_i + e_i\)</span></p></li>
+<li><p><span class="math inline">\(Y_i = \alpha + \rho D_i + \beta R_i + \gamma (D_i \times R_i) + e_i\)</span></p></li>
+<li><p><span class="math inline">\(Y_i = \alpha + \rho D_i + \beta_1 R_i + \beta_2 R_i^2 + e_i\)</span></p></li>
+<li><p><span class="math inline">\(Y_i = \alpha + \rho D_i + \beta_1 R_i + \beta_2 R_i^2 + \gamma_1 (D_i \times R_i) + \gamma_2 (D_i \times R_i^2) + e_i\)</span></p></li>
+</ol>
+<p>割当変数 <span class="math inline">\(R\)</span> を中心化して使えば、どの関数形においても <span class="math inline">\(\rho\)</span> の推定値が処置効果の推定値となる。</p>
+<p>これらの式を、<code>lm()</code>で推定する formula としてまとめよう。</p>
+<div class="sourceCode" id="cb502"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb502-1"><a href="regression-discontinuity.html#cb502-1"></a>models1 &lt;-<span class="st"> </span><span class="kw">alist</span>(</span>
+<span id="cb502-2"><a href="regression-discontinuity.html#cb502-2"></a>  <span class="dt">model1 =</span> all <span class="op">~</span><span class="st"> </span>over <span class="op">+</span><span class="st"> </span>age,</span>
+<span id="cb502-3"><a href="regression-discontinuity.html#cb502-3"></a>  <span class="dt">model2 =</span> all <span class="op">~</span><span class="st"> </span>over <span class="op">*</span><span class="st"> </span>age,</span>
+<span id="cb502-4"><a href="regression-discontinuity.html#cb502-4"></a>  <span class="dt">model3 =</span> all <span class="op">~</span><span class="st"> </span>over <span class="op">+</span><span class="st"> </span>age <span class="op">+</span><span class="st"> </span>age_sq,</span>
+<span id="cb502-5"><a href="regression-discontinuity.html#cb502-5"></a>  <span class="dt">model4 =</span> all <span class="op">~</span><span class="st"> </span>over <span class="op">*</span><span class="st"> </span>age <span class="op">+</span><span class="st"> </span>over <span class="op">*</span><span class="st"> </span>age_sq) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb502-6"><a href="regression-discontinuity.html#cb502-6"></a><span class="st">  </span><span class="kw">enframe</span>(<span class="dt">name =</span> <span class="st">&quot;model_name&quot;</span>, <span class="dt">value =</span> <span class="st">&quot;formula&quot;</span>)</span></code></pre></div>
+<p>4つの回帰式を、一挙に推定する。</p>
+<div class="sourceCode" id="cb503"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb503-1"><a href="regression-discontinuity.html#cb503-1"></a>rdd1 &lt;-<span class="st"> </span>models1 <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb503-2"><a href="regression-discontinuity.html#cb503-2"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">model =</span> <span class="kw">map</span>(<span class="dt">.x =</span> formula, <span class="dt">.f =</span> lm, <span class="dt">data =</span> myd)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb503-3"><a href="regression-discontinuity.html#cb503-3"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">pred =</span> <span class="kw">map</span>(<span class="dt">.x =</span> model, <span class="dt">.f =</span> predict),   <span class="co"># 予測値を計算する</span></span>
+<span id="cb503-4"><a href="regression-discontinuity.html#cb503-4"></a>         <span class="dt">result =</span> <span class="kw">map</span>(<span class="dt">.x =</span> model, <span class="dt">.f =</span> tidy))</span></code></pre></div>
+<p>結果は、rdd1 に保存されている。結果を1つずつ確認していこう。まず、モデル1による推定結果を図示する。</p>
+<div class="sourceCode" id="cb504"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb504-1"><a href="regression-discontinuity.html#cb504-1"></a>p1_rdd1 &lt;-<span class="st"> </span>myd <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb504-2"><a href="regression-discontinuity.html#cb504-2"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">pred =</span> rdd1<span class="op">$</span>pred[[<span class="dv">1</span>]]) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb504-3"><a href="regression-discontinuity.html#cb504-3"></a><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> agecell, <span class="dt">color =</span> <span class="kw">as.factor</span>(over))) <span class="op">+</span></span>
+<span id="cb504-4"><a href="regression-discontinuity.html#cb504-4"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">y =</span> all)) <span class="op">+</span></span>
+<span id="cb504-5"><a href="regression-discontinuity.html#cb504-5"></a><span class="st">  </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">y =</span> pred)) <span class="op">+</span></span>
+<span id="cb504-6"><a href="regression-discontinuity.html#cb504-6"></a><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="dv">21</span>, <span class="dt">color =</span> <span class="st">&quot;gray&quot;</span>) <span class="op">+</span></span>
+<span id="cb504-7"><a href="regression-discontinuity.html#cb504-7"></a><span class="st">  </span><span class="kw">ylim</span>(<span class="dv">80</span>, <span class="dv">115</span>) <span class="op">+</span></span>
+<span id="cb504-8"><a href="regression-discontinuity.html#cb504-8"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;年齢&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;10万人あたりの死者数（すべての死因）&quot;</span>) <span class="op">+</span></span>
+<span id="cb504-9"><a href="regression-discontinuity.html#cb504-9"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;none&quot;</span>)</span>
+<span id="cb504-10"><a href="regression-discontinuity.html#cb504-10"></a><span class="kw">plot</span>(p1_rdd1)</span></code></pre></div>
+<p><img src="kut-metrics2_files/figure-html/unnamed-chunk-324-1.png" width="480" /></p>
+<p><span class="citation">Angrist and Pischke (<a href="#ref-ang2009" role="doc-biblioref">2009</a>)</span> の図4.2 (p.150) と同じ図ができた。
+21歳の誕生日に、死者数のジャンプがある様子が見てとれる。
+この分析は、処置変数と割当変数のみを説明変数として利用する、最も単純な パラメトリックRD である。
+そのため、予測値は「直線」であり、21歳未満と21歳以上の両者について直線の傾きが同じである。
+このとき、処置効果の推定値と標準誤差は、</p>
+<div class="sourceCode" id="cb505"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb505-1"><a href="regression-discontinuity.html#cb505-1"></a>rdd1 <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb505-2"><a href="regression-discontinuity.html#cb505-2"></a><span class="st">  </span><span class="kw">unnest</span>(<span class="dt">cols =</span> result) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb505-3"><a href="regression-discontinuity.html#cb505-3"></a><span class="st">  </span><span class="kw">filter</span>(model_name <span class="op">==</span><span class="st"> &quot;model1&quot;</span>, term <span class="op">==</span><span class="st"> &quot;over&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb505-4"><a href="regression-discontinuity.html#cb505-4"></a><span class="st">  </span><span class="kw">select</span>(term, estimate, std.error) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb505-5"><a href="regression-discontinuity.html#cb505-5"></a><span class="st">  </span>knitr<span class="op">::</span><span class="kw">kable</span>(<span class="dt">digits =</span> <span class="dv">2</span>)</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">term</th>
+<th align="right">estimate</th>
+<th align="right">std.error</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">over</td>
+<td align="right">7.66</td>
+<td align="right">1.44</td>
+</tr>
+</tbody>
+</table>
+<p>である。</p>
+<p>次に、処置変数と割当変数の交差項をもつモデル2の結果を図示しよう。</p>
+<div class="sourceCode" id="cb506"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb506-1"><a href="regression-discontinuity.html#cb506-1"></a>p2_rdd1 &lt;-<span class="st"> </span>myd <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb506-2"><a href="regression-discontinuity.html#cb506-2"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">pred =</span> rdd1<span class="op">$</span>pred[[<span class="dv">2</span>]]) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb506-3"><a href="regression-discontinuity.html#cb506-3"></a><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> agecell, <span class="dt">color =</span> <span class="kw">as.factor</span>(over))) <span class="op">+</span></span>
+<span id="cb506-4"><a href="regression-discontinuity.html#cb506-4"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">y =</span> all)) <span class="op">+</span></span>
+<span id="cb506-5"><a href="regression-discontinuity.html#cb506-5"></a><span class="st">  </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">y =</span> pred)) <span class="op">+</span></span>
+<span id="cb506-6"><a href="regression-discontinuity.html#cb506-6"></a><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="dv">21</span>, <span class="dt">color =</span> <span class="st">&quot;gray&quot;</span>) <span class="op">+</span></span>
+<span id="cb506-7"><a href="regression-discontinuity.html#cb506-7"></a><span class="st">  </span><span class="kw">ylim</span>(<span class="dv">80</span>, <span class="dv">115</span>) <span class="op">+</span></span>
+<span id="cb506-8"><a href="regression-discontinuity.html#cb506-8"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;年齢&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;10万人あたりの死者数（すべての死因）&quot;</span>) <span class="op">+</span></span>
+<span id="cb506-9"><a href="regression-discontinuity.html#cb506-9"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;none&quot;</span>)</span>
+<span id="cb506-10"><a href="regression-discontinuity.html#cb506-10"></a><span class="kw">plot</span>(p2_rdd1)</span></code></pre></div>
+<p><img src="kut-metrics2_files/figure-html/unnamed-chunk-326-1.png" width="480" /></p>
+<p>交差項を使った結果、21歳未満と21歳以上の直線の傾きが異なっている。
+この関数形でもやはり、21歳の誕生日に死者数のジャンプがある様子が見てとれる。
+処置効果の推定値と標準誤差は、</p>
+<div class="sourceCode" id="cb507"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb507-1"><a href="regression-discontinuity.html#cb507-1"></a>rdd1 <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb507-2"><a href="regression-discontinuity.html#cb507-2"></a><span class="st">  </span><span class="kw">unnest</span>(<span class="dt">cols =</span> result) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb507-3"><a href="regression-discontinuity.html#cb507-3"></a><span class="st">  </span><span class="kw">filter</span>(model_name <span class="op">==</span><span class="st"> &quot;model2&quot;</span>, term <span class="op">==</span><span class="st"> &quot;over&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb507-4"><a href="regression-discontinuity.html#cb507-4"></a><span class="st">  </span><span class="kw">select</span>(term, estimate, std.error) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb507-5"><a href="regression-discontinuity.html#cb507-5"></a><span class="st">  </span>knitr<span class="op">::</span><span class="kw">kable</span>(<span class="dt">digits =</span> <span class="dv">2</span>)</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">term</th>
+<th align="right">estimate</th>
+<th align="right">std.error</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">over</td>
+<td align="right">7.66</td>
+<td align="right">1.32</td>
+</tr>
+</tbody>
+</table>
+<p>である。</p>
+<p>続いて、モデル1に割当変数の二乗項を加えたモデル3の推定結果を図示しよう。</p>
+<div class="sourceCode" id="cb508"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb508-1"><a href="regression-discontinuity.html#cb508-1"></a>p3_rdd1 &lt;-<span class="st"> </span>myd <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb508-2"><a href="regression-discontinuity.html#cb508-2"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">pred =</span> rdd1<span class="op">$</span>pred[[<span class="dv">3</span>]]) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb508-3"><a href="regression-discontinuity.html#cb508-3"></a><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> agecell, <span class="dt">color =</span> <span class="kw">as.factor</span>(over))) <span class="op">+</span></span>
+<span id="cb508-4"><a href="regression-discontinuity.html#cb508-4"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">y =</span> all)) <span class="op">+</span></span>
+<span id="cb508-5"><a href="regression-discontinuity.html#cb508-5"></a><span class="st">  </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">y =</span> pred)) <span class="op">+</span></span>
+<span id="cb508-6"><a href="regression-discontinuity.html#cb508-6"></a><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="dv">21</span>, <span class="dt">color =</span> <span class="st">&quot;gray&quot;</span>) <span class="op">+</span></span>
+<span id="cb508-7"><a href="regression-discontinuity.html#cb508-7"></a><span class="st">  </span><span class="kw">ylim</span>(<span class="dv">80</span>, <span class="dv">115</span>) <span class="op">+</span></span>
+<span id="cb508-8"><a href="regression-discontinuity.html#cb508-8"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;年齢&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;10万人あたりの死者数（すべての死因）&quot;</span>) <span class="op">+</span></span>
+<span id="cb508-9"><a href="regression-discontinuity.html#cb508-9"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;none&quot;</span>)</span>
+<span id="cb508-10"><a href="regression-discontinuity.html#cb508-10"></a><span class="kw">plot</span>(p3_rdd1)</span></code></pre></div>
+<p><img src="kut-metrics2_files/figure-html/unnamed-chunk-328-1.png" width="480" /></p>
+<p>二乗項を使った結果、予測値が直線ではなく「曲線」として推定された。交差項がないので、曲線は21歳未満と21歳以上で同じである（ジャンプをなくせば滑らかに繋がる）。
+この関数形でもやはり、21歳の誕生日に死者数のジャンプがある様子が見てとれる。
+処置効果の推定値と標準誤差は、</p>
+<div class="sourceCode" id="cb509"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb509-1"><a href="regression-discontinuity.html#cb509-1"></a>rdd1 <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb509-2"><a href="regression-discontinuity.html#cb509-2"></a><span class="st">  </span><span class="kw">unnest</span>(<span class="dt">cols =</span> result) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb509-3"><a href="regression-discontinuity.html#cb509-3"></a><span class="st">  </span><span class="kw">filter</span>(model_name <span class="op">==</span><span class="st"> &quot;model3&quot;</span>, term <span class="op">==</span><span class="st"> &quot;over&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb509-4"><a href="regression-discontinuity.html#cb509-4"></a><span class="st">  </span><span class="kw">select</span>(term, estimate, std.error) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb509-5"><a href="regression-discontinuity.html#cb509-5"></a><span class="st">  </span>knitr<span class="op">::</span><span class="kw">kable</span>(<span class="dt">digits =</span> <span class="dv">2</span>)</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">term</th>
+<th align="right">estimate</th>
+<th align="right">std.error</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">over</td>
+<td align="right">7.66</td>
+<td align="right">1.34</td>
+</tr>
+</tbody>
+</table>
+<p>である。</p>
+<p>最後に、交差項と二乗項を含むモデル4の推定結果を可視化しよう。
+比較のため、モデル1で推定した直線も点線として表示する。</p>
+<div class="sourceCode" id="cb510"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb510-1"><a href="regression-discontinuity.html#cb510-1"></a>p4_rdd1 &lt;-<span class="st"> </span>myd <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb510-2"><a href="regression-discontinuity.html#cb510-2"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">pred0 =</span> rdd1<span class="op">$</span>pred[[<span class="dv">1</span>]],</span>
+<span id="cb510-3"><a href="regression-discontinuity.html#cb510-3"></a>         <span class="dt">pred =</span> rdd1<span class="op">$</span>pred[[<span class="dv">4</span>]]) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb510-4"><a href="regression-discontinuity.html#cb510-4"></a><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> agecell, <span class="dt">color =</span> <span class="kw">as.factor</span>(over))) <span class="op">+</span></span>
+<span id="cb510-5"><a href="regression-discontinuity.html#cb510-5"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">y =</span> all)) <span class="op">+</span></span>
+<span id="cb510-6"><a href="regression-discontinuity.html#cb510-6"></a><span class="st">  </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">y =</span> pred0), <span class="dt">linetype =</span> <span class="st">&quot;dashed&quot;</span>) <span class="op">+</span></span>
+<span id="cb510-7"><a href="regression-discontinuity.html#cb510-7"></a><span class="st">  </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">y =</span> pred)) <span class="op">+</span></span>
+<span id="cb510-8"><a href="regression-discontinuity.html#cb510-8"></a><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="dv">21</span>, <span class="dt">color =</span> <span class="st">&quot;gray&quot;</span>) <span class="op">+</span></span>
+<span id="cb510-9"><a href="regression-discontinuity.html#cb510-9"></a><span class="st">  </span><span class="kw">ylim</span>(<span class="dv">80</span>, <span class="dv">115</span>) <span class="op">+</span></span>
+<span id="cb510-10"><a href="regression-discontinuity.html#cb510-10"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;年齢&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;10万人あたりの死者数（すべての死因）&quot;</span>) <span class="op">+</span></span>
+<span id="cb510-11"><a href="regression-discontinuity.html#cb510-11"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;none&quot;</span>)</span>
+<span id="cb510-12"><a href="regression-discontinuity.html#cb510-12"></a><span class="kw">plot</span>(p4_rdd1)</span></code></pre></div>
+<p><img src="kut-metrics2_files/figure-html/unnamed-chunk-330-1.png" width="480" /></p>
+<p><span class="citation">Angrist and Pischke (<a href="#ref-ang2009" role="doc-biblioref">2009</a>)</span> の図4.4 (p.158) と同じ図ができた。交差項と二乗項の両方を使ったので、予測値が曲線になり、21歳未満と21歳以上では異なる曲線が描かれている。
+ここでもやはり、21歳の誕生日に死者数のジャンプがある様子が見てとれる。
+処置効果の推定値と標準誤差は、</p>
+<div class="sourceCode" id="cb511"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb511-1"><a href="regression-discontinuity.html#cb511-1"></a>rdd1 <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb511-2"><a href="regression-discontinuity.html#cb511-2"></a><span class="st">  </span><span class="kw">unnest</span>(<span class="dt">cols =</span> result) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb511-3"><a href="regression-discontinuity.html#cb511-3"></a><span class="st">  </span><span class="kw">filter</span>(model_name <span class="op">==</span><span class="st"> &quot;model4&quot;</span>, term <span class="op">==</span><span class="st"> &quot;over&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb511-4"><a href="regression-discontinuity.html#cb511-4"></a><span class="st">  </span><span class="kw">select</span>(term, estimate, std.error) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb511-5"><a href="regression-discontinuity.html#cb511-5"></a><span class="st">  </span>knitr<span class="op">::</span><span class="kw">kable</span>(<span class="dt">digits =</span> <span class="dv">2</span>)</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">term</th>
+<th align="right">estimate</th>
+<th align="right">std.error</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">over</td>
+<td align="right">9.55</td>
+<td align="right">1.99</td>
+</tr>
+<tr class="even">
+<td align="left">である。</td>
+<td align="right"></td>
+<td align="right"></td>
+</tr>
+</tbody>
+</table>
+<p>推定した4つのモデルの推定結果を比べてみよう。</p>
+<div class="sourceCode" id="cb512"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb512-1"><a href="regression-discontinuity.html#cb512-1"></a>rdd1 <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb512-2"><a href="regression-discontinuity.html#cb512-2"></a><span class="st">  </span><span class="kw">unnest</span>(<span class="dt">cols =</span> result) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb512-3"><a href="regression-discontinuity.html#cb512-3"></a><span class="st">  </span><span class="kw">filter</span>(term <span class="op">==</span><span class="st"> &quot;over&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb512-4"><a href="regression-discontinuity.html#cb512-4"></a><span class="st">  </span><span class="kw">select</span>(model_name, term, estimate, std.error) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb512-5"><a href="regression-discontinuity.html#cb512-5"></a><span class="st">  </span>knitr<span class="op">::</span><span class="kw">kable</span>(<span class="dt">digits =</span> <span class="dv">2</span>)</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">model_name</th>
+<th align="left">term</th>
+<th align="right">estimate</th>
+<th align="right">std.error</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">model1</td>
+<td align="left">over</td>
+<td align="right">7.66</td>
+<td align="right">1.44</td>
+</tr>
+<tr class="even">
+<td align="left">model2</td>
+<td align="left">over</td>
+<td align="right">7.66</td>
+<td align="right">1.32</td>
+</tr>
+<tr class="odd">
+<td align="left">model3</td>
+<td align="left">over</td>
+<td align="right">7.66</td>
+<td align="right">1.34</td>
+</tr>
+<tr class="even">
+<td align="left">model4</td>
+<td align="left">over</td>
+<td align="right">9.55</td>
+<td align="right">1.99</td>
+</tr>
+</tbody>
+</table>
+<p>モデル1から3までの結果はほぼ同じであるが、モデル4の推定値だけ大きいことがわかる。
+モデル1から3か、モデル4のうち、少なくとも一方の推定にバイアスが生じていると思われる。
+私たちはどの関数形が正しいかを知らない（知っていれば苦労しない）ので、バイアスがどちらにあるかわからない。どちらにもあるという可能性もある。</p>
+<p>このように、パラメトリックRDの推定結果は関数形に依存する。誤った関数形を使うと、誤った推定結果を得ることになる。繰り返しになるが、私たちは正しい式を知らないので、関数形の誤りの可能性は常に存在する。
+したがって、経済学、経営学、心理学、政治学などの<strong>理論に基づいて</strong>妥当な関数形（回帰式）を選ぶ必要がある。理論的に妥当性が高い複数の関数形によって推定した結果がどれも実質的に同じなら、推定結果に対する信頼性が高まる。例えば、上のモデル4の推定結果もモデル1から3と同じ7.66であれば、処置効果が約7.7という推定結果の信頼性は高いといえるだろう。</p>
+<p>パラメトリックRD（あるいは、その他のパラメトリック回帰） を行う場合には、推定結果が関数形に（あまり）依存しないということを示すことが重要である。関数形によって推定結果が大きく異なるようでは、（正しい関数形を知らない限り）推定結果を信用することはできない。</p>
+</div>
+<div id="ノンパラメトリックrd" class="section level3" number="8.2.3">
+<h3><span class="header-section-number">8.2.3</span> ノンパラメトリックRD</h3>
+<p>パラメトリックRDでは、回帰式が特定の形であると想定し、割当変数 (running variable) が最小値から最大値までの範囲全体について回帰式の予測値を計算した。</p>
+<p>それに対し、ノンパラメトリックRDでは回帰式の関数形を考えない。
+<span class="math inline">\(R\)</span>の分布範囲全体の予測をする代わりに、ノンパラメトリックRDでは推定の対象となる範囲をカットオフ値の周辺に限定し、処置群と統制群の平均値を比較する。推定の対象となる範囲を決める幅のことを<strong>バンド幅 (bandwidth)</strong> と呼ぶ。</p>
+<p>バンド幅の選び方によって推定値が変わることが想定されるので、ノンパラメトリックRDではバンド幅の選び方が重要になる。処置群と統制群が比較可能なのはカットオフ値付近なので、バンド幅が狭いほどバイアスは小さくなることが期待される。しかし、バンド幅を狭くすると、推定の対象となる個体数（サンプルサイズ）が小さくなるので、推定が不安定になり、標準誤差が大きくなる。よって、このバイアスと標準誤差のトレードオフのバランスを考えて、バンド幅を選ぶ必要がある（詳しくは、<span class="citation">Imbens and Kalyanaraman (<a href="#ref-imbens2011" role="doc-biblioref">2011</a>)</span> を参照）。</p>
+<p>まず、データ全体での年齢の分布を確認してみよう。</p>
+<div class="sourceCode" id="cb513"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb513-1"><a href="regression-discontinuity.html#cb513-1"></a><span class="kw">summary</span>(myd<span class="op">$</span>agecell)</span></code></pre></div>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   19.07   20.03   21.00   21.00   21.97   22.93</code></pre>
+<p>このデータには、（ほぼ）19歳から23歳までの観測値が含まれていることがわかる。カットオフ値は21歳なので、分析対象を21歳周辺のデータに絞り込み、処置効果を推定してみよう。</p>
+<p>どのバンド幅がいいかわからないので、バンド幅を、0.5, 0.75, 1.0, 1.25, 1.5 にしてみる。
+バンド幅が 0.5 というのは、年齢 (agecell の値） が <span class="math inline">\(21 \pm 0.5\)</span> の（すなわち、中心化した変数である ageが <span class="math inline">\([-0.5, 0.5]\)</span> の範囲にある）データのみを分析に使うという意味である。
+利用するバンド幅のベクトルを作る。</p>
+<div class="sourceCode" id="cb515"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb515-1"><a href="regression-discontinuity.html#cb515-1"></a>bw &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dt">from =</span> <span class="fl">0.5</span>, <span class="dt">to =</span> <span class="fl">1.5</span>, <span class="dt">by =</span> <span class="fl">0.25</span>)</span></code></pre></div>
+<p>それぞれのバンド幅に応じたデータフレームを作る。</p>
+<div class="sourceCode" id="cb516"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb516-1"><a href="regression-discontinuity.html#cb516-1"></a>dfs &lt;-<span class="st"> </span><span class="kw">lapply</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>, <span class="cf">function</span>(i) myd <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(age <span class="op">&gt;</span><span class="st"> </span><span class="op">-</span>bw[i], age <span class="op">&lt;</span><span class="st"> </span>bw[i])) </span></code></pre></div>
+<p>それぞれのバンド幅で、処置群と統制群の結果変数の平均値の差を回帰によって求める。</p>
+<div class="sourceCode" id="cb517"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb517-1"><a href="regression-discontinuity.html#cb517-1"></a>rdd_np &lt;-<span class="st"> </span><span class="kw">lapply</span>(dfs, <span class="cf">function</span>(x) <span class="kw">lm</span>(all <span class="op">~</span><span class="st"> </span>over <span class="op">+</span><span class="st"> </span>age, <span class="dt">data =</span> x))</span></code></pre></div>
+<p>結果をまとめて表示する。</p>
+<div class="sourceCode" id="cb518"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb518-1"><a href="regression-discontinuity.html#cb518-1"></a><span class="kw">tibble</span>(<span class="dt">bandwidth =</span> bw) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb518-2"><a href="regression-discontinuity.html#cb518-2"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">result =</span> <span class="kw">map</span>(<span class="dt">.x =</span> rdd_np, <span class="dt">.f =</span> tidy)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb518-3"><a href="regression-discontinuity.html#cb518-3"></a><span class="st">  </span><span class="kw">unnest</span>(<span class="dt">cols =</span> <span class="st">&quot;result&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb518-4"><a href="regression-discontinuity.html#cb518-4"></a><span class="st">  </span><span class="kw">filter</span>(term <span class="op">==</span><span class="st"> &quot;over&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb518-5"><a href="regression-discontinuity.html#cb518-5"></a><span class="st">  </span><span class="kw">select</span>(bandwidth<span class="op">:</span>std.error) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb518-6"><a href="regression-discontinuity.html#cb518-6"></a><span class="st">  </span>knitr<span class="op">::</span><span class="kw">kable</span>(<span class="dt">digits =</span> <span class="dv">2</span>)</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="right">bandwidth</th>
+<th align="left">term</th>
+<th align="right">estimate</th>
+<th align="right">std.error</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">0.50</td>
+<td align="left">over</td>
+<td align="right">8.88</td>
+<td align="right">2.45</td>
+</tr>
+<tr class="even">
+<td align="right">0.75</td>
+<td align="left">over</td>
+<td align="right">9.85</td>
+<td align="right">2.20</td>
+</tr>
+<tr class="odd">
+<td align="right">1.00</td>
+<td align="left">over</td>
+<td align="right">9.75</td>
+<td align="right">1.93</td>
+</tr>
+<tr class="even">
+<td align="right">1.25</td>
+<td align="left">over</td>
+<td align="right">9.44</td>
+<td align="right">1.70</td>
+</tr>
+<tr class="odd">
+<td align="right">1.50</td>
+<td align="left">over</td>
+<td align="right">8.70</td>
+<td align="right">1.55</td>
+</tr>
+</tbody>
+</table>
+<p>この結果から、バンド幅が小さいほど標準誤差が大きくなることが確認できる。また、バンド幅によって推定値が変わる。「平均すれば」バンド幅が狭いほうがバイアスが小さいと期待できるが、この1つのデータセットからでは、バンド幅が狭い値の推定値が正しいのか、偶然得られただけなのかはわからない。</p>
+<p>次に、この推定方法がノンパラメトリックだと呼ばれる理由について考えてみよう。
+ここでは、対象を20歳から22歳までにする（つまり、バンド幅を1にする）。</p>
+<div class="sourceCode" id="cb519"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb519-1"><a href="regression-discontinuity.html#cb519-1"></a>myd_sub &lt;-<span class="st"> </span>myd <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb519-2"><a href="regression-discontinuity.html#cb519-2"></a><span class="st">  </span><span class="kw">filter</span>(agecell <span class="op">&gt;</span><span class="st"> </span><span class="dv">20</span>, agecell <span class="op">&lt;</span><span class="st"> </span><span class="dv">22</span>)</span></code></pre></div>
+<p>このデータを使い、パラメトリックRDで推定したモデル1とモデル4の関数形を利用して処置効果を推定してみる。
+まずは、式を作る。</p>
+<div class="sourceCode" id="cb520"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb520-1"><a href="regression-discontinuity.html#cb520-1"></a>models2 &lt;-<span class="st"> </span><span class="kw">alist</span>(</span>
+<span id="cb520-2"><a href="regression-discontinuity.html#cb520-2"></a>  <span class="dt">model1 =</span> all <span class="op">~</span><span class="st"> </span>over <span class="op">+</span><span class="st"> </span>age,</span>
+<span id="cb520-3"><a href="regression-discontinuity.html#cb520-3"></a>  <span class="dt">model4 =</span> all <span class="op">~</span><span class="st"> </span>over <span class="op">*</span><span class="st"> </span>age <span class="op">+</span><span class="st"> </span>over <span class="op">*</span><span class="st"> </span>age_sq</span>
+<span id="cb520-4"><a href="regression-discontinuity.html#cb520-4"></a>  ) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb520-5"><a href="regression-discontinuity.html#cb520-5"></a><span class="st">  </span><span class="kw">enframe</span>(<span class="dt">name =</span> <span class="st">&quot;model_name&quot;</span>, <span class="dt">value =</span> <span class="st">&quot;formula&quot;</span>)</span></code></pre></div>
+<p>推定する。</p>
+<div class="sourceCode" id="cb521"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb521-1"><a href="regression-discontinuity.html#cb521-1"></a>rdd2 &lt;-<span class="st"> </span>models2 <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb521-2"><a href="regression-discontinuity.html#cb521-2"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">model =</span> <span class="kw">map</span>(<span class="dt">.x =</span> formula, <span class="dt">.f =</span> lm, <span class="dt">data =</span> myd_sub)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb521-3"><a href="regression-discontinuity.html#cb521-3"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">pred =</span> <span class="kw">map</span>(<span class="dt">.x =</span> model, <span class="dt">.f =</span> predict),</span>
+<span id="cb521-4"><a href="regression-discontinuity.html#cb521-4"></a>         <span class="dt">result =</span> <span class="kw">map</span>(<span class="dt">.x =</span> model, <span class="dt">.f =</span> tidy))</span></code></pre></div>
+<p>結果を表示する。</p>
+<div class="sourceCode" id="cb522"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb522-1"><a href="regression-discontinuity.html#cb522-1"></a>rdd2 <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb522-2"><a href="regression-discontinuity.html#cb522-2"></a><span class="st">  </span><span class="kw">unnest</span>(<span class="dt">cols =</span> result) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb522-3"><a href="regression-discontinuity.html#cb522-3"></a><span class="st">  </span><span class="kw">filter</span>(term <span class="op">==</span><span class="st"> &quot;over&quot;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb522-4"><a href="regression-discontinuity.html#cb522-4"></a><span class="st">  </span><span class="kw">select</span>(model_name, estimate, std.error) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb522-5"><a href="regression-discontinuity.html#cb522-5"></a><span class="st">  </span>knitr<span class="op">::</span><span class="kw">kable</span>(<span class="dt">digits =</span> <span class="dv">2</span>)</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">model_name</th>
+<th align="right">estimate</th>
+<th align="right">std.error</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">model1</td>
+<td align="right">9.75</td>
+<td align="right">1.93</td>
+</tr>
+<tr class="even">
+<td align="left">model4</td>
+<td align="right">9.61</td>
+<td align="right">2.89</td>
+</tr>
+</tbody>
+</table>
+<p>パラメトリックRDの場合には、モデル1とモデル4 の結果は大きく異なっていた。しかし、分析対象をカットオフ値付近に限定することで、関数形の違いによる推定値の差がほとんどなくなった。このように、バンド幅を狭くすると、推定値が回帰式の関数形に（あまり）依存しなくなる。（非常に大雑把に言えば）これが「ノンパラメトリック」と呼ばれる理由である。</p>
+<p>ノンパラメトリックRD を行うには、<strong>rdd</strong> パッケージが便利である。最適なバンド幅の推定し、局所的平均処置効果 (LATE) の推定を実行してくれる <code>RDestimate()</code> という関数があるので、それを利用してみよう。以下のよう、結果変数を割当変数（<strong>処置変数ではない</strong>）に回帰するformula を使う。
+（注意：age を使うなら、<code>cutpoint = 0</code> とする。）</p>
+<div class="sourceCode" id="cb523"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb523-1"><a href="regression-discontinuity.html#cb523-1"></a>rdd_np2 &lt;-<span class="st"> </span><span class="kw">RDestimate</span>(all <span class="op">~</span><span class="st"> </span>agecell, <span class="dt">cutpoint =</span> <span class="dv">21</span>, <span class="dt">data =</span> myd)</span></code></pre></div>
+<p>結果を確認してみよう。</p>
+<div class="sourceCode" id="cb524"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb524-1"><a href="regression-discontinuity.html#cb524-1"></a><span class="kw">summary</span>(rdd_np2)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## RDestimate(formula = all ~ agecell, data = myd, cutpoint = 21)
+## 
+## Type:
+## sharp 
+## 
+## Estimates:
+##            Bandwidth  Observations  Estimate  Std. Error  z value  Pr(&gt;|z|) 
+## LATE       1.6561     40            9.001     1.480       6.080    1.199e-09
+## Half-BW    0.8281     20            9.579     1.914       5.004    5.609e-07
+## Double-BW  3.3123     48            7.953     1.278       6.223    4.882e-10
+##               
+## LATE       ***
+## Half-BW    ***
+## Double-BW  ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## F-statistics:
+##            F      Num. DoF  Denom. DoF  p        
+## LATE       33.08  3         36          3.799e-10
+## Half-BW    29.05  3         16          2.078e-06
+## Double-BW  32.54  3         44          6.129e-11</code></pre>
+<p>この表で、Estimates の欄にあるる LATE の行に、推定結果が表示されている。最適なバンド幅は約1.66 と推定されている。このとき、処置効果 (LATE) の推定値は 9.00 である。
+また、Half-BW にバンド幅を最適幅の半分にした場合、Double-BW にバンド幅を最適幅の2倍にした場合の推定値がそれぞれ表示されている。</p>
+<p>この結果は、<code>plot()</code> で図示できる。</p>
+<div class="sourceCode" id="cb526"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb526-1"><a href="regression-discontinuity.html#cb526-1"></a><span class="kw">plot</span>(rdd_np2)</span></code></pre></div>
+<p><img src="kut-metrics2_files/figure-html/unnamed-chunk-344-1.png" width="480" /></p>
+<p>この図は、パラメトリックRDのモデル4 に似ている。もう1度図示して比べてみよう。</p>
+<div class="sourceCode" id="cb527"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb527-1"><a href="regression-discontinuity.html#cb527-1"></a><span class="kw">plot</span>(p4_rdd1)</span></code></pre></div>
+<p><img src="kut-metrics2_files/figure-html/unnamed-chunk-345-1.png" width="432" /></p>
+<p>やはり似ていることがわかる。実際、ノンパラメトリックRDの推定値にもっとも近いのは、モデル4の推定値である。
+パラメトリックRDのモデル1から3の推定には大きな（過小推定）バイアスがあったのではなないかと推測される。</p>
+<p>パラメトリックRDのモデル4は、4つの関数形の中で最も複雑なものだった。複雑なモデルを想定するのは難しいこともある。パラメトリックなモデルとして、比較的単純なモデル1から3のようなものしか推定しない場合もあるかもしれない。そのようなときでも、ノンパラメトリックRDを行うことによって、定式化の誤りに気づくこともあるかもしれない。
+RDDに限った話ではないが、1つのでデータを多角的に検討することが重要である。</p>
+<p>関数形がわからないときは、「境界線付近」以外のサンプルを使うことは諦めて、ノンパラメトリックRDでバイアスの小さな推定値を得ることを目指すほうが良いかもしれない。</p>
+</div>
+</div>
+<div id="トピック8の課題" class="section level2" number="8.3">
+<h2><span class="header-section-number">8.3</span> トピック8の課題</h2>
+<p><span class="citation">Angrist and Pischke (<a href="#ref-ang2009" role="doc-biblioref">2009</a>)</span> によれば、飲酒可能になると死者数が急に増える（閾値で死者数のジャンプがある）のは、飲酒運転による事故が増えるためであると考えられる。これを踏まえて、以下の内容を実行しなさい。</p>
+<ol style="list-style-type: decimal">
+<li>結果変数を mva（交通事故死）にしたときの、RDD による因果推論。</li>
+<li>結果変数を internal（内臓疾患による死）にしたときの、RDD による因果推論。</li>
+<li>補助教材に示された結果（結果変数を all にした場合）と自分で実行した1と2の結果を併せて考えると、どのようなことがわかるか説明しなさい。特に、「カットオフ値付近で飲酒が死に与える影響」があるといえるかどうか、議論しなさい。</li>
+</ol>
+<ul>
+<li>課題レポートは R Markdown で作成し、PDF に knit して提出すること。</li>
+<li>提出するファイル：metrics_hw08_LastFirst.pdf</li>
+<li>提出方法：Slack のダイレクトメッセージで提出。</li>
+<li><strong>提出期限：2020年7月23日（木）正午</strong>（日本時間）</li>
+<li><strong>トピック6, 8, 9 の課題からどれか1つを選んで提出</strong>
+<ul>
+<li>どれを選んでも良いが、提出期限が異なるので注意。</li>
+<li>2つ以上提出した場合、最も評価が高いものを成績評価の対象とする。</li>
+</ul></li>
+</ul>
 
+</div>
+</div>
+<h3>参考文献</h3>
+<div id="refs" class="references">
+<div id="ref-ang2009">
+<p>Angrist, Joshua D., and Jörn-Steffen Pischke. 2009. <em>Mostly Harmless Econometrics: An Empiricist’s Companion</em>. Princeton: Princeton University Press.</p>
+</div>
+<div id="ref-buu2018">
+<p>Buuren, Stef van. 2018. <em>Flexible Imputation of Missing Data</em>. Second Edition. Boca Raton, FL: CRC Press.</p>
+</div>
+<div id="ref-imbens2011">
+<p>Imbens, Guido, and Karthik Kalyanaraman. 2011. “Optimal Bandwidth Choice for the Regression Discontinuity Estimator.” <em>The Review of Economic Studies</em> 79 (3): 933–59. <a href="https://doi.org/10.1093/restud/rdr043">https://doi.org/10.1093/restud/rdr043</a>.</p>
+</div>
+<div id="ref-yasui2020">
+<p>安井翔太. 2020. <em>効果検証入門：正しい比較のための因果推論/計量経済学の基礎</em>. 技術評論社.</p>
+</div>
+<div id="ref-takahashi2017">
+<p>高橋将宜, and 渡辺美智子. 2017. <em>欠測データ処理：Rによる単一代入法と多重代入法</em>. 共立出版.</p>
+</div>
 </div>
             </section>
 

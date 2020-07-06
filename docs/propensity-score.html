@@ -287,7 +287,22 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="7.3" data-path="midterm-presentation.html"><a href="midterm-presentation.html#他の受講生へのコメントについて"><i class="fa fa-check"></i><b>7.3</b> 他の受講生へのコメントについて</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="regression-discontinuity.html"><a href="regression-discontinuity.html"><i class="fa fa-check"></i><b>8</b> 回帰不連続デザイン</a></li>
+<li class="chapter" data-level="8" data-path="regression-discontinuity.html"><a href="regression-discontinuity.html"><i class="fa fa-check"></i><b>8</b> 回帰不連続デザイン</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="regression-discontinuity.html"><a href="regression-discontinuity.html#準備-5"><i class="fa fa-check"></i><b>8.1</b> 準備</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="regression-discontinuity.html"><a href="regression-discontinuity.html#予習講義動画実習課題-5"><i class="fa fa-check"></i><b>8.1.1</b> 予習、講義動画、実習課題</a></li>
+<li class="chapter" data-level="8.1.2" data-path="regression-discontinuity.html"><a href="regression-discontinuity.html#rパッケージの読み込み-5"><i class="fa fa-check"></i><b>8.1.2</b> Rパッケージの読み込み</a></li>
+<li class="chapter" data-level="8.1.3" data-path="regression-discontinuity.html"><a href="regression-discontinuity.html#このトピックで使うrコードの説明-5"><i class="fa fa-check"></i><b>8.1.3</b> このトピックで使うRコードの説明</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="regression-discontinuity.html"><a href="regression-discontinuity.html#法定飲酒年齢の影響-1"><i class="fa fa-check"></i><b>8.2</b> 法定飲酒年齢の影響</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="regression-discontinuity.html"><a href="regression-discontinuity.html#angrist-and-pischke-2009-の例-1"><i class="fa fa-check"></i><b>8.2.1</b> Angrist and Pischke (2009) の例</a></li>
+<li class="chapter" data-level="8.2.2" data-path="regression-discontinuity.html"><a href="regression-discontinuity.html#パラメトリックrd"><i class="fa fa-check"></i><b>8.2.2</b> パラメトリックRD</a></li>
+<li class="chapter" data-level="8.2.3" data-path="regression-discontinuity.html"><a href="regression-discontinuity.html#ノンパラメトリックrd"><i class="fa fa-check"></i><b>8.2.3</b> ノンパラメトリックRD</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="regression-discontinuity.html"><a href="regression-discontinuity.html#トピック8の課題"><i class="fa fa-check"></i><b>8.3</b> トピック8の課題</a></li>
+</ul></li>
 <li class="chapter" data-level="9" data-path="instrumental-variable.html"><a href="instrumental-variable.html"><i class="fa fa-check"></i><b>9</b> 操作変数法</a></li>
 <li class="chapter" data-level="10" data-path="final-presentation.html"><a href="final-presentation.html"><i class="fa fa-check"></i><b>10</b> 分析結果のプレゼンテーション</a>
 <ul>
@@ -421,7 +436,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li>感度分析<span class="math inline">\(\ast\)</span>（この授業では時間の都合で説明できないが、興味があれば <span class="citation">Carnegie, Harada, and Hill (<a href="#ref-carnegie2016" role="doc-biblioref">2016</a>)</span> を参照されたい。<strong>treatSens</strong> というパッケージが用意されている。）</li>
 </ol>
 <p>教科書 <span class="citation">(安井 <a href="#ref-yasui2020" role="doc-biblioref">2020</a>)</span> でも分析されている <span class="citation">LaLonde (<a href="#ref-lalonde1986" role="doc-biblioref">1986</a>)</span> の実験データ <span class="citation">(Dehejia and Wahba <a href="#ref-dehejia2002" role="doc-biblioref">2002</a>)</span> を使い、傾向スコアを使った分析手順を説明する。</p>
-<p>まず、データを入手しよう（<span class="citation">安井 (<a href="#ref-yasui2020" role="doc-biblioref">2020</a>)</span> の p.120 を参照）。後で読み込み直すことも考えて、data ディレクトリに一旦ダウンロードする。</p>
+<p>まず、データを入手しよう（<span class="citation">安井 (<a href="#ref-yasui2020" role="doc-biblioref">2020</a>)</span> の p.120 を参照）。後で読み込み直すことも考えて、data ディレクトリに一旦ダウンロードする。<code>download.file()</code> を使ったダウンロードがうまくいかない場合は、ウェブブラウザで <a href="%22https://users.nber.org/~rdehejia/data/">"https://users.nber.org/~rdehejia/data/</a> にアクセスし、必要なデータを手動でダウンロードする。</p>
 <div class="sourceCode" id="cb347"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb347-1"><a href="propensity-score.html#cb347-1"></a>base_url &lt;-<span class="st"> &quot;https://users.nber.org/~rdehejia/data/&quot;</span></span>
 <span id="cb347-2"><a href="propensity-score.html#cb347-2"></a>targets &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;nsw_dw.dta&quot;</span>, <span class="st">&quot;cps_controls.dta&quot;</span>, <span class="st">&quot;cps_controls3.dta&quot;</span>)</span>
 <span id="cb347-3"><a href="propensity-score.html#cb347-3"></a><span class="kw">download.file</span>(<span class="dt">url =</span> <span class="kw">str_c</span>(base_url, targets),</span>
@@ -441,7 +456,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb351"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb351-1"><a href="propensity-score.html#cb351-1"></a>rct_formula</span></code></pre></div>
 <pre><code>## re78 ~ treat + age + education + black + hispanic + married + 
 ##     nodegree + re74 + re75
-## &lt;environment: 0x7f892253e4c0&gt;</code></pre>
+## &lt;environment: 0x7fa6ceacfb38&gt;</code></pre>
 <p>回帰式を推定する。</p>
 <div class="sourceCode" id="cb353"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb353-1"><a href="propensity-score.html#cb353-1"></a>ate_rct &lt;-<span class="st"> </span><span class="kw">coef</span>(<span class="kw">lm</span>(rct_formula, <span class="dt">data =</span> d_nsw))[<span class="dv">2</span>] <span class="op">%&gt;%</span><span class="st"> </span></span>
 <span id="cb353-2"><a href="propensity-score.html#cb353-2"></a><span class="st">  </span><span class="kw">print</span>()</span></code></pre></div>
@@ -553,7 +568,7 @@ Y_i \sim \mbox{Bernoulli}(\theta_i)\\
 <div class="sourceCode" id="cb365"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb365-1"><a href="propensity-score.html#cb365-1"></a>ps_formula</span></code></pre></div>
 <pre><code>## treat ~ age_c + education_c + black_c + hispanic_c + married_c + 
 ##     nodegree_c + re74_c + re75_c + re74_sq_c + re75_sq_c
-## &lt;environment: 0x7f892f00e4a8&gt;</code></pre>
+## &lt;environment: 0x7fa6a50ca5c0&gt;</code></pre>
 <p>これを使ってロジスティック回帰式を推定する。</p>
 <div class="sourceCode" id="cb367"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb367-1"><a href="propensity-score.html#cb367-1"></a>fit_logistic &lt;-<span class="st"> </span><span class="kw">glm</span>(ps_formula, <span class="dt">data =</span> myd,</span>
 <span id="cb367-2"><a href="propensity-score.html#cb367-2"></a>                    <span class="dt">family =</span> <span class="kw">binomial</span>(<span class="dt">link =</span> <span class="st">&quot;logit&quot;</span>))</span></code></pre></div>

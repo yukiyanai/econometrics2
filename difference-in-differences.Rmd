@@ -152,7 +152,7 @@ wide %>%
 ここでは、@card-krueger1994 が分析した、最低賃金の上昇が失業に与える影響の研究を例に考えよう。最低賃金が引き上げられると、雇用は減るのだろうか。@card-krueger1994 は、1992年にアメリカのニュージャージー州 (NJ) で最低時給が 4.25ドルから5.05ドルに上昇したのに対し、隣接するペンシルバニア州 (PA) では最低時給の上昇がなかった事実を利用して、分析を行った。
 
 データは、著者の一人である [David Card 先生のウェブサイト](http://davidcard.berkeley.edu/)で公開されている。
-まず、データとコードブックが含まれている zip ファイルをダウンロードして保存し、`unzip()` で展開する。
+まず、データとコードブックが含まれている zip ファイルをダウンロードして保存し、`unzip()` で展開する。`download.file()` でのダウンロードがうまくいかない場合は、ウェブブラウザで指定のURL にアクセスし、zipファイルを手動でダウンロードする。
 ```{r, eval = FALSE}
 dir.create("tmp")
 download.file(url = "http://davidcard.berkeley.edu/data_sets/njmin.zip",
@@ -313,6 +313,7 @@ tidy(did_fit00) %>%
 @ang2009 の5.2節 (pp.191-203) にある、法定飲酒年齢 (minimum legal drinking age; MLDA) の変更が18歳から20歳までの若者の死に与える影響を分析してみよう。
 
 データは、[Mastering 'Metrics](https://www.masteringmetrics.com/resources/) から入手できる。
+`download.file()` でファイルがうまくダウンロードできない場合は、ウェブブラウザで指定のURLにアクセスして手動でデータを入手する。
 ```{r, eval = FALSE}
 download.file(url = "http://masteringmetrics.com/wp-content/uploads/2015/01/deaths.dta",
               destfile = "data/deaths.dta")
