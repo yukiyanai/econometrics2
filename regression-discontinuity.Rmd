@@ -83,8 +83,7 @@ list2
 ```{r, eval = FALSE}
 download.file(url = "http://masteringmetrics.com/wp-content/uploads/2015/01/AEJfigs.dta",
               dest = "data/AEJfigs.dta")
-```
-ダウンロードしたデータを読み込む。
+```ダウンロードしたデータを読み込む。
 ```{r}
 MLDA <- read_dta("data/AEJfigs.dta")
 ```

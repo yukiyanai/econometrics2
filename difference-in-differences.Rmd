@@ -29,9 +29,9 @@ theme_set(theme_gray(base_size = 10, base_family = "HiraginoSans-W3"))  # macOS�
 
 ### このトピックで使うRコードの説明
 
-#### `dplyr::pivot_longer()`
+#### `tidyr::pivot_longer()`
 
-横長 (wide) フォーマットのデータを縦長 (long) に変換するために、`dplyr::pivot_longer()` を使う。
+横長 (wide) フォーマットのデータを縦長 (long) に変換するために、`tidyr::pivot_longer()` を使う。
 
 まず、例として使う横長データを作る。作り方に特に意味はない（現実のデータ生成過程をモデル化しているわけではないので注意）。
 ```{r}
